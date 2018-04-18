@@ -1,13 +1,10 @@
 <template>
-	<div>
-		《esrdfctgyhjbnikl》
-		<p>rtfgyvhbjn</p>
-	</div>
+	<div style=""></div>
 </template>
 
 <script>
 export default {
-  name: 'desktop-frame'
+  name: 'MusicPlayer'
 }
 </script>
 

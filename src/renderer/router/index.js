@@ -7,11 +7,11 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: require('@/views/DesktopFrame').default
+      component: require('@/views/Index.vue').default
     },
     {
-      path: '/index',
-      component: require('@/views/type/Index.vue')
+      path: '/play-list',
+      component: require('@/views/PlayList.vue').default
     }
   ]
 })
