@@ -7,12 +7,11 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'landing-page',
-      component: require('@/components/LandingPage').default
+      component: require('@/views/DesktopFrame').default
     },
     {
-      path: '*',
-      redirect: '/'
+      path: '/index',
+      component: require('@/views/type/Index.vue')
     }
   ]
 })
