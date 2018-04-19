@@ -5,8 +5,6 @@ import App from './App'
 import router from './router'
 import store from './store'
 
-import '@/assets/css/reset.css'
-// import '@/assets/css/common.css'
 import './assets/plugins/icon-font/iconfont.css'
 
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
