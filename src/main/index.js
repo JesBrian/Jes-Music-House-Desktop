@@ -1,6 +1,6 @@
 'use strict'
 
-import { app, BrowserWindow } from 'electron'
+import { app, ipcMain, BrowserWindow } from 'electron'
 
 /**
  * Set `__static` path to static files in production
@@ -20,8 +20,8 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
+    resizable: false,
     height: 600,
-    useContentSize: true,
     width: 1080,
     frame: false
   })
@@ -45,4 +45,17 @@ app.on('activate', () => {
   if (mainWindow === null) {
     createWindow()
   }
+})
+
+/**
+ * 窗口最小化
+ */
+ipcMain.on('hide-window', () => {
+  mainWindow.minimize()
+})
+
+/**
+ * 系统托盘
+ */
+ipcMain.on('system-', () => {
 })
