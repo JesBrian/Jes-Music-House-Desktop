@@ -61,7 +61,7 @@
 	a {
 		text-decoration:none!important;
 	}
-	input, button, select, textarea{
+	input, button, select, textarea, a{
 		outline:none
 	}
 
