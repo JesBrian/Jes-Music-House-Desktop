@@ -2,36 +2,42 @@
 	<div class="glass-bg box-show" style="width:188px; height:100%; top:0; left:0; padding:52px 0 45px; position:fixed; border-radius:0; color:#AAA;">
 
 		<div style="width:100%; height:480px; padding:3px; box-sizing:border-box;">
-			<div style="width:100%; height:100%; overflow:auto;">
-				tdrcfvgyhujnik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnik<hr/>
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnik<hr/>
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnik<hr/>
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnik<hr/>
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnik<hr/>
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnik<hr/>
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnikik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnik<hr/>ik
-				<h1>vddsvwrb</h1>tdrcfvgyhujnik
+			<div style="width:100%; height:100%; padding:0 3px 8px; box-sizing:border-box; overflow:auto;">
+				<ul>
+					<li>
+						<p style="margin-top:13px; line-height:1.5em; color:#DDD;">推荐</p>
+						<ul>
+							<li class="box-shadow" style="padding:6px 0 6px 18px;">发现音乐</li>
+							<li class="box-shadow" style="padding:6px 0 6px 18px;">朋友动态</li>
+						</ul>
+					</li>
+					<li>
+						<p style="margin-top:13px; line-height:1.5em; color:#DDD;">我的音乐</p>
+						<ul>
+							<li class="box-shadow" style="padding:6px 0 6px 18px;">本地音乐</li>
+							<li class="box-shadow" style="padding:6px 0 6px 18px;">下载管理</li>
+						</ul>
+					</li>
+					<li>
+						<p style="margin-top:13px; line-height:1.5em; color:#DDD;">创建的歌单</p>
+						<ul>
+							<li class="box-shadow" style="padding:6px 0 6px 18px;">我喜欢的音乐</li>
+							<li class="box-shadow" style="padding:6px 0 6px 18px;">抽身cavc紧很好</li>
+							<li class="box-shadow" style="padding:6px 0 6px 18px;">茶水vdsvsd盈天48</li>
+							<li class="box-shadow" style="padding:6px 0 6px 18px;">除外i和你4没那么</li>
+							<li class="box-shadow" style="padding:6px 0 6px 18px;">tywque</li>
+							<li class="box-shadow" style="padding:6px 0 6px 18px;">洝ij45省的sj</li>
+						</ul>
+					</li>
+					<li>
+						<p style="margin-top:13px; line-height:1.5em; color:#DDD;">收藏的歌单</p>
+						<ul>
+							<li class="box-shadow" style="padding:6px 0 6px 18px;">XXXX</li>
+							<li class="box-shadow" style="padding:6px 0 6px 18px;">YYYY</li>
+							<li class="box-shadow" style="padding:6px 0 6px 18px;">ZZZZ</li>
+						</ul>
+					</li>
+				</ul>
 			</div>
 		</div>
 

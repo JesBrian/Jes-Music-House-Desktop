@@ -61,6 +61,10 @@
 	a {
 		text-decoration:none!important;
 	}
+	input, button, select, textarea{
+		outline:none
+	}
+
 
   /**
    * 通用基本 CSS

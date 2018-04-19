@@ -33,7 +33,7 @@
 			<i class="mh-if menu" style="margin:0 32px 0 5px; position:relative; z-index:2; font-size:23px;">
 				<span style="width:38px; height:17px; top:3.2px; left:20px; padding:0 3px; position:absolute; z-index:-1; box-sizing:border-box; border-radius:0 10px 10px 0;
              box-shadow:0.3px 0.3px 2.5px -0.6px #AAA, inset 0 0 6px #000, inset 0 2px 2px #000, inset 3px 0 2px #000, inset -2px 0 2px #000;
-             text-align:center; font-size:12.5px; line-height:20px; color:#666; text-shadow:2px 2px 6px #000;">12</span>
+             text-align:center; font-size:12.5px; line-height:17px; color:#888; text-shadow:2px 2px 6px #000;">12</span>
 			</i>
 		</div>
 	</div>
