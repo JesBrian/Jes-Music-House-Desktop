@@ -59,7 +59,8 @@
 		border-spacing: 0;
 	}
 	a {
-		text-decoration:none!important;
+    color:#999;
+		text-decoration:none;
 	}
 	input, button, select, textarea, a{
 		outline:none

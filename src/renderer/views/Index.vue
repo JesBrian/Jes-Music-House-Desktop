@@ -12,6 +12,7 @@
 		<div style="width:73%; height:288px; margin:0 auto;">
 			<slide-box />
 		</div>
+    <div style="width:92%; height:666px;"></div>
 	</layout>
 </template>
 
