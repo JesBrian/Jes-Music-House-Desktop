@@ -18,6 +18,14 @@ export default new Router({
       component: require('@/views/PlayList.vue').default
     },
     {
+      path: '/singer',
+      component: require('@/views/Singer.vue').default
+    },
+    {
+      path: '/song',
+      component: require('@/views/Song.vue').default
+    },
+    {
       path: '/user',
       component: require('@/views/User.vue').default
     }

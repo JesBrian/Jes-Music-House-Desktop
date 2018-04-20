@@ -41,23 +41,55 @@
 			</div>
 		</div>
 
-		<div class="box-show" style="width:100%; height:60px; position:relative;">
-			<img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:44px; height:44px; margin:8px; padding:3px; float:left;" />
-			<p><router-link to="song" style="margin:11px 0 6px; float:left; font-size:18px;">Song Name</router-link></p>
+		<div class="now-song box-show" style="width:100%; height:60px; position:relative;">
+			<router-link to="song">
+				<img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:44px; height:44px; margin:8px; padding:3px; float:left;" />
+			</router-link>
+			<p><router-link to="song">Song Name</router-link></p>
 			<router-link to="singer">JesBrian</router-link>
-			<i class="mh-if non-colloection" style="top:10px; right:5px; position:absolute; font-size:18px;"></i>
-			<i class="mh-if share" style="bottom:10px; right:5px; position:absolute; font-size:15px;"></i>
+			<a @click="changeCollection" :class="{'active': isCollection}" class="mh-if non-colloection"></a>
+			<a class="mh-if share"></a>
 		</div>
 	</div>
 </template>
 
 <script>
 export default {
-  name: 'LeftMenu'
+  name: 'LeftMenu',
+
+  data () {
+    return {
+      isCollection: false
+    }
+  },
+
+  methods: {
+    changeCollection () {
+      this.isCollection = !this.isCollection
+    }
+  }
 }
 </script>
 
 <style scoped>
+	.now-song > p > a {
+		margin:11px 0 6px; float:left; font-size:18px; color:#CCC;
+	}
+	.now-song > a {
+		color:#999;
+	}
+	.now-song a:hover {
+		color:#FFF;
+	}
+	.now-song .non-colloection {
+		top:10px; right:5px; position:absolute; font-size:18px;
+	}
+	.now-song .share {
+		bottom:10px; right:5px; position:absolute; font-size:15px;
+	}
+	.now-song .non-colloection.active {
+		color: #20dbfc;
+	}
 
 	::-webkit-scrollbar {
 		width: 10px;
