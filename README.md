@@ -1,4 +1,4 @@
-# my-project
+# Jes Music House
 
 > An electron-vue project
 

@@ -1,6 +1,7 @@
 'use strict'
 
-import { app, ipcMain, BrowserWindow } from 'electron'
+import { app, ipcMain, Tray, Menu, BrowserWindow } from 'electron'
+const path = require('path')
 
 /**
  * Set `__static` path to static files in production
@@ -31,6 +32,35 @@ function createWindow () {
   mainWindow.on('closed', () => {
     mainWindow = null
   })
+
+  // 系统托盘右键菜单
+  var trayMenuTemplate = [
+    {
+      label: '设置',
+      click: () => {} // 打开相应页面
+    },
+    {
+      label: '退出Music House',
+      click: () => {
+        app.quit()
+      }
+    }
+  ]
+
+  const url = path.join(__dirname, '../../build/icons/icon.ico')
+  // 系统托盘图标
+  let tray = new Tray(url)
+  // 鼠标放到系统托盘图标上时的tips;
+  tray.setToolTip('Music House')
+  // 图标的上下文菜单
+  const contextMenu = Menu.buildFromTemplate(trayMenuTemplate)
+  // 设置此图标的上下文菜单
+  tray.setContextMenu(contextMenu)
+  // 双击图片显示窗口
+  tray.on('double-click', () => {
+    mainWindow.show()
+    mainWindow.focus()
+  })
 }
 
 app.on('ready', createWindow)
@@ -57,5 +87,11 @@ ipcMain.on('hide-window', () => {
 /**
  * 系统托盘
  */
-ipcMain.on('system-', () => {
+ipcMain.on('hide-main-window', () => {
+  mainWindow.hide()
+})
+
+// 退出
+ipcMain.on('window-all-closed', () => {
+  app.quit()
 })

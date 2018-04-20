@@ -67,12 +67,18 @@
 			</div>
 		</div>
 
-		<div class="now-song box-show" style="width:100%; height:60px; position:relative;">
+		<div class="now-song box-show">
 			<router-link to="song">
 				<img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:44px; height:44px; margin:8px; padding:3px; float:left;" />
 			</router-link>
       <router-link to="song" class="now-song-name">Song Name</router-link>
-      <router-link to="singer" class="now-singer">JesBrian</router-link>
+      <div class="now-singer text-hidden">
+        <router-link to="singer">环境是</router-link>
+        <i style="margin:0 1px;">/</i>
+        <router-link to="song">JesBan</router-link>
+        <i style="margin:0 1px;">/</i>
+        <router-link to="song">参数</router-link>
+      </div>
 			<a @click="changeCollection" :class="{'active': isCollection}" class="mh-if non-colloection"></a>
 			<a class="mh-if share"></a>
 		</div>
@@ -98,10 +104,19 @@ export default {
 </script>
 
 <style scoped>
+  .now-song {
+    width:100%; height:60px; position:relative;
+  }
 	.now-song .now-song-name {
-		margin:11px 0 6px; float:left; font-size:18px; color:#CCC;
+		margin:10px 0 6px; float:left; font-size:18px; color:#CCC;
 	}
 	.now-song .now-singer {
+    width:138px;
+    top:34px;
+    left:60px;
+    position:absolute;
+    line-height:1.2em;
+    font-size:13px;
 		color:#999;
 	}
 	.now-song a:hover {

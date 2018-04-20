@@ -7,7 +7,7 @@
 		<left-menu />
 
 		<div style="width:100%; height:638px; padding:56px 3px 45px 228.5px; box-sizing:border-box; background:#262626;">
-			<div class="cube-bg box-show" style="width:100%; height:100%; padding-top:28px; box-sizing:border-box; overflow:auto;">
+			<div class="cube-bg box-show" style="width:100%; height:100%; padding-top:8px; box-sizing:border-box; overflow:auto;">
 				<slot />
 			</div>
 		</div>
