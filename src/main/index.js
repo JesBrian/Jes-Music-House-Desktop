@@ -47,7 +47,7 @@ function createWindow () {
     }
   ]
 
-  const url = path.join(__dirname, '../../build/icons/icon.ico')
+  const url = path.join(__dirname, '../../static/images/icon.ico')
   // 系统托盘图标
   let tray = new Tray(url)
   // 鼠标放到系统托盘图标上时的tips;
