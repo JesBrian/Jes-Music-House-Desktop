@@ -26,12 +26,15 @@
 		</div>
 
 		<!-- 用户操作 -->
-		<div style="margin-left:188px; float:left;">
+		<div style="margin-right:268px; float:right;">
 			<router-link to="/user">
 				<img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="-webkit-app-region:no-drag; width:25px; height:25px; margin:13px 8px 0 0; padding:1.5px; float:left;" />
 			</router-link>
-			<a style="font-size:18px; line-height:54px;">JesBrian</a>
-		</div>
+      <div style="display:inline-block; font-size:18px; line-height:54px;">
+        <p class="text-hidden" style="max-width:108px; display:inline-block;">JesBrianJesBrian</p>
+        <i style="width:0; height:0; margin:23px 0 0 6px; border-width:6px; border-style:solid; border-color:#999 transparent transparent transparent; float:right;"></i>
+      </div>
+    </div>
 
 		<!-- 应用设置 & 控制窗口 -->
 		<div style="height:50%; top:15px; right:18px; position:absolute; z-index:9; color:#DDD;">

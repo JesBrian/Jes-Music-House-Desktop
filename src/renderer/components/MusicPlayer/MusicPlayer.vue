@@ -32,7 +32,7 @@
 			<i class="mh-if lyrics" style="margin:5px; font-size:24px;"></i>
 			<i @click="changePlayListContentStatus" class="mh-if menu" style="margin:0 32px 0 5px; position:relative; z-index:2; font-size:23px;"><span>12</span></i>
 		</div>
-    <div v-if="playListContentStatus" class="glass-bg box-show" style="width:688px; height:388px; bottom:45px; right:0; position:absolute; border-radius:4px 4px 0 0; opacity:0.98;">
+    <div v-if="playListContentStatus" class="glass-bg box-show" style="width:688px; height:388px; bottom:45px; right:0; position:absolute; border-radius:4px 4px 0 0; opacity:0.99;">
       <div class="box-show" style="width:100%; height:38px; position:relative; line-height:38px;">
         <span style="margin-left:12px; float:left;">
           <i class="mh-if menu" style="margin-right:5px;"></i>总12首
@@ -46,6 +46,22 @@
         </div>
         <i @click="changePlayListContentStatus" class="mh-if close" style="top:0; right:6px; position:absolute; font-size:22px;"></i>
       </div>
+      <ul style="width:99.5%; height:340px; margin:5px 0; padding:0 2px; box-sizing:border-box; overflow:auto;">
+        <li v-for="n in 120" class="box-shadow">
+          <div class="play-list-cell" style="width:100%; height:30px; padding:0 6px; box-sizing:border-box; text-align:left; line-height:30px;">
+            <i class="mh-if play" style="margin:0 10px 0 6px; float:left;"></i>
+            <p class="text-hidden" style="width:318px; height:100%; float:left;">{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}</p>
+            <p style="margin:0 12px; display:inline-block;">
+              <i class="mh-if collection-music" style="margin:0 2px;"></i>
+              <i class="mh-if share" style="margin:0 2px;"></i>
+              <i class="mh-if download" style="margin:0 2px;"></i>
+              <i class="mh-if trash" style="margin:0 2px;"></i>
+            </p>
+            <span style="margin:0 8px 0 12px; float:right;">00:00</span>
+            <p class="text-hidden" style="width:132px; float:right;">JesBrian{{ n }}JesBrian{{ n }}JesBrian{{ n }}</p>
+          </div>
+        </li>
+      </ul>
     </div>
 	</div>
 </template>
@@ -127,5 +143,31 @@ export default {
   .volume-bar.ban-change {
     opacity:0.3;
     cursor:not-allowed
+  }
+
+
+  .play-list-cell:hover {
+    background:#0B0B0B;
+  }
+  .play-list-cell.active {
+    background:#030303;
+  }
+
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track-piece {
+    background-color: #333;
+    border-radius:8px;
+  }
+  ::-webkit-scrollbar-thumb:vertical {
+    height: 5px;
+    background:linear-gradient(to right, rgba(0, 126, 240, 0.5), rgba(0, 216, 255, 0.5), rgba(0, 216, 255, 0.5));
+    -webkit-border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:vertical:hover {
+    background:linear-gradient(to right, #007ef0, #00d8ff, #00d8ff);
   }
 </style>
