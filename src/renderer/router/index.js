@@ -7,27 +7,34 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: require('@/views/Index.vue').default
-    },
-    {
-      path: '/search',
-      component: require('@/views/Search.vue').default
-    },
-    {
-      path: '/play-list',
-      component: require('@/views/PlayList.vue').default
-    },
-    {
-      path: '/singer',
-      component: require('@/views/Singer.vue').default
-    },
-    {
-      path: '/song',
-      component: require('@/views/Song.vue').default
-    },
-    {
-      path: '/user',
-      component: require('@/views/User.vue').default
+      component: require('@/views/BaseLayout.vue').default,
+      redirect: '/index',
+      children: [
+        {
+          path: '/index',
+          component: require('@/views/type/Index.vue').default
+        },
+        {
+          path: '/search',
+          component: require('@/views/type/Search.vue').default
+        },
+        {
+          path: '/play-list',
+          component: require('@/views/type/PlayList.vue').default
+        },
+        {
+          path: '/singer',
+          component: require('@/views/type/Singer.vue').default
+        },
+        {
+          path: '/song',
+          component: require('@/views/type/Song.vue').default
+        },
+        {
+          path: '/user',
+          component: require('@/views/type/User.vue').default
+        }
+      ]
     }
   ]
 })

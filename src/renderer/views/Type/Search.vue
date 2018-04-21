@@ -1,5 +1,5 @@
 <template>
-	<layout>
+	<div>
 		<router-link to="/">Index</router-link>This is Search
 		<p>edrtfgvyhunjikm</p>
 		<h1>esrdfrtgyhjukil</h1>
@@ -112,16 +112,14 @@
 		<hr/>
 		<router-link to="/">Index</router-link>This is Search
 		<tr>edrtfgyhunjkml</tr>
-	</layout>
+	</div>
 </template>
 
 <script>
-import Layout from '../components/Layout/Layout.vue'
-
 export default {
   name: 'Search',
 
-  components: {Layout}
+  components: {}
 }
 </script>
 

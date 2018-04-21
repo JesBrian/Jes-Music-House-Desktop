@@ -1,6 +1,7 @@
 'use strict'
 
-import { app, ipcMain, Tray, Menu, BrowserWindow } from 'electron'
+import { app, ipcMain, Tray, BrowserWindow } from 'electron'
+const electron = require('electron')
 const path = require('path')
 
 /**
@@ -50,6 +51,7 @@ function createWindow () {
   const url = path.join(__dirname, '../../static/images/icon.ico')
   // 系统托盘图标
   let tray = new Tray(url)
+  const Menu = electron.Menu
   // 鼠标放到系统托盘图标上时的tips;
   tray.setToolTip('Music House')
   // 图标的上下文菜单
