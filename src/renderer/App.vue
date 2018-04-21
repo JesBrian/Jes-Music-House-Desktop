@@ -74,9 +74,9 @@
   /* 灰色质感背景 */
   .cube-bg {
     box-sizing:border-box;
+    border: 1px solid #000;
     border-radius: 3px;
-    border: 0.5px solid #222;
-    background-image: linear-gradient(#444444, #373738);
+    background-image: linear-gradient(#444444, #373738, #222);
   }
 
   /* 黑色类玻璃质感背景 */

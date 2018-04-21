@@ -5,90 +5,95 @@
 			<div style="width:100%; height:100%; padding:0 5px 8px; box-sizing:border-box; overflow:auto;">
 				<ul>
 					<li>
-						<p style="margin:6px 6px 0; line-height:1.5em; color:#EEE;">推荐</p>
+						<p style="margin-top:6px;">推荐</p>
 						<ul>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list" style="display: block;">
+                <router-link to="/play-list">
                   <i class="mh-if music-box" style="margin-right:6px;"></i>发现音乐
                 </router-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list" style="display: block;">
+                <router-link to="/play-list">
                   <i class="mh-if singer" style="margin-right:6px;"></i>朋友动态
+                </router-link>
+              </li>
+							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
+                <router-link to="/play-list">
+                  <i class="mh-if exponential" style="margin-right:4px;"></i>榜单推荐
                 </router-link>
               </li>
 						</ul>
 					</li>
 					<li>
-						<p style="margin:16px 6px 0;line-height:1.5em; color:#EEE;">我的音乐</p>
+						<p>我的音乐</p>
 						<ul>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list" style="display: block;">
+                <router-link to="/play-list">
                   <i class="mh-if redis" style="margin-right:6px;"></i>本地音乐
                 </router-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list" style="display: block;">
+                <router-link to="/play-list">
                   <i class="mh-if download" style="margin-right:6px;"></i>下载管理
                 </router-link>
               </li>
 						</ul>
 					</li>
 					<li style="position:relative;">
-						<p @click="changeMyAlbumShow" style="margin:16px 6px 0; position:relative; line-height:1.5em; color:#EEE; cursor:pointer;">
-              创建的歌单<i :class="myAlbumShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if" style="top:-2px; left:180px; position:absolute; font-size:15px;"></i>
+						<p @click="changeMyAlbumShow">
+              创建的歌单<i :class="myAlbumShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
             </p>
-            <i @click="changeModalType('NewAlbum')" class="mh-if add-collection" style="top:1.5px; left:158px; position:absolute; font-size:18px;"></i>
+            <i @click="changeModalType('NewAlbum')" class="mh-if add-collection"></i>
 						<ul v-show="myAlbumShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list" style="display: block;">
+                <router-link to="/play-list">
                   <i class="mh-if non-colloection" style="margin-right:6px;"></i>我喜欢的音乐
                 </router-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list" style="display: block;">
+                <router-link to="/play-list">
                   <i class="mh-if music-list" style="margin-right:6px;"></i>抽身cavc紧很好
                 </router-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list" style="display: block;">
+                <router-link to="/play-list">
                   <i class="mh-if music-list" style="margin-right:6px;"></i>茶水vdsvsd盈天48
                 </router-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list" style="display: block;">
+                <router-link to="/play-list">
                   <i class="mh-if music-list" style="margin-right:6px;"></i>除外i和你4没那么
                 </router-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list" style="display: block;">
+                <router-link to="/play-list">
                   <i class="mh-if music-list" style="margin-right:6px;"></i>tywque
                 </router-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list" style="display: block;">
+                <router-link to="/play-list">
                   <i class="mh-if music-list" style="margin-right:6px;"></i>洝ij45省的sj
                 </router-link>
               </li>
 						</ul>
 					</li>
 					<li>
-						<p @click="changeCollectionAlbumShow" style="margin:16px 6px 0; position:relative; line-height:1.5em; color:#EEE; cursor:pointer;">
-              收藏的歌单<i :class="collectionAlbumShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if" style="top:-2px; left:180px; position:absolute; font-size:15px;"></i>
+						<p @click="changeCollectionAlbumShow">
+              收藏的歌单<i :class="collectionAlbumShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
             </p>
 						<ul v-show="collectionAlbumShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list" style="display: block;">
+                <router-link to="/play-list">
                   <i class="mh-if menu" style="margin-right:6px;"></i>XXXX
                 </router-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list" style="display: block;">
+                <router-link to="/play-list">
                   <i class="mh-if menu" style="margin-right:6px;"></i>YYYY
                 </router-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list" style="display: block;">
+                <router-link to="/play-list">
                   <i class="mh-if menu" style="margin-right:6px;"></i>ZZZZ
                 </router-link>
               </li>
@@ -148,6 +153,34 @@ export default {
 </script>
 
 <style scoped>
+  .mh-if.add-collection {
+    top:1.5px; left:158px; position:absolute; font-size:18px;
+  }
+  .mh-if.add-collection:hover {
+    color:#20dbfc;
+  }
+  li > p {
+    margin:16px 6px 0; position:relative; line-height:1.5em; color:#EEE; font-weight:700; cursor:pointer;
+  }
+  p > .mh-if {
+    top:-2px; left:180px; position:absolute; font-size:15px; font-weight:500; color:#AAA;
+  }
+  p:hover > .mh-if {
+    color:#EEE;
+  }
+  p > .mh-if:hover {
+    color:#20dbfc;
+  }
+  li > a {
+    display: block;
+  }
+  li > a:hover .mh-if {
+    color:#20dbfc;
+  }
+  li > a:hover {
+    color:#DDD;
+  }
+
   .now-song {
     width:100%; height:60px; position:relative;
   }
