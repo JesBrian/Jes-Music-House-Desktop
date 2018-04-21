@@ -1,19 +1,23 @@
 <template>
   <div>
     <!-- 顶部菜单 -->
-    <top-menu />
+    <top-menu style="z-index:99;"/>
 
     <!-- 左侧菜单 -->
-    <left-menu />
+    <left-menu style="z-index:55;"/>
 
+    <!-- 主体内容 -->
     <div style="width:100%; height:638px; padding:56px 3px 45px 228.5px; box-sizing:border-box; background:#262626;">
       <div class="cube-bg box-show" style="width:100%; height:100%; padding-top:8px; box-sizing:border-box; overflow:auto;">
         <router-view />
       </div>
     </div>
 
+    <!-- 拟态框 -->
+    <modal />
+
     <!-- 音乐播放器 -->
-    <music-player />
+    <music-player style="z-index:99;"/>
   </div>
 </template>
 
@@ -21,10 +25,11 @@
 import TopMenu from '../components/TopMenu/TopMenu.vue'
 import LeftMenu from '../components/LeftMenu/LeftMenu.vue'
 import MusicPlayer from '../components/MusicPlayer/MusicPlayer.vue'
+import Modal from '../components/Modal/Modal.vue'
 
 export default {
   name: 'BaseLayout',
-  components: {MusicPlayer, LeftMenu, TopMenu}
+  components: {Modal, MusicPlayer, LeftMenu, TopMenu}
 }
 </script>
 

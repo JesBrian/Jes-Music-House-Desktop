@@ -1,13 +1,14 @@
 const state = {
-  main: 0
+  modalType: ''
 }
 
 const mutations = {
-  DECREMENT_MAIN_COUNTER (state) {
-    state.main--
-  },
-  INCREMENT_MAIN_COUNTER (state) {
-    state.main++
+  /**
+   * 改变拟态框类型
+   * @param state
+   */
+  CHANGE_MODAL_TYEP (state, type = '') {
+    state.modalType = type
   }
 }
 
