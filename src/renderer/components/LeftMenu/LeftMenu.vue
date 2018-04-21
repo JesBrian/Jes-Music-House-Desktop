@@ -38,7 +38,7 @@
 						<p @click="changeMyAlbumShow" style="margin:16px 6px 0; position:relative; line-height:1.5em; color:#EEE; cursor:pointer;">
               创建的歌单<i :class="myAlbumShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if" style="top:-2px; left:180px; position:absolute; font-size:15px;"></i>
             </p>
-            <i @click="changeModalType('NewAlbum')" class="mh-if add-collection" style="top:0; left:158px; position:absolute; font-size:18px;"></i>
+            <i @click="changeModalType('NewAlbum')" class="mh-if add-collection" style="top:1.5px; left:158px; position:absolute; font-size:18px;"></i>
 						<ul v-show="myAlbumShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
                 <router-link to="/play-list" style="display: block;">
