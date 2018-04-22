@@ -33,6 +33,10 @@ export default new Router({
         {
           path: '/user',
           component: require('@/views/type/User.vue').default
+        },
+        {
+          path: '/config',
+          component: require('@/views/type/Config.vue').default
         }
       ]
     }

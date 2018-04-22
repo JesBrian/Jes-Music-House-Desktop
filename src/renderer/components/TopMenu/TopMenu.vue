@@ -26,35 +26,64 @@
 		</div>
 
 		<!-- 用户操作 -->
-		<div style="margin-right:268px; float:right;">
+		<div style="-webkit-app-region:no-drag; height:25px; margin:15px 268px 0 0; float:right; line-height:25px; ">
 			<router-link to="/user">
-				<img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="-webkit-app-region:no-drag; width:25px; height:25px; margin:13px 8px 0 0; padding:1.5px; float:left;" />
+				<img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:25px; margin:0 8px 0 0; padding:1.5px; float:left;" />
 			</router-link>
-      <div style="display:inline-block; font-size:18px; line-height:54px;">
+      <div @click="changeShowContentType('UserOperation')" style="display:inline-block; font-size:18px; cursor:pointer;">
         <p class="text-hidden" style="max-width:108px; display:inline-block;">JesBrianJesBrian</p>
-        <i style="width:0; height:0; margin:23px 0 0 6px; border-width:6px; border-style:solid; border-color:#999 transparent transparent transparent; float:right;"></i>
+        <i style="width:0; height:0; margin:10px 0 0 6px; border-width:6px; border-style:solid; border-color:#999 transparent transparent transparent; float:right;"></i>
       </div>
     </div>
 
 		<!-- 应用设置 & 控制窗口 -->
 		<div style="height:50%; top:15px; right:18px; position:absolute; z-index:9; color:#DDD;">
-			<i class="mh-if theme" style="-webkit-app-region:no-drag; margin:0 8px; font-size:21px;"></i>
-			<i class="mh-if feedback" style="-webkit-app-region:no-drag; margin:0 8px; font-size:23px;"></i>
-			<i class="mh-if gear" style="-webkit-app-region:no-drag; margin:0 8px; font-size:23px;"></i>
+			<i @click="changeShowContentType('ChooseTheme')" class="mh-if theme" style="-webkit-app-region:no-drag; margin:0 8px; font-size:21px;"></i>
+			<i @click="changeShowContentType('MessageContent')" class="mh-if feedback" style="-webkit-app-region:no-drag; margin:0 8px; font-size:23px;"></i>
+			<router-link to="/config" class="mh-if gear" style="-webkit-app-region:no-drag; margin:0 8px; font-size:23px;"></router-link>
 			<i style="margin:0 18px; padding:8px 0 5px; border-right:2px solid #222;"></i>
 			<i @click="atest" class="mh-if lessen" style="-webkit-app-region:no-drag; margin:0 2px; font-size:23px;"></i>
 			<i @click="closeWindow" class="mh-if close" style="-webkit-app-region:no-drag; margin:0 2px; font-size:23px;"></i>
 		</div>
+
+    <!-- 展示内容 -->
+    <component :is="showContentType">
+      <i @click="closeShowContent" style="top:0; right:6px; position:absolute; font-size:28px; cursor:pointer;">×</i>
+    </component>
+
 	</div>
 </template>
 
 <script>
+import UserOperation from './ShowContentType/UserOperation.vue'
+import MessageContent from './ShowContentType/MessageContent.vue'
+import ChooseTheme from './ShowContentType/ChooseTheme.vue'
+
 var ipcRenderer = require('electron').ipcRenderer
 
 export default {
   name: 'TopMenu',
 
+  components: {UserOperation, MessageContent, ChooseTheme},
+
+  data () {
+    return {
+      showContentType: ''
+    }
+  },
+
   methods: {
+    closeShowContent () {
+      this.showContentType = ''
+    },
+    changeShowContentType (tyepe = '') {
+      if (this.showContentType === tyepe) {
+        this.showContentType = ''
+      } else {
+        this.showContentType = tyepe
+      }
+    },
+
     closeWindow () {
       ipcRenderer.send('hide-main-window')
     },
