@@ -31,6 +31,10 @@ export default new Router({
           component: require('@/views/type/Song.vue').default
         },
         {
+          path: '/album',
+          component: require('@/views/type/Album.vue').default
+        },
+        {
           path: '/user',
           component: require('@/views/type/User.vue').default
         },

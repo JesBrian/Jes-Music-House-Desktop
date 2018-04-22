@@ -48,7 +48,8 @@
 
     <!-- 展示内容 -->
     <component :is="showContentType">
-      <i @click="closeShowContent" style="top:0; right:6px; position:absolute; font-size:28px; cursor:pointer;">×</i>
+      <i style="width:0; height:0; top:-25px; left:51%; position:absolute; transform:translate(-50%,0); border-width:12px; border-style:solid; border-color:transparent transparent #20dbfc transparent;"></i>
+      <i @click="closeShowContent" class="close-show-content">×</i>
     </component>
 
 	</div>
@@ -95,5 +96,10 @@ export default {
 </script>
 
 <style scoped>
-
+  .close-show-content {
+    top:0; right:6px; position:absolute; font-size:28px; cursor:pointer;
+  }
+  .close-show-content:hover {
+    color:#DDD;
+  }
 </style>
