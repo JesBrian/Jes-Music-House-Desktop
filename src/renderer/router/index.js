@@ -19,6 +19,10 @@ export default new Router({
           component: require('@/views/type/Search.vue').default
         },
         {
+          path: '/rank',
+          component: require('@/views/type/Rank.vue').default
+        },
+        {
           path: '/play-list',
           component: require('@/views/type/PlayList.vue').default
         },
@@ -33,6 +37,10 @@ export default new Router({
         {
           path: '/album',
           component: require('@/views/type/Album.vue').default
+        },
+        {
+          path: '/disc',
+          component: require('@/views/type/Disc.vue').default
         },
         {
           path: '/user',
