@@ -3,9 +3,9 @@
     <div class="box-show" style="width:100%; height:48px; position:relative;">
       <slot />
       <div style="width:208px; height:26px; top:55%; left:50%; transform:translate(-50%,-50%); position:absolute; line-height:25px; text-align:center;">
-        <div class="cube-bg box-show" style="width:33%; height:100%; float:left; border-radius:13px 0 0 13px; cursor:pointer;">私信</div>
-        <div class="glass-bg box-show" style="width:34%; height:100%; float:left; border-radius:0; cursor:pointer;">评论</div>
-        <div class="glass-bg box-show" style="width:33%; height:100%; float:left; border-radius:0 13px 13px 0; cursor:pointer;">通知</div>
+        <div @click="changeMessageContentType('message')" :class="contentType === 'message' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:33%; height:100%; float:left; border-radius:13px 0 0 13px; cursor:pointer;">私信</div>
+        <div @click="changeMessageContentType('comment')" :class="contentType === 'comment' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:34%; height:100%; float:left; border-radius:0; cursor:pointer;">评论</div>
+        <div @click="changeMessageContentType('notice')" :class="contentType === 'notice' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:33%; height:100%; float:left; border-radius:0 13px 13px 0; cursor:pointer;">通知</div>
       </div>
     </div>
   </div>
@@ -15,14 +15,22 @@
 export default {
   name: 'MessageContent',
 
+  data () {
+    return {
+      contentType: 'message'
+    }
+  },
+
   methods: {
-    closeShowContent () {
-      this.$parent.changeShowContentType('MessageContent')
+    changeMessageContentType (type = 'message') {
+      this.contentType = type
     }
   }
 }
 </script>
 
 <style scoped>
-
+  div.cube-bg {
+    color:#EEE;
+  }
 </style>

@@ -22,11 +22,11 @@
         <div class="box-show" style="width:48px; height:48px; margin:15px; padding:3px; float:left;">
           <div style="width:100%; height:100%; background:lightskyblue;"></div>
         </div>
-        <div class="box-show" style="width:188px; height:6px; margin:22.5px 16px 0 0; position:relative; float:right; border-radius:3px;">
-          <div class="glass-bg box-show" style="width:16px; height:16px; top:-5px; left:60%; position:absolute; border-radius:50%;"></div>
+        <div class="box-show" style="width:188px; height:6px; margin:22.5px 16px 0 0; position:relative; float:right; border-radius:3px; background-image:linear-gradient(to right, #FF0000, #FF7F00, #FFFF00, #00FF00, #00FFFF, #0000FF, #8B00FF);">
+          <div class="glass-bg box-show" style="width:16px; height:16px; top:-5px; left:48%; position:absolute; border-radius:50%;"></div>
         </div>
-        <div class="box-show" style="width:188px; height:6px; margin:22.5px 16px 0 0; position:relative; float:right; border-radius:3px;">
-          <div class="glass-bg box-show" style="width:16px; height:16px; top:-5px; left:38%; position:absolute; border-radius:50%;"></div>
+        <div class="box-show" style="width:188px; height:6px; margin:22.5px 16px 0 0; position:relative; float:right; border-radius:3px; background-image:linear-gradient(to right, #000, #00D8FF);">
+          <div class="glass-bg box-show" style="width:16px; height:16px; top:-5px; left:48%; position:absolute; border-radius:50%;"></div>
         </div>
       </div>
     </div>
@@ -52,5 +52,7 @@ export default {
 </script>
 
 <style scoped>
-
+  div.cube-bg {
+    color:#EEE;
+  }
 </style>

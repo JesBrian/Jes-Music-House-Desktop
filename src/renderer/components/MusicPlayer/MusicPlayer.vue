@@ -11,7 +11,7 @@
 				<div class="progress-bar box-show" style="width:488px; height:10px; position:relative; background:#080808; border-radius:6px;">
 					<div style="width:80%; height:6px; top:2.4px; left:0; position:absolute; background:#181818; border-radius:6px;"></div>
 					<div style="width:60%; height:100%; top:0; left:0; position:absolute; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:6px;">
-						<a class="pointer cube-bg box-show"></a>
+            <a class="pointer glass-bg box-show"></a>
 					</div>
 				</div>
 			</div>
@@ -21,7 +21,7 @@
 			<i @click="changeVolumeStatus" :class="volumeStatus ? 'volume-on' : 'volume-off'" class="mh-if" style="font-size:24px;"></i>
 			<div :class="{'ban-change': !volumeStatus}" class="volume-bar box-show">
 				<div style="width:60%; height:88%; margin-top:1px; position:relative; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:5px;">
-					<a class="pointer cube-bg box-show" style="top:-5px;"></a>
+					<a class="pointer glass-bg box-show" style="top:-4.5px;"></a>
 				</div>
 			</div>
 		</div>
@@ -41,17 +41,17 @@
           <i class="mh-if trash" style="margin-right:5px; font-size:17px;"></i>清空
         </span>
         <div style="width:288px; height:26px; top:50%; left:50%; transform:translate(-50%,-50%); position:absolute; line-height:25px;">
-          <div class="cube-bg box-show" style="width:50%; height:100%; float:left; border-radius:13px 0 0 13px;">播放列表</div>
-          <div class="glass-bg box-show" style="width:50%; height:100%; float:left; border-radius:0 13px 13px 0;">历史纪录</div>
+          <div @click="changePlayListContentType('now')" :class="playListContentType === 'now' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:50%; height:100%; float:left; border-radius:13px 0 0 13px; cursor:pointer;">播放列表</div>
+          <div @click="changePlayListContentType('history')" :class="playListContentType === 'history' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:50%; height:100%; float:left; border-radius:0 13px 13px 0; cursor:pointer;">历史纪录</div>
         </div>
         <i @click="changePlayListContentStatus" class="mh-if close" style="top:0; right:6px; position:absolute; font-size:22px;"></i>
       </div>
       <ul style="width:99.5%; height:340px; margin:5px 0; padding:0 2px; box-sizing:border-box; overflow:auto;">
         <li v-for="n in 120" class="box-shadow" style="background:#181818;">
           <div :class="{'active' : n === 5}" class="play-list-cell" style="width:100%; height:30px; margin:2px 0; padding:0 6px; box-sizing:border-box; text-align:left; line-height:30px;">
-            <i class="mh-if play" style="margin:0 10px 0 6px; float:left;"></i>
+            <i class="mh-if play"></i>
             <p class="text-hidden" style="width:318px; height:100%; float:left;">{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}</p>
-            <p style="margin:0 12px; display:inline-block;">
+            <p class="music-oper" style="margin:0 12px;">
               <i class="mh-if collection-music" style="margin:0 2px;"></i>
               <i class="mh-if share" style="margin:0 2px;"></i>
               <i class="mh-if download" style="margin:0 2px;"></i>
@@ -74,6 +74,7 @@ export default {
     return {
       playModel: 'loop',
       playListContentStatus: false,
+      playListContentType: 'now',
       volumeStatus: true
     }
   },
@@ -95,6 +96,9 @@ export default {
     },
     changePlayListContentStatus () {
       this.playListContentStatus = !this.playListContentStatus
+    },
+    changePlayListContentType (tyep = 'now') {
+      this.playListContentType = tyep
     }
   }
 }
@@ -146,13 +150,38 @@ export default {
   }
 
 
+  .play-list-cell {
+    color:#888;
+  }
   .play-list-cell:hover {
     background:#0B0B0B;
+    color:#CCC;
   }
   .play-list-cell.active {
     background:#000;
+    color:#EEE;
+  }
+  .play-list-cell > .play {
+    margin:0 8px 0 4px; float:left;
+    font-size:20px;
+    opacity:0;
+  }
+  .play-list-cell:hover > .play, .play-list-cell.active > .play {
+    opacity:1;
+  }
+  .play-list-cell.active > .play {
+    color:#00d8ff;
+  }
+  .play-list-cell > .music-oper {
+    display:none;
+  }
+  .play-list-cell:hover > .music-oper {
+    display:inline-block;
   }
 
+  div.cube-bg {
+    color:#EEE;
+  }
 
   ::-webkit-scrollbar {
     width: 6px;

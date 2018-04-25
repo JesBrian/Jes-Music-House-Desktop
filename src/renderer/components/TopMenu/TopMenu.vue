@@ -48,7 +48,7 @@
 
     <!-- 展示内容 -->
     <component :is="showContentType">
-      <i style="width:0; height:0; top:-25px; left:51%; position:absolute; transform:translate(-50%,0); border-width:12px; border-style:solid; border-color:transparent transparent #20dbfc transparent;"></i>
+      <i style="width:0; height:0; top:-25px; left:51%; position:absolute; transform:translate(-50%,0); border-width:12px; border-style:solid; border-color:transparent transparent #555 transparent;"></i>
       <i @click="closeShowContent" class="close-show-content">×</i>
     </component>
 

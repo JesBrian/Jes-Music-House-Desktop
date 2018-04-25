@@ -49,7 +49,7 @@
         </div>
         <div class="glass-bg box-show" style="width:93%; height:138px; margin:0 auto 18px; position:relative;">
           <a class="p-n-btn prev-btn ban-select" style="width:23px; height:43px; top:48%; left:13px; position:absolute; display:inline-block; transform:translate(0,-50%);"></a>
-          <a class="p-n-btn next-btn ban-select" style="width:23px; height:43px; top:48%; right:13px; position:absolute; display:inline-block; transform:translate(0,-50%);"></a>
+          <a class="p-n-btn nex。t-btn ban-select" style="width:23px; height:43px; top:48%; right:13px; position:absolute; display:inline-block; transform:translate(0,-50%);"></a>
           <div style="width:100%; height:100%; padding:8px 43px; box-sizing:border-box;">
             <ul style="width:100%; height:100%;">
               <li v-for="n in 5" style="width:20%; height:100%; float:left;">

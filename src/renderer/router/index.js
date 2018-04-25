@@ -47,6 +47,10 @@ export default new Router({
           component: require('@/views/type/User.vue').default
         },
         {
+          path: '/setting',
+          component: require('@/views/type/Setting.vue').default
+        },
+        {
           path: '/config',
           component: require('@/views/type/Config.vue').default
         }
