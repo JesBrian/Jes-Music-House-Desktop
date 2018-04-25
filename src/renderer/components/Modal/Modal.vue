@@ -14,11 +14,13 @@
 <script>
 import NewAlbum from './type/NewAlbum.vue'
 import Share from './type/Share.vue'
+import Warning from './type/Warning.vue'
+import AddAlbum from './type/AddAlbum.vue'
 
 export default {
   name: 'Modal',
 
-  components: {NewAlbum, Share},
+  components: {NewAlbum, Share, Warning, AddAlbum},
 
   methods: {
     closeModal () {

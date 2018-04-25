@@ -13,12 +13,13 @@
       </p>
       <input type="text" class="glass-bg box-show glow-input" style="width:88%; padding:5px 8px; font-size:18px; line-height:1.2em; color:#CCC; letter-spacing:1.3px;" placeholder="请输入新歌单标题："/>
     </div>
+
     <div style="width:90%; margin:0 auto;">
-      <div class="super-btn-out" style="width:93px; height:28px; margin-top:15px; float:left;">
-        <span class="super-btn-in mh-if" style="width:83px; height:20px; line-height:21px;"> 确认新建</span>
+      <div class="super-btn-out" style="width:108px; height:28px; margin-top:15px; float:left;">
+        <span class="super-btn-in mh-if makesure" style="width:100px; height:20px; line-height:21px;"> 确认新建</span>
       </div>
-      <div class="super-btn-out" style="width:93px; height:28px; margin-top:15px; float:right;">
-        <span class="super-btn-in" style="width:83px; height:20px; line-height:21px;"> 取消返回</span>
+      <div class="super-btn-out" style="width:108px; height:28px; margin-top:15px; float:right;">
+        <span class="super-btn-in mh-if cancel" style="width:100px; height:20px; line-height:21px;"> 取消返回</span>
       </div>
     </div>
   </div>

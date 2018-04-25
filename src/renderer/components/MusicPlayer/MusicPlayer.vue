@@ -53,7 +53,7 @@
             <p class="text-hidden" style="width:318px; height:100%; float:left;">{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}</p>
             <p class="music-oper" style="margin:0 12px;">
               <i class="mh-if collection-music" style="margin:0 2px;"></i>
-              <i class="mh-if share" style="margin:0 2px;"></i>
+              <i @click="shareThisSong" class="mh-if share" style="margin:0 2px;"></i>
               <i class="mh-if download" style="margin:0 2px;"></i>
               <i class="mh-if trash" style="margin:0 2px;"></i>
             </p>
@@ -99,6 +99,10 @@ export default {
     },
     changePlayListContentType (tyep = 'now') {
       this.playListContentType = tyep
+    },
+
+    shareThisSong () {
+      this.$store.commit('CHANGE_MODAL_TYEP', 'Share')
     }
   }
 }
