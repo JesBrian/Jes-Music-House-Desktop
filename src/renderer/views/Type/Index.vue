@@ -2,7 +2,7 @@
   <div>
     <!-- 主页菜单 -->
     <div style="width:92%; height:38px; margin:0 auto 28px; padding:0 68px; box-sizing:border-box; box-shadow:0 2px 3px -3px #FFF; text-align:center;">
-      <div style="width:100%; height:28px; padding-top:10px; line-height:24px; color:#BBB; font-size:18px; font-weight:700;">
+      <div style="width:100%; height:28px; padding-top:10px; line-height:24px; color:#BBB; font-size:18px; font-weight:700; text-shadow:1px 1px 0.5px #000;">
         <span @click="changeIndexContent('index')" :class="{'active': this.type === 'index'}" class="index-menu-cell">个性推荐</span>
         <span @click="changeIndexContent('album')" :class="{'active': this.type === 'album'}" class="index-menu-cell">歌单</span>
         <span @click="changeIndexContent('rank')" :class="{'active': this.type === 'rank'}" class="index-menu-cell">排行榜</span>
@@ -19,7 +19,7 @@
       </div>
 
       <div>
-        <div style="width:93%; height:53px; margin:0 auto 28px; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px;">
+        <div style="width:93%; height:53px; margin:0 auto 28px; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px; text-shadow:1px 1px 0.5px #000;">
           <i class="mh-if music-box" style="margin-right:8px; font-size:23px; color:#00d8ff;"></i><span style="font-size:23px; font-weight:700; color:#AAA;">推荐歌单</span>
           <router-link to="/album" class="read-more">更多 <i class="mh-if double-arrow-right"></i></router-link>
         </div>
@@ -43,7 +43,7 @@
       </div>
 
       <div>
-        <div style="width:93%; height:53px; margin:0 auto 28px; padding:0 43px 0 23px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px;">
+        <div style="width:93%; height:53px; margin:0 auto 28px; padding:0 43px 0 23px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px; text-shadow:1px 1px 0.5px #000;">
           <i class="mh-if music-albu-2" style="margin-right:8px; font-size:23px; color:#00d8ff;"></i><span style="font-size:23px; font-weight:700; color:#AAA;">新碟上架</span>
           <router-link to="/disc" class="read-more">更多 <i class="mh-if double-arrow-right"></i></router-link>
         </div>
@@ -71,7 +71,7 @@
       </div>
 
       <div style="height:588px;">
-        <div style="width:93%; height:53px; margin:0 auto 28px; padding:0 43px 0 28px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px;">
+        <div style="width:93%; height:53px; margin:0 auto 28px; padding:0 43px 0 28px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px; text-shadow:1px 1px 0.5px #000;">
           <i class="mh-if exponential" style="margin-right:8px; font-size:23px; color:#00d8ff;"></i><span style="font-size:23px; font-weight:700; color:#AAA;">排行榜</span>
           <router-link to="/rank" class="read-more">更多 <i class="mh-if double-arrow-right"></i></router-link>
         </div>
@@ -193,7 +193,7 @@ export default {
 
 
   .read-more {
-    margin-top:33px; float:right; font-size:13px; color:#888; line-height:1em;
+    margin-top:33px; float:right; font-size:13px; color:#BBB; line-height:1em;
   }
   .read-more:hover {
     color:#EEE;

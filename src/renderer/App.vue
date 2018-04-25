@@ -169,8 +169,12 @@
   }
 
   /* 输入框闪光 */
+  .glow-input {
+    /*border:2px solid #222;*/
+  }
   .glow-input:focus {
-    border-color:#2af1fc!important;
+    /*border:2px solid #00d8ff;*/
+    box-sizing:border-box;
     animation: glow 666ms ease-out infinite alternate;
   }
   @keyframes glow {
