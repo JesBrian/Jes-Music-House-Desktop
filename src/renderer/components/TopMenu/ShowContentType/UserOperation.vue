@@ -23,22 +23,48 @@
     </div>
     <ul class="box-shadow" style="width:99%; margin:0 auto;">
       <li>
-        <router-link to="/user" class="user-oper-cell" style="display:block; line-height:2.3em; text-indent:2em;">VIP会员</router-link>
+        <router-link to="/user" class="user-oper-cell" style="display:block; line-height:2.3em; text-indent:2em;">
+          <i class="mh-if singer" style="margin-right:8px;"></i>
+          <span>个人主页</span>
+          <i class="mh-if double-arrow-right" style="margin-right:23px; float:right; font-size:12px;"></i>
+        </router-link>
       </li>
       <li>
-        <router-link to="/user" class="user-oper-cell" style="display:block; line-height:2.3em; text-indent:2em;">账号等级</router-link>
+        <router-link to="/user" class="user-oper-cell" style="display:block; line-height:2.3em; text-indent:2em;">
+          <i class="mh-if diamond" style="margin-right:8px;"></i>
+          <span>VIP会员</span>
+          <i class="mh-if double-arrow-right" style="margin-right:23px; float:right; font-size:12px;"></i>
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/user" class="user-oper-cell" style="display:block; line-height:2.3em; text-indent:2em;">
+          <i class="mh-if level" style="margin-right:8px;"></i>
+          <span>账号等级</span>
+          <i class="mh-if double-arrow-right" style="margin-right:23px; float:right; font-size:12px;"></i>
+        </router-link>
       </li>
     </ul>
     <ul class="box-shadow" style="width:99%; margin:0 auto;">
       <li>
-        <router-link to="/setting" class="user-oper-cell" style="display:block; line-height:2.3em; text-indent:2em;">账号设置</router-link>
+        <router-link to="/setting" class="user-oper-cell" style="display:block; line-height:2.3em; text-indent:2em;">
+          <i class="mh-if datum" style="margin-right:8px;"></i>
+          <span>账号设置</span>
+          <i class="mh-if double-arrow-right" style="margin-right:23px; float:right; font-size:12px;"></i>
+        </router-link>
       </li>
       <li>
-        <router-link to="/config" class="user-oper-cell" style="display:block; line-height:2.3em; text-indent:2em;">修改配置</router-link>
+        <router-link to="/config" class="user-oper-cell" style="display:block; line-height:2.3em; text-indent:2em;">
+          <i class="mh-if gear" style="margin-right:8px;"></i>
+          <span>修改配置</span>
+          <i class="mh-if double-arrow-right" style="margin-right:23px; float:right; font-size:12px;"></i>
+        </router-link>
       </li>
     </ul>
     <div class="box-shadow" style="width:99%; margin:0 auto 1px;">
-      <router-link to="/" class="user-oper-cell" style="display:block; line-height:2.3em; text-indent:2em; border-radius:0 0 4px 4px;">安全退出</router-link>
+      <router-link to="/" class="user-oper-cell" style="display:block; line-height:2.3em; text-indent:2em; border-radius:0 0 4px 4px;">
+        <i class="mh-if exit" style="margin-right:8px;"></i>
+        <span>安全退出</span>
+      </router-link>
     </div>
   </div>
 </template>
@@ -56,5 +82,14 @@ export default {
   .user-oper-cell:hover {
     background:#181818;
     color:#DDD;
+  }
+  .user-oper-cell > i.mh-if {
+    color:#CCC;
+  }
+  .user-oper-cell:hover > i.mh-if {
+    color: #00d8ff;
+  }
+  .user-oper-cell:hover > span {
+    text-decoration:underline;
   }
 </style>

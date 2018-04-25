@@ -20,7 +20,7 @@
 
       <div>
         <div style="width:93%; height:53px; margin:0 auto 28px; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px;">
-          <span style="float:left; font-size:23px; font-weight:700;">推荐歌单</span>
+          <i class="mh-if music-box" style="margin-right:8px; font-size:23px; color:#00d8ff;"></i><span style="font-size:23px; font-weight:700; color:#AAA;">推荐歌单</span>
           <router-link to="/album" class="read-more">更多 <i class="mh-if double-arrow-right"></i></router-link>
         </div>
         <ul style="width:93%; margin:0 auto;">
@@ -43,8 +43,8 @@
       </div>
 
       <div>
-        <div style="width:93%; height:53px; margin:0 auto 28px; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px;">
-          <span style="float:left; font-size:23px; font-weight:700;">新碟上架</span>
+        <div style="width:93%; height:53px; margin:0 auto 28px; padding:0 43px 0 23px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px;">
+          <i class="mh-if music-albu-2" style="margin-right:8px; font-size:23px; color:#00d8ff;"></i><span style="font-size:23px; font-weight:700; color:#AAA;">新碟上架</span>
           <router-link to="/disc" class="read-more">更多 <i class="mh-if double-arrow-right"></i></router-link>
         </div>
         <div class="glass-bg box-show" style="width:93%; height:138px; margin:0 auto 18px; position:relative;">
@@ -71,8 +71,8 @@
       </div>
 
       <div style="height:588px;">
-        <div style="width:93%; height:53px; margin:0 auto 28px; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px;">
-          <span style="float:left; font-size:23px; font-weight:700;">排行榜</span>
+        <div style="width:93%; height:53px; margin:0 auto 28px; padding:0 43px 0 28px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px;">
+          <i class="mh-if exponential" style="margin-right:8px; font-size:23px; color:#00d8ff;"></i><span style="font-size:23px; font-weight:700; color:#AAA;">排行榜</span>
           <router-link to="/rank" class="read-more">更多 <i class="mh-if double-arrow-right"></i></router-link>
         </div>
         <div style="width:93%; margin:0 auto;">
