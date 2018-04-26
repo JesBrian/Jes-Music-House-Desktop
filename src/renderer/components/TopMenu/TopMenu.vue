@@ -1,5 +1,5 @@
 <template>
-	<div class="glass-bg box-show" style="-webkit-app-region:drag; width:100%; height:54px; top:0; left:0; position:fixed; z-index:9; border-radius:0; color:#999;">
+	<div class="glass-bg box-show" style="-webkit-app-region:drag; width:100%; height:54px; top:0; left:0; position:fixed; z-index:999; border-radius:0; color:#999;">
 		<!-- LOGO -->
 		<div style="width:188px; height:100%; float:left;">
 			<router-link to="/" style="-webkit-app-region:no-drag; float:left;">

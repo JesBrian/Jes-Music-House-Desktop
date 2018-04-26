@@ -1,5 +1,5 @@
 const state = {
-  tips: '666'
+  tips: ''
 }
 
 const mutations = {
@@ -9,6 +9,15 @@ const mutations = {
    */
   SHOW_TIPS (state, str = '') {
     state.tips = str
+    if (str !== '') {
+      clearTimeout(state.timer)
+      state.timer = setTimeout(() => {
+        state.tips = ''
+        console.log(666)
+      }, 3688)
+    } else {
+      clearTimeout(state.timer)
+    }
   }
 }
 

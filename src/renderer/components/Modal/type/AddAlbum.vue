@@ -39,6 +39,7 @@ export default {
 
     addToThisPlayList () {
       this.$parent.closeModal()
+      this.$store.commit('SHOW_TIPS', '已收藏到歌单')
     }
   }
 }
