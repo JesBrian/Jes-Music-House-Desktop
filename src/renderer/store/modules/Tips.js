@@ -1,5 +1,5 @@
 const state = {
-  modalType: ''
+  tips: '666'
 }
 
 const mutations = {
@@ -7,8 +7,8 @@ const mutations = {
    * 改变拟态框类型
    * @param state
    */
-  CHANGE_MODAL_TYPE (state, type = '') {
-    state.modalType = type
+  SHOW_TIPS (state, str = '') {
+    state.tips = str
   }
 }
 

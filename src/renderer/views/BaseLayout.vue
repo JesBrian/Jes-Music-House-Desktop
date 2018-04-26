@@ -16,6 +16,9 @@
     <!-- 拟态框 -->
     <modal />
 
+    <!-- 操作提示条 -->
+    <tips v-if="$store.state.Tips.tips" />
+
     <!-- 音乐播放器 -->
     <music-player style="z-index:99;"/>
   </div>
@@ -26,11 +29,12 @@ import TopMenu from '../components/TopMenu/TopMenu.vue'
 import LeftMenu from '../components/LeftMenu/LeftMenu.vue'
 import MusicPlayer from '../components/MusicPlayer/MusicPlayer.vue'
 import Modal from '../components/Modal/Modal.vue'
+import Tips from '../components/Tips/Tips.vue'
 
 export default {
   name: 'BaseLayout',
 
-  components: {Modal, MusicPlayer, LeftMenu, TopMenu},
+  components: {Tips, Modal, MusicPlayer, LeftMenu, TopMenu},
 
   watch: {
     $route () {
