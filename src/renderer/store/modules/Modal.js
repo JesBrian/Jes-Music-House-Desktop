@@ -7,7 +7,7 @@ const mutations = {
    * 改变拟态框类型
    * @param state
    */
-  CHANGE_MODAL_TYEP (state, type = '') {
+  CHANGE_MODAL_TYPE (state, type = '') {
     state.modalType = type
   }
 }

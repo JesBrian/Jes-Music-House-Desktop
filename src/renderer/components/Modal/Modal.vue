@@ -25,7 +25,7 @@ export default {
 
   methods: {
     closeModal () {
-      this.$store.commit('CHANGE_MODAL_TYEP')
+      this.$store.commit('CHANGE_MODAL_TYPE')
     }
   }
 }

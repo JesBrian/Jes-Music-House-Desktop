@@ -146,7 +146,7 @@ export default {
     },
 
     changeModalType (type = '') {
-      this.$store.commit('CHANGE_MODAL_TYEP', type)
+      this.$store.commit('CHANGE_MODAL_TYPE', type)
     }
   }
 }

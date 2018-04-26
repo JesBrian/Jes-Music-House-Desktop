@@ -102,10 +102,10 @@ export default {
     },
 
     collectionThisSong () {
-      this.$store.commit('CHANGE_MODAL_TYEP', 'AddAlbum')
+      this.$store.commit('CHANGE_MODAL_TYPE', 'AddAlbum')
     },
     shareThisSong () {
-      this.$store.commit('CHANGE_MODAL_TYEP', 'Share')
+      this.$store.commit('CHANGE_MODAL_TYPE', 'Share')
     }
   }
 }

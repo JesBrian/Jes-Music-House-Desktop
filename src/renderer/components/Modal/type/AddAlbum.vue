@@ -10,7 +10,7 @@
     <div style="width:93%; max-height:268px; margin:3px auto 12px; overflow:auto; cursor:pointer;">
       <ul class="glass-bg" style="width:100%;">
         <li class="box-shadow" style="padding:1px;">
-          <div style="height:52px;">
+          <div @click="NewAlbum" style="height:52px;">
             <img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:36px; margin:8px 13px 0 8px; padding:1.5px; float:left;" />
             <p style="padding-top:16px; color:#BBB; font-size:22px;">新建歌单</p>
           </div>
@@ -30,7 +30,13 @@
 
 <script>
 export default {
-  name: 'AddAlbum'
+  name: 'AddAlbum',
+
+  methods: {
+    NewAlbum () {
+      this.$store.commit('CHANGE_MODAL_TYPE', 'NewAlbum')
+    }
+  }
 }
 </script>
 
