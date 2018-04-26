@@ -16,7 +16,7 @@
     </div>
     <div style="width:95%; margin:0 auto 18px; text-align:right;">
       <span style="margin-right:38px; color:#CCC; font-size:14px;">
-        搜索 " <span style="color:#00d8ff;">心碎</span> "，找到 <span style="color:#00d8ff;">2222</span> 首单曲
+        搜索 " <span style="color:#00d8ff;">心碎</span> "，共找到 <span style="color:#00d8ff;">2222</span> 首单曲
       </span>
       <div style="width:100%; height:688px; margin-top:6px; background:lightgreen;"></div>
     </div>
@@ -27,7 +27,11 @@
 export default {
   name: 'Search',
 
-  components: {}
+  components: {},
+
+  mounted () {
+    console.log(this.$route.params.key)
+  }
 }
 </script>
 

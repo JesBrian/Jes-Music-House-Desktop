@@ -18,9 +18,9 @@
 		<div style="height:100%; float:left;">
 			<div style="-webkit-app-region:no-drag; width:300px; height:38px; margin:6px 28px 0 0; position:relative;">
 				<div class="super-btn-out" style="width:100%; height:100%;"></div>
-				<label><input class="super-btn-in" type="text" placeholder="搜索一下更精彩" style="width:253px; height:27px; left:44.3%; margin-top:1.2px; padding:2px 8px 0; box-sizing:border-box; text-align:left; letter-spacing:1px; font-size:18px; color:#DDD;"/></label>
+				<label><input v-model="searchKey" class="super-btn-in" placeholder="搜索一下更精彩" style="width:253px; height:27px; left:44.3%; margin-top:1.2px; padding:2px 8px 0; box-sizing:border-box; text-align:left; letter-spacing:1px; font-size:18px; color:#DDD;"/></label>
 				<div class="super-btn-out" style="width:28px; height:28px; top:5px; right:4px; position:absolute;">
-					<router-link to="/search" class="super-btn-in mh-if search" style="width:30px; height:28.5px; display:inline-block; float:right; font-size:21px; line-height:30px;" />
+          <a @click="gotoSearch" class="super-btn-in mh-if search" style="width:30px; height:28.5px; display:inline-block; float:right; font-size:21px; line-height:30px;" ></a>
 				</div>
 			</div>
 		</div>
@@ -69,11 +69,19 @@ export default {
 
   data () {
     return {
+      searchKey: '',
       showContentType: ''
     }
   },
 
   methods: {
+    gotoSearch () {
+      if (this.searchKey === '') {
+        return false
+      }
+      this.$router.push({path: '/search/' + this.searchKey})
+    },
+
     closeShowContent () {
       this.showContentType = ''
     },

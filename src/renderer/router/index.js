@@ -7,52 +7,52 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: require('@/views/BaseLayout.vue').default,
+      component: () => import('@/views/BaseLayout.vue'),
       redirect: '/index',
       children: [
         {
           path: '/index',
-          component: require('@/views/type/Index.vue').default
+          component: () => import('@/views/type/Index.vue')
         },
         {
-          path: '/search',
-          component: require('@/views/type/Search.vue').default
+          path: '/search/:key',
+          component: () => import('@/views/type/Search.vue')
         },
         {
           path: '/rank',
-          component: require('@/views/type/Rank.vue').default
+          component: () => import('@/views/type/Rank.vue')
         },
         {
           path: '/play-list',
-          component: require('@/views/type/PlayList.vue').default
+          component: () => import('@/views/type/PlayList.vue')
         },
         {
           path: '/singer',
-          component: require('@/views/type/Singer.vue').default
+          component: () => import('@/views/type/Singer.vue')
         },
         {
           path: '/song',
-          component: require('@/views/type/Song.vue').default
+          component: () => import('@/views/type/Song.vue')
         },
         {
           path: '/album',
-          component: require('@/views/type/Album.vue').default
+          component: () => import('@/views/type/Album.vue')
         },
         {
           path: '/disc',
-          component: require('@/views/type/Disc.vue').default
+          component: () => import('@/views/type/Disc.vue')
         },
         {
           path: '/user',
-          component: require('@/views/type/User.vue').default
+          component: () => import('@/views/type/User.vue')
         },
         {
           path: '/setting',
-          component: require('@/views/type/Setting.vue').default
+          component: () => import('@/views/type/Setting.vue')
         },
         {
           path: '/config',
-          component: require('@/views/type/Config.vue').default
+          component: () => import('@/views/type/Config.vue')
         }
       ]
     }

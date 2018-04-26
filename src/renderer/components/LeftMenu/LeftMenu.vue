@@ -104,8 +104,9 @@
 		</div>
 
 		<div class="now-song box-show">
-			<router-link to="song">
-				<img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:44px; height:44px; margin:8px; padding:3px; float:left;" />
+			<router-link class="now-song-img box-show" to="song">
+				<img src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:100%; height:100%;" />
+        <div class="mh-if enlarge"></div>
 			</router-link>
       <router-link to="song" class="now-song-name">Song Name</router-link>
       <div class="now-singer text-hidden">
@@ -184,6 +185,15 @@ export default {
   .now-song {
     width:100%; height:60px; position:relative;
   }
+  .now-song .now-song-img {
+    width:44px; height:42.5px; margin:8px; padding:3px; position:relative; float:left;
+  }
+  .now-song .now-song-img > div {
+    width:100%; height:100%; top:0; left:0; position:absolute; display:none; background:rgba(0,0,0,0.5); text-align:center; line-height:43px; font-size:38px; color:#DDD;
+  }
+  .now-song .now-song-img:hover > div {
+    display:block;
+  }
 	.now-song .now-song-name {
 		margin:10px 0 6px; float:left; font-size:18px; color:#CCC;
 	}
@@ -200,10 +210,10 @@ export default {
 		color:#FFF;
 	}
 	.now-song .non-colloection {
-		top:10px; right:5px; position:absolute; font-size:18px;
+		top:10px; right:8px; position:absolute; font-size:18px;
 	}
 	.now-song .share {
-		bottom:10px; right:5px; position:absolute; font-size:15px;
+		bottom:10px; right:8px; position:absolute; font-size:15px;
 	}
 	.now-song .non-colloection.active {
 		color: #20dbfc;
