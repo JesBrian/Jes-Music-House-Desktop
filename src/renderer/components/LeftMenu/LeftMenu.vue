@@ -104,17 +104,17 @@
 		</div>
 
 		<div class="now-song box-show">
-			<router-link class="now-song-img box-show" to="song">
+			<router-link class="now-song-img box-show" to="/song">
 				<img src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:100%; height:100%;" />
         <div class="mh-if enlarge"></div>
 			</router-link>
-      <router-link to="song" class="now-song-name">Song Name</router-link>
+      <router-link to="/song" class="now-song-name">Song Name</router-link>
       <div class="now-singer text-hidden">
-        <router-link to="singer">环境是</router-link>
+        <router-link to="/singer">环境是</router-link>
         <i style="margin:0 1px;">/</i>
-        <router-link to="song">JesBan</router-link>
+        <router-link to="/singer">JesBan</router-link>
         <i style="margin:0 1px;">/</i>
-        <router-link to="song">参数</router-link>
+        <router-link to="/singer">参数</router-link>
       </div>
 			<a @click="changeCollection" :class="{'active': isCollection}" class="mh-if non-colloection"></a>
 			<a @click="changeModalType('Share')" class="mh-if share"></a>

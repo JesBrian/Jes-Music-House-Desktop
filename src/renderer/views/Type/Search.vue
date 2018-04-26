@@ -27,8 +27,6 @@
 export default {
   name: 'Search',
 
-  components: {},
-
   mounted () {
     console.log(this.$route.params.key)
   }
