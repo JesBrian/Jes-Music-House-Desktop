@@ -7,7 +7,7 @@
       <span style="margin-left:33px; line-height:38px; font-size:22px; font-weight:700; color:#BBB;">添加到歌单</span>
     </div>
 
-    <div style="width:93%; max-height:268px; margin:3px auto 12px; overflow:auto; cursor:pointer;">
+    <div style="width:93%; max-height:268px; margin:3px auto 12px; padding-right:3px; box-sizing:border-box; overflow:auto; border-radius:4px; cursor:pointer;">
       <ul class="glass-bg" style="width:100%;">
         <li class="box-shadow" style="padding:1px;">
           <div @click="NewAlbum" style="height:52px;">
