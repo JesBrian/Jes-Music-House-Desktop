@@ -11,7 +11,7 @@
 				<div class="progress-bar box-show" style="width:488px; height:10px; position:relative; background:#080808; border-radius:6px;">
 					<div style="width:80%; height:6px; top:2.4px; left:0; position:absolute; background:#181818; border-radius:6px;"></div>
 					<div style="width:60%; height:100%; top:0; left:0; position:absolute; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:6px;">
-            <a class="pointer glass-bg box-show"></a>
+            			<a class="pointer glass-bg box-show"></a>
 					</div>
 				</div>
 			</div>
@@ -52,7 +52,7 @@
             <i class="mh-if play"></i>
             <p class="text-hidden" style="width:318px; height:100%; float:left;">{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}</p>
             <p class="music-oper" style="margin:0 12px;">
-              <i class="mh-if collection-music" style="margin:0 2px;"></i>
+              <i @click="collectionThisSong" class="mh-if collection-music" style="margin:0 2px;"></i>
               <i @click="shareThisSong" class="mh-if share" style="margin:0 2px;"></i>
               <i class="mh-if download" style="margin:0 2px;"></i>
               <i class="mh-if trash" style="margin:0 2px;"></i>
@@ -101,6 +101,9 @@ export default {
       this.playListContentType = tyep
     },
 
+    collectionThisSong () {
+      this.$store.commit('CHANGE_MODAL_TYEP', 'AddAlbum')
+    },
     shareThisSong () {
       this.$store.commit('CHANGE_MODAL_TYEP', 'Share')
     }

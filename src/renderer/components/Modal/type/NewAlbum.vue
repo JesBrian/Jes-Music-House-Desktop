@@ -19,7 +19,7 @@
         <span class="super-btn-in mh-if makesure" style="width:100px; height:20px; line-height:21px;"> 确认新建</span>
       </div>
       <div class="super-btn-out" style="width:108px; height:28px; margin-top:15px; float:right;">
-        <span class="super-btn-in mh-if cancel" style="width:100px; height:20px; line-height:21px;"> 取消返回</span>
+        <span @click="closeModal" class="super-btn-in mh-if cancel" style="width:100px; height:20px; line-height:21px;"> 取消返回</span>
       </div>
     </div>
   </div>
@@ -27,7 +27,13 @@
 
 <script>
 export default {
-  name: 'NewAlbum'
+  name: 'NewAlbum',
+
+  methods: {
+    closeModal () {
+      this.$parent.closeModal()
+    }
+  }
 }
 </script>
 
