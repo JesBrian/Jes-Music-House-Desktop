@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div style="width:92%; height:428px; margin:0 auto 58px;">
+		<div style="width:95%; height:428px; margin:0 auto 58px;">
 
       <div style="width:36%; height:100%; float:left; position:relative;">
         <div style="width:100%; height:280px; margin:68px 0 28px; box-sizing:border-box;">
@@ -25,8 +25,11 @@
         </div>
       </div>
 
-      <div style="width:64%; float:left; ">
-        <div style="width:100%; height:68px; background:lightseagreen"></div>
+      <div style="width:62%; float:right; ">
+        <div style="width:92%; margin:18px auto 0; color:#DDD;">
+          <p style="font-size:22px;">The Name of the Song</p>
+          <p style="line-height:1.6em; font-size:15px;">sdvsdvsdbdfbhusibhfdbukvsodvsdvsdrhukvfsdbhifsdvbuigesdd</p>
+        </div>
         <div style="width:100%; height:388px; padding:52px; box-sizing:border-box; background:url(../../../../static/images/default/lyric-bg.png) no-repeat; background-size:100% 100%;">
           <div style="width:100%; height:100%; overflow:auto;">
             <div style="width:100%; height:1888px; background:lightgreen"></div>
@@ -34,8 +37,25 @@
         </div>
       </div>
     </div>
-    <div style="width:92%; height:688px; background:lightgreen; margin:0 auto 28px;">
-      <div style="width:72%; height:100%; display:inline-block; background:lightpink;"></div>
+    <div style="width:92%; margin:0 auto 28px;">
+      <div style="width:72%; height:100%; padding:0 48px 0 5px; box-sizing:border-box; display:inline-block; position:relative;">
+        <div style="width:93%; height:53px; top:-50px; left:0; margin:0 auto; padding:0 28px; position:absolute; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px; text-shadow:1px 1px 0.5px #000;">
+          <i class="mh-if music-box" style="margin-right:6px; font-size:23px; color:#00d8ff;"></i>
+          <span style="margin-right:3px; font-size:23px; font-weight:700; color:#CCC;">听友评论</span>
+          <span style="color:#BBB;">（已有 6946 条评论）</span>
+        </div>
+        <div style="margin:18px 0;">
+          <div class="glass-bg box-show" style="width:100%; height:108px; position:relative; border-radius:0;">
+            <label><textarea class="cube-bg box-show glow-input" style="width:97%; height:82%; top:50%; left:50%; position:absolute; transform:translate(-50%, -50%); resize:none;"></textarea></label>          </div>
+          <div style="height:50px; background:lightskyblue;">
+            <!--<i class="mh-if"></i>-->
+            <div class="super-btn-out" style="width:108px; height:30px; margin:8px 18px; float:right;">
+              <span class="super-btn-in" style="width:100px; height:22px; line-height:24px;">发表评论</span>
+            </div>
+          </div>
+        </div>
+        <div style="width:100%; height:688px; background:lightsalmon;"></div>
+      </div>
       <div style="width:28%; float:right; background:lightseagreen;">
         <div style="width:100%; height:288px; margin-bottom:28px; background:lightskyblue;"></div>
         <div style="width:100%; height:288px; margin-bottom:28px; background:lightskyblue;"></div>

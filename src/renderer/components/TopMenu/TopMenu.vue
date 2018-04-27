@@ -31,7 +31,7 @@
 				<img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:25px; margin:0 8px 0 0; padding:1.5px; float:left;" />
 			</router-link>
       <div @click="changeShowContentType('UserOperation')" style="display:inline-block; font-size:18px; cursor:pointer;">
-        <p class="text-hidden" style="max-width:108px; display:inline-block;">JesBrianJesBrian</p>
+        <p class="text-hidden" style="max-width:108px; display:inline-block; color:#CCC;">JesBrianJesBrian</p>
         <i style="width:0; height:0; margin:10px 0 0 6px; border-width:6px; border-style:solid; border-color:#999 transparent transparent transparent; float:right;"></i>
       </div>
     </div>
@@ -40,7 +40,7 @@
 		<div style="height:50%; top:15px; right:18px; position:absolute; z-index:9; color:#DDD;">
 			<i @click="changeShowContentType('ChooseTheme')" class="mh-if theme" style="-webkit-app-region:no-drag; margin:0 8px; font-size:21px;"></i>
 			<i @click="changeShowContentType('MessageContent')" class="mh-if feedback" style="-webkit-app-region:no-drag; margin:0 8px; font-size:23px;"></i>
-			<router-link to="/config" class="mh-if gear" style="-webkit-app-region:no-drag; margin:0 8px; font-size:23px;"></router-link>
+			<router-link to="/config" class="mh-if gear" style="-webkit-app-region:no-drag; margin:0 8px; color:#DDD; font-size:23px;"></router-link>
 			<i style="margin:0 18px; padding:8px 0 5px; border-right:2px solid #222;"></i>
 			<i @click="atest" class="mh-if lessen" style="-webkit-app-region:no-drag; margin:0 2px; font-size:23px;"></i>
 			<i @click="closeWindow" class="mh-if close" style="-webkit-app-region:no-drag; margin:0 2px; font-size:23px;"></i>
@@ -105,7 +105,7 @@ export default {
 
 <style scoped>
   .close-show-content {
-    top:0; right:6px; position:absolute; font-size:28px; cursor:pointer;
+    top:-2.8px; right:2px; position:absolute; font-size:28px; cursor:pointer;
   }
   .close-show-content:hover {
     color:#DDD;
