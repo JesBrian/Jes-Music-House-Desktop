@@ -2,7 +2,7 @@
 	<div class="glass-bg box-show ban-select" style="width:100%; height:46px; bottom:0; left:0; position:fixed; border-radius:0;  color:#AAA; text-align:center; line-height:44px;">
 		<div style="width:188px; height:100%; float:left; text-align:center;">
 			<i class="mh-if double-arrow-left" style="margin:1px 0 0 33px; float:left; font-size:22px;"></i>
-			<i class="mh-if play" style="display:inline-block; font-size:35px;"></i>
+			<i @click="changePlayStatus" :class="$store.state.Music.playStatus ? 'stop' : 'play'" class="mh-if" style="display:inline-block; font-size:35px;"></i>
 			<i class="mh-if double-arrow-right" style="margin:1px 28px 0 0; float:right; font-size:22px;"></i>
 		</div>
 		<div style="width:600px; height:100%; float:left;">
@@ -80,6 +80,9 @@ export default {
   },
 
   methods: {
+    changePlayStatus () {
+      this.$store.commit('CHANGE_PLAY_STATUS')
+    },
     changePlayModel () {
       let type = ''
       if (this.playModel === 'loop') {

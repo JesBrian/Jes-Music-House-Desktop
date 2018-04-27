@@ -4,7 +4,7 @@ const state = {
 
 const mutations = {
   /**
-   * 改变拟态框类型
+   * 展示 / 关闭 操作提示框
    * @param state
    */
   SHOW_TIPS (state, str = '') {
@@ -13,7 +13,6 @@ const mutations = {
       clearTimeout(state.timer)
       state.timer = setTimeout(() => {
         state.tips = ''
-        console.log(666)
       }, 3688)
     } else {
       clearTimeout(state.timer)
@@ -22,9 +21,9 @@ const mutations = {
 }
 
 const actions = {
-  someAsyncTask ({ commit }) {
-    // do something async
-  }
+  // someAsyncTask ({ commit }) {
+  // do something async
+  // }
 }
 
 export default {

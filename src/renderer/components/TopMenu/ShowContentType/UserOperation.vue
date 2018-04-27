@@ -3,7 +3,7 @@
     <div class="box-show" style="width:100%; height:48px; position:relative;">
       <slot />
       <p class="text-hidden" style="max-width:138px; margin-left:18px; display:inline-block; line-height:48px; letter-spacing:0.68px; font-size:16px;">JesBrianJesBrianJesBrianJesBrianJesBrian</p>
-      <div class="super-btn-out" style="width:68px; height:28px; margin:9px 38px 0 0; float:right;">
+      <div @click="userSignIn" class="super-btn-out" style="width:68px; height:28px; margin:9px 38px 0 0; float:right;">
         <span class="super-btn-in mh-if sign-in" style="width:60px; height:21px; top:50%; line-height:20px;"> 签到</span>
       </div>
     </div>
@@ -71,7 +71,14 @@
 
 <script>
 export default {
-  name: 'UserOperation'
+  name: 'UserOperation',
+
+  methods: {
+    userSignIn () {
+      this.$parent.closeShowContent()
+      this.$store.commit('SHOW_TIPS', '签到成功，积分+2')
+    }
+  }
 }
 </script>
 
