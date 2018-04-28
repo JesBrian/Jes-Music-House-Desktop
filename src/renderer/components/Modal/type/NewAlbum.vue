@@ -11,15 +11,15 @@
       <p style="text-align:left; font-size:19px; color:#AAA; line-height:1.8em;">
         <i class="mh-if music-info" style="margin-right:8px; color:lightgreen; font-size:21px;"></i>新歌单标题：
       </p>
-      <input type="text" class="glass-bg box-show glow-input" style="width:88%; padding:5px 8px; font-size:18px; line-height:1.2em; color:#CCC; letter-spacing:1.3px;" placeholder="请输入新歌单标题："/>
+      <input v-model="albumName" class="glass-bg box-show glow-input" style="width:88%; padding:6px 8px 4px; font-size:20px; line-height:1em; color:#CCC; letter-spacing:1.3px;" placeholder="请输入新歌单标题："/>
     </div>
 
     <div style="width:90%; margin:0 auto;">
-      <div class="super-btn-out" style="width:108px; height:33px; margin-top:15px; float:left;">
+      <div @click="newAlbum" class="super-btn-out" style="width:108px; height:33px; margin-top:15px; float:left;">
         <span class="super-btn-in mh-if makesure" style="width:100px; height:24px; top:51%; line-height:25px;"> 确认新建</span>
       </div>
-      <div class="super-btn-out" style="width:108px; height:33px; margin-top:15px; float:right;">
-        <span @click="closeModal" class="super-btn-in mh-if cancel" style="width:100px; height:24px; top:51%; line-height:25px;"> 取消返回</span>
+      <div @click="closeModal" class="super-btn-out" style="width:108px; height:33px; margin-top:15px; float:right;">
+        <span class="super-btn-in mh-if cancel" style="width:100px; height:24px; top:51%; line-height:25px;"> 取消返回</span>
       </div>
     </div>
   </div>
@@ -29,7 +29,23 @@
 export default {
   name: 'NewAlbum',
 
+  data () {
+    return {
+      albumName: ''
+    }
+  },
+
   methods: {
+    newAlbum () {
+      if (this.albumName === '') {
+        this.$store.commit('SHOW_TIPS', '请输入歌单名')
+        return false
+      }
+
+      this.closeModal()
+      this.$store.commit('SHOW_TIPS', '已创建新歌单')
+    },
+
     closeModal () {
       this.$parent.closeModal()
     }

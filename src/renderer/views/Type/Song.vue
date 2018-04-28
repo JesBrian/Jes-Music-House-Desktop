@@ -4,7 +4,9 @@
 
       <div style="width:36%; height:100%; float:left; position:relative;">
         <div style="width:100%; height:280px; margin:68px 0 28px; box-sizing:border-box;">
-          <div class="glass-bg box-show" style="width:288px; height:280px; margin:0 auto; border-radius:50%;"></div>
+          <div class="glass-bg box-show" style="width:288px; height:280px; margin:0 auto; position:relative; border-radius:50%;">
+            <img v-lazy="'http://p1.music.126.net/Qgrn5ptCMLdd9MAngNWURA==/17868163463382870.jpg?param=130y130'" class="glass-bg" style="width:73%; height:73%; top:51%; left:50%; position:absolute; transform:translate(-50%,-50%); border-radius:50%;" />
+          </div>
         </div>
         <div :class="{'active' : !$store.state.Music.playStatus}" id="playPointer">
           <img src="../../../../static/images/default/Neo-Player.png" style="width:100%;"/>
@@ -48,9 +50,9 @@
           <div class="glass-bg box-show" style="width:100%; height:108px; position:relative; border-radius:0;">
             <label><textarea class="cube-bg box-show glow-input" style="width:97%; height:82%; top:50%; left:50%; position:absolute; transform:translate(-50%, -50%); resize:none;"></textarea></label>          </div>
           <div style="height:50px; background:lightskyblue;">
-            <!--<i class="mh-if"></i>-->
+            <i class="mh-if exciting" style="float:left; color:#DDD;"></i>
             <div class="super-btn-out" style="width:108px; height:30px; margin:8px 18px; float:right;">
-              <span class="super-btn-in" style="width:100px; height:22px; line-height:24px;">发表评论</span>
+              <span class="super-btn-in mh-if comment" style="width:100px; height:22px; line-height:24px;"> 发表评论</span>
             </div>
           </div>
         </div>
@@ -80,7 +82,7 @@ export default {
 
 <style scoped>
   #playPointer {
-    width:108px; top:38px; left:-18px; display:inline-block; position:absolute;
+    width:108px; top:43px; left:-3px; display:inline-block; position:absolute;
     transform-origin:12.8px 12.8px;
     transform:rotate(-12deg);
     -webkit-transition: transform 0.38s;
