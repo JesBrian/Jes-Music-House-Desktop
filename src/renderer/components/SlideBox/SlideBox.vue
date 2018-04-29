@@ -18,7 +18,7 @@
 <script>
 import {swiper, swiperSlide} from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
-// import baseLoading from '../../../../components/common/loading/baseLoading.vue'
+// import baseLoading from '../../../../components/common/loading/BaseLoading.vue'
 
 export default {
   name: 'SlideBox',
