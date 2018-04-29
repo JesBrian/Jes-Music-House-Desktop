@@ -7,9 +7,11 @@
     <left-menu style="z-index:55;"/>
 
     <!-- 主体内容 -->
-    <div style="width:100%; height:638px; padding:56px 3px 45px 228.5px; box-sizing:border-box; background:#262626;">
+    <div style="width:100%; height:638px; padding:48px 3px 45px 228.5px; box-sizing:border-box; background:#262626;">
       <div id="mainContent" class="cube-bg box-show" style="width:100%; height:100%; padding-top:8px; box-sizing:border-box; overflow:auto;">
-        <router-view />
+        <transition :name="viewsTransationEffect">
+          <router-view />
+        </transition>
       </div>
     </div>
 
@@ -36,15 +38,47 @@ export default {
 
   components: {Tips, Modal, MusicPlayer, LeftMenu, TopMenu},
 
+  data () {
+    return {
+      viewsTransationEffect: ''
+    }
+  },
+
   watch: {
-    $route () {
+    '$route' (to, from) {
       document.getElementById('mainContent').scrollTop = 0
+      if (to.fullPath.split('/')[1] === 'song') {
+        this.viewsTransationEffect = 'slide-song'
+      }
+      // if (this.viewsTransationEffect === 'slide-song') {
+      //   this.viewsTransationEffect = ''
+      // }
     }
   }
 }
 </script>
 
 <style scoped>
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
+
+
+  .slide-song-enter {
+    transform: translate(100%);
+  }
+  .slide-song-enter-active {
+    transition: all 1s ease-in-out;
+  }
+  .slide-song-leave-active {
+    transform: translate(-100%);
+    transition: all  1s ease-in-out;
+  }
+
+
   ::-webkit-scrollbar {
     width: 8px;
     height: 6px;

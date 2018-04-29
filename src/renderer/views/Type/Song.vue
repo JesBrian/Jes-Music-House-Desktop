@@ -1,6 +1,10 @@
 <template>
-	<div>
-		<div style="width:95%; height:428px; margin:0 auto 58px;">
+	<div class="glass-bg">
+		<div style="width:95%; height:428px; margin:0 auto 58px; position:relative;">
+
+      <div @click="goBackView" class="super-btn-out" style="width:38px; height:38px; top:16px; right:8px; position:absolute;">
+        <i class="super-btn-in mh-if lessen" style="width:30px; height:30px; font-size:26px; line-height:32px;"></i>
+      </div>
 
       <div style="width:36%; height:100%; float:left; position:relative;">
         <div style="width:100%; height:280px; margin:68px 0 28px; box-sizing:border-box;">
@@ -48,7 +52,8 @@
         </div>
         <div style="margin:18px 0;">
           <div class="glass-bg box-show" style="width:100%; height:108px; position:relative; border-radius:0;">
-            <label><textarea class="cube-bg box-show glow-input" style="width:97%; height:82%; top:50%; left:50%; position:absolute; transform:translate(-50%, -50%); resize:none;"></textarea></label>          </div>
+            <label><textarea class="cube-bg box-show glow-input" style="width:97%; height:82%; top:50%; left:50%; position:absolute; transform:translate(-50%, -50%); resize:none;"></textarea></label>
+          </div>
           <div style="height:50px; margin-left:18px; line-height:50px;">
             <i class="mh-if exciting" style="float:left; color:#DDD;"></i>
             <div class="super-btn-out" style="width:108px; height:30px; margin:8px 18px; float:right;">
@@ -61,6 +66,12 @@
           <div style="height:53px; margin:0 auto; padding:0 23px; box-sizing:border-box; box-shadow:0 3px 3px -3px #999; line-height:68px; text-shadow:1px 1px 0.5px #000;">
             <span style="font-size:16px; color:#CCC;">精彩评论</span>
           </div>
+          <ul style="">
+            <li v-for="n in 5" class="box-shadow">
+              <div style="height:68px;"></div>
+            </li>
+          </ul>
+
           <div style="height:53px; margin:0 auto; padding:0 23px; box-sizing:border-box; box-shadow:0 3px 3px -3px #999; line-height:68px; text-shadow:1px 1px 0.5px #000;">
             <span style="font-size:16px; color:#CCC;">最新评论</span>
           </div>
@@ -83,6 +94,10 @@ export default {
   methods: {
     showModal (type = '') {
       this.$store.commit('CHANGE_MODAL_TYPE', type)
+    },
+
+    goBackView () {
+      this.$router.back(-1)
     }
   }
 }
@@ -100,7 +115,7 @@ export default {
   }
 
   .disk-bg {
-    width:70%; height:70%; margin:40px 45px; border-radius:50%;
+    width:70%; height:70%; margin:40px 48px; border-radius:50%;
     display:inline-block;
   }
   .disk-bg.active {
