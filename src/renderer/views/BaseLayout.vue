@@ -8,12 +8,19 @@
 
     <!-- 主体内容 -->
     <div style="width:100%; height:638px; padding:48px 3px 45px 228.5px; box-sizing:border-box; background:#262626;">
-      <div id="mainContent" class="cube-bg box-show" style="width:100%; height:100%; padding-top:8px; box-sizing:border-box; overflow:auto;">
-        <transition :name="viewsTransationEffect">
-          <router-view />
-        </transition>
+      <div id="mainContent" class="cube-bg box-show" style="width:100%; height:100%; padding-top:8px; box-sizing:border-box; overflow:auto; position:relative;">
+        <router-view />
       </div>
     </div>
+
+    <!-- 歌曲详细页面 -->
+    <transition name="slide-song">
+    <div v-if="$store.state.Music.showMusicView" class="song-view" style="width:100%; height:638px; top:0; left:0; padding:48px 3px; box-sizing:border-box; position:fixed; background:#262626;">
+      <div class="cube-bg box-show" style="width:100%; height:100%; padding-top:8px; box-sizing:border-box; overflow:auto; position:relative;">
+        <song-view />
+      </div>
+    </div>
+    </transition>
 
     <!-- 拟态框 -->
     <modal />
@@ -32,50 +39,33 @@ import LeftMenu from '../components/LeftMenu/LeftMenu.vue'
 import MusicPlayer from '../components/MusicPlayer/MusicPlayer.vue'
 import Modal from '../components/Modal/Modal.vue'
 import Tips from '../components/Tips/Tips.vue'
+import SongView from './SongView.vue'
 
 export default {
   name: 'BaseLayout',
 
-  components: {Tips, Modal, MusicPlayer, LeftMenu, TopMenu},
-
-  data () {
-    return {
-      viewsTransationEffect: ''
-    }
-  },
+  components: {SongView, Tips, Modal, MusicPlayer, LeftMenu, TopMenu},
 
   watch: {
     '$route' (to, from) {
       document.getElementById('mainContent').scrollTop = 0
-      if (to.fullPath.split('/')[1] === 'song') {
-        this.viewsTransationEffect = 'slide-song'
-      }
-      // if (this.viewsTransationEffect === 'slide-song') {
-      //   this.viewsTransationEffect = ''
-      // }
+      this.$store.commit('CLOSE_MUSIC_VIEW')
     }
   }
 }
 </script>
 
 <style scoped>
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
-  }
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0;
-  }
 
-
-  .slide-song-enter {
-    transform: translate(100%);
+  .song-view {
+    width:100%; top:0; left:0; position:absolute; z-index:55;
   }
-  .slide-song-enter-active {
+  .slide-song-enter, .slide-song-leave-active {
+    transform: translate(-80%, 80%) scale(0 , 0);
+    opacity:0;
+  }
+  .slide-song-enter-active, .slide-song-leave-active {
     transition: all 1s ease-in-out;
-  }
-  .slide-song-leave-active {
-    transform: translate(-100%);
-    transition: all  1s ease-in-out;
   }
 
 

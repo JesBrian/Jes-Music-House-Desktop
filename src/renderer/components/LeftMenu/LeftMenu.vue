@@ -104,11 +104,11 @@
 		</div>
 
 		<div class="now-song box-show">
-			<router-link class="now-song-img box-show" to="/song">
+			<div @click="changeShowMusicView" class="now-song-img box-show">
 				<img src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:100%; height:100%;" />
         <div class="mh-if enlarge"></div>
-			</router-link>
-      <router-link to="/song" class="now-song-name">Song Name</router-link>
+			</div>
+      <div @click="changeShowMusicView" class="now-song-name">Song Name</div>
       <div class="now-singer text-hidden">
         <router-link to="/singer">环境是</router-link>
         <i style="margin:0 1px;">/</i>
@@ -135,6 +135,10 @@ export default {
   },
 
   methods: {
+    changeShowMusicView () {
+      this.$store.commit('CHANGE_SHOW_MUSIC_VIEW')
+    },
+
     changeCollectionAlbumShow () {
       this.collectionAlbumShow = !this.collectionAlbumShow
     },

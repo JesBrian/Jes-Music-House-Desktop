@@ -8,12 +8,12 @@
 
       <div style="width:36%; height:100%; float:left; position:relative;">
         <div style="width:100%; height:280px; margin:68px 0 28px; box-sizing:border-box;">
-          <div style="width:288px; height:285px; margin:0 auto; position:relative; background:url(../../../../static/images/default/disk.png) no-repeat; background-size:100% 100%; border-radius:50%;">
+          <div style="width:288px; height:285px; margin:0 auto; position:relative; background:url(../../../static/images/default/disk.png) no-repeat; background-size:100% 100%; border-radius:50%;">
             <img :class="{'active' : $store.state.Music.playStatus}" v-lazy="'http://p1.music.126.net/Qgrn5ptCMLdd9MAngNWURA==/17868163463382870.jpg?param=130y130'" class="glass-bg disk-bg" />
           </div>
         </div>
         <div :class="{'active' : !$store.state.Music.playStatus}" id="playPointer">
-          <img src="../../../../static/images/default/Neo-Player.png" style="width:100%;"/>
+          <img src="../../../static/images/default/Neo-Player.png" style="width:100%;"/>
         </div>
         <div style="width:100%; text-align:center;">
           <div class="super-btn-out" style="width:68px; height:29px; margin:10px 1px 0;">
@@ -36,7 +36,7 @@
           <p style="font-size:22px;">The Name of the Song</p>
           <p style="line-height:1.6em; font-size:15px;">sdvsdvsdbdfbhusibhfdbukvsodvsdvsdrhukvfsdbhifsdvbuigesdd</p>
         </div>
-        <div style="width:100%; height:388px; padding:38px 52px 38px 68px; box-sizing:border-box; background:url(../../../../static/images/default/lyric-bg.png) no-repeat; background-size:100% 100%;">
+        <div style="width:100%; height:388px; padding:38px 52px 38px 68px; box-sizing:border-box; background:url(../../../static/images/default/lyric-bg.png) no-repeat; background-size:100% 100%;">
           <div style="width:100%; height:100%; overflow:auto;">
             <div style="width:100%; height:1888px; background:lightgreen"></div>
           </div>
@@ -87,7 +87,7 @@
 
 <script>
 export default {
-  name: 'Song',
+  name: 'SongView',
 
   components: {},
 
@@ -97,7 +97,7 @@ export default {
     },
 
     goBackView () {
-      this.$router.back(-1)
+      this.$store.commit('CLOSE_MUSIC_VIEW')
     }
   }
 }
@@ -115,7 +115,7 @@ export default {
   }
 
   .disk-bg {
-    width:70%; height:70%; margin:40px 48px; border-radius:50%;
+    width:70%; height:70%; margin:40px 47px; border-radius:50%;
     display:inline-block;
   }
   .disk-bg.active {
