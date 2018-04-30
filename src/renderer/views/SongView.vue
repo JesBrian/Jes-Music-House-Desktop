@@ -1,15 +1,15 @@
 <template>
-	<div class="glass-bg">
-		<div style="width:95%; height:428px; margin:0 auto 58px; position:relative;">
+	<div>
+		<div style="width:95%; height:468px; margin:0 auto 68px; position:relative;">
 
       <div @click="goBackView" class="super-btn-out" style="width:38px; height:38px; top:16px; right:8px; position:absolute;">
         <i class="super-btn-in mh-if lessen" style="width:30px; height:30px; font-size:26px; line-height:32px;"></i>
       </div>
 
-      <div style="width:36%; height:100%; float:left; position:relative;">
-        <div style="width:100%; height:280px; margin:68px 0 28px; box-sizing:border-box;">
-          <div style="width:288px; height:285px; margin:0 auto; position:relative; background:url(../../../static/images/default/disk.png) no-repeat; background-size:100% 100%; border-radius:50%;">
-            <img :class="{'active' : $store.state.Music.playStatus}" v-lazy="'http://p1.music.126.net/Qgrn5ptCMLdd9MAngNWURA==/17868163463382870.jpg?param=130y130'" class="glass-bg disk-bg" />
+      <div style="width:40%; height:100%; float:left; position:relative;">
+        <div style="width:100%; margin:38px 0 28px; box-sizing:border-box;">
+          <div :class="{'active' : $store.state.Music.playStatus}" class="disk-bg">
+            <img v-lazy="'http://p1.music.126.net/Qgrn5ptCMLdd9MAngNWURA==/17868163463382870.jpg?param=130y130'" class="glass-bg play-list-img" />
           </div>
         </div>
         <div :class="{'active' : !$store.state.Music.playStatus}" id="playPointer">
@@ -31,12 +31,12 @@
         </div>
       </div>
 
-      <div style="width:62%; float:right; ">
+      <div style="width:60%; float:right; ">
         <div style="width:92%; margin:18px auto 0; color:#DDD;">
           <p style="font-size:22px;">The Name of the Song</p>
           <p style="line-height:1.6em; font-size:15px;">sdvsdvsdbdfbhusibhfdbukvsodvsdvsdrhukvfsdbhifsdvbuigesdd</p>
         </div>
-        <div style="width:100%; height:388px; padding:38px 52px 38px 68px; box-sizing:border-box; background:url(../../../static/images/default/lyric-bg.png) no-repeat; background-size:100% 100%;">
+        <div style="width:100%; height:438px; padding:38px 52px 38px 68px; box-sizing:border-box; background:url(../../../static/images/default/lyric-bg.png) no-repeat; background-size:100% 100%;">
           <div style="width:100%; height:100%; overflow:auto;">
             <div style="width:100%; height:1888px; background:lightgreen"></div>
           </div>
@@ -51,7 +51,7 @@
           <span style="color:#BBB;">（已有 6946 条评论）</span>
         </div>
         <div style="margin:18px 0;">
-          <div class="glass-bg box-show" style="width:100%; height:108px; position:relative; border-radius:0;">
+          <div class="glass-bg box-show" style="width:100%; height:108px; position:relative;">
             <label><textarea class="cube-bg box-show glow-input" style="width:97%; height:82%; top:50%; left:50%; position:absolute; transform:translate(-50%, -50%); resize:none;"></textarea></label>
           </div>
           <div style="height:50px; margin-left:18px; line-height:50px;">
@@ -105,18 +105,21 @@ export default {
 
 <style scoped>
   #playPointer {
-    width:108px; top:43px; left:-3px; display:inline-block; position:absolute;
+    width:138px; top:18px; left:-3px; display:inline-block; position:absolute;
     transform-origin:12.8px 12.8px;
-    transform:rotate(-12deg);
+    transform:rotate(-13deg);
     -webkit-transition: transform 0.38s;
   }
   #playPointer.active {
-    transform:rotate(-46deg);
+    transform:rotate(-38deg);
   }
 
-  .disk-bg {
-    width:70%; height:70%; margin:40px 47px; border-radius:50%;
+  .play-list-img {
+    width:70%; height:70%; margin:44px 52px; border-radius:50%;
     display:inline-block;
+  }
+  .disk-bg {
+    width:320px; height:320px; left:-8px; margin:12px 28px; display:inline-block; background:url(../../../static/images/default/disk.png) no-repeat; background-size:100% 100%; border-radius:50%;
   }
   .disk-bg.active {
     animation: goCircle 18s infinite linear; /*匀速 循环*/

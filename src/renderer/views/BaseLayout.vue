@@ -8,15 +8,15 @@
 
     <!-- 主体内容 -->
     <div style="width:100%; height:638px; padding:48px 3px 45px 228.5px; box-sizing:border-box; background:#262626;">
-      <div id="mainContent" class="cube-bg box-show" style="width:100%; height:100%; padding-top:8px; box-sizing:border-box; overflow:auto; position:relative;">
+      <div id="mainContent" class="box-show" style="width:100%; height:100%; padding-top:8px; box-sizing:border-box; overflow:auto;">
         <router-view />
       </div>
     </div>
 
     <!-- 歌曲详细页面 -->
     <transition name="slide-song">
-    <div v-if="$store.state.Music.showMusicView" class="song-view" style="width:100%; height:638px; top:0; left:0; padding:48px 3px; box-sizing:border-box; position:fixed; background:#262626;">
-      <div class="cube-bg box-show" style="width:100%; height:100%; padding-top:8px; box-sizing:border-box; overflow:auto; position:relative;">
+    <div v-if="$store.state.Music.showMusicView" class="song-view" style="width:100%; height:638px; top:0; left:0; padding:48px 2px 45px; box-sizing:border-box; position:fixed; background:#181818;">
+      <div style="width:100%; height:100%; padding-top:8px; box-sizing:border-box; overflow:auto;">
         <song-view />
       </div>
     </div>
@@ -49,7 +49,9 @@ export default {
   watch: {
     '$route' (to, from) {
       document.getElementById('mainContent').scrollTop = 0
-      this.$store.commit('CLOSE_MUSIC_VIEW')
+      if (this.$store.state.Music.showMusicView) {
+        this.$store.commit('CLOSE_MUSIC_VIEW')
+      }
     }
   }
 }
@@ -65,7 +67,7 @@ export default {
     opacity:0;
   }
   .slide-song-enter-active, .slide-song-leave-active {
-    transition: all 1s ease-in-out;
+    transition: all 0.8s ease-in-out;
   }
 
 
