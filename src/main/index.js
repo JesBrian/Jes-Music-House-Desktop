@@ -1,6 +1,6 @@
 'use strict'
 
-import { app, ipcMain, Tray, BrowserWindow } from 'electron'
+import { app, ipcMain, Tray, BrowserWindow, shell } from 'electron'
 const electron = require('electron')
 const path = require('path')
 
@@ -80,6 +80,13 @@ app.on('activate', () => {
 })
 
 /**
+ * PC本地浏览器打开网页
+ */
+ipcMain.on('open-browser-url', (event, arg) => {
+  shell.openExternal(arg)
+})
+
+/**
  * 窗口最小化
  */
 ipcMain.on('hide-window', () => {
@@ -93,7 +100,9 @@ ipcMain.on('hide-main-window', () => {
   mainWindow.hide()
 })
 
-// 退出
+/**
+ * 退出
+ */
 ipcMain.on('window-all-closed', () => {
   app.quit()
 })

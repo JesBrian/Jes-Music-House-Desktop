@@ -30,18 +30,18 @@
         </router-link>
       </li>
       <li>
-        <router-link to="/user" class="user-oper-cell" style="display:block; line-height:2.3em; text-indent:2em;">
+        <a @click="openBrowser('http://music.jesbrian.cn/#/vip')" href="javascript:void(0)" class="user-oper-cell" style="display:block; line-height:2.3em; text-indent:2em;">
           <i class="mh-if diamond" style="margin-right:8px;"></i>
           <span>VIP会员</span>
           <i class="mh-if double-arrow-right" style="margin-right:23px; float:right; font-size:12px;"></i>
-        </router-link>
+        </a>
       </li>
       <li>
-        <router-link to="/user" class="user-oper-cell" style="display:block; line-height:2.3em; text-indent:2em;">
+        <a @click="openBrowser('http://music.jesbrian.cn/#/level')" href="javascript:void(0)" class="user-oper-cell" style="display:block; line-height:2.3em; text-indent:2em;">
           <i class="mh-if level" style="margin-right:8px;"></i>
           <span>账号等级</span>
           <i class="mh-if double-arrow-right" style="margin-right:23px; float:right; font-size:12px;"></i>
-        </router-link>
+        </a>
       </li>
     </ul>
     <ul class="box-shadow" style="width:99%; margin:0 auto;">
@@ -70,6 +70,8 @@
 </template>
 
 <script>
+var ipcRenderer = require('electron').ipcRenderer
+
 export default {
   name: 'UserOperation',
 
@@ -77,6 +79,10 @@ export default {
     userSignIn () {
       this.$parent.closeShowContent()
       this.$store.commit('SHOW_TIPS', '签到成功，积分+2')
+    },
+
+    openBrowser (url = '') {
+      ipcRenderer.send('open-browser-url', url)
     }
   }
 }
