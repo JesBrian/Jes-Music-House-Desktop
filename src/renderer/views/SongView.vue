@@ -50,18 +50,9 @@
           <span style="margin-right:3px; font-size:23px; font-weight:700; color:#CCC;">听友评论</span>
           <span style="color:#BBB;">（已有 6946 条评论）</span>
         </div>
-        <div style="margin:18px 0;">
-          <div class="glass-bg box-show" style="width:100%; height:108px; position:relative;">
-            <label><textarea class="cube-bg box-show glow-input" style="width:97%; height:82%; top:50%; left:50%; position:absolute; transform:translate(-50%, -50%); resize:none;"></textarea></label>
-          </div>
-          <div style="height:50px; margin-left:18px; line-height:50px;">
-            <i class="mh-if exciting" style="float:left; color:#DDD;"></i>
-            <div class="super-btn-out" style="width:108px; height:30px; margin:8px 18px; float:right;">
-              <span class="super-btn-in mh-if comment" style="width:100px; height:22px; line-height:24px;"> 发表评论</span>
-            </div>
-            <span style="float:right; color:#AAA;">138</span>
-          </div>
-        </div>
+
+        <new-comment />
+
         <div style="width:100%;">
           <div style="height:53px; margin:0 auto; padding:0 23px; box-sizing:border-box; box-shadow:0 3px 3px -3px #999; line-height:68px; text-shadow:1px 1px 0.5px #000;">
             <span style="font-size:16px; color:#CCC;">精彩评论</span>
@@ -84,11 +75,12 @@
 
 <script>
 import CommentGroup from '../components/Comment/CommentGroup.vue'
+import NewComment from '../components/Comment/NewComment.vue'
 
 export default {
   name: 'SongView',
 
-  components: {CommentGroup},
+  components: {NewComment, CommentGroup},
 
   methods: {
     showModal (type = '') {
