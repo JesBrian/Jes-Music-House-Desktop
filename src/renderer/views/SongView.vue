@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div style="width:100%; height:100%; padding-top:8px; box-sizing:border-box; overflow:auto;">
 		<div style="width:95%; height:468px; margin:0 auto 68px; position:relative;">
 
       <div @click="goBackView" class="super-btn-out" style="width:38px; height:38px; top:16px; right:8px; position:absolute;">
@@ -66,15 +66,12 @@
           <div style="height:53px; margin:0 auto; padding:0 23px; box-sizing:border-box; box-shadow:0 3px 3px -3px #999; line-height:68px; text-shadow:1px 1px 0.5px #000;">
             <span style="font-size:16px; color:#CCC;">精彩评论</span>
           </div>
-          <ul style="">
-            <li v-for="n in 5" class="box-shadow">
-              <div style="height:68px;"></div>
-            </li>
-          </ul>
+          <comment-group />
 
           <div style="height:53px; margin:0 auto; padding:0 23px; box-sizing:border-box; box-shadow:0 3px 3px -3px #999; line-height:68px; text-shadow:1px 1px 0.5px #000;">
             <span style="font-size:16px; color:#CCC;">最新评论</span>
           </div>
+          <comment-group />
         </div>
       </div>
       <div style="width:28%; float:right; background:lightseagreen;">
@@ -86,10 +83,12 @@
 </template>
 
 <script>
+import CommentGroup from '../components/Comment/CommentGroup.vue'
+
 export default {
   name: 'SongView',
 
-  components: {},
+  components: {CommentGroup},
 
   methods: {
     showModal (type = '') {

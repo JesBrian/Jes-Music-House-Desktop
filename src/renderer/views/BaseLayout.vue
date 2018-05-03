@@ -15,11 +15,9 @@
 
     <!-- 歌曲详细页面 -->
     <transition name="slide-song">
-    <div v-if="$store.state.Music.showMusicView" class="song-view" style="width:100%; height:638px; top:0; left:0; padding:48px 2px 45px; box-sizing:border-box; position:fixed; background:#181818;">
-      <div style="width:100%; height:100%; padding-top:8px; box-sizing:border-box; overflow:auto;">
+      <div v-if="$store.state.Music.showMusicView" class="song-view" style="width:100%; height:638px; top:0; left:0; padding:48px 2px 45px; box-sizing:border-box; position:fixed; background:#181818;">
         <song-view />
       </div>
-    </div>
     </transition>
 
     <!-- 拟态框 -->
@@ -67,7 +65,7 @@ export default {
     opacity:0;
   }
   .slide-song-enter-active, .slide-song-leave-active {
-    transition: all 0.8s ease-in-out;
+    transition: all 0.538s ease-in-out;
   }
 
 
