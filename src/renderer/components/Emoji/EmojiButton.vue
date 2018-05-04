@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'Eemoji',
+  name: 'EmojiButton',
 
   methods: {
     sendEmoji () {
@@ -17,13 +17,9 @@ export default {
 <style scoped>
   i.exciting {
     margin-right: 38px;
+    color:#AAA;
   }
-
   i.exciting:hover {
-    color: lightgreen;
-  }
-
-  i.exciting:active {
-    color: lightseagreen;
+    color: #00d8ff;
   }
 </style>

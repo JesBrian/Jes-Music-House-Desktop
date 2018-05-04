@@ -1,7 +1,7 @@
 <template>
   <!-- 单个小表情组件 -->
   <a class="emoji-cell" :title="emojiInfo" @click="getEmoji" @mouseenter="showEmoji" @mouseleave="hiddenEmoji">
-    <img :src="$store.state.baseHost + 'img/emoji/' + this.index + '.png'"/>
+    <img :src="'../../../../static/images/emoji/' + this.index + '.png'"/>
   </a>
 </template>
 
