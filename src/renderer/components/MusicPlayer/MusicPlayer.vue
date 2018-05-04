@@ -11,7 +11,7 @@
 				<div class="progress-bar box-show" style="width:488px; height:10px; position:relative; background:#080808; border-radius:6px;">
 					<div style="width:80%; height:6px; top:2.4px; left:0; position:absolute; background:#181818; border-radius:6px;"></div>
 					<div style="width:60%; height:100%; top:0; left:0; position:absolute; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:6px;">
-            			<a class="pointer glass-bg box-show"></a>
+            			<a class="pointer box-show"></a>
 					</div>
 				</div>
 			</div>
@@ -21,7 +21,7 @@
 			<i @click="changeVolumeStatus" :class="volumeStatus ? 'volume-on' : 'volume-off'" class="mh-if" style="font-size:24px;"></i>
 			<div :class="{'ban-change': !volumeStatus}" class="volume-bar box-show">
 				<div style="width:60%; height:88%; margin-top:1px; position:relative; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:5px;">
-					<a class="pointer glass-bg box-show" style="top:-4.5px;"></a>
+					<a class="pointer box-show" style="top:-4.5px;"></a>
 				</div>
 			</div>
 		</div>
@@ -146,10 +146,10 @@ export default {
   }
 
   .pointer {
-    width:18px; height:18px; top:-4px; right:-4px; position:absolute; border-radius:9px;
+    width:18px; height:18px; top:-4px; right:-4px; position:absolute; border-radius:50%; background:url(../../../../static/images/default/slide-pointer.png) no-repeat; background-size:100% 100%;
   }
   .pointer:hover {
-    box-shadow: inset 0 2px 1px -1px rgba(255, 255, 255, 0.2), inset 0 -2px 1px -1px rgba(0, 0, 0, 0.2), 0 12px 12px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 0 0 1px #272727, 0 0 8px #2af1fc;
+    box-shadow: inset 0 2px 1px -1px rgba(255, 255, 255, 0.2), inset 0 -2px 1px -1px rgba(0, 0, 0, 0.2), 0 12px 12px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 0 0 1px #272727, 0 0.5px 8px #2af1fc;
   }
   .volume-bar {
     width:138px; height:10px; margin:17px 0 0; float:right; background:#080808; border-radius:6px; cursor:pointer;
