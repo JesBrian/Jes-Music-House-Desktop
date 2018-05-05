@@ -8,24 +8,26 @@
 
       <div style="width:40%; height:100%; float:left; position:relative;">
         <div style="width:100%; margin:38px 0 28px; box-sizing:border-box;">
-          <div :class="{'active' : $store.state.Music.playStatus}" class="disk-bg">
-            <img v-lazy="'http://p1.music.126.net/Qgrn5ptCMLdd9MAngNWURA==/17868163463382870.jpg?param=130y130'" class="glass-bg play-list-img" />
+          <div class="box-show" style="width:320px; height:320px; left:-8px; margin:12px 28px; display:inline-block; border-radius:50%;">
+            <div :class="{'active' : $store.state.Music.playStatus}" class="disk-bg">
+              <img v-lazy="'http://p1.music.126.net/Qgrn5ptCMLdd9MAngNWURA==/17868163463382870.jpg?param=130y130'" class="glass-bg play-list-img" />
+            </div>
           </div>
         </div>
         <div :class="{'active' : !$store.state.Music.playStatus}" id="playPointer">
           <img src="../../../static/images/default/Neo-Player.png" style="width:100%;"/>
         </div>
-        <div style="width:100%; text-align:center;">
-          <div class="super-btn-out" style="width:68px; height:29px; margin:10px 1px 0;">
+        <div style="width:88%; text-align:center;">
+          <div class="super-btn-out" style="width:68px; height:29px; margin:10px 8px 0;">
             <span class="super-btn-in mh-if non-colloection" style="width:60px; height:20px; line-height:21px;"> 喜欢</span>
           </div>
-          <div @click="showModal('AddAlbum')" class="super-btn-out" style="width:68px; height:29px; margin:10px 1px 0;">
+          <div @click="showModal('AddAlbum')" class="super-btn-out" style="width:68px; height:29px; margin:10px 8px 0;">
             <span class="super-btn-in mh-if collection-music" style="width:60px; height:20px; line-height:21px;"> 收藏</span>
           </div>
-          <div class="super-btn-out" style="width:68px; height:29px; margin:10px 1px 0;">
+          <div class="super-btn-out" style="width:68px; height:29px; margin:10px 8px 0;">
             <span class="super-btn-in mh-if download" style="width:60px; height:20px; line-height:21px;"> 下载</span>
           </div>
-          <div @click="showModal('Share')" class="super-btn-out" style="width:68px; height:29px; margin:10px 1px 0;">
+          <div @click="showModal('Share')" class="super-btn-out" style="width:68px; height:29px; margin:10px 8px 0;">
             <span class="super-btn-in mh-if share" style="width:60px; height:20px; line-height:21px;"> 分享</span>
           </div>
         </div>
@@ -36,7 +38,7 @@
           <p style="font-size:22px;">The Name of the Song</p>
           <p style="line-height:1.6em; font-size:15px;">sdvsdvsdbdfbhusibhfdbukvsodvsdvsdrhukvfsdbhifsdvbuigesdd</p>
         </div>
-        <div style="width:100%; height:438px; padding:38px 52px 38px 68px; box-sizing:border-box; background:url(../../../static/images/default/lyric-bg.png) no-repeat; background-size:100% 100%;">
+        <div style="width:100%; height:438px; padding:38px 62px 38px 68px; box-sizing:border-box; background:url(../../../static/images/default/lyric-bg.png) no-repeat; background-size:100% 100%;">
           <div style="width:100%; height:100%; overflow:auto;">
             <div style="width:100%; height:1888px; background:lightgreen"></div>
           </div>
@@ -96,21 +98,20 @@ export default {
 
 <style scoped>
   #playPointer {
-    width:138px; top:18px; left:-3px; display:inline-block; position:absolute;
+    width:138px; top:8px; left:-23px; display:inline-block; position:absolute;
     transform-origin:12.8px 12.8px;
     transform:rotate(-13deg);
-    -webkit-transition: transform 0.38s;
+    transition: transform 0.38s;
   }
   #playPointer.active {
     transform:rotate(-38deg);
   }
 
   .play-list-img {
-    width:70%; height:70%; margin:44px 52px; border-radius:50%;
-    display:inline-block;
+    width:70%; height:70%; top:50%; left:50%; position:absolute; border-radius:50%; transform:translate(-50%, -50%);
   }
   .disk-bg {
-    width:320px; height:320px; left:-8px; margin:12px 28px; display:inline-block; background:url(../../../static/images/default/disk.png) no-repeat; background-size:100% 100%; border-radius:50%;
+    width:100%; height:100%; position:relative; background:url(../../../static/images/default/disk.png) no-repeat; background-size:100% 100%; border-radius:50%;
   }
   .disk-bg.active {
     animation: goCircle 18s infinite linear; /*匀速 循环*/

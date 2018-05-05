@@ -38,12 +38,18 @@ export default {
   methods: {
     newAlbum () {
       if (this.albumName === '') {
-        this.$store.commit('SHOW_TIPS', '请输入歌单名')
+        this.$store.commit('SHOW_TIPS', {
+          msg: '请输入歌单名',
+          type: 'info'
+        })
         return false
       }
 
       this.closeModal()
-      this.$store.commit('SHOW_TIPS', '已创建新歌单')
+      this.$store.commit('SHOW_TIPS', {
+        msg: '已创建新歌单',
+        type: 'info'
+      })
     },
 
     closeModal () {

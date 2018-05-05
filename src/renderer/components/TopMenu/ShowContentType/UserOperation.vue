@@ -78,7 +78,10 @@ export default {
   methods: {
     userSignIn () {
       this.$parent.closeShowContent()
-      this.$store.commit('SHOW_TIPS', '签到成功，积分+2')
+      this.$store.commit('SHOW_TIPS', {
+        msg: '签到成功，积分+2',
+        type: 'info'
+      })
     },
 
     openBrowser (url = '') {

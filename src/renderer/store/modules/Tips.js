@@ -1,5 +1,6 @@
 const state = {
-  tips: ''
+  tips: '',
+  tipsType: 'info'
 }
 
 const mutations = {
@@ -7,9 +8,10 @@ const mutations = {
    * 展示 / 关闭 操作提示框
    * @param state
    */
-  SHOW_TIPS (state, str = '') {
-    state.tips = str
-    if (str !== '') {
+  SHOW_TIPS (state, tipsObj) {
+    state.tips = tipsObj.msg
+    state.tipsType = tipsObj.type
+    if (tipsObj.msg !== '') {
       clearTimeout(state.timer)
       state.timer = setTimeout(() => {
         state.tips = ''
