@@ -27,7 +27,7 @@
 		</div>
 		<div>
 			<i @click="changePlayModel" :class="playModel" class="play-model mh-if">
-        <span class="glass-bg box-show">{{ playModel === 'loop' ? '循环列表': playModel === 'single-loop' ? '单曲循环' : '随机播放' }}</span>
+        <span class="glass-bg">{{ playModel === 'loop' ? '循环列表': playModel === 'single-loop' ? '单曲循环' : '随机播放' }}</span>
       </i>
 			<i class="mh-if lyrics" style="margin:5px; font-size:24px;"></i>
 			<i @click="changePlayListContentStatus" class="mh-if menu" style="margin:0 32px 0 5px; position:relative; z-index:2; font-size:23px;"><span>12</span></i>
@@ -139,7 +139,8 @@ export default {
     margin:5px; position:relative; font-size:23px;
   }
   .play-model > span {
-    width:88px; height:26px; bottom:38px; left:-33px; position:absolute; z-index:9; font-size:16px; line-height:25px; display:none;
+    width:88px; height:30px; bottom:38px; left:-33px; position:absolute; z-index:9; font-size:16px; line-height:29px; display:none;
+    box-shadow:0 0 3px -1px #00d8ff, inset 0 2px 1px -1px rgba(255, 255, 255, 0.2), inset 0 -2px 1px -1px rgba(0, 0, 0, 0.2), 0 12px 12px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 0 0 1px #272727;
   }
   .play-model:hover > span {
     display:block;

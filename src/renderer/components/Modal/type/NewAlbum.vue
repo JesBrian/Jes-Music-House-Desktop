@@ -40,7 +40,7 @@ export default {
       if (this.albumName === '') {
         this.$store.commit('SHOW_TIPS', {
           msg: '请输入歌单名',
-          type: 'info'
+          type: 'warning'
         })
         return false
       }

@@ -9,7 +9,7 @@
       <div style="width:40%; height:100%; float:left; position:relative;">
         <div style="width:100%; margin:38px 0 28px; box-sizing:border-box;">
           <div class="box-show" style="width:320px; height:320px; left:-8px; margin:12px 28px; display:inline-block; border-radius:50%;">
-            <div :class="{'active' : $store.state.Music.playStatus}" class="disk-bg">
+            <div :style="{'transform' : 'rotate(' + nowPlayTime % 360 + 'deg)'}" class="disk-bg">
               <img v-lazy="'http://p1.music.126.net/Qgrn5ptCMLdd9MAngNWURA==/17868163463382870.jpg?param=130y130'" class="glass-bg play-list-img" />
             </div>
           </div>
@@ -84,6 +84,31 @@ export default {
 
   components: {NewComment, CommentGroup},
 
+  data () {
+    return {
+      nowPlayTime: 0,
+      timer: null
+    }
+  },
+
+  watch: {
+    playStatus () {
+      if (this.$store.state.Music.playStatus) {
+        this.timer = setInterval(() => {
+          this.nowPlayTime++
+        }, 38)
+      } else {
+        clearInterval(this.timer)
+      }
+    }
+  },
+
+  computed: {
+    playStatus () {
+      return this.$store.state.Music.playStatus
+    }
+  },
+
   methods: {
     showModal (type = '') {
       this.$store.commit('CHANGE_MODAL_TYPE', type)
@@ -112,18 +137,6 @@ export default {
   }
   .disk-bg {
     width:100%; height:100%; position:relative; background:url(../../../static/images/default/disk.png) no-repeat; background-size:100% 100%; border-radius:50%;
-  }
-  .disk-bg.active {
-    animation: goCircle 18s infinite linear; /*匀速 循环*/
-  }
-  @keyframes goCircle {
-    0% {
-      transform:rotate(0deg);
-    }
-
-    100% {
-      transform:rotate(360deg);
-    }
   }
 
   ::-webkit-scrollbar {

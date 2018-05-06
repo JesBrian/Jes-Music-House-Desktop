@@ -5,8 +5,10 @@
 			<div style="width:100%; height:100%; padding:0 5px 8px; box-sizing:border-box; overflow:auto;">
 				<ul>
 					<li>
-						<p style="margin-top:6px;">推荐</p>
-						<ul>
+						<p @click="changeFirstMenuTypeShow('recomShow')" style="margin-top:3px;">
+              推荐<i :class="recomShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
+            </p>
+						<ul v-show="recomShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
                 <router-link to="/play-list">
                   <i class="mh-if music-box" style="margin-right:6px;"></i>发现音乐
@@ -25,8 +27,10 @@
 						</ul>
 					</li>
 					<li>
-						<p>我的音乐</p>
-						<ul>
+						<p @click="changeFirstMenuTypeShow('musicShow')">
+              我的音乐<i :class="musicShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
+            </p>
+						<ul v-show="musicShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
                 <router-link to="/play-list">
                   <i class="mh-if redis" style="margin-right:6px;"></i>本地音乐
@@ -39,35 +43,20 @@
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
                 <router-link to="/play-list">
-                  <i class="mh-if download" style="margin-right:6px;"></i>我的收藏
+                  <i class="mh-if collection-music" style="margin-right:6px;"></i>我的收藏
                 </router-link>
               </li>
 						</ul>
 					</li>
 					<li style="position:relative;">
-						<p @click="changeMyAlbumShow">
-              创建的歌单<i :class="myAlbumShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
+						<p @click="changeFirstMenuTypeShow('albumShow')">
+              创建的歌单<i :class="albumShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
             </p>
             <i @click="changeModalType('NewAlbum')" class="mh-if add-collection"></i>
-						<ul v-show="myAlbumShow">
+						<ul v-show="albumShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
                 <router-link to="/play-list">
                   <i class="mh-if non-colloection" style="margin-right:6px;"></i>我喜欢的音乐
-                </router-link>
-              </li>
-							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list">
-                  <i class="mh-if music-list" style="margin-right:6px;"></i>抽身cavc紧很好
-                </router-link>
-              </li>
-							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list">
-                  <i class="mh-if music-list" style="margin-right:6px;"></i>茶水vdsvsd盈天48
-                </router-link>
-              </li>
-							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list">
-                  <i class="mh-if music-list" style="margin-right:6px;"></i>除外i和你4没那么
                 </router-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
@@ -83,10 +72,10 @@
 						</ul>
 					</li>
 					<li>
-						<p @click="changeCollectionAlbumShow">
-              收藏的歌单<i :class="collectionAlbumShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
+						<p @click="changeFirstMenuTypeShow('collectionShow')">
+              收藏的歌单<i :class="collectionShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
             </p>
-						<ul v-show="collectionAlbumShow">
+						<ul v-show="collectionShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
                 <router-link to="/play-list">
                   <i class="mh-if menu" style="margin-right:6px;"></i>XXXX
@@ -133,8 +122,10 @@ export default {
 
   data () {
     return {
-      myAlbumShow: true,
-      collectionAlbumShow: true,
+      recomShow: true,
+      musicShow: true,
+      albumShow: true,
+      collectionShow: true,
       isCollection: false
     }
   },
@@ -144,11 +135,8 @@ export default {
       this.$store.commit('CHANGE_SHOW_MUSIC_VIEW')
     },
 
-    changeCollectionAlbumShow () {
-      this.collectionAlbumShow = !this.collectionAlbumShow
-    },
-    changeMyAlbumShow () {
-      this.myAlbumShow = !this.myAlbumShow
+    changeFirstMenuTypeShow (firstMenuType) {
+      this[firstMenuType] = !this[firstMenuType]
     },
 
     changeCollection () {
