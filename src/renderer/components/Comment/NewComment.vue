@@ -1,5 +1,5 @@
 <template>
-  <div style="margin:18px 0; position:relative;">
+  <div style="margin:18px 0 0; position:relative;">
     <div class="glass-bg box-show" style="width:100%; height:108px; position:relative;">
       <label><textarea class="cube-bg box-show glow-input" style="width:97%; height:82%; top:50%; left:50%; position:absolute; transform:translate(-50%, -50%); resize:none;"></textarea></label>
     </div>

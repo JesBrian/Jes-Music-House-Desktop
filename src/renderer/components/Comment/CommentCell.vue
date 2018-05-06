@@ -26,12 +26,24 @@
         </span>
       </p>
     </div>
+
+    <new-comment v-if="isShowReplyContent" />
   </div>
 </template>
 
 <script>
+import NewComment from './NewComment.vue'
+
 export default {
   name: 'CommentCell',
+
+  components: {NewComment},
+
+  data () {
+    return {
+      isShowReplyContent: false
+    }
+  },
 
   methods: {
     changeLike () {
@@ -43,7 +55,8 @@ export default {
     },
 
     replyComment () {
-      console.log(888)
+      this.$emit('hiddenOtherReplyContent', this)
+      this.isShowReplyContent = !this.isShowReplyContent
     }
   }
 }
@@ -59,5 +72,9 @@ export default {
 
   .reply-button:hover {
     color: #00d8ff;
+  }
+
+  div >>> .emoji-content {
+    width:508px; top:76%; left:-32px;
   }
 </style>

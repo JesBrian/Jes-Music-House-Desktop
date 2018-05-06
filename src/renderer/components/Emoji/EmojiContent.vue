@@ -1,15 +1,15 @@
 <template>
   <!-- 表情选择组件 -->
-  <div @mouseleave="mouseLeave" class="cube-bg box-show" style="width:600px; height:101px; bottom:-115px; left:0; padding:9px 5px; position:absolute; background:#1F1F1F; z-index:9999;">
+  <div @mouseleave="mouseLeave" class="emoji-content glass-bg box-show">
     <ul>
-      <li style="margin:1px 0 0 3px; float:left;" v-for="(value, index) in emojiInfos" :key="index">
+      <li style="margin:1px 0 -18px 3px; float:left;" v-for="(value, index) in emojiInfos" :key="index">
         <!-- 单个小表情组件 -->
         <emoji-cell :index=index+1 :emojiInfo="value"/>
       </li>
     </ul>
 
     <!-- 当前鼠标选中的表情展示 -->
-    <div class="glass-bg box-show" style="width:40px; height:40px; bottom:-2px; right:0; position:absolute;">
+    <div class="glass-bg box-show" style="width:40px; height:40px; bottom:0; right:0; position:absolute;">
       <img id="showEmoji" src="../../../../static/images/emoji/0.jpg" style="width:82%; height:82%; top:0; left:0; bottom:0; right:0; margin:auto; position:absolute;"/>
     </div>
   </div>
@@ -48,5 +48,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .emoji-content {
+    width:540px; height:157px; top:78%; left:0; padding:8px 5px; position:absolute; z-index:9999;
+  }
 </style>
