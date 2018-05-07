@@ -10,7 +10,7 @@
             </p>
 						<ul v-show="recomShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list">
+                <router-link to="/">
                   <i class="mh-if music-box" style="margin-right:6px;"></i>发现音乐
                 </router-link>
               </li>

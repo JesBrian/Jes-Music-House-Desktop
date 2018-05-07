@@ -9,7 +9,7 @@
 
     <div style="width:90%; margin:0 auto; text-align:center;">
       <p style="text-align:left; font-size:19px; color:#AAA; line-height:1.8em;">
-        <i class="mh-if music-info" style="margin-right:8px; color:lightgreen; font-size:21px;"></i>新歌单标题：
+        <i class="mh-if music-info" style="margin-right:8px; color:#00d8ff; font-size:21px;"></i>新歌单标题：
       </p>
       <input v-model="albumName" class="glass-bg box-show glow-input" style="width:88%; padding:6px 8px 4px; font-size:20px; line-height:1em; color:#CCC; letter-spacing:1.3px;" placeholder="请输入新歌单标题："/>
     </div>

@@ -9,7 +9,7 @@
       <div style="width:40%; height:100%; float:left; position:relative;">
         <div style="width:100%; margin:38px 0 28px; box-sizing:border-box;">
           <div class="box-show" style="width:320px; height:320px; left:-8px; margin:12px 28px; display:inline-block; border-radius:50%;">
-            <div :style="{'transform' : 'rotate(' + nowPlayTime % 360 + 'deg)'}" class="disk-bg">
+            <div :style="{'transform' : 'rotate(' + nowPlayTime / 4 % 360 + 'deg)'}" class="disk-bg">
               <img v-lazy="'http://p1.music.126.net/Qgrn5ptCMLdd9MAngNWURA==/17868163463382870.jpg?param=130y130'" class="glass-bg play-list-img" />
             </div>
           </div>
@@ -126,14 +126,14 @@ export default {
     width:138px; top:8px; left:-23px; display:inline-block; position:absolute;
     transform-origin:12.8px 12.8px;
     transform:rotate(-13deg);
-    transition: transform 0.38s;
+    transition: transform 0.28s;
   }
   #playPointer.active {
     transform:rotate(-38deg);
   }
 
   .play-list-img {
-    width:70%; height:70%; top:50%; left:50%; position:absolute; border-radius:50%; transform:translate(-50%, -50%);
+    width:63%; height:63%; top:50%; left:50%; position:absolute; border-radius:50%; transform:translate(-50%, -50%);
   }
   .disk-bg {
     width:100%; height:100%; position:relative; background:url(../../../static/images/default/disk.png) no-repeat; background-size:100% 100%; border-radius:50%;
