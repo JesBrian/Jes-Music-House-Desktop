@@ -93,14 +93,12 @@ export default {
 
   watch: {
     playStatus () {
-      if (this.$store.state.Music.playStatus) {
-        this.timer = setInterval(() => {
-          this.nowPlayTime++
-        }, 38)
-      } else {
-        clearInterval(this.timer)
-      }
+      this.setRoateTimer()
     }
+  },
+
+  mounted () {
+    this.setRoateTimer()
   },
 
   computed: {
@@ -116,6 +114,16 @@ export default {
 
     goBackView () {
       this.$store.commit('CLOSE_MUSIC_VIEW')
+    },
+
+    setRoateTimer () {
+      if (this.$store.state.Music.playStatus) {
+        this.timer = setInterval(() => {
+          this.nowPlayTime++
+        }, 38)
+      } else if (this.timer !== null) {
+        clearInterval(this.timer)
+      }
     }
   }
 }
