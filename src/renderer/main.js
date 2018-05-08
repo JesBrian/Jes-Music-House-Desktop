@@ -7,6 +7,7 @@ import store from './store'
 import vueLazyload from 'vue-lazyload'
 
 import './assets/plugins/icon-font/iconfont.css'
+import './assets/css/common.css'
 
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 Vue.http = Vue.prototype.$http = axios

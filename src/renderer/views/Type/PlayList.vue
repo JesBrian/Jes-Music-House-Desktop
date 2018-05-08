@@ -68,19 +68,19 @@
 
     <!-- 歌单内容 [ 歌曲列表/评论 ] -->
     <div style="width:98%; height:233px; margin:0 auto 28px;">
-      <ul>
-        <li v-for="n in 108" class="box-shadow">
-          <div style="width:100%; height:38px;"></div>
-        </li>
-      </ul>
+      <song-group />
     </div>
 
   </div>
 </template>
 
 <script>
+import SongGroup from '../../components/Song/SongGroup.vue'
+
 export default {
   name: 'PlayList',
+
+  components: {SongGroup},
 
   data () {
     return {
