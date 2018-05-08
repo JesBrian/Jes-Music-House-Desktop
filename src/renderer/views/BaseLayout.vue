@@ -26,6 +26,9 @@
     <!-- 操作提示条 -->
     <tips v-if="$store.state.Tips.tips" />
 
+    <!-- 鼠标点击右键显示菜单 -->
+    <alert-menu />
+
     <!-- 音乐播放器 -->
     <music-player style="z-index:99;"/>
   </div>
@@ -38,11 +41,14 @@ import MusicPlayer from '../components/MusicPlayer/MusicPlayer.vue'
 import Modal from '../components/Modal/Modal.vue'
 import Tips from '../components/Tips/Tips.vue'
 import SongView from './SongView.vue'
+import AlertMenu from '../components/AlertMenu/AlertMenu.vue'
 
 export default {
   name: 'BaseLayout',
 
-  components: {SongView, Tips, Modal, MusicPlayer, LeftMenu, TopMenu},
+  components: {
+    AlertMenu, SongView, Tips, Modal, MusicPlayer, LeftMenu, TopMenu
+  },
 
   watch: {
     '$route' (to, from) {

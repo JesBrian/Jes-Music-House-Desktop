@@ -8,7 +8,7 @@ export default {
 
   methods: {
     mouseClickRight () {
-      console.log(888)
+      this.$store.commit('SHOW_ALERT_MENU', 'SongMenu')
     }
   }
 }
