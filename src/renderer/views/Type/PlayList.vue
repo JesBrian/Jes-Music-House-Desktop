@@ -1,8 +1,9 @@
 <template>
   <div>
-    <div style="width:100%; min-height:268px; margin-top:28px">
-      <div style="width:32%; float:left; text-align:center;">
-        <img class="box-show" v-lazy="'http://p4.music.126.net/fNps5V_Auva93TgjLURyEw==/7960464187263772.jpg?param=200y200'" style="padding:8px;"/>
+    <!-- 歌单基本信息 -->
+    <div style="width:100%; margin-top:28px;">
+      <div style="width:32%; margin-top:12px; float:left; text-align:center;">
+        <img class="box-show" v-lazy="'http://p4.music.126.net/fNps5V_Auva93TgjLURyEw==/7960464187263772.jpg?param=200y200'" style="width:188px; height:188px; padding:8px;"/>
       </div>
       <div style="width:65%; margin-top:3px; display:inline-block; position:relative; color:#999;">
         <p style="font-size:23px; color:#EEE;">史克威尔艾尼克斯 · 游戏音乐编年史 ♪</p>
@@ -53,15 +54,58 @@
         </div>
       </div>
     </div>
+
+    <!-- 歌单内容切换 -->
+    <div style="width:90%; height:32px; margin:28px auto 0; color:#BBB; font-size:17px; font-weight:700; text-shadow:1px 1px 0.5px #000; line-height:28px;">
+      <span @click="changeContent('playList')" :class="{'active': this.type === 'playList'}" class="play-list-menu-cell">歌曲列表</span>
+      <span @click="changeContent('comment')" :class="{'active': this.type === 'comment'}" class="play-list-menu-cell">评论 [666]</span>
+
+      <label class="super-btn-out active" style="width:268px; height:32px; margin:-2px -18px 0 0; float:right; border:none; border-radius:16px;">
+        <input type="text" class="super-btn-in" placeholder="搜索本歌单音乐" style="width:258px; height:23px; padding:0 12px; box-sizing:border-box; border-radius:12px; text-align:left; font-size:17px; line-height:30px;"/>
+        <i class="mh-if search" style="top:1px; right:14px; position:absolute;"></i>
+      </label>
+    </div>
+
+    <!-- 歌单内容 [ 歌曲列表/评论 ] -->
+    <div style="width:98%; height:233px; margin:0 auto 28px;">
+      <ul>
+        <li v-for="n in 108" class="box-shadow">
+          <div style="width:100%; height:38px;"></div>
+        </li>
+      </ul>
+    </div>
+
   </div>
 </template>
 
 <script>
 export default {
-  name: 'PlayList'
+  name: 'PlayList',
+
+  data () {
+    return {
+      type: 'playList'
+    }
+  },
+
+  methods: {
+    changeContent (type = 'playList') {
+      this.type = type
+    }
+  }
 }
 </script>
 
 <style scoped>
+
+  .play-list-menu-cell {
+    margin:0 15px; padding:0 12px 6px 10px; cursor:pointer;
+  }
+  .play-list-menu-cell:hover {
+    color:#EEE;
+  }
+  .play-list-menu-cell.active {
+    border-bottom:2px solid #20dbfc; color:#20dbfc
+  }
 
 </style>
