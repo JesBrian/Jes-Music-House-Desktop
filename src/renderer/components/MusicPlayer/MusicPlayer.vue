@@ -72,6 +72,8 @@
 </template>
 
 <script>
+// import localStore from 'store'
+
 export default {
   name: 'MusicPlayer',
 
@@ -89,8 +91,10 @@ export default {
     playStatus () {
       if (this.$store.state.Music.playStatus) {
         this.musicSource.play()
+        // this.testSetStore()
       } else {
         this.musicSource.pause()
+        // this.testGetStore()
       }
     }
   },
@@ -109,6 +113,7 @@ export default {
     changePlayStatus () {
       this.$store.commit('CHANGE_PLAY_STATUS')
     },
+
     changePlayModel () {
       let type = ''
       if (this.playModel === 'loop') {
@@ -120,12 +125,15 @@ export default {
       }
       this.playModel = type
     },
+
     changeVolumeStatus () {
       this.volumeStatus = !this.volumeStatus
     },
+
     changePlayListContentStatus () {
       this.playListContentStatus = !this.playListContentStatus
     },
+
     changePlayListContentType (tyep = 'now') {
       this.playListContentType = tyep
     },
@@ -136,6 +144,20 @@ export default {
     shareThisSong () {
       this.$store.commit('CHANGE_MODAL_TYPE', 'Share')
     }
+
+    // testSetStore () {
+    //   localStore.set('user', [
+    //     {name: 'JesBrian'},
+    //     {name: '苏敬雄'},
+    //     {name: 'XBoost'}
+    //   ])
+    // },
+    // testGetStore () {
+    //   let tempArr = localStore.get('user')
+    //   for (let len = tempArr.length, i = 0; i < len; i++) {
+    //     console.log(tempArr[i].name)
+    //   }
+    // }
   }
 }
 </script>
