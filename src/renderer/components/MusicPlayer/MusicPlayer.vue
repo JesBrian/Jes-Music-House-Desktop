@@ -13,10 +13,10 @@
 		<div style="width:600px; height:100%; float:left;">
 			<div style="width:53px; height:100%; float:left;">00:00</div>
 			<div style="display:inline-block;">
-				<div class="progress-bar box-show" style="width:488px; height:10px; position:relative; background:#080808; border-radius:6px;">
+				<div class="progress-bar box-show" style="width:478px; height:10px; position:relative; background:#080808; border-radius:6px;">
 					<div style="width:80%; height:6px; top:2.4px; left:0; position:absolute; background:#181818; border-radius:6px;"></div>
-					<div style="width:60%; height:100%; top:0; left:0; position:absolute; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:6px;">
-            			<a class="pointer box-show"></a>
+					<div :style="{'width': musicCTime / musicDTime * 100 + '%'}" style="height:100%; top:0; left:5px; position:absolute; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:6px;">
+            <a class="pointer box-show"></a>
 					</div>
 				</div>
 			</div>
@@ -72,18 +72,18 @@
 </template>
 
 <script>
-// import localStore from 'store'
-
 export default {
   name: 'MusicPlayer',
 
   data () {
     return {
       musicSource: null,
-      playModel: 'loop',
+      playModel: 'loop', // 音乐播放模式 - [ loop列表循环/single-loop单曲循环/random随机播放 ]
       playListContentStatus: false,
       playListContentType: 'now',
-      volumeStatus: true
+      volumeStatus: true, // 是否开启音量开关
+      musicCTime: 0, // 歌曲播放当前时间
+      musicDTime: 0 // 歌曲总播放时间
     }
   },
 
@@ -91,16 +91,20 @@ export default {
     playStatus () {
       if (this.$store.state.Music.playStatus) {
         this.musicSource.play()
-        // this.testSetStore()
       } else {
         this.musicSource.pause()
-        // this.testGetStore()
       }
     }
   },
 
   mounted () {
     this.musicSource = this.$refs.musicSource
+    this.musicSource.addEventListener('timeupdate', this._currentTime)
+    this.musicSource.addEventListener('canplay', this._durationTime)
+  },
+  beforeDestroy () {
+    this.musicSource.removeEventListener('timeupdate', this._currentTime)
+    this.musicSource.removeEventListener('canplay', this._durationTime)
   },
 
   computed: {
@@ -110,6 +114,13 @@ export default {
   },
 
   methods: {
+    _currentTime () {
+      this.musicCTime = this.musicSource.currentTime
+    },
+    _durationTime () {
+      this.musicDTime = this.musicSource.duration
+    },
+
     changePlayStatus () {
       this.$store.commit('CHANGE_PLAY_STATUS')
     },
@@ -144,20 +155,6 @@ export default {
     shareThisSong () {
       this.$store.commit('CHANGE_MODAL_TYPE', 'Share')
     }
-
-    // testSetStore () {
-    //   localStore.set('user', [
-    //     {name: 'JesBrian'},
-    //     {name: '苏敬雄'},
-    //     {name: 'XBoost'}
-    //   ])
-    // },
-    // testGetStore () {
-    //   let tempArr = localStore.get('user')
-    //   for (let len = tempArr.length, i = 0; i < len; i++) {
-    //     console.log(tempArr[i].name)
-    //   }
-    // }
   }
 }
 </script>

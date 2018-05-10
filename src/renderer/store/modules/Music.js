@@ -1,6 +1,8 @@
 const state = {
-  playStatus: false,
-  showMusicView: false
+  showMusicView: false, // 是否展示歌曲页面 - [ true/false ]
+  playStatus: false, // 音乐播放状态 - [ true正在播放/false停止播放 ]
+  nowIndex: 0, // 当前播放歌曲在播放列表的位置
+  playList: [] // 当前播放歌曲列表
 }
 
 const mutations = {
