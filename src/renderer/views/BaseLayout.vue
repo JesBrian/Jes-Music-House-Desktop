@@ -7,7 +7,7 @@
     <left-menu style="z-index:55;"/>
 
     <!-- 主体内容 -->
-    <div style="width:100%; height:638px; padding:48px 3px 45px 228.5px; box-sizing:border-box; background:#262626;">
+    <div style="width:100%; height:638px; padding:48px 3px 45px 228.5px; box-sizing:border-box; background:#181818;">
       <div id="mainContent" class="box-show" style="width:100%; height:100%; padding-top:8px; box-sizing:border-box; overflow:auto;">
         <router-view />
       </div>

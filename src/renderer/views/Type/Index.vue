@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="background:#262626;">
     <!-- 主页菜单 -->
     <div style="width:92%; height:38px; margin:18px auto 28px; padding:0 68px; box-sizing:border-box; box-shadow:0 2px 3px -3px #FFF; text-align:center;">
       <div style="width:100%; height:28px; padding-top:10px; line-height:24px; color:#BBB; font-size:18px; font-weight:700; text-shadow:1px 1px 0.5px #000;">

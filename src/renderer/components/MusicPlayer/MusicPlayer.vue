@@ -12,23 +12,29 @@
 		</div>
 		<div style="width:600px; height:100%; float:left;">
 			<div style="width:53px; height:100%; float:left;">00:00</div>
-			<div style="display:inline-block;">
-				<div class="progress-bar box-show" style="width:478px; height:10px; position:relative; background:#080808; border-radius:6px;">
+
+			<!-- 进度条 -->
+      <div style="display:inline-block;">
+				<div class="progress-bar box-show" style="width:458px; height:10px; margin-top:8px; position:relative; background:#080808; border-radius:6px; cursor:pointer;">
 					<div style="width:80%; height:6px; top:2.4px; left:0; position:absolute; background:#181818; border-radius:6px;"></div>
-					<div :style="{'width': musicCTime / musicDTime * 100 + '%'}" style="height:100%; top:0; left:5px; position:absolute; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:6px;">
+					<div :style="{'width' : musicCTime / musicDTime * 100 + '%'}" style="height:100%; top:0; left:0; position:absolute; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:6px;">
             <a class="pointer box-show"></a>
 					</div>
 				</div>
+
 			</div>
 			<div style="width:53px; height:100%; float:right;">99:99</div>
 		</div>
 		<div style="width:180px; height:100%; margin:0 0 0 12px; float:left;">
 			<i @click="changeVolumeStatus" :class="volumeStatus ? 'volume-on' : 'volume-off'" class="mh-if" style="font-size:24px;"></i>
-			<div :class="{'ban-change': !volumeStatus}" class="volume-bar box-show">
-				<div style="width:60%; height:88%; margin-top:1px; position:relative; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:5px;">
+
+      <!-- 音量条 -->
+      <div :class="{'ban-change': !volumeStatus}" class="volume-bar box-show">
+				<div :style="{'width' : volumeLevel * 100 + '%'}" style="height:88%; margin-top:1px; position:relative; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:5px;">
 					<a class="pointer box-show" style="top:-4.5px;"></a>
 				</div>
 			</div>
+
 		</div>
 		<div>
 			<i @click="changePlayModel" :class="playModel" class="play-model mh-if">
@@ -37,7 +43,8 @@
 			<i class="mh-if lyrics" style="margin:5px; font-size:24px;"></i>
 			<i @click="changePlayListContentStatus" class="mh-if menu" style="margin:0 32px 0 5px; position:relative; z-index:2; font-size:23px;"><span>12</span></i>
 		</div>
-    <div v-if="playListContentStatus" class="glass-bg box-show" style="width:688px; height:388px; bottom:45px; right:0; position:absolute; border-radius:4px 4px 0 0; opacity:0.99;">
+
+    <div v-if="playListContentStatus" class="box-show" style="width:688px; height:388px; bottom:45px; right:0; position:absolute; background:#222; border-radius:4px 4px 0 0; opacity:0.99;">
       <div class="box-show" style="width:100%; height:38px; position:relative; line-height:38px;">
         <span style="margin-left:12px; float:left;">
           <i class="mh-if menu" style="margin-right:5px;"></i>总12首
@@ -82,6 +89,7 @@ export default {
       playListContentStatus: false,
       playListContentType: 'now',
       volumeStatus: true, // 是否开启音量开关
+      volumeLevel: 0.76, // 音量大小
       musicCTime: 0, // 歌曲播放当前时间
       musicDTime: 0 // 歌曲总播放时间
     }
@@ -139,6 +147,7 @@ export default {
 
     changeVolumeStatus () {
       this.volumeStatus = !this.volumeStatus
+      this.volumeStatus ? this.musicSource.volume = this.volumeLevel : this.musicSource.volume = 0
     },
 
     changePlayListContentStatus () {

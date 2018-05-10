@@ -53,20 +53,10 @@
           <span style="color:#BBB;">（已有 6946 条评论）</span>
         </div>
 
-        <new-comment />
+        <comment-total style="margin-left:-12px; padding:0;" />
 
-        <div style="width:100%; margin-top:18px;">
-          <div style="height:53px; margin:0 auto; padding:0 23px; box-sizing:border-box; box-shadow:0 3px 3px -3px #999; line-height:68px; text-shadow:1px 1px 0.5px #000;">
-            <span style="font-size:16px; color:#CCC;">精彩评论</span>
-          </div>
-          <comment-group />
-
-          <div style="height:53px; margin:0 auto; padding:0 23px; box-sizing:border-box; box-shadow:0 3px 3px -3px #999; line-height:68px; text-shadow:1px 1px 0.5px #000;">
-            <span style="font-size:16px; color:#CCC;">最新评论</span>
-          </div>
-          <comment-group />
-        </div>
       </div>
+
       <div style="width:28%; float:right; background:lightseagreen;">
         <div style="width:100%; height:288px; margin-bottom:28px; background:lightskyblue;"></div>
         <div style="width:100%; height:288px; margin-bottom:28px; background:lightskyblue;"></div>
@@ -76,13 +66,14 @@
 </template>
 
 <script>
-import CommentGroup from '../components/Comment/CommentGroup.vue'
-import NewComment from '../components/Comment/NewComment.vue'
+import CommentTotal from '../components/Comment/CommentTotal.vue'
 
 export default {
   name: 'SongView',
 
-  components: {NewComment, CommentGroup},
+  components: {
+    CommentTotal
+  },
 
   data () {
     return {

@@ -1,5 +1,5 @@
 <template>
-  <div class="comment-cell" style="color:#999; padding:13px 0 16px 68px; position:relative;">
+  <div class="comment-cell" style="padding:13px 0 16px 68px; position:relative; color:#999;">
     <router-link class="box-show" to="/user" style="width:40px; height:38px; top:16px; left:16px; padding:3px; position:absolute;">
       <img v-lazy="'http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80'" style="width:100%; height:100%;"/>
     </router-link>
