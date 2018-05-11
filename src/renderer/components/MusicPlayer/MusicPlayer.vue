@@ -40,7 +40,7 @@
 			<i @click="changePlayModel" :class="playModel" class="play-model mh-if">
         <span class="glass-bg">{{ playModel === 'loop' ? '循环列表': playModel === 'single-loop' ? '单曲循环' : '随机播放' }}</span>
       </i>
-			<i class="mh-if lyrics" style="margin:5px; font-size:24px;"></i>
+			<i @click="changeShowLyric" :class="{'active' : $store.state.Music.showLyric}" class="mh-if lyrics" style="margin:5px; font-size:24px;"></i>
 			<i @click="changePlayListContentStatus" class="mh-if menu" style="margin:0 32px 0 5px; position:relative; z-index:2; font-size:23px;"><span>12</span></i>
 		</div>
 
@@ -133,6 +133,11 @@ export default {
       this.$store.commit('CHANGE_PLAY_STATUS')
     },
 
+    changeVolumeStatus () {
+      this.volumeStatus = !this.volumeStatus
+      this.volumeStatus ? this.musicSource.volume = this.volumeLevel : this.musicSource.volume = 0
+    },
+
     changePlayModel () {
       let type = ''
       if (this.playModel === 'loop') {
@@ -145,9 +150,8 @@ export default {
       this.playModel = type
     },
 
-    changeVolumeStatus () {
-      this.volumeStatus = !this.volumeStatus
-      this.volumeStatus ? this.musicSource.volume = this.volumeLevel : this.musicSource.volume = 0
+    changeShowLyric () {
+      this.$store.commit('CHANGE_SHOW_LYRIC')
     },
 
     changePlayListContentStatus () {
@@ -173,7 +177,7 @@ export default {
     color:#999;
     text-shadow: 0 0 6px #000;
   }
-  .mh-if:hover {
+  .mh-if:hover, .mh-if.active {
     cursor:pointer;
     color: #20dbfc;
     text-shadow: 0 0 3px #444, 0 0 18px #000;

@@ -35,14 +35,6 @@ export default new Router({
           component: () => import('@/views/type/SongComment.vue')
         },
         {
-          path: '/album',
-          component: () => import('@/views/type/Album.vue')
-        },
-        {
-          path: '/disc',
-          component: () => import('@/views/type/Disc.vue')
-        },
-        {
           path: '/user',
           component: () => import('@/views/type/User.vue')
         },
