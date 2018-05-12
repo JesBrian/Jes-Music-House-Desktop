@@ -17,10 +17,10 @@
 			<div style="width:53px; height:100%; float:left;">{{ timeStampToMinuteSecondTime(musicCTime) }}</div>
 			<!-- 进度条 -->
       <div style="display:inline-block;">
-				<div @click="clickMusicProgressBar" class="progress-bar box-show" style="width:458px; height:10px; margin-top:8px; position:relative; background:#080808; border-radius:6px; cursor:pointer;">
+				<div @click="clickMusicProgressBar" id="progressBar" class="progress-bar box-show" style="width:458px; height:10px; margin-top:8px; position:relative; background:#080808; border-radius:6px; cursor:pointer;">
 					<div style="width:80%; height:6px; top:2.4px; left:0; position:absolute; background:#181818; border-radius:6px;"></div>
 					<div :style="{'width' : musicCTime / musicDTime * 100 + '%'}" style="height:100%; top:0; left:0; position:absolute; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:6px;">
-            <a class="pointer box-show"></a>
+            <a @mousedown="dragProgressControllerPointer" class="pointer box-show"></a>
 					</div>
 				</div>
 			</div>
@@ -35,7 +35,7 @@
       <!-- 音量条 -->
       <div @click="clickMusicVolumeBar" :class="{'ban-change': !volumeStatus}" id="volumeBar" class="volume-bar box-show">
 				<div :style="{'width' : volumeLevel * 100 + '%'}" style="height:88%; margin-top:1px; position:relative; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:5px;">
-					<a class="pointer box-show" style="top:-4.5px;"></a>
+					<a @mousedown="dragVolumeControllerPointer" class="pointer box-show" style="top:-4.5px;"></a>
 				</div>
 			</div>
 		</div>
@@ -185,6 +185,48 @@ export default {
     },
 
     /**
+     * 修改音乐播放进度
+     */
+    changePlayProgress (progress = 0) {
+      if (progress < 0 || progress > 458) {
+        return false
+      }
+      clearInterval(this.timer)
+      let progressRate = progress / 458
+      this.musicSource.currentTime = Number.parseInt(this.musicDTime * progressRate)
+    },
+
+    /**
+     * 点击播放进度条
+     */
+    clickMusicProgressBar (event) {
+      let mousePos = this.mouseCoords(event)
+      let x = mousePos.x
+      let x1 = this.getElementLeft(document.getElementById('progressBar'))
+      this.changePlayProgress(x - x1)
+    },
+
+    /**
+     * 拖动播放进度条指针
+     */
+    dragProgressControllerPointer (event) {
+      let x1 = this.getElementLeft(document.getElementById('progressBar'))
+      // 注册document的mousemove事件
+      document.onmousemove = (ev) => {
+        let oEvent = ev || event
+        let mousePos = this.mouseCoords(oEvent)
+        let x = mousePos.x
+        this.changePlayProgress(x - x1)
+      }
+
+      // 鼠标放开清除事件
+      document.onmouseup = () => {
+        document.onmousemove = null
+        document.onmouseup = null
+      }
+    },
+
+    /**
      * 修改音量大小
      */
     changeMusicVolume (volume = 0) {
@@ -195,13 +237,6 @@ export default {
     },
 
     /**
-     * 点击音乐播放进度条修改音乐播放进度
-     */
-    clickMusicProgressBar (event) {
-      console.log(666)
-    },
-
-    /**
      * 点击音量条调节音量大小
      */
     clickMusicVolumeBar (event) {
@@ -209,6 +244,26 @@ export default {
       let x = mousePos.x
       let x1 = this.getElementLeft(document.getElementById('volumeBar'))
       this.changeMusicVolume((x - x1) / 138)
+    },
+
+    /**
+     * 拖动音量指针
+     */
+    dragVolumeControllerPointer (event) {
+      let x1 = this.getElementLeft(document.getElementById('volumeBar'))
+      // 注册document的mousemove事件
+      document.onmousemove = (ev) => {
+        let oEvent = ev || event
+        let mousePos = this.mouseCoords(oEvent)
+        let x = mousePos.x
+        this.changeMusicVolume((x - x1) / 138)
+      }
+
+      // 鼠标放开清除事件
+      document.onmouseup = () => {
+        document.onmousemove = null
+        document.onmouseup = null
+      }
     },
 
     timeStampToMinuteSecondTime (timestamp) {
@@ -236,15 +291,6 @@ export default {
         current = current.offsetParent
       }
       return actualLeft
-    },
-    getElementTop (element) {
-      let actualTop = element.offsetTop
-      let current = element.offsetParent
-      while (current !== null) {
-        actualTop += current.offsetTop
-        current = current.offsetParent
-      }
-      return actualTop
     }
 
   }
