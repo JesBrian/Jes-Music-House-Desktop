@@ -10,40 +10,49 @@
 			<i @click="changePlayStatus" :class="playStatus ? 'stop' : 'play'" class="mh-if" style="display:inline-block; font-size:35px;"></i>
 			<i class="mh-if double-arrow-right" style="margin:1px 28px 0 0; float:right; font-size:22px;"></i>
 		</div>
-		<div style="width:600px; height:100%; float:left;">
-			<div style="width:53px; height:100%; float:left;">00:00</div>
 
+    <!-- 播放进度部分 -->
+		<div style="width:600px; height:100%; float:left;">
+      <!-- 当前播放时间 -->
+			<div style="width:53px; height:100%; float:left;">{{ timeStampToMinuteSecondTime(musicCTime) }}</div>
 			<!-- 进度条 -->
       <div style="display:inline-block;">
-				<div class="progress-bar box-show" style="width:458px; height:10px; margin-top:8px; position:relative; background:#080808; border-radius:6px; cursor:pointer;">
+				<div @click="clickMusicProgressBar" class="progress-bar box-show" style="width:458px; height:10px; margin-top:8px; position:relative; background:#080808; border-radius:6px; cursor:pointer;">
 					<div style="width:80%; height:6px; top:2.4px; left:0; position:absolute; background:#181818; border-radius:6px;"></div>
 					<div :style="{'width' : musicCTime / musicDTime * 100 + '%'}" style="height:100%; top:0; left:0; position:absolute; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:6px;">
             <a class="pointer box-show"></a>
 					</div>
 				</div>
-
 			</div>
-			<div style="width:53px; height:100%; float:right;">99:99</div>
+      <!-- 歌曲总播放时间 -->
+			<div style="width:53px; height:100%; float:right;">{{ timeStampToMinuteSecondTime(musicDTime) }}</div>
 		</div>
-		<div style="width:180px; height:100%; margin:0 0 0 12px; float:left;">
-			<i @click="changeVolumeStatus" :class="volumeStatus ? 'volume-on' : 'volume-off'" class="mh-if" style="font-size:24px;"></i>
 
+    <!-- 控制音量部分 -->
+    <div style="width:180px; height:100%; margin:0 0 0 12px; float:left;">
+      <!-- 音量开关 -->
+			<i @click="changeVolumeStatus" :class="volumeStatus ? 'volume-on' : 'volume-off'" class="mh-if" style="font-size:24px;"></i>
       <!-- 音量条 -->
-      <div :class="{'ban-change': !volumeStatus}" class="volume-bar box-show">
+      <div @click="clickMusicVolumeBar" :class="{'ban-change': !volumeStatus}" id="volumeBar" class="volume-bar box-show">
 				<div :style="{'width' : volumeLevel * 100 + '%'}" style="height:88%; margin-top:1px; position:relative; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:5px;">
 					<a class="pointer box-show" style="top:-4.5px;"></a>
 				</div>
 			</div>
-
 		</div>
+
+    <!-- 其他控制部分 -->
 		<div>
+      <!-- 播放模式控制 -->
 			<i @click="changePlayModel" :class="playModel" class="play-model mh-if">
         <span class="glass-bg">{{ playModel === 'loop' ? '循环列表': playModel === 'single-loop' ? '单曲循环' : '随机播放' }}</span>
       </i>
-			<i @click="changeShowLyric" :class="{'active' : $store.state.Music.showLyric}" class="mh-if lyrics" style="margin:5px; font-size:24px;"></i>
+      <!-- 展示歌词控制 -->
+			<i @click="changeShowLyric" :class="{'active' : $store.state.Music.showLyric}" class="mh-if lyrics" style="margin:5px; font-size:24px;"></i>、
+      <!-- 展示播放列表控制 -->
 			<i @click="changePlayListContentStatus" class="mh-if menu" style="margin:0 32px 0 5px; position:relative; z-index:2; font-size:23px;"><span>12</span></i>
 		</div>
 
+    <!-- 播放列表内容区域 -->
     <div v-if="playListContentStatus" class="box-show" style="width:688px; height:388px; bottom:45px; right:0; position:absolute; background:#222; border-radius:4px 4px 0 0; opacity:0.99;">
       <div class="box-show" style="width:100%; height:38px; position:relative; line-height:38px;">
         <span style="margin-left:12px; float:left;">
@@ -79,6 +88,8 @@
 </template>
 
 <script>
+import {timeStampToMinuteSecondTime} from '../../assets/js/commom.js'
+
 export default {
   name: 'MusicPlayer',
 
@@ -102,6 +113,10 @@ export default {
       } else {
         this.musicSource.pause()
       }
+    },
+
+    volumeLevel () {
+      this.musicSource.volume = this.volumeLevel
     }
   },
 
@@ -158,8 +173,8 @@ export default {
       this.playListContentStatus = !this.playListContentStatus
     },
 
-    changePlayListContentType (tyep = 'now') {
-      this.playListContentType = tyep
+    changePlayListContentType (type = 'now') {
+      this.playListContentType = type
     },
 
     collectionThisSong () {
@@ -167,7 +182,71 @@ export default {
     },
     shareThisSong () {
       this.$store.commit('CHANGE_MODAL_TYPE', 'Share')
+    },
+
+    /**
+     * 修改音量大小
+     */
+    changeMusicVolume (volume = 0) {
+      if (volume < 0 || volume > 1) {
+        return false
+      }
+      this.volumeLevel = volume
+    },
+
+    /**
+     * 点击音乐播放进度条修改音乐播放进度
+     */
+    clickMusicProgressBar (event) {
+      console.log(666)
+    },
+
+    /**
+     * 点击音量条调节音量大小
+     */
+    clickMusicVolumeBar (event) {
+      let mousePos = this.mouseCoords(event)
+      let x = mousePos.x
+      let x1 = this.getElementLeft(document.getElementById('volumeBar'))
+      this.changeMusicVolume((x - x1) / 138)
+    },
+
+    timeStampToMinuteSecondTime (timestamp) {
+      return timeStampToMinuteSecondTime(timestamp)
+    },
+
+    mouseCoords (event) {
+      if (event.pageX || event.pageY) {
+        return {
+          x: event.pageX,
+          y: event.pageY
+        }
+      }
+      return {
+        x: event.clientX + document.body.scrollLeft - document.body.clientLeft,
+        y: event.clientY + document.body.scrollTop - document.body.clientTop
+      }
+    },
+
+    getElementLeft (element) {
+      let actualLeft = element.offsetLeft
+      let current = element.offsetParent
+      while (current !== null) {
+        actualLeft += current.offsetLeft
+        current = current.offsetParent
+      }
+      return actualLeft
+    },
+    getElementTop (element) {
+      let actualTop = element.offsetTop
+      let current = element.offsetParent
+      while (current !== null) {
+        actualTop += current.offsetTop
+        current = current.offsetParent
+      }
+      return actualTop
     }
+
   }
 }
 </script>
@@ -205,7 +284,7 @@ export default {
   }
 
   .pointer {
-    width:18px; height:18px; top:-4px; right:-4px; position:absolute; border-radius:50%; background:url(../../../../static/images/default/slide-pointer.png) no-repeat; background-size:100% 100%;
+    width:18px; height:18px; top:-4px; right:-8px; position:absolute; border-radius:50%; background:url(../../../../static/images/default/slide-pointer.png) no-repeat; background-size:100% 100%;
   }
   .pointer:hover {
     box-shadow: inset 0 2px 1px -1px rgba(255, 255, 255, 0.2), inset 0 -2px 1px -1px rgba(0, 0, 0, 0.2), 0 12px 12px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 0 0 1px #272727, 0 0.5px 8px #2af1fc;
