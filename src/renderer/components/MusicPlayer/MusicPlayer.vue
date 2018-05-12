@@ -47,7 +47,7 @@
         <span class="glass-bg">{{ playModel === 'loop' ? '循环列表': playModel === 'single-loop' ? '单曲循环' : '随机播放' }}</span>
       </i>
       <!-- 展示歌词控制 -->
-			<i @click="changeShowLyric" :class="{'active' : $store.state.Music.showLyric}" class="mh-if lyrics" style="margin:5px; font-size:24px;"></i>、
+			<i @click="changeShowLyric" :class="{'active' : $store.state.Music.showLyric}" class="mh-if lyrics" style="margin:5px; font-size:24px;"></i>
       <!-- 展示播放列表控制 -->
 			<i @click="changePlayListContentStatus" class="mh-if menu" style="margin:0 32px 0 5px; position:relative; z-index:2; font-size:23px;"><span>12</span></i>
 		</div>
@@ -329,22 +329,5 @@ export default {
 
   div.cube-bg {
     color:#EEE;
-  }
-
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-  ::-webkit-scrollbar-track-piece {
-    background-color: #333;
-    border-radius:8px;
-  }
-  ::-webkit-scrollbar-thumb:vertical {
-    height: 5px;
-    background:linear-gradient(to right, rgba(0, 126, 240, 0.5), rgba(0, 216, 255, 0.5), rgba(0, 216, 255, 0.5));
-    -webkit-border-radius: 8px;
-  }
-  ::-webkit-scrollbar-thumb:vertical:hover {
-    background:linear-gradient(to right, #007ef0, #00d8ff, #00d8ff);
   }
 </style>

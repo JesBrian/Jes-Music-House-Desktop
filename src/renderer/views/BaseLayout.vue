@@ -73,22 +73,4 @@ export default {
   .slide-song-enter-active, .slide-song-leave-active {
     transition: all 0.538s ease-in-out;
   }
-
-
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 6px;
-  }
-  ::-webkit-scrollbar-track-piece {
-    background-color: #333;
-    border-radius:8px;
-  }
-  ::-webkit-scrollbar-thumb:vertical {
-    height: 5px;
-    background:linear-gradient(to right, rgba(0, 126, 240, 0.5), rgba(0, 216, 255, 0.5), rgba(0, 216, 255, 0.5));
-    -webkit-border-radius: 8px;
-  }
-  ::-webkit-scrollbar-thumb:vertical:hover {
-    background:linear-gradient(to right, #007ef0, #00d8ff, #00d8ff);
-  }
 </style>
