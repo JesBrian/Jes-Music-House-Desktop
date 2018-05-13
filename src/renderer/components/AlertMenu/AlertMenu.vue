@@ -1,6 +1,6 @@
 <template>
   <div style="width:100%; height:100%; top:0; left:0; position:fixed; z-index:9">
-    <component :is="$store.state.AlertMenu.menuType" ref="alertMenuContent" :style="{'top': $store.state.AlertMenu.positionY + 'px', 'left': $store.state.AlertMenu.positionX + 'px'}" style="position:fixed;" />
+    <component :is="$store.state.AlertMenu.menuType" ref="alertMenuContent" :style="{'top': $store.state.AlertMenu.positionY + 'px', 'left': $store.state.AlertMenu.positionX + 'px'}" class="glass-bg box-show" style="position:fixed;" />
     <div @click="closeAlertMenu" style="width:100%; height:100%; background:transparent;"></div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div @click.right="mouseClickRight" style="width:100%; height:38px;"></div>
+  <div @click.right="showAlertMenu" style="width:100%; height:38px;"></div>
 </template>
 
 <script>
@@ -9,7 +9,7 @@ export default {
   name: 'SongCell',
 
   methods: {
-    mouseClickRight (event) {
+    showAlertMenu (event) {
       let position = mouseCoords(event)
       let alertMenuConf = {
         type: 'SongMenu',
