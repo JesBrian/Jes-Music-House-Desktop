@@ -1,14 +1,26 @@
 const state = {
-  menuType: ''
+  menuType: '',
+  positionX: 0,
+  positionY: 0
 }
 
 const mutations = {
   /**
    * 展示 / 关闭 操作提示框
    * @param state
+   * @param conf
+   * @constructor
    */
-  SHOW_ALERT_MENU (state, type = '') {
-    state.menuType = type
+  SHOW_ALERT_MENU (state, conf = null) {
+    if (conf) {
+      state.menuType = conf.type
+      state.positionX = conf.position.x
+      state.positionY = conf.position.y
+    } else {
+      state.menuType = ''
+      state.positionX = 0
+      state.positionY = 0
+    }
   }
 }
 

@@ -27,7 +27,7 @@
     <tips v-if="$store.state.Tips.tips" />
 
     <!-- 鼠标点击右键显示菜单 -->
-    <alert-menu />
+    <alert-menu v-if="$store.state.AlertMenu.menuType" />
 
     <!-- 音乐播放器 -->
     <music-player style="z-index:99;"/>

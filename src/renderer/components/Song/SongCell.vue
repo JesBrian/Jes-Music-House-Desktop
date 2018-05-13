@@ -3,12 +3,19 @@
 </template>
 
 <script>
+import { mouseCoords } from '../../assets/js/commom.js'
+
 export default {
   name: 'SongCell',
 
   methods: {
-    mouseClickRight () {
-      this.$store.commit('SHOW_ALERT_MENU', 'SongMenu')
+    mouseClickRight (event) {
+      let position = mouseCoords(event)
+      let alertMenuConf = {
+        type: 'SongMenu',
+        position: position
+      }
+      this.$store.commit('SHOW_ALERT_MENU', alertMenuConf)
     }
   }
 }
