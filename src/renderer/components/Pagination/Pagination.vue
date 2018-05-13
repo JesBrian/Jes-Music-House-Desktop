@@ -1,5 +1,5 @@
 <template>
-  <div id="page" style="width:100%; margin:38px auto; position:relative; clear:both; text-align:center;">
+  <div id="page" class="ban-select" style="width:100%; margin:38px auto; position:relative; clear:both; text-align:center;">
     <!-- 数据有分页的情况 -->
     <ul id="menu" class="cube-bg box-show" v-show="allPage !== 0">
       <li class="no-select prev" @click="goto(current - 1)"><a class="glass-bg mh-if double-arrow-left" :class="{ban: (current === 1)}"></a></li>
