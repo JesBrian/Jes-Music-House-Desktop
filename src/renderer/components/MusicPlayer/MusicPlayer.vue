@@ -17,7 +17,7 @@
 			<div style="width:53px; height:100%; float:left;">{{ timeStampToMinuteSecondTime(musicCTime) }}</div>
 			<!-- 进度条 -->
       <div style="display:inline-block;">
-				<div @click="clickMusicProgressBar" id="progressBar" class="progress-bar box-show" style="width:458px; height:10px; margin-top:8px; position:relative; background:#080808; border-radius:6px; cursor:pointer;">
+				<div @click="clickMusicProgressBar" ref="progressBar" class="progress-bar box-show" style="width:458px; height:10px; margin-top:8px; position:relative; background:#080808; border-radius:6px; cursor:pointer;">
 					<div style="width:80%; height:6px; top:2.4px; left:0; position:absolute; background:#181818; border-radius:6px;"></div>
 					<div :style="{'width' : musicCTime / musicDTime * 100 + '%'}" style="height:100%; top:0; left:0; position:absolute; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:6px;">
             <a @mousedown="dragProgressControllerPointer" class="pointer box-show"></a>
@@ -33,7 +33,7 @@
       <!-- 音量开关 -->
 			<i @click="changeVolumeStatus" :class="volumeStatus ? 'volume-on' : 'volume-off'" class="mh-if" style="font-size:24px;"></i>
       <!-- 音量条 -->
-      <div @click="clickMusicVolumeBar" :class="{'ban-change': !volumeStatus}" id="volumeBar" class="volume-bar box-show">
+      <div @click="clickMusicVolumeBar" :class="{'ban-change': !volumeStatus}" ref="volumeBar" class="volume-bar box-show">
 				<div :style="{'width' : volumeLevel * 100 + '%'}" style="height:88%; margin-top:1px; position:relative; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:5px;">
 					<a @mousedown="dragVolumeControllerPointer" class="pointer box-show" style="top:-4.5px;"></a>
 				</div>
@@ -88,7 +88,7 @@
 </template>
 
 <script>
-import {timeStampToMinuteSecondTime} from '../../assets/js/commom.js'
+import { timeStampToMinuteSecondTime, mouseCoords, getElemenPosion } from '../../assets/js/commom.js'
 
 export default {
   name: 'MusicPlayer',
@@ -121,7 +121,7 @@ export default {
   },
 
   mounted () {
-    this.musicSource = this.$refs.musicSource
+    this.musicSource = this.$refs['musicSource']
     this.musicSource.addEventListener('timeupdate', this._currentTime)
     this.musicSource.addEventListener('canplay', this._durationTime)
   },
@@ -200,9 +200,9 @@ export default {
      * 点击播放进度条
      */
     clickMusicProgressBar (event) {
-      let mousePos = this.mouseCoords(event)
+      let mousePos = mouseCoords(event)
       let x = mousePos.x
-      let x1 = this.getElementLeft(document.getElementById('progressBar'))
+      let x1 = getElemenPosion(this.$refs['progressBar'], 'left')
       this.changePlayProgress(x - x1)
     },
 
@@ -210,11 +210,11 @@ export default {
      * 拖动播放进度条指针
      */
     dragProgressControllerPointer (event) {
-      let x1 = this.getElementLeft(document.getElementById('progressBar'))
+      let x1 = getElemenPosion(this.$refs['progressBar'], 'left')
       // 注册document的mousemove事件
       document.onmousemove = (ev) => {
         let oEvent = ev || event
-        let mousePos = this.mouseCoords(oEvent)
+        let mousePos = mouseCoords(oEvent)
         let x = mousePos.x
         this.changePlayProgress(x - x1)
       }
@@ -230,33 +230,33 @@ export default {
      * 修改音量大小
      */
     changeMusicVolume (volume = 0) {
-      if (volume < 0 || volume > 1) {
+      if (volume < 0 || volume > 138) {
         return false
       }
-      this.volumeLevel = volume
+      this.volumeLevel = volume / 138
     },
 
     /**
      * 点击音量条调节音量大小
      */
     clickMusicVolumeBar (event) {
-      let mousePos = this.mouseCoords(event)
+      let mousePos = mouseCoords(event)
       let x = mousePos.x
-      let x1 = this.getElementLeft(document.getElementById('volumeBar'))
-      this.changeMusicVolume((x - x1) / 138)
+      let x1 = getElemenPosion(this.$refs['volumeBar'], 'left')
+      this.changeMusicVolume(x - x1)
     },
 
     /**
      * 拖动音量指针
      */
     dragVolumeControllerPointer (event) {
-      let x1 = this.getElementLeft(document.getElementById('volumeBar'))
+      let x1 = getElemenPosion(this.$refs['volumeBar'], 'left')
       // 注册document的mousemove事件
       document.onmousemove = (ev) => {
         let oEvent = ev || event
-        let mousePos = this.mouseCoords(oEvent)
+        let mousePos = mouseCoords(oEvent)
         let x = mousePos.x
-        this.changeMusicVolume((x - x1) / 138)
+        this.changeMusicVolume(x - x1)
       }
 
       // 鼠标放开清除事件
@@ -268,31 +268,7 @@ export default {
 
     timeStampToMinuteSecondTime (timestamp) {
       return timeStampToMinuteSecondTime(timestamp)
-    },
-
-    mouseCoords (event) {
-      if (event.pageX || event.pageY) {
-        return {
-          x: event.pageX,
-          y: event.pageY
-        }
-      }
-      return {
-        x: event.clientX + document.body.scrollLeft - document.body.clientLeft,
-        y: event.clientY + document.body.scrollTop - document.body.clientTop
-      }
-    },
-
-    getElementLeft (element) {
-      let actualLeft = element.offsetLeft
-      let current = element.offsetParent
-      while (current !== null) {
-        actualLeft += current.offsetLeft
-        current = current.offsetParent
-      }
-      return actualLeft
     }
-
   }
 }
 </script>
