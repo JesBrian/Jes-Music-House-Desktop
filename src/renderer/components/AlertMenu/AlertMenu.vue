@@ -17,23 +17,21 @@ export default {
   },
 
   mounted () {
-    // console.log(this.$refs['alertMenuContent'].$el.style.width + ' - ' + this.$refs['alertMenuContent'].$el.style.height)
-
     let elStyle = this.$refs['alertMenuContent'].$el.style
-    let elT = Number(elStyle.top)
-    let elL = Number(elStyle.left)
-    let elH = Number(elStyle.Height)
-    let elW = Number(elStyle.width)
+    let elT = parseInt(elStyle.top)
+    let elL = parseInt(elStyle.left)
+    let elH = parseInt(elStyle.height)
+    let elW = parseInt(elStyle.width)
 
     let html = document.documentElement
-    let vx = html.clientWidth
-    let vy = html.clientHeight
+    let vx = html.clientWidth - 14 // 14 是右边界空隙
+    let vy = html.clientHeight - 48 // 48 是底部 fixed 空隙
 
-    if ((elT + elH) > vx) {
-      this.$refs['alertMenuContent'].$el.style.top = (vx - elH) + 'px'
+    if ((elT + elH) > vy) {
+      this.$refs['alertMenuContent'].$el.style.top = (vy - elH) + 'px'
     }
-    if ((elL + elW) > vy) {
-      this.$refs['alertMenuContent'].$el.style.left = (vy - elW) + 'px'
+    if ((elL + elW) > vx) {
+      this.$refs['alertMenuContent'].$el.style.left = (vx - elW) + 'px'
     }
   },
 
