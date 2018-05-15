@@ -3,7 +3,7 @@
 		<!-- LOGO -->
 		<div style="width:188px; height:100%; float:left;">
 			<router-link to="/" style="-webkit-app-region:no-drag; float:left;">
-				<img src="../../../../static/images/Logo.png" style="width:30px; height:30px; margin:10px 12px 0; float:left;"/>
+				<img src="../../../../../static/images/Logo.png" style="width:30px; height:30px; margin:10px 12px 0; float:left;"/>
 				<span style="font-size:22px; font-weight:700; color:#22e8ff; text-shadow:1.5px 1.5px 6px #30cdff; line-height:52px;">Music House</span>
 			</router-link>
 		</div>

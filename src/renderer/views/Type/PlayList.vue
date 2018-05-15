@@ -3,7 +3,7 @@
     <!-- 歌单基本信息 -->
     <div style="width:100%; margin-top:28px;">
       <div style="width:32%; margin-top:12px; float:left; text-align:center;">
-        <img class="box-show" v-lazy="'http://p4.music.126.net/fNps5V_Auva93TgjLURyEw==/7960464187263772.jpg?param=200y200'" style="width:188px; height:188px; padding:8px;"/>
+        <img class="cube-bg box-show" v-lazy="'http://p4.music.126.net/fNps5V_Auva93TgjLURyEw==/7960464187263772.jpg?param=200y200'" style="width:188px; height:188px; padding:8px; border-radius:6px;"/>
       </div>
       <div style="width:65%; margin-top:3px; display:inline-block; position:relative; color:#999;">
         <p style="font-size:23px; color:#EEE;">史克威尔艾尼克斯 · 游戏音乐编年史 ♪</p>

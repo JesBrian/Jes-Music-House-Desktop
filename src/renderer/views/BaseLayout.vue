@@ -35,9 +35,9 @@
 </template>
 
 <script>
-import TopMenu from '../components/TopMenu/TopMenu.vue'
-import LeftMenu from '../components/LeftMenu/LeftMenu.vue'
-import MusicPlayer from '../components/MusicPlayer/MusicPlayer.vue'
+import TopMenu from '../components/Layout/TopMenu/TopMenu.vue'
+import LeftMenu from '../components/Layout/LeftMenu/LeftMenu.vue'
+import MusicPlayer from '../components/Layout/MusicPlayer/MusicPlayer.vue'
 import Modal from '../components/Modal/Modal.vue'
 import Tips from '../components/Tips/Tips.vue'
 import SongView from './SongView.vue'
