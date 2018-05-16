@@ -1,14 +1,14 @@
 <template>
 	<div>
 		<!-- 个人信息 -->
-    <div style="width:100%; height:268px;">
-      <div style="width:22%; padding:28px; display:inline-block; box-sizing:border-box;">
-        <img src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:138px; height:138px; float:left;"/>
+    <div style="width:100%; min-height:208px;">
+      <div style="width:22%; padding:38px; display:inline-block; box-sizing:border-box;">
+        <img src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" class="box-show" style="width:138px; height:138px; padding:5px; float:left;"/>
       </div>
 
       <div style="width:75%; min-height:188px; display:inline-block;">
 
-        <div style="width:100%; height:48px; padding-top:8px; box-shadow:0 3px 2px -2px #666;">
+        <div style="width:100%; height:48px; box-shadow:0 3px 2px -2px #666;">
           <p style="float:left; text-indent:0.9em; font-size:26px; line-height:2em;">JesBrian</p>
           <div class="super-btn-out" style="width:50px; height:26px; margin:11px 0 0 28px; float:left;">
             <span class="super-btn-in" style="width:44px; height:20px; line-height:20px;">Lv 9</span>
@@ -38,6 +38,34 @@
         </p>
       </div>
 
+    </div>
+
+    <!-- 创建的歌单 -->
+    <div style="width:96%; height:53px; margin:0 auto 28px; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px; text-shadow:1px 1px 0.5px #000;">
+      <span style="font-size:23px; font-weight:700; color:#CCC;">我创建的歌单</span>
+    </div>
+    <div style="width:96%; margin:0 auto;">
+      <div v-for="n in 8" style="width:20%; height:168px; margin-bottom:18px; display:inline-block;">
+        <div style="width:128px; height:100%; margin:0 auto;">
+          <div style="width:100%; height:128px; background:lightpink"></div>
+          <p class="text-hidden" style="width:100%;">This is PlayList Name</p>
+          <p style="font-size:13px;">XX 首</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 收藏的歌单 -->
+    <div style="width:96%; height:53px; margin:0 auto 28px; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px; text-shadow:1px 1px 0.5px #000;">
+      <span style="font-size:23px; font-weight:700; color:#CCC;">我收藏的歌单</span>
+    </div>
+    <div style="width:96%; margin:0 auto;">
+      <div v-for="n in 8" style="width:20%; height:168px; margin-bottom:18px; display:inline-block;">
+        <div style="width:128px; height:100%; margin:0 auto;">
+          <div style="width:100%; height:128px; background:lightpink"></div>
+          <p class="text-hidden" style="width:100%;">This is PlayList Name</p>
+          <p style="font-size:13px;">XX 首</p>
+        </div>
+      </div>
     </div>
 
 	</div>
