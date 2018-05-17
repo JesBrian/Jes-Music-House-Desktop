@@ -9,78 +9,7 @@
       <div style="width:168px; height:338px; top:138px; left:248px; position:fixed; background:lightgreen"></div>
 
       <div>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
-        <h1>safgzdxhjkl</h1>
-        <p>fgesbvihnsa</p>
-        <hr/>
+        this is config content
       </div>
     </div>
 	</div>
