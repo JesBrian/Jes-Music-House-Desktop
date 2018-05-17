@@ -58,14 +58,14 @@
     <div style="width:96%; margin:0 auto;">
       <div style="width:20%; height:168px; margin-bottom:18px; margin-right:-4px; display:inline-block;">
         <div style="width:128px; height:100%; margin:0 auto;">
-          <div @click.right="showAlertMenu" style="width:100%; height:128px; background:lightpink"></div>
+          <img src="http://p1.music.126.net/wkon8FidWZUeUtBgXi-wOQ==/109951163288308673.jpg?param=140y140" @click.right="showAlertMenu" class="box-show cube-bg" style="width:100%; height:128px; padding:4px;" />
           <p class="text-hidden" style="width:100%; line-height:1.8em;">我的听歌排行</p>
           <p style="font-size:12.5px; color:#999;">累计听歌 XX 首</p>
         </div>
       </div>
       <div v-for="n in 11" style="width:20%; height:168px; margin-bottom:18px; display:inline-block;">
         <div style="width:128px; height:100%; margin:0 auto;">
-          <div @click.right="showAlertMenu" style="width:100%; height:128px; background:lightpink"></div>
+          <img src="http://p1.music.126.net/wkon8FidWZUeUtBgXi-wOQ==/109951163288308673.jpg?param=140y140" @click.right="showAlertMenu" class="box-show cube-bg" style="width:100%; height:128px; padding:4px;" />
           <p class="text-hidden" style="width:100%; line-height:1.8em;">This is PlayList Name</p>
           <p style="font-size:12.5px; color:#999;">XX 首</p>
         </div>
@@ -90,7 +90,7 @@
     <div style="width:96%; margin:0 auto;">
       <div v-for="n in 8" style="width:20%; height:168px; margin-bottom:18px; display:inline-block;">
         <div style="width:128px; height:100%; margin:0 auto;">
-          <div @click.right="showAlertMenu" style="width:100%; height:128px; background:lightpink"></div>
+          <img src="http://p1.music.126.net/wkon8FidWZUeUtBgXi-wOQ==/109951163288308673.jpg?param=140y140" @click.right="showAlertMenu" class="box-show cube-bg" style="width:100%; height:128px; padding:4px;" />
           <p class="text-hidden" style="width:100%; line-height:1.8em;">This is PlayList Name</p>
           <p style="font-size:12.5px; color:#999;">XX 首</p>
         </div>
