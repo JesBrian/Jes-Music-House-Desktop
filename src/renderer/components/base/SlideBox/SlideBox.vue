@@ -92,7 +92,7 @@ export default {
 	}
 
 	.p-n-btn {
-		background:url('../../../../static/images/button/button.png') no-repeat;
+		background:url('../../../../../static/images/button/button.png') no-repeat;
 		background-size:auto 103%;
 	}
 	.p-n-btn.prev-btn {
