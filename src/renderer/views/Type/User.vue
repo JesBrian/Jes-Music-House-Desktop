@@ -44,89 +44,66 @@
     <div style="width:96%; height:53px; margin:0 auto 28px; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px; text-shadow:1px 1px 0.5px #000;">
       <span style="font-size:23px; font-weight:700; color:#CCC;">我创建的歌单</span>
       <div style="margin-top:10px; float:right;">
-        <div @click="changePlsyListShowType('createPlsyListShowType', 'picture')" :class="{'active' : createPlsyListShowType === 'picture'}" class="super-btn-out play-list-type" title="大图模式" >
+        <div @click="changePlsyListShowType('createPlsyListShowType', 'picture')" :class="{'active' : createPlsyListShowType === 'picture-group'}" class="super-btn-out play-list-type" title="大图模式" >
           <i class="super-btn-in mh-if theme"></i>
         </div>
-        <div @click="changePlsyListShowType('createPlsyListShowType', 'list')" :class="{'active' : createPlsyListShowType === 'list'}" class="super-btn-out play-list-type" title="列表模式" >
+        <div @click="changePlsyListShowType('createPlsyListShowType', 'list')" :class="{'active' : createPlsyListShowType === 'list-group'}" class="super-btn-out play-list-type" title="列表模式" >
           <i class="super-btn-in mh-if music-list"></i>
         </div>
-        <div @click="changePlsyListShowType('createPlsyListShowType', 'picture-list')" :class="{'active' : createPlsyListShowType === 'picture-list'}" class="super-btn-out play-list-type" title="图列模式" >
+        <div @click="changePlsyListShowType('createPlsyListShowType', 'picture-list')" :class="{'active' : createPlsyListShowType === 'picture-list-group'}" class="super-btn-out play-list-type" title="图列模式" >
           <i class="super-btn-in mh-if list"></i>
         </div>
       </div>
     </div>
     <div style="width:96%; margin:0 auto;">
-      <div style="width:20%; height:168px; margin-bottom:18px; margin-right:-4px; display:inline-block;">
-        <div style="width:128px; height:100%; margin:0 auto;">
-          <img src="http://p1.music.126.net/wkon8FidWZUeUtBgXi-wOQ==/109951163288308673.jpg?param=140y140" @click.right="showAlertMenu" class="box-show cube-bg" style="width:100%; height:128px; padding:4px;" />
-          <p class="text-hidden" style="width:100%; line-height:1.8em;">我的听歌排行</p>
-          <p style="font-size:12.5px; color:#999;">累计听歌 XX 首</p>
-        </div>
-      </div>
-      <div v-for="n in 11" style="width:20%; height:168px; margin-bottom:18px; display:inline-block;">
-        <div style="width:128px; height:100%; margin:0 auto;">
-          <img src="http://p1.music.126.net/wkon8FidWZUeUtBgXi-wOQ==/109951163288308673.jpg?param=140y140" @click.right="showAlertMenu" class="box-show cube-bg" style="width:100%; height:128px; padding:4px;" />
-          <p class="text-hidden" style="width:100%; line-height:1.8em;">This is PlayList Name</p>
-          <p style="font-size:12.5px; color:#999;">XX 首</p>
-        </div>
-      </div>
+      <!--<picture-group />-->
+      <!--<picture-list-group />-->
+      <component :is="createPlsyListShowType" />
     </div>
 
     <!-- 收藏的歌单 -->
     <div style="width:96%; height:53px; margin:0 auto 28px; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px; text-shadow:1px 1px 0.5px #000;">
       <span style="font-size:23px; font-weight:700; color:#CCC;">我收藏的歌单</span>
       <div style="margin-top:10px; float:right;">
-        <div @click="changePlsyListShowType('collectionPlayListShowType', 'picture')" :class="{'active' : collectionPlayListShowType === 'picture'}" class="super-btn-out play-list-type" title="大图模式" >
+        <div @click="changePlsyListShowType('collectionPlayListShowType', 'picture')" :class="{'active' : collectionPlayListShowType === 'picture-group'}" class="super-btn-out play-list-type" title="大图模式" >
           <i class="super-btn-in mh-if theme"></i>
         </div>
-        <div @click="changePlsyListShowType('collectionPlayListShowType', 'list')" :class="{'active' : collectionPlayListShowType === 'list'}" class="super-btn-out play-list-type" title="列表模式" >
+        <div @click="changePlsyListShowType('collectionPlayListShowType', 'list')" :class="{'active' : collectionPlayListShowType === 'list-group'}" class="super-btn-out play-list-type" title="列表模式" >
           <i class="super-btn-in mh-if music-list"></i>
         </div>
-        <div @click="changePlsyListShowType('collectionPlayListShowType', 'picture-list')" :class="{'active' : collectionPlayListShowType === 'picture-list'}" class="super-btn-out play-list-type" title="图列模式" >
+        <div @click="changePlsyListShowType('collectionPlayListShowType', 'picture-list')" :class="{'active' : collectionPlayListShowType === 'picture-list-group'}" class="super-btn-out play-list-type" title="图列模式" >
           <i class="super-btn-in mh-if list"></i>
         </div>
       </div>
     </div>
     <div style="width:96%; margin:0 auto;">
-      <div v-for="n in 8" style="width:20%; height:168px; margin-bottom:18px; display:inline-block;">
-        <div style="width:128px; height:100%; margin:0 auto;">
-          <img src="http://p1.music.126.net/wkon8FidWZUeUtBgXi-wOQ==/109951163288308673.jpg?param=140y140" @click.right="showAlertMenu" class="box-show cube-bg" style="width:100%; height:128px; padding:4px;" />
-          <p class="text-hidden" style="width:100%; line-height:1.8em;">This is PlayList Name</p>
-          <p style="font-size:12.5px; color:#999;">XX 首</p>
-        </div>
-      </div>
+      <component :is="collectionPlayListShowType" />
     </div>
 
 	</div>
 </template>
 
 <script>
-import { mouseCoords } from '../../assets/js/commom.js'
+import PictureGroup from '../../components/extends/PlayList/PictureGroup.vue'
+import PictureListGroup from '../../components/extends/PlayList/PictureListGroup.vue'
 
 export default {
   name: 'User',
 
-  components: {},
+  components: {
+    PictureListGroup, PictureGroup
+  },
 
   data () {
     return {
-      createPlsyListShowType: 'picture',
-      collectionPlayListShowType: 'picture'
+      createPlsyListShowType: 'picture-group',
+      collectionPlayListShowType: 'picture-group'
     }
   },
 
   methods: {
     changePlsyListShowType (playListType, showType = 'picture') {
-      this[playListType] = showType
-    },
-
-    showAlertMenu (event) {
-      let position = mouseCoords(event)
-      let alertMenuConf = {
-        type: 'SongMenu',
-        position: position
-      }
-      this.$store.commit('SHOW_ALERT_MENU', alertMenuConf)
+      this[playListType] = showType + '-group'
     }
   }
 }

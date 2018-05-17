@@ -1,12 +1,20 @@
 <template>
-  <ul>
-    <li></li>
-  </ul>
+  <div>
+    <div v-for="n in 8" style="width:20%; height:168px; margin-bottom:18px; margin-right:-4px; display:inline-block;">
+      <picture-cell />
+    </div>
+  </div>
 </template>
 
 <script>
+import PictureCell from './PictureCell.vue'
+
 export default {
-  name: 'PictureGroup'
+  name: 'PictureGroup',
+
+  components: {
+    PictureCell
+  }
 }
 </script>
 
