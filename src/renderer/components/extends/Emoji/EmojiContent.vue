@@ -10,7 +10,7 @@
 
     <!-- 当前鼠标选中的表情展示 -->
     <div class="glass-bg box-show" style="width:40px; height:40px; bottom:0; right:0; position:absolute;">
-      <img id="showEmoji" src="../../../../static/images/emoji/0.jpg" style="width:82%; height:82%; top:0; left:0; bottom:0; right:0; margin:auto; position:absolute;"/>
+      <img id="showEmoji" src="../../../../../static/images/emoji/0.jpg" style="width:82%; height:82%; top:0; left:0; bottom:0; right:0; margin:auto; position:absolute;"/>
     </div>
   </div>
 </template>

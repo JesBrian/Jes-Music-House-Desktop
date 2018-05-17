@@ -75,8 +75,8 @@
 </template>
 
 <script>
-import SongGroup from '../../components/Song/SongGroup.vue'
-import CommentTotal from '../../components/Comment/CommentTotal.vue'
+import SongGroup from '../../components/extends/Song/SongGroup.vue'
+import CommentTotal from '../../components/extends/Comment/CommentTotal.vue'
 
 export default {
   name: 'PlayList',

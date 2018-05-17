@@ -38,10 +38,10 @@
 import TopMenu from './Layout/TopMenu/TopMenu.vue'
 import LeftMenu from './Layout/LeftMenu/LeftMenu.vue'
 import MusicPlayer from './Layout/MusicPlayer/MusicPlayer.vue'
-import Modal from '../components/Modal/Modal.vue'
-import Tips from '../components/Tips/Tips.vue'
+import Modal from '../components/base/Modal/Modal.vue'
+import Tips from '../components/base/Tips/Tips.vue'
 import SongView from './SongView.vue'
-import AlertMenu from '../components/AlertMenu/AlertMenu.vue'
+import AlertMenu from '../components/base/AlertMenu/AlertMenu.vue'
 
 export default {
   name: 'BaseLayout',

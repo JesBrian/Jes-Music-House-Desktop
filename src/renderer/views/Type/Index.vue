@@ -144,8 +144,8 @@
 </template>
 
 <script>
-import SlideBox from '../../components/SlideBox/SlideBox.vue'
-import AlbumGroup from '../../components/Album/AlbumGroup.vue'
+import SlideBox from '../../components/base/SlideBox/SlideBox.vue'
+import AlbumGroup from '../../components/extends/Album/AlbumGroup.vue'
 
 export default {
   name: 'Index',

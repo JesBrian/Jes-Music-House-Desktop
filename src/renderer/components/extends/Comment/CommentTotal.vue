@@ -21,7 +21,7 @@
 <script>
 import NewComment from './NewComment.vue'
 import CommentGroup from './CommentGroup.vue'
-import Pagination from '../Pagination/Pagination.vue'
+import Pagination from '../../base/Pagination/Pagination.vue'
 
 export default {
   name: 'CommentTotal',
