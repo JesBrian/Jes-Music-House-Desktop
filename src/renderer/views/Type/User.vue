@@ -41,8 +41,8 @@
     </div>
 
     <!-- 创建的歌单 -->
-    <div style="width:96%; height:53px; margin:0 auto 28px; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px; text-shadow:1px 1px 0.5px #000;">
-      <span style="font-size:23px; font-weight:700; color:#CCC;">我创建的歌单</span>
+    <div style="width:96%; height:53px; margin:0 auto 12px; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; text-shadow:1px 1px 0.5px #000;">
+      <span style="font-size:23px; font-weight:700; color:#CCC; line-height:68px;">我创建的歌单</span>
       <div style="margin-top:10px; float:right;">
         <div @click="changePlsyListShowType('createPlsyListShowType', 'picture')" :class="{'active' : createPlsyListShowType === 'picture-group'}" class="super-btn-out play-list-type" title="大图模式" >
           <i class="super-btn-in mh-if theme"></i>
@@ -56,14 +56,12 @@
       </div>
     </div>
     <div style="width:96%; margin:0 auto;">
-      <!--<picture-group />-->
-      <!--<picture-list-group />-->
       <component :is="createPlsyListShowType" />
     </div>
 
     <!-- 收藏的歌单 -->
-    <div style="width:96%; height:53px; margin:0 auto 28px; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px; text-shadow:1px 1px 0.5px #000;">
-      <span style="font-size:23px; font-weight:700; color:#CCC;">我收藏的歌单</span>
+    <div style="width:96%; height:53px; margin:0 auto 12px; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; text-shadow:1px 1px 0.5px #000;">
+      <span style="font-size:23px; font-weight:700; color:#CCC; line-height:68px;">我收藏的歌单</span>
       <div style="margin-top:10px; float:right;">
         <div @click="changePlsyListShowType('collectionPlayListShowType', 'picture')" :class="{'active' : collectionPlayListShowType === 'picture-group'}" class="super-btn-out play-list-type" title="大图模式" >
           <i class="super-btn-in mh-if theme"></i>
@@ -76,7 +74,7 @@
         </div>
       </div>
     </div>
-    <div style="width:96%; margin:0 auto;">
+    <div style="width:96%; margin:0 auto 28px;">
       <component :is="collectionPlayListShowType" />
     </div>
 
@@ -85,13 +83,14 @@
 
 <script>
 import PictureGroup from '../../components/extends/PlayList/PictureGroup.vue'
+import ListGroup from '../../components/extends/PlayList/ListGroup.vue'
 import PictureListGroup from '../../components/extends/PlayList/PictureListGroup.vue'
 
 export default {
   name: 'User',
 
   components: {
-    PictureListGroup, PictureGroup
+    PictureGroup, ListGroup, PictureListGroup
   },
 
   data () {

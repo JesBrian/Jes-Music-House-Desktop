@@ -21,7 +21,7 @@
         <i class="mh-if download" style="margin-right:3px;"></i>下载 [Ctrl + D]
       </li>
 
-      <li class="super-btn-in" style="margin-bottom:5px; top:12px; display:block; padding:5px 13px 5px 8px; position:relative; text-align:left;">
+      <li @click="closeAlertMenu" class="super-btn-in" style="margin-bottom:5px; top:12px; display:block; padding:5px 13px 5px 8px; position:relative; text-align:left;">
         <i class="mh-if trash" style="margin-right:3px;"></i>从歌单删除 [Delete]
       </li>
     </ul>

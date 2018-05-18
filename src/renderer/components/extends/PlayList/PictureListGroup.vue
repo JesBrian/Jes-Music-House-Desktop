@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="n in 6" class="box-shadow">
+    <div v-for="n in 4" class="box-shadow" style="padding:8px 0;">
       <picture-list-cell />
     </div>
   </div>
