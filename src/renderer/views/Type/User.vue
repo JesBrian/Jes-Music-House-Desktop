@@ -41,7 +41,7 @@
     </div>
 
     <!-- 创建的歌单 -->
-    <div style="width:96%; height:53px; margin:0 auto 12px; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; text-shadow:1px 1px 0.5px #000;">
+    <div style="width:96%; height:53px; margin:0 auto; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; text-shadow:1px 1px 0.5px #000;">
       <span style="font-size:23px; font-weight:700; color:#CCC; line-height:68px;">我创建的歌单</span>
       <div style="margin-top:10px; float:right;">
         <div @click="changePlsyListShowType('createPlsyListShowType', 'picture')" :class="{'active' : createPlsyListShowType === 'picture-group'}" class="super-btn-out play-list-type" title="大图模式" >
@@ -60,7 +60,7 @@
     </div>
 
     <!-- 收藏的歌单 -->
-    <div style="width:96%; height:53px; margin:0 auto 12px; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; text-shadow:1px 1px 0.5px #000;">
+    <div style="width:96%; height:53px; margin:0 auto; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; text-shadow:1px 1px 0.5px #000;">
       <span style="font-size:23px; font-weight:700; color:#CCC; line-height:68px;">我收藏的歌单</span>
       <div style="margin-top:10px; float:right;">
         <div @click="changePlsyListShowType('collectionPlayListShowType', 'picture')" :class="{'active' : collectionPlayListShowType === 'picture-group'}" class="super-btn-out play-list-type" title="大图模式" >

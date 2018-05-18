@@ -1,6 +1,9 @@
 <template>
-	<div style="background:#181818;">
-    <div style="width:100%; height:38px; margin:0 auto 10px; padding-top:32px; box-shadow:0 3px 8px -3px #00d8ff; text-align:center; border-bottom:1px solid #00d8ff; line-height:27px; font-weight:700;">
+	<div style="position:relative; background:#181818;">
+    <span style="top:-3px; right:28px; position:absolute; color:#CCC; font-size:14px;">
+      搜索 " <span style="color:#00d8ff; text-decoration:underline;">心碎</span> "，共找到 <span style="color:#00d8ff;">2222</span> 首单曲
+    </span>
+    <div style="width:100%; height:38px; margin:28px auto 0; padding-top:32px; box-shadow:0 3px 8px -3px #00d8ff; text-align:center; border-bottom:1px solid #00d8ff; line-height:27px; font-weight:700;">
       <div @click="changeSearchType('song')" :class="{'active' : searchType === 'song'}" class="super-btn-out">
         <span class="super-btn-in mh-if music-list"> 单曲</span>
       </div>
@@ -15,9 +18,6 @@
       </div>
     </div>
     <div style="width:100%; margin:0 auto; padding-bottom:18px; text-align:right;">
-      <span style="margin-right:38px; color:#CCC; font-size:14px;">
-        搜索 " <span style="color:#00d8ff; text-decoration:underline;">心碎</span> "，共找到 <span style="color:#00d8ff;">2222</span> 首单曲
-      </span>
       <div style="width:100%; margin-top:6px;">
         <ul>
           <li v-for="n in 18" class="box-shadow">
