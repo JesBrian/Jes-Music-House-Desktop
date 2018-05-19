@@ -1,6 +1,6 @@
 <template>
-  <div>
-    this is song cell
+  <div style="height:43px;">
+
   </div>
 </template>
 
