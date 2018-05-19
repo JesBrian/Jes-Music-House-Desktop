@@ -7,7 +7,7 @@
       <div @click="changeSearchType('song')" :class="{'active' : searchType === 'song'}" class="super-btn-out">
         <span class="super-btn-in mh-if music-list"> 单曲</span>
       </div>
-      <div @click="changeSearchType('album')" :class="{'active' : searchType === 'album'}" class="super-btn-out">
+      <div @click="changeSearchType('play-list')" :class="{'active' : searchType === 'play-list'}" class="super-btn-out">
         <span class="super-btn-in mh-if music-albu"> 歌单</span>
       </div>
       <div @click="changeSearchType('singer')" :class="{'active' : searchType === 'singer'}" class="super-btn-out">
@@ -17,14 +17,10 @@
         <span class="super-btn-in mh-if datum"> 用户</span>
       </div>
     </div>
-    <div style="width:100%; margin:0 auto; padding-bottom:18px; text-align:right;">
-      <div style="width:100%; margin-top:6px;">
-        <ul>
-          <li v-for="n in 18" class="box-shadow">
-            <div style="height:48px;"></div>
-          </li>
-        </ul>
-      </div>
+    <div style="width:100%; margin:0 auto; padding-bottom:18px; text-align:left;">
+
+      <component :is="searchType + '-group'" />
+
 
       <pagination />
     </div>
@@ -33,11 +29,17 @@
 
 <script>
 import Pagination from '../../components/base/Pagination/Pagination.vue'
+import SingerGroup from '../../components/extends/Search/Singer/SingerGroup.vue'
+import SongGroup from '../../components/extends/Search/Song/SongGroup.vue'
+import PlayListGroup from '../../components/extends/Search/PlayList/PlayListGroup.vue'
+import UserGroup from '../../components/extends/Search/User/UserGroup.vue'
 
 export default {
   name: 'Search',
 
-  components: {Pagination},
+  components: {
+    UserGroup, PlayListGroup, SongGroup, SingerGroup, Pagination
+  },
 
   data () {
     return {
