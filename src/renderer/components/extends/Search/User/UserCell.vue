@@ -18,7 +18,7 @@ export default {
     showAlertMenu (event) {
       let position = mouseCoords(event)
       let alertMenuConf = {
-        type: 'SongMenu',
+        type: 'UserMenu',
         position: position
       }
       this.$store.commit('SHOW_ALERT_MENU', alertMenuConf)

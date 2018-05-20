@@ -8,12 +8,14 @@
 <script>
 import SongMenu from './type/SongMenu.vue'
 import PlayListMenu from './type/PlayListMenu.vue'
+import UserMenu from './type/UserMenu.vue'
+import SingerMenu from './type/SingerMenu.vue'
 
 export default {
   name: 'AlertMenu',
 
   components: {
-    SongMenu, PlayListMenu
+    SongMenu, PlayListMenu, UserMenu, SingerMenu
   },
 
   mounted () {
@@ -44,5 +46,8 @@ export default {
 </script>
 
 <style scoped>
-
+  .super-btn-out >>> .super-btn-in:active {
+    color: #20dbfc;
+    box-shadow: 0 -0.1px 2px rgba(0, 0, 0, 0.7), 0 0 2px rgba(255, 255, 255, 0.4), 0 0 2px rgba(0, 0, 0, 0.3), inset 0 0 3px rgba(0, 0, 0, 0.4), inset 0 1px 2px rgba(0, 0, 0, 0.6);
+  }
 </style>
