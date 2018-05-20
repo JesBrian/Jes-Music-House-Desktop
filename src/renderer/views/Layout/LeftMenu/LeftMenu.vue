@@ -20,7 +20,7 @@
                 </router-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list">
+                <router-link to="/comment">
                   <i class="mh-if exponential" style="margin-right:4px;"></i>榜单推荐
                 </router-link>
               </li>
@@ -32,17 +32,17 @@
             </p>
 						<ul v-show="musicShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/comment">
+                <router-link to="/local">
                   <i class="mh-if redis" style="margin-right:6px;"></i>本地音乐
                 </router-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/comment">
+                <router-link to="/download">
                   <i class="mh-if download" style="margin-right:6px;"></i>下载管理
                 </router-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/comment">
+                <router-link to="/collection">
                   <i class="mh-if collection-music" style="margin-right:6px;"></i>我的收藏
                 </router-link>
               </li>

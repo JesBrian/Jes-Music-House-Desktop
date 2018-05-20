@@ -39,6 +39,18 @@ export default new Router({
           component: () => import('@/views/type/User.vue')
         },
         {
+          path: '/collection',
+          component: () => import('@/views/type/Collection.vue')
+        },
+        {
+          path: '/download',
+          component: () => import('@/views/type/Download.vue')
+        },
+        {
+          path: '/local',
+          component: () => import('@/views/type/Local.vue')
+        },
+        {
           path: '/setting',
           component: () => import('@/views/type/Setting.vue')
         },

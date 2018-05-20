@@ -1,5 +1,5 @@
 <template>
-	<div style="position:relative; background:#181818;">
+	<div style="position:relative;">
     <span style="top:-3px; right:28px; position:absolute; color:#CCC; font-size:14px;">
       搜索 " <span style="color:#00d8ff; text-decoration:underline;">心碎</span> "，共找到 <span style="color:#00d8ff;">2222</span> 首单曲
     </span>
