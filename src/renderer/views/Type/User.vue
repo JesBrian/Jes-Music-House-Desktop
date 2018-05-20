@@ -44,53 +44,55 @@
     <div style="width:96%; height:53px; margin:0 auto; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; text-shadow:1px 1px 0.5px #000;">
       <span style="font-size:23px; font-weight:700; color:#CCC; line-height:68px;">我创建的歌单</span>
       <div style="margin-top:10px; float:right;">
-        <div @click="changePlayListShowType('createPlayListShowType', 'picture')" :class="{'active' : createPlayListShowType === 'picture-group'}" class="super-btn-out play-list-type" title="大图模式" >
+        <div @click="changePlayListShowType('createPlayListShowType', 'picture-group')" :class="{'active' : createPlayListShowType === 'picture-group'}" class="super-btn-out play-list-type" title="大图模式" >
           <i class="super-btn-in mh-if theme"></i>
         </div>
-        <div @click="changePlayListShowType('createPlayListShowType', 'list')" :class="{'active' : createPlayListShowType === 'list-group'}" class="super-btn-out play-list-type" title="列表模式" >
+        <div @click="changePlayListShowType('createPlayListShowType', 'list-group')" :class="{'active' : createPlayListShowType === 'list-group'}" class="super-btn-out play-list-type" title="列表模式" >
           <i class="super-btn-in mh-if music-list"></i>
         </div>
-        <div @click="changePlayListShowType('createPlayListShowType', 'picture-list')" :class="{'active' : createPlayListShowType === 'picture-list-group'}" class="super-btn-out play-list-type" title="图列模式" >
+        <div @click="changePlayListShowType('createPlayListShowType', 'picture-list-group')" :class="{'active' : createPlayListShowType === 'picture-list-group'}" class="super-btn-out play-list-type" title="图列模式" >
           <i class="super-btn-in mh-if list"></i>
         </div>
       </div>
     </div>
     <div style="width:96%; margin:0 auto;">
-      <component :is="createPlayListShowType" />
+
+      <show-play-list :showType="createPlayListShowType" />
+
     </div>
 
     <!-- 收藏的歌单 -->
     <div style="width:96%; height:53px; margin:0 auto; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; text-shadow:1px 1px 0.5px #000;">
       <span style="font-size:23px; font-weight:700; color:#CCC; line-height:68px;">我收藏的歌单</span>
       <div style="margin-top:10px; float:right;">
-        <div @click="changePlayListShowType('collectionPlayListShowType', 'picture')" :class="{'active' : collectionPlayListShowType === 'picture-group'}" class="super-btn-out play-list-type" title="大图模式" >
+        <div @click="changePlayListShowType('collectionPlayListShowType', 'picture-group')" :class="{'active' : collectionPlayListShowType === 'picture-group'}" class="super-btn-out play-list-type" title="大图模式" >
           <i class="super-btn-in mh-if theme"></i>
         </div>
-        <div @click="changePlayListShowType('collectionPlayListShowType', 'list')" :class="{'active' : collectionPlayListShowType === 'list-group'}" class="super-btn-out play-list-type" title="列表模式" >
+        <div @click="changePlayListShowType('collectionPlayListShowType', 'list-group')" :class="{'active' : collectionPlayListShowType === 'list-group'}" class="super-btn-out play-list-type" title="列表模式" >
           <i class="super-btn-in mh-if music-list"></i>
         </div>
-        <div @click="changePlayListShowType('collectionPlayListShowType', 'picture-list')" :class="{'active' : collectionPlayListShowType === 'picture-list-group'}" class="super-btn-out play-list-type" title="图列模式" >
+        <div @click="changePlayListShowType('collectionPlayListShowType', 'picture-list-group')" :class="{'active' : collectionPlayListShowType === 'picture-list-group'}" class="super-btn-out play-list-type" title="图列模式" >
           <i class="super-btn-in mh-if list"></i>
         </div>
       </div>
     </div>
     <div style="width:96%; margin:0 auto 28px;">
-      <component :is="collectionPlayListShowType" />
+
+      <show-play-list :showType="collectionPlayListShowType" />
+
     </div>
 
 	</div>
 </template>
 
 <script>
-import PictureGroup from '../../components/extends/PlayList/PictureGroup.vue'
-import ListGroup from '../../components/extends/PlayList/ListGroup.vue'
-import PictureListGroup from '../../components/extends/PlayList/PictureListGroup.vue'
+import ShowPlayList from '../../components/extends/PlayList/ShowPlayList.vue'
 
 export default {
   name: 'User',
 
   components: {
-    PictureGroup, ListGroup, PictureListGroup
+    ShowPlayList
   },
 
   data () {
@@ -102,7 +104,7 @@ export default {
 
   methods: {
     changePlayListShowType (playListType, showType = 'picture') {
-      this[playListType] = showType + '-group'
+      this[playListType] = showType
     }
   }
 }

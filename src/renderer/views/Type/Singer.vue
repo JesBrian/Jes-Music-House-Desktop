@@ -1,23 +1,28 @@
 <template>
-  <div>
+  <div style="padding:0 2%;">
 
     <!-- 歌手信息 -->
-    <div></div>
+    <div style="width:96%; margin:28px auto 18px;">
+      <img src="http://p3.music.126.net/Ic8mQm7XI1nxe8DL-O9Eog==/103354093028496.jpg?param=640y300" class="glass-bg box-show" style="width:128px; height:128px; padding:5px;"/>
+      <div class="super-btn-out" style="width:108px; height:38px;">
+        <span class="super-btn-in" style="width:98px; height:28px;"> 关注</span>
+      </div>
+    </div>
 
     <!-- 歌手内容切换 -->
     <div style="width:100%; height:32px; margin:28px auto 0; padding:0 3%; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; color:#BBB; font-size:17px; font-weight:700; text-shadow:1px 1px 0.5px #000; line-height:28px;">
-      <span @click="changeContent('')" :class="{'active': type === ''}" class="singer-menu-cell">专辑</span>
-      <span @click="changeContent('')" :class="{'active': type === ''}" class="singer-menu-cell">歌手详情</span>
-      <span @click="changeContent('')" :class="{'active': type === ''}" class="singer-menu-cell">相似歌手</span>
+      <span @click="changeContent('play-list')" :class="{'active': type === 'play-list'}" class="singer-menu-cell">专辑</span>
+      <span @click="changeContent('descript')" :class="{'active': type === 'descript'}" class="singer-menu-cell">歌手详情</span>
+      <span @click="changeContent('similar-singer')" :class="{'active': type === 'similar-singer'}" class="singer-menu-cell">相似歌手</span>
 
-      <div style="margin-top:10px; float:right;">
-        <div @click="changePlayListShowType('picture')" :class="{'active' : plsyListShowType === 'picture-group'}" class="super-btn-out play-list-type" title="大图模式" >
+      <div v-if="type === 'play-list'" style="height:100%; margin-top:-4px; float:right;">
+        <div @click="changePlayListShowType('picture-group')" :class="{'active' : playListShowType === 'picture-group'}" class="super-btn-out play-list-type" title="大图模式" >
           <i class="super-btn-in mh-if theme"></i>
         </div>
-        <div @click="changePlayListShowType('list')" :class="{'active' : plsyListShowType === 'list-group'}" class="super-btn-out play-list-type" title="列表模式" >
+        <div @click="changePlayListShowType('list-group')" :class="{'active' : playListShowType === 'list-group'}" class="super-btn-out play-list-type" title="列表模式" >
           <i class="super-btn-in mh-if music-list"></i>
         </div>
-        <div @click="changePlayListShowType('picture-list')" :class="{'active' : plsyListShowType === 'picture-list-group'}" class="super-btn-out play-list-type" title="图列模式" >
+        <div @click="changePlayListShowType('picture-list-group')" :class="{'active' : playListShowType === 'picture-list-group'}" class="super-btn-out play-list-type" title="图列模式" >
           <i class="super-btn-in mh-if list"></i>
         </div>
       </div>
@@ -25,34 +30,41 @@
 
     <!-- 不同内容 -->
     <div style="margin:0 auto 28px;">
-      <component :is="type"/>
+      <component :is="type" :showType="playListShowType" />
     </div>
 
 	</div>
 </template>
 
 <script>
-import PictureGroup from '../../components/extends/PlayList/PictureGroup.vue'
-import ListGroup from '../../components/extends/PlayList/ListGroup.vue'
-import PictureListGroup from '../../components/extends/PlayList/PictureListGroup.vue'
+import PlayList from '../../components/extends/PlayList/ShowPlayList.vue'
+import Descript from '../../components/base/Descript/Descript.vue'
+import SimilarSinger from '../../components/extends/Search/Singer/SingerGroup.vue'
+import PictureGroup from '../../components/extends/PlayList/Picture/PictureGroup.vue'
+import ListGroup from '../../components/extends/PlayList/List/ListGroup.vue'
+import PictureListGroup from '../../components/extends/PlayList/PictureList/PictureListGroup.vue'
 
 export default {
   name: 'Singer',
 
   components: {
-    PictureGroup, ListGroup, PictureListGroup
+    PlayList, Descript, SimilarSinger, PictureGroup, ListGroup, PictureListGroup
   },
 
   data () {
     return {
-      type: '',
+      type: 'play-list',
       playListShowType: 'picture-group'
     }
   },
 
   methods: {
+    changeContent (type) {
+      this.type = type
+    },
+
     changePlayListShowType (type = 'picture') {
-      this.playListShowType = type + '-group'
+      this.playListShowType = type
     }
   }
 }

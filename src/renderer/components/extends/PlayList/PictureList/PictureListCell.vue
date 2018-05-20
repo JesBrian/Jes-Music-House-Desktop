@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mouseCoords } from '../../../assets/js/commom.js'
+import { mouseCoords } from '../../../../assets/js/commom.js'
 
 export default {
   name: 'PictureListCell',
