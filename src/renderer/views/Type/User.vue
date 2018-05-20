@@ -44,32 +44,32 @@
     <div style="width:96%; height:53px; margin:0 auto; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; text-shadow:1px 1px 0.5px #000;">
       <span style="font-size:23px; font-weight:700; color:#CCC; line-height:68px;">我创建的歌单</span>
       <div style="margin-top:10px; float:right;">
-        <div @click="changePlsyListShowType('createPlsyListShowType', 'picture')" :class="{'active' : createPlsyListShowType === 'picture-group'}" class="super-btn-out play-list-type" title="大图模式" >
+        <div @click="changePlayListShowType('createPlayListShowType', 'picture')" :class="{'active' : createPlayListShowType === 'picture-group'}" class="super-btn-out play-list-type" title="大图模式" >
           <i class="super-btn-in mh-if theme"></i>
         </div>
-        <div @click="changePlsyListShowType('createPlsyListShowType', 'list')" :class="{'active' : createPlsyListShowType === 'list-group'}" class="super-btn-out play-list-type" title="列表模式" >
+        <div @click="changePlayListShowType('createPlayListShowType', 'list')" :class="{'active' : createPlayListShowType === 'list-group'}" class="super-btn-out play-list-type" title="列表模式" >
           <i class="super-btn-in mh-if music-list"></i>
         </div>
-        <div @click="changePlsyListShowType('createPlsyListShowType', 'picture-list')" :class="{'active' : createPlsyListShowType === 'picture-list-group'}" class="super-btn-out play-list-type" title="图列模式" >
+        <div @click="changePlayListShowType('createPlayListShowType', 'picture-list')" :class="{'active' : createPlayListShowType === 'picture-list-group'}" class="super-btn-out play-list-type" title="图列模式" >
           <i class="super-btn-in mh-if list"></i>
         </div>
       </div>
     </div>
     <div style="width:96%; margin:0 auto;">
-      <component :is="createPlsyListShowType" />
+      <component :is="createPlayListShowType" />
     </div>
 
     <!-- 收藏的歌单 -->
     <div style="width:96%; height:53px; margin:0 auto; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; text-shadow:1px 1px 0.5px #000;">
       <span style="font-size:23px; font-weight:700; color:#CCC; line-height:68px;">我收藏的歌单</span>
       <div style="margin-top:10px; float:right;">
-        <div @click="changePlsyListShowType('collectionPlayListShowType', 'picture')" :class="{'active' : collectionPlayListShowType === 'picture-group'}" class="super-btn-out play-list-type" title="大图模式" >
+        <div @click="changePlayListShowType('collectionPlayListShowType', 'picture')" :class="{'active' : collectionPlayListShowType === 'picture-group'}" class="super-btn-out play-list-type" title="大图模式" >
           <i class="super-btn-in mh-if theme"></i>
         </div>
-        <div @click="changePlsyListShowType('collectionPlayListShowType', 'list')" :class="{'active' : collectionPlayListShowType === 'list-group'}" class="super-btn-out play-list-type" title="列表模式" >
+        <div @click="changePlayListShowType('collectionPlayListShowType', 'list')" :class="{'active' : collectionPlayListShowType === 'list-group'}" class="super-btn-out play-list-type" title="列表模式" >
           <i class="super-btn-in mh-if music-list"></i>
         </div>
-        <div @click="changePlsyListShowType('collectionPlayListShowType', 'picture-list')" :class="{'active' : collectionPlayListShowType === 'picture-list-group'}" class="super-btn-out play-list-type" title="图列模式" >
+        <div @click="changePlayListShowType('collectionPlayListShowType', 'picture-list')" :class="{'active' : collectionPlayListShowType === 'picture-list-group'}" class="super-btn-out play-list-type" title="图列模式" >
           <i class="super-btn-in mh-if list"></i>
         </div>
       </div>
@@ -95,13 +95,13 @@ export default {
 
   data () {
     return {
-      createPlsyListShowType: 'picture-group',
+      createPlayListShowType: 'picture-group',
       collectionPlayListShowType: 'picture-group'
     }
   },
 
   methods: {
-    changePlsyListShowType (playListType, showType = 'picture') {
+    changePlayListShowType (playListType, showType = 'picture') {
       this[playListType] = showType + '-group'
     }
   }
