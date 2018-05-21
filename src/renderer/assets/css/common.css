@@ -74,7 +74,7 @@ input, button, select, textarea, a{
 	left:50%;
 	transform:translate(-50%, 0);
 	position: absolute;
-	z-index:9;
+	z-index:3;
 }
 .box-shadow:last-child:before, .box-shadow:last-child:after {
 	display:none;
