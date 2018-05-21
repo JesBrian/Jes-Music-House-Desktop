@@ -6,8 +6,8 @@
     <div style="width:80%; margin:8px 0; display:inline-block;">
       <p style="margin-bottom:8px;">The Name of the PlayList</p>
       <ul class="box-show">
-        <li v-for="n in 5" class="box-shadow">
-          <div @click.right="showAlertMenu('SongMenu')" style="width:100%; height:32px;"></div>
+        <li v-for="n in 5" class="box-shadow" style="padding:2px 0;">
+          <div @click.right="showAlertMenu('SongMenu')" style="width:100%; height:28px;"></div>
         </li>
       </ul>
       <p style="line-height:2em;">查看全部135首</p>

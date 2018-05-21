@@ -14,25 +14,45 @@
       </div>
     </div>
 
-    <div style="width:100%; padding:12px 0;">
+    <div v-if="type === 'downloaded'" style="width:100%; padding:12px 0;">
       <div class="super-btn-out">
-        <span class="super-btn-in"> 全部开始</span>
+        <span class="super-btn-in mh-if play"> 播放全部</span>
       </div>
       <div class="super-btn-out">
-        <span class="super-btn-in"> 全部暂停</span>
+        <span class="super-btn-in mh-if menu"> 添加列表</span>
+      </div>
+      <label class="super-btn-out active" style="width:268px; height:32px; margin:-2px 8px 0 0; float:right; position:relative; border:none; border-radius:16px;">
+        <input type="text" class="super-btn-in" placeholder="搜索本歌单音乐" style="width:258px; height:76%; top:50%; padding:0 12px; box-sizing:border-box; border-radius:12px; text-align:left; font-size:17px;"/>
+        <i class="mh-if search" style="top:7px; right:14px; position:absolute;"></i>
+      </label>
+    </div>
+    <div v-if="type === 'nowDownload'" style="width:100%; padding:12px 0;">
+      <div class="super-btn-out">
+        <span class="super-btn-in mh-if download"> 全部开始</span>
+      </div>
+      <div class="super-btn-out">
+        <span class="super-btn-in mh-if stop"> 全部暂停</span>
       </div>
       <div class="super-btn-out">
         <span class="super-btn-in mh-if trash"> 清空全部</span>
       </div>
     </div>
 
-    <div style="width:100%; height:38px; box-shadow:0 -4px 8px -3px #00d8ff;"></div>
+    <div style="width:100%; height:23px; box-shadow:0 -4px 8px -3px #00d8ff;">
+      <ul>
+        <li v-for="n in 18" class="box-shadow" style="padding:2px 0;">
+          <div @click.right="showAlertMenu" style="height:28px;">123</div>
+        </li>
+      </ul>
+    </div>
 
 
   </div>
 </template>
 
 <script>
+import { mouseCoords } from '../../assets/js/commom.js'
+
 export default {
   name: 'Download',
 
@@ -45,6 +65,15 @@ export default {
   methods: {
     changeType (type = 'downloaded') {
       this.type = type
+    },
+
+    showAlertMenu () {
+      let position = mouseCoords(event)
+      let alertMenuConf = {
+        type: 'SongMenu',
+        position: position
+      }
+      this.$store.commit('SHOW_ALERT_MENU', alertMenuConf)
     }
   }
 }

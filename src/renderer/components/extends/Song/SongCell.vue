@@ -1,5 +1,5 @@
 <template>
-  <div @click.right="showAlertMenu" style="width:100%; height:38px;"></div>
+  <div @click.right="showAlertMenu" style="width:100%; height:28px;"></div>
 </template>
 
 <script>

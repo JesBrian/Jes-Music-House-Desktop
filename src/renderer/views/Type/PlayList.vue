@@ -59,8 +59,7 @@
     <div style="width:100%; height:32px; margin:28px auto 0; padding:0 3%; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; color:#BBB; font-size:17px; font-weight:700; text-shadow:1px 1px 0.5px #000; line-height:28px;">
       <span @click="changeContent('SongGroup')" :class="{'active': type === 'SongGroup'}" class="play-list-menu-cell">歌曲列表</span>
       <span @click="changeContent('CommentTotal')" :class="{'active': type === 'CommentTotal'}" class="play-list-menu-cell">评论 [666]</span>
-
-      <label v-if="type === 'SongGroup'" class="super-btn-out active" style="width:268px; height:32px; margin:-2px 8px 0 0; float:right; border:none; border-radius:16px;">
+      <label v-if="type === 'SongGroup'" class="super-btn-out active" style="width:268px; height:32px; margin:-2px 8px 0 0; float:right; position:relative; border:none; border-radius:16px;">
         <input type="text" class="super-btn-in" placeholder="搜索本歌单音乐" style="width:258px; height:76%; top:50%; padding:0 12px; box-sizing:border-box; border-radius:12px; text-align:left; font-size:17px;"/>
         <i class="mh-if search" style="top:2px; right:14px; position:absolute;"></i>
       </label>
