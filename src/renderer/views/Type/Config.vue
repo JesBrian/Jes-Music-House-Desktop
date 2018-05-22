@@ -65,47 +65,47 @@
     <div style="width:68%; margin:8px 38px 18px; position:absolute; box-sizing:border-box; overflow:hidden;">
       <ul>
         <li class="box-shadow">
-          <div style="height:120px; margin-bottom:12px;">
+          <div class="config-item-cell" style="height:120px; margin-bottom:12px;">
             <p class="config-item-title">账号</p>
           </div>
         </li>
         <li class="box-shadow">
-          <div style="height:120px; margin-bottom:12px;">
+          <div class="config-item-cell" style="height:120px; margin-bottom:12px;">
             <p class="config-item-title">常规</p>
           </div>
         </li>
         <li class="box-shadow">
-          <div style="height:120px; margin-bottom:12px;">
+          <div class="config-item-cell" style="height:120px; margin-bottom:12px;">
             <p class="config-item-title">播放</p>
           </div>
         </li>
         <li class="box-shadow">
-          <div style="height:120px; margin-bottom:12px;">
+          <div class="config-item-cell" style="height:120px; margin-bottom:12px;">
             <p class="config-item-title">消息与隐私</p>
           </div>
         </li>
         <li class="box-shadow">
-          <div style="height:120px; margin-bottom:12px;">
+          <div class="config-item-cell" style="height:120px; margin-bottom:12px;">
             <p class="config-item-title">快捷键</p>
           </div>
         </li>
         <li class="box-shadow">
-          <div style="height:120px; margin-bottom:12px;">
+          <div class="config-item-cell" style="height:120px; margin-bottom:12px;">
             <p class="config-item-title">下载设置</p>
           </div>
         </li>
         <li class="box-shadow">
-          <div style="height:120px; margin-bottom:12px;">
+          <div class="config-item-cell" style="height:120px; margin-bottom:12px;">
             <p class="config-item-title">歌词</p>
           </div>
         </li>
         <li class="box-shadow">
-          <div style="height:120px; margin-bottom:12px;">
+          <div class="config-item-cell" style="height:120px; margin-bottom:12px;">
             <p class="config-item-title">工具</p>
           </div>
         </li>
         <li class="box-shadow">
-          <div style="height:120px; margin-bottom:12px;">
+          <div class="config-item-cell" style="height:120px; margin-bottom:12px;">
             <p class="config-item-title">关于 Music House</p>
           </div>
         </li>
@@ -116,10 +116,50 @@
 </template>
 
 <script>
+import { getElemenPosion, getScrollTop } from '../../assets/js/commom.js'
+
 export default {
   name: 'Config',
 
-  components: {}
+  components: {},
+
+  data () {
+    return {
+      scrollContent: null
+    }
+  },
+
+  mounted () {
+    this.scrollContent = document.getElementById('mainContent')
+    let configItemArr = document.querySelectorAll('.config-item-cell')
+    let configItemArrLen = configItemArr.length
+    let configItemPositionArr = []
+    for (let i = 0; i < configItemArrLen; i++) {
+      configItemPositionArr.push(getElemenPosion(configItemArr[i], 'top'))
+    }
+    console.log(configItemPositionArr)
+
+    // function listenElementScroll (element) {
+    //   console.log(element)
+    //   let scrollTop = getScrollTop(element)
+    //   if (scrollTop >= 127) {
+    //     // 这里加载数据..
+    //     console.log(666)
+    //   }
+    // }
+
+    this.scrollContent.addEventListener('scroll', () => {
+      // console.log(element)
+      let scrollTop = getScrollTop(this.scrollContent)
+      if (scrollTop >= 127) {
+        // 这里加载数据..
+        console.log(666)
+      }
+    })
+  },
+
+  methods: {
+  }
 }
 </script>
 

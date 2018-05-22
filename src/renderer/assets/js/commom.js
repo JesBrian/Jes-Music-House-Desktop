@@ -29,8 +29,8 @@ export function mouseCoords (event) {
 
 /**
  * 获取元素的定位
- * @param element
- * @param direction
+ * @param element    要获取定位元素
+ * @param direction  要获取的 X/Y 轴位置
  * @return {number}
  */
 export function getElemenPosion (element, direction) {
@@ -52,4 +52,12 @@ export function getElemenPosion (element, direction) {
     }
   }
   return position
+}
+
+/**
+ * 获取元素滚动高度
+ * @return {number}
+ */
+export function getScrollTop (element) {
+  return element.scrollTop
 }
