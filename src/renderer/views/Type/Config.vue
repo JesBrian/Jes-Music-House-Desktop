@@ -56,13 +56,13 @@
       </ul>
 
       <div class="box-show" style="width:5px; height:90%; top:14px; right:0; float:right; position:absolute; background-image: linear-gradient(#2af1fc, #1a9ee6); cursor:pointer;">
-        <div style="width:15px; height:15px; top:62.7%; right:-6px; margin-top:-8.6px; position:absolute; border-radius:50%; background:url(../../../../../static/images/default/slide-pointer.png) no-repeat; background-size:100% 100%;"></div>
+        <div :style="{'top' : this.navScrollTop}" style="width:15px; height:15px; right:-5.5px; margin-top:-6px; position:absolute; z-index:9; border-radius:50%; background:url(../../../../../static/images/default/slide-pointer.png) no-repeat; background-size:100% 100%;"></div>
         <div class="super-btn-out" style="width:10px; height:10px; top:-5px; right:-3.5px; position:absolute; border-radius:50%;"></div>
         <div class="super-btn-out" style="width:10px; height:10px; bottom:-5px; right:-3.5px; position:absolute; border-radius:50%;"></div>
       </div>
     </div>
 
-    <div style="width:68%; margin:8px 38px 18px; position:absolute; box-sizing:border-box; overflow:hidden;">
+    <div id="configContent" style="width:68%; margin:8px 38px 18px; position:absolute; box-sizing:border-box; overflow:hidden;">
       <ul>
         <li class="box-shadow">
           <div class="config-item-cell" style="height:120px; margin-bottom:12px;">
@@ -116,7 +116,7 @@
 </template>
 
 <script>
-import { getElemenPosion, getScrollTop } from '../../assets/js/commom.js'
+import { getScrollTop } from '../../assets/js/commom.js'
 
 export default {
   name: 'Config',
@@ -125,40 +125,26 @@ export default {
 
   data () {
     return {
+      navScrollTop: 0,
       scrollContent: null
     }
   },
 
   mounted () {
     this.scrollContent = document.getElementById('mainContent')
-    let configItemArr = document.querySelectorAll('.config-item-cell')
-    let configItemArrLen = configItemArr.length
-    let configItemPositionArr = []
-    for (let i = 0; i < configItemArrLen; i++) {
-      configItemPositionArr.push(getElemenPosion(configItemArr[i], 'top'))
-    }
-    console.log(configItemPositionArr)
+    this.scrollContent.addEventListener('scroll', this.listenElementScroll)
+  },
 
-    // function listenElementScroll (element) {
-    //   console.log(element)
-    //   let scrollTop = getScrollTop(element)
-    //   if (scrollTop >= 127) {
-    //     // 这里加载数据..
-    //     console.log(666)
-    //   }
-    // }
-
-    this.scrollContent.addEventListener('scroll', () => {
-      // console.log(element)
-      let scrollTop = getScrollTop(this.scrollContent)
-      if (scrollTop >= 127) {
-        // 这里加载数据..
-        console.log(666)
-      }
-    })
+  beforeDestroy () {
+    this.scrollContent.removeEventListener('scroll', this.listenElementScroll)
   },
 
   methods: {
+    listenElementScroll () {
+      // 这种做法是错的，但是先这样做吧
+      this.navScrollTop = Math.round(getScrollTop(this.scrollContent) / 740 * 100) + '%'
+      console.log(this.navScrollTop)
+    }
   }
 }
 </script>
