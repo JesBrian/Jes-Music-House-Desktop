@@ -8,7 +8,7 @@
         <div @click="changeMessageContentType('notice')" :class="contentType === 'notice' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:33%; height:100%; float:left; border-radius:0 13px 13px 0; cursor:pointer;">通知</div>
       </div>
     </div>
-    <div style="width:100%; height:468px; padding-bottom:6px;">
+    <div style="width:100%; height:468px; padding:3px 0;">
       <ul style="width:96%; height:100%; margin:0 auto; overflow:auto;">
         <li v-for="n in 18" class="box-shadow" style="width:98%;">
           <div style="height:48px;"></div>

@@ -10,11 +10,11 @@
 
     <div style="width:100%; height:78px;">
       <div v-show="contentType === 'theme'" style="width:100%; height:100%; text-align:center;">
-        <div class="glass-bg box-show" style="width:42%; height:65px; margin:7px 6px 0; padding:2px; display:inline-block; background:lightpink; position:relative;">
-          <div class="glass-bg box-show" style="width:100%; height:18px; left:0; bottom:0; position:absolute; border-radius:0; opacity:0.9; line-height:18px;">XXXXX</div>
+        <div class="glass-bg" style="width:42%; height:65px; margin:7px 6px 0; padding:2px; display:inline-block; background:lightpink; position:relative;">
+          <div class="glass-bg" style="width:100%; height:18px; left:0; bottom:0; position:absolute; border-radius:0; opacity:0.9; line-height:18px;">XXXXX</div>
         </div>
-        <div class="glass-bg box-show" style="width:42%; height:65px; margin:7px 6px 0; padding:2px; display:inline-block; background:lightseagreen; position:relative;">
-          <div class="glass-bg box-show" style="width:100%; height:18px; left:0; bottom:0; position:absolute; border-radius:0; opacity:0.9; line-height:18px;">XXXXX</div>
+        <div class="glass-bg" style="width:42%; height:65px; margin:7px 6px 0; padding:2px; display:inline-block; background:lightseagreen; position:relative;">
+          <div class="glass-bg" style="width:100%; height:18px; left:0; bottom:0; position:absolute; border-radius:0; opacity:0.9; line-height:18px;">XXXXX</div>
         </div>
       </div>
 

@@ -8,7 +8,7 @@
         <div @click="changeType('downloaded')" :class="type === 'downloaded' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:50%; height:100%; float:left; border-radius:28px 0 0 28px; cursor:pointer;">
           <span> 已下载</span>
         </div>
-        <div @click="changeType('nowDownload')" :class="type === 'nowDownload' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:50%; height:100%; float:right; border-radius:0 28px 28px 0; cursor:pointer;">
+        <div @click="changeType('now-download')" :class="type === 'now-download' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:50%; height:100%; float:right; border-radius:0 28px 28px 0; cursor:pointer;">
           <span> 正在下载</span>
         </div>
       </div>
@@ -26,7 +26,7 @@
         <i class="mh-if search" style="top:7px; right:14px; position:absolute;"></i>
       </label>
     </div>
-    <div v-if="type === 'nowDownload'" style="width:100%; padding:12px 0;">
+    <div v-if="type === 'now-download'" style="width:100%; padding:12px 0;">
       <div class="super-btn-out">
         <span class="super-btn-in mh-if download"> 全部开始</span>
       </div>
@@ -38,12 +38,8 @@
       </div>
     </div>
 
-    <div style="width:100%; height:23px; box-shadow:0 -4px 8px -3px #00d8ff;">
-      <ul>
-        <li v-for="n in 18" class="box-shadow" style="padding:2px 0;">
-          <div @click.right="showAlertMenu" style="height:28px;">123</div>
-        </li>
-      </ul>
+    <div style="width:100%; box-shadow:0 -4px 8px -3px #00d8ff;">
+      <component :is="type + '-group'" />
     </div>
 
 
@@ -51,10 +47,15 @@
 </template>
 
 <script>
-import { mouseCoords } from '../../assets/js/commom.js'
+import NowDownloadGroup from '../../components/extends/Download/NowDownloadGroup.vue'
+import DownloadedGroup from '../../components/extends/Download/DownloadedGroup.vue'
 
 export default {
   name: 'Download',
+
+  components: {
+    DownloadedGroup, NowDownloadGroup
+  },
 
   data () {
     return {
@@ -65,15 +66,6 @@ export default {
   methods: {
     changeType (type = 'downloaded') {
       this.type = type
-    },
-
-    showAlertMenu () {
-      let position = mouseCoords(event)
-      let alertMenuConf = {
-        type: 'SongMenu',
-        position: position
-      }
-      this.$store.commit('SHOW_ALERT_MENU', alertMenuConf)
     }
   }
 }

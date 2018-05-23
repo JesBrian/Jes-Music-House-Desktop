@@ -55,8 +55,8 @@
         </li>
       </ul>
 
-      <div class="box-show" style="width:5px; height:90%; top:14px; right:0; float:right; position:absolute; background-image: linear-gradient(#2af1fc, #1a9ee6); cursor:pointer;">
-        <div :style="{'top' : this.navScrollTop}" style="width:15px; height:15px; right:-5.5px; margin-top:-6px; position:absolute; z-index:9; border-radius:50%; background:url(../../../../../static/images/default/slide-pointer.png) no-repeat; background-size:100% 100%;"></div>
+      <div class="box-show" style="width:5px; height:89%; top:14px; right:0; float:right; position:absolute; background-image: linear-gradient(#2af1fc, #1a9ee6); cursor:pointer;">
+        <div :style="{'top' : this.navScrollTop}" style="width:15px; height:15px; right:-5px; margin-top:-6px; position:absolute; z-index:9; border-radius:50%; background:url(../../../../../static/images/default/slide-pointer.png) no-repeat; background-size:100% 100%;"></div>
         <div class="super-btn-out" style="width:10px; height:10px; top:-5px; right:-3.5px; position:absolute; border-radius:50%;"></div>
         <div class="super-btn-out" style="width:10px; height:10px; bottom:-5px; right:-3.5px; position:absolute; border-radius:50%;"></div>
       </div>
