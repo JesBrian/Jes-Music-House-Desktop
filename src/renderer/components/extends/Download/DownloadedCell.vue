@@ -1,5 +1,8 @@
 <template>
-  <div @click.right="showAlertMenu" style="height:28px;">123</div>
+  <div @click.right="showAlertMenu" style="height:28px; box-sizing:border-box; padding:0 23px 0 13px; line-height:28px;">
+    <p style="width:33px; height:28px; float:left; text-align:right;">123</p>
+    <p style="width:48%; height:28px; float:left; text-indent:1.2em;">123</p>
+  </div>
 </template>
 
 <script>

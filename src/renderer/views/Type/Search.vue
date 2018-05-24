@@ -17,10 +17,9 @@
         <span class="super-btn-in mh-if datum"> 用户</span>
       </div>
     </div>
-    <div style="width:100%; margin:0 auto; padding-bottom:18px; text-align:left;">
+    <div style="width:100%; margin:0 auto; padding:2px 0 18px; text-align:left;">
 
       <component :is="searchType + '-group'" />
-
 
       <pagination />
     </div>
