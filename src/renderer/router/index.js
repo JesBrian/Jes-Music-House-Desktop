@@ -51,6 +51,10 @@ export default new Router({
           component: () => import('@/views/type/LocalPage.vue')
         },
         {
+          path: '/friend',
+          component: () => import('@/views/type/FriendPage.vue')
+        },
+        {
           path: '/setting',
           component: () => import('@/views/type/SettingPage.vue')
         },

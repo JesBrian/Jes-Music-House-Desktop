@@ -1,5 +1,7 @@
 <template>
-  
+  <div>
+    this is frined
+  </div>
 </template>
 
 <script>

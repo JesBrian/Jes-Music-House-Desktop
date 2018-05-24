@@ -15,7 +15,7 @@
                 </router-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list">
+                <router-link to="/friend">
                   <i class="mh-if singer" style="margin-right:6px;"></i>朋友动态
                 </router-link>
               </li>
