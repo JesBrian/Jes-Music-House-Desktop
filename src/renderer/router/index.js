@@ -12,51 +12,51 @@ export default new Router({
       children: [
         {
           path: '/index',
-          component: () => import('@/views/type/Index.vue')
+          component: () => import('@/views/type/IndexPage.vue')
         },
         {
           path: '/search/:key',
-          component: () => import('@/views/type/Search.vue')
+          component: () => import('@/views/type/SearchPage.vue')
         },
         {
           path: '/rank',
-          component: () => import('@/views/type/Rank.vue')
+          component: () => import('@/views/type/RankPage.vue')
         },
         {
           path: '/play-list',
-          component: () => import('@/views/type/PlayList.vue')
+          component: () => import('@/views/type/PlayListPage.vue')
         },
         {
           path: '/singer',
-          component: () => import('@/views/type/Singer.vue')
+          component: () => import('@/views/type/SingerPage.vue')
         },
         {
           path: '/comment',
-          component: () => import('@/views/type/SongComment.vue')
+          component: () => import('@/views/type/SongCommentPage.vue')
         },
         {
           path: '/user',
-          component: () => import('@/views/type/User.vue')
+          component: () => import('@/views/type/UserPage.vue')
         },
         {
           path: '/collection',
-          component: () => import('@/views/type/Collection.vue')
+          component: () => import('@/views/type/CollectionPage.vue')
         },
         {
           path: '/download',
-          component: () => import('@/views/type/Download.vue')
+          component: () => import('@/views/type/DownloadPage.vue')
         },
         {
           path: '/local',
-          component: () => import('@/views/type/Local.vue')
+          component: () => import('@/views/type/LocalPage.vue')
         },
         {
           path: '/setting',
-          component: () => import('@/views/type/Setting.vue')
+          component: () => import('@/views/type/SettingPage.vue')
         },
         {
           path: '/config',
-          component: () => import('@/views/type/Config.vue')
+          component: () => import('@/views/type/ConfigPage.vue')
         }
       ]
     }

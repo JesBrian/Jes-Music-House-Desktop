@@ -117,7 +117,7 @@
 
 <script>
 export default {
-  name: 'Rank',
+  name: 'RankPage',
 
   components: {}
 }

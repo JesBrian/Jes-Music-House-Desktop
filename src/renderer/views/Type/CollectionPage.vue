@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: 'Collection',
+  name: 'CollectionPage',
 
   data () {
     return {

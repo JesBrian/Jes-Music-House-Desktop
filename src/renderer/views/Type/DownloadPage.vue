@@ -51,7 +51,7 @@ import NowDownloadGroup from '../../components/extends/Download/NowDownloadGroup
 import DownloadedGroup from '../../components/extends/Download/DownloadedGroup.vue'
 
 export default {
-  name: 'Download',
+  name: 'DownloadPage',
 
   components: {
     DownloadedGroup, NowDownloadGroup

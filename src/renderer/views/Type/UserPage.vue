@@ -89,7 +89,7 @@
 import ShowPlayList from '../../components/extends/PlayList/ShowPlayList.vue'
 
 export default {
-  name: 'User',
+  name: 'UserPage',
 
   components: {
     ShowPlayList

@@ -78,7 +78,7 @@ import SongGroup from '../../components/extends/Song/SongGroup.vue'
 import CommentTotal from '../../components/extends/Comment/CommentTotal.vue'
 
 export default {
-  name: 'PlayList',
+  name: 'PlayListPage',
 
   components: {
     SongGroup, CommentTotal

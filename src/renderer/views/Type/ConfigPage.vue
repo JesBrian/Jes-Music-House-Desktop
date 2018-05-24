@@ -119,7 +119,7 @@
 import { getScrollTop } from '../../assets/js/commom.js'
 
 export default {
-  name: 'Config',
+  name: 'ConfigPage',
 
   components: {},
 

@@ -148,7 +148,7 @@ import SlideBox from '../../components/base/SlideBox/SlideBox.vue'
 import AlbumGroup from '../../components/extends/Album/AlbumGroup.vue'
 
 export default {
-  name: 'Index',
+  name: 'IndexPage',
 
   components: {
     AlbumGroup, SlideBox

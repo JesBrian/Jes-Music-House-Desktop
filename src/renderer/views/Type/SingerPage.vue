@@ -58,7 +58,7 @@ import ListGroup from '../../components/extends/PlayList/List/ListGroup.vue'
 import PictureListGroup from '../../components/extends/PlayList/PictureList/PictureListGroup.vue'
 
 export default {
-  name: 'Singer',
+  name: 'SingerPage',
 
   components: {
     PlayList, Descript, SimilarSinger, PictureGroup, ListGroup, PictureListGroup

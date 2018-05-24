@@ -23,7 +23,7 @@
 import CommentTotal from '../../components/extends/Comment/CommentTotal.vue'
 
 export default {
-  name: 'SongComment',
+  name: 'SongCommentPage',
 
   components: {
     CommentTotal

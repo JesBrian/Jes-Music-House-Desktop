@@ -1,12 +1,10 @@
 <template>
-  <div>
-    this is local
-  </div>
+  
 </template>
 
 <script>
 export default {
-  name: 'Local'
+  name: 'FriendPage'
 }
 </script>
 

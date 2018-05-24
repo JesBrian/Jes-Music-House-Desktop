@@ -34,7 +34,7 @@ import PlayListGroup from '../../components/extends/Search/PlayList/PlayListGrou
 import UserGroup from '../../components/extends/Search/User/UserGroup.vue'
 
 export default {
-  name: 'Search',
+  name: 'SearchPage',
 
   components: {
     UserGroup, PlayListGroup, SongGroup, SingerGroup, Pagination
