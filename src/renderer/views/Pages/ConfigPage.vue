@@ -105,7 +105,7 @@
           </div>
         </li>
         <li class="box-shadow">
-          <div class="config-item" style="height:288px; margin-bottom:12px;">
+          <div style="height:288px; margin-bottom:12px;">
             <p class="config-item-title">关于 Music House</p>
           </div>
         </li>
@@ -134,7 +134,7 @@ export default {
   mounted () {
     this.scrollContent = document.getElementById('configContent')
     let tempArr = this.scrollContent.querySelectorAll('.config-item')
-    this.scrollItemPositionNum = tempArr.length - 1
+    this.scrollItemPositionNum = tempArr.length
     let tempScrollHeight = getElemenPosion(tempArr[tempArr.length - 1], 'top')
 
     for (let i = 0; i < this.scrollItemPositionNum; i++) {
@@ -154,14 +154,16 @@ export default {
       let tempScrollTop = getScrollTop(this.scrollContent) / 2765
       let i = 0
       for (; i < this.scrollItemPositionNum; i++) {
-        if (tempScrollTop <= this.scrollItemPositionArr[i]) {
+        if (tempScrollTop < this.scrollItemPositionArr[i]) {
           console.log(i)
+          i--
           break
         }
       }
       this.navScrollTop = (i / this.scrollItemPositionNum).toFixed(6) * 100 + '%'
 
       console.log(tempScrollTop)
+      console.log(this.navScrollTop)
     }
   }
 }
