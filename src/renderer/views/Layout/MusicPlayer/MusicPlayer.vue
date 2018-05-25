@@ -12,12 +12,12 @@
 		</div>
 
     <!-- 播放进度部分 -->
-		<div style="width:600px; height:100%; float:left;">
+		<div style="width:560px; height:100%; float:left;">
       <!-- 当前播放时间 -->
-			<div style="width:53px; height:100%; float:left;">{{ timeStampToMinuteSecondTime(musicCTime) }}</div>
+			<div style="width:53px; height:100%; float:left; font-size:15px;">{{ timeStampToMinuteSecondTime(musicCTime) }}</div>
 			<!-- 进度条 -->
       <div style="display:inline-block;">
-				<div @click="clickMusicProgressBar" ref="progressBar" class="progress-bar box-show" style="width:458px; height:10px; margin-top:8px; position:relative; background:#080808; border-radius:6px; cursor:pointer;">
+				<div @click="clickMusicProgressBar" ref="progressBar" class="progress-bar box-show" style="width:438px; height:10px; margin-top:8px; position:relative; background:#080808; border-radius:6px; cursor:pointer;">
 					<div style="width:80%; height:6px; top:2.4px; left:0; position:absolute; background:#181818; border-radius:6px;"></div>
 					<div :style="{'width' : musicCTime / musicDTime * 100 + '%'}" style="height:100%; top:0; left:0; position:absolute; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:6px;">
             <a @mousedown="dragProgressControllerPointer" class="pointer box-show"></a>
@@ -25,13 +25,13 @@
 				</div>
 			</div>
       <!-- 歌曲总播放时间 -->
-			<div style="width:53px; height:100%; float:right;">{{ timeStampToMinuteSecondTime(musicDTime) }}</div>
+			<div style="width:53px; height:100%; float:right; font-size:15px;">{{ timeStampToMinuteSecondTime(musicDTime) }}</div>
 		</div>
 
     <!-- 控制音量部分 -->
-    <div style="width:180px; height:100%; margin:0 0 0 12px; float:left;">
+    <div style="width:180px; height:100%; margin:0 0 0 28px; float:left;">
       <!-- 音量开关 -->
-			<i @click="changeVolumeStatus" :class="volumeStatus ? 'volume-on' : 'volume-off'" class="mh-if" style="font-size:24px;"></i>
+			<i @click="changeVolumeStatus" :class="volumeStatus ? 'volume-on' : 'volume-off'" class="mh-if" style="margin-right:6px; font-size:24px;"></i>
       <!-- 音量条 -->
       <div @click="clickMusicVolumeBar" :class="{'ban-change': !volumeStatus}" ref="volumeBar" class="volume-bar box-show">
 				<div :style="{'width' : volumeLevel * 100 + '%'}" style="height:88%; margin-top:1px; position:relative; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:5px;">
