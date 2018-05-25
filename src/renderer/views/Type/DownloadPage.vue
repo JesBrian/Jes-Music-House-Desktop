@@ -1,15 +1,17 @@
 <template>
   <div style="position:relative;">
+
     <div style="top:16px; right:28px; position:absolute; color:#CCC; font-size:14px;">
       储存目录：D:\CloudMusic <span style="margin-left:18px; color:#00d8ff; cursor:pointer;">打开目录</span>
     </div>
-    <div style="width:100%; height:28px; margin:8px auto 0; padding:28px 0 18px; box-shadow:0 3px 8px -3px #00d8ff; text-align:center; border-bottom:1px solid #00d8ff; line-height:27px; font-weight:700;">
-      <div style="width:238px; height:100%; margin:0 auto; text-align:center; line-height:26px;">
-        <div @click="changeType('downloaded')" :class="type === 'downloaded' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:50%; height:100%; float:left; border-radius:28px 0 0 28px; cursor:pointer;">
-          <span> 已下载</span>
+
+    <div style="width:100%; height:28px; margin:8px auto 0; padding:28px 0 18px; box-shadow:0 3px 8px -3px #00d8ff; text-align:center; border-bottom:1px solid #00d8ff; line-height:28px; font-weight:700;">
+      <div style="width:238px; height:100%; margin:0 auto; text-align:center; line-height:26.5px;">
+        <div @click="changeType('downloaded')" :class="type === 'downloaded' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:50%; height:100%; padding-top:0.6px; float:left; border-radius:28px 0 0 28px; cursor:pointer;">
+          <span style="color:#999;">已下载</span>
         </div>
-        <div @click="changeType('now-download')" :class="type === 'now-download' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:50%; height:100%; float:right; border-radius:0 28px 28px 0; cursor:pointer;">
-          <span> 正在下载</span>
+        <div @click="changeType('now-download')" :class="type === 'now-download' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:50%; height:100%; padding-top:0.6px; float:right; border-radius:0 28px 28px 0; cursor:pointer;">
+          <span style="color:#999;">正在下载</span>
         </div>
       </div>
     </div>
@@ -80,5 +82,9 @@ export default {
   }
   .super-btn-out.active > .super-btn-in {
     line-height:23.2px;
+  }
+
+  .cube-bg span {
+    color:#DDD!important;
   }
 </style>

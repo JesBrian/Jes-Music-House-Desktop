@@ -1,7 +1,7 @@
 <template>
   <ul>
     <li v-for="n in 18" class="box-shadow" style="padding:2px 0;">
-      <now-download-cell />
+      <now-download-cell :index="n" />
     </li>
   </ul>
 </template>
