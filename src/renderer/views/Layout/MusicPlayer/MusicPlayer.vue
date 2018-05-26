@@ -67,7 +67,7 @@
         </div>
         <i @click="changePlayListContentStatus" class="mh-if close" style="top:0; right:6px; position:absolute; font-size:22px;"></i>
       </div>
-      <ul style="width:99.5%; height:340px; margin:5px 0; padding:0 2px; box-sizing:border-box; overflow:auto;">
+      <ul style="width:99.5%; height:348px; margin:0; padding:0 2px; box-sizing:border-box; overflow:auto;">
         <li v-for="n in 120" class="box-shadow" style="background:#181818;">
           <div :class="{'active' : n === 5}" class="play-list-cell" style="width:100%; height:30px; margin:2px 0; padding:0 6px; box-sizing:border-box; text-align:left; line-height:30px;">
             <i class="mh-if play"></i>
