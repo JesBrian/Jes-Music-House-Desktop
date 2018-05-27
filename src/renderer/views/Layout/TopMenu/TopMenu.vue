@@ -26,12 +26,21 @@
 		</div>
 
 		<!-- 用户操作 -->
+		<!--<div style="-webkit-app-region:no-drag; height:25px; margin:15px 268px 0 0; float:right; line-height:25px; ">-->
+			<!--<router-link to="/user">-->
+				<!--<img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:25px; margin:0 8px 0 0; padding:1.5px; float:left;" />-->
+			<!--</router-link>-->
+      <!--<div @click="changeShowContentType('UserOperation')" style="display:inline-block; font-size:18px; cursor:pointer;">-->
+        <!--<p class="text-hidden" style="max-width:108px; display:inline-block; color:#CCC;">JesBrianJesBrian</p>-->
+        <!--<i style="width:0; height:0; margin:10px 0 0 6px; border-width:6px; border-style:solid; border-color:#999 transparent transparent transparent; float:right;"></i>-->
+      <!--</div>-->
+    <!--</div>-->
 		<div style="-webkit-app-region:no-drag; height:25px; margin:15px 268px 0 0; float:right; line-height:25px; ">
 			<router-link to="/user">
 				<img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:25px; margin:0 8px 0 0; padding:1.5px; float:left;" />
 			</router-link>
-      <div @click="changeShowContentType('UserOperation')" style="display:inline-block; font-size:18px; cursor:pointer;">
-        <p class="text-hidden" style="max-width:108px; display:inline-block; color:#CCC;">JesBrianJesBrian</p>
+      <div @click="changeShowContentType('UserLogin')" style="display:inline-block; font-size:18px; cursor:pointer;">
+        <p class="text-hidden" style="max-width:108px; display:inline-block; color:#CCC;">请登录</p>
         <i style="width:0; height:0; margin:10px 0 0 6px; border-width:6px; border-style:solid; border-color:#999 transparent transparent transparent; float:right;"></i>
       </div>
     </div>
@@ -59,13 +68,16 @@
 import UserOperation from './ShowContentType/UserOperation.vue'
 import MessageContent from './ShowContentType/MessageContent.vue'
 import ChooseTheme from './ShowContentType/ChooseTheme.vue'
+import UserLogin from './ShowContentType/UserLogin.vue'
 
 var ipcRenderer = require('electron').ipcRenderer
 
 export default {
   name: 'TopMenu',
 
-  components: {UserOperation, MessageContent, ChooseTheme},
+  components: {
+    UserOperation, MessageContent, ChooseTheme, UserLogin
+  },
 
   data () {
     return {
