@@ -22,11 +22,13 @@
          <!-- 登录表单 -->
         <div v-else-if="formType === 'loginContent'">
 
-          <div @click="changeFormType('chooseContent')" class="super-btn-out" style="width:56px; height:23px; margin:3px;">
-            <span class="super-btn-in" style="width:50px; height:18px; line-height:20px; font-size:13px;">< 返回</span>
+          <div @click="changeFormType('chooseContent')" class="super-btn-out" style="width:56px; height:23px; margin:5px 3px;">
+            <span class="super-btn-in mh-if double-arrow-left" style="width:50px; height:18px; line-height:20px; font-size:13px;"> 返回</span>
           </div>
 
-          <div>
+          <div style="width:88%; margin:5px auto 18px;">
+            <input class="glass-bg" type="tel" style="width:100%; height:33px; padding:0 10px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="请输入手机号"/>
+            <input class="glass-bg" type="password" style="width:100%; height:33px; margin-top:-1px; padding:0 10px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="请输入密码"/>
           </div>
 
           <div class="super-btn-out" style="width:72%; height:34px; margin:14px auto 0; display:block; border-radius:17px;">
@@ -37,8 +39,13 @@
         <!-- 注册表单 -->
         <div v-else-if="formType === 'registerContent'">
 
-          <div @click="changeFormType('chooseContent')" class="super-btn-out" style="width:56px; height:23px; margin:3px;">
-            <span class="super-btn-in" style="width:50px; height:18px; line-height:20px; font-size:13px;">< 返回</span>
+          <div @click="changeFormType('chooseContent')" class="super-btn-out" style="width:56px; height:23px; margin:5px 3px;">
+            <span class="super-btn-in mh-if double-arrow-left" style="width:50px; height:18px; line-height:20px; font-size:13px;"> 返回</span>
+          </div>
+
+          <div style="width:88%; margin:5px auto 18px;">
+            <input class="glass-bg" type="tel" style="width:100%; height:33px; padding:0 10px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="请输入手机号"/>
+            <input class="glass-bg" type="password" style="width:100%; height:33px; margin-top:-1px; padding:0 10px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="请输入密码"/>
           </div>
 
           <div class="super-btn-out" style="width:72%; height:34px; margin:14px auto 0; display:block; border-radius:17px;">

@@ -29,15 +29,15 @@
 <script>
 import Pagination from '../../components/base/Pagination/Pagination.vue'
 import SingerGroup from '../../components/extends/Search/Singer/SingerGroup.vue'
-import SongGroup from '../../components/extends/Search/Song/SongGroup.vue'
 import PlayListGroup from '../../components/extends/Search/PlayList/PlayListGroup.vue'
 import UserGroup from '../../components/extends/Search/User/UserGroup.vue'
+import SongGroup from '../../components/extends/Song/SongGroup.vue'
 
 export default {
   name: 'SearchPage',
 
   components: {
-    UserGroup, PlayListGroup, SongGroup, SingerGroup, Pagination
+    SongGroup, UserGroup, PlayListGroup, SingerGroup, Pagination
   },
 
   data () {
