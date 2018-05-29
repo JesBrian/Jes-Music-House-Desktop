@@ -11,11 +11,11 @@
       <div class="box-shadow" style="height:188px;">
         <!-- 选择按钮 -->
         <div v-if="formType === 'chooseContent'" style="padding-top:38px;">
-          <div @click="changeFormType('loginContent')" class="super-btn-out" style="width:72%; height:34px; margin:0 auto 18px; display:block; border-radius:17px;">
-            <span class="super-btn-in" style="width:94%; height:26px; top:48%; border-radius:13px; line-height:28px; font-size:18px;">手机号登录</span>
+          <div @click="changeFormType('loginContent')" class="super-btn-out" style="width:88%; height:34px; margin:0 auto 18px; display:block; border-radius:17px;">
+            <span class="super-btn-in" style="width:95%; height:26px; top:48%; border-radius:13px; line-height:28px; font-size:18px;">手机号登录</span>
           </div>
-          <div @click="changeFormType('registerContent')" class="super-btn-out" style="width:72%; height:34px; margin:0 auto 18px; display:block; border-radius:17px;">
-            <span class="super-btn-in" style="width:94%; height:26px; top:48%; border-radius:13px; line-height:28px; font-size:18px;">注册</span>
+          <div @click="changeFormType('registerContent')" class="super-btn-out" style="width:88%; height:34px; margin:0 auto 18px; display:block; border-radius:17px;">
+            <span class="super-btn-in" style="width:95%; height:26px; top:48%; border-radius:13px; line-height:28px; font-size:18px;">注册</span>
           </div>
         </div>
 
@@ -31,8 +31,8 @@
             <input class="glass-bg" type="password" style="width:100%; height:33px; margin-top:-1px; padding:0 10px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="请输入密码"/>
           </div>
 
-          <div class="super-btn-out" style="width:72%; height:34px; margin:14px auto 0; display:block; border-radius:17px;">
-            <span class="super-btn-in" style="width:94%; height:26px; top:48%; border-radius:13px; line-height:28px; font-size:18px;">登录</span>
+          <div class="super-btn-out" style="width:88%; height:34px; margin:14px auto 0; display:block; border-radius:17px;">
+            <span class="super-btn-in" style="width:95%; height:26px; top:48%; border-radius:13px; line-height:28px; font-size:18px;">登录</span>
           </div>
         </div>
 
@@ -48,8 +48,27 @@
             <input class="glass-bg" type="password" style="width:100%; height:33px; margin-top:-1px; padding:0 10px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="请输入密码"/>
           </div>
 
-          <div class="super-btn-out" style="width:72%; height:34px; margin:14px auto 0; display:block; border-radius:17px;">
-            <span class="super-btn-in" style="width:94%; height:26px; top:48%; border-radius:13px; line-height:28px; font-size:18px;">注册</span>
+          <div @click="changeFormType('checkPhoneContent')" class="super-btn-out" style="width:88%; height:34px; margin:14px auto 0; display:block; border-radius:17px;">
+            <span class="super-btn-in" style="width:95%; height:26px; top:48%; border-radius:13px; line-height:28px; font-size:18px;">注册</span>
+          </div>
+        </div>
+
+        <!-- 手机验证 -->
+        <div v-else-if="formType === 'checkPhoneContent'">
+
+          <div @click="changeFormType('chooseContent')" class="super-btn-out" style="width:56px; height:23px; margin:5px 3px;">
+            <span class="super-btn-in mh-if double-arrow-left" style="width:50px; height:18px; line-height:20px; font-size:13px;"> 返回</span>
+          </div>
+
+          <div style="width:88%; margin:5px auto 18px;">
+            <input class="glass-bg" type="tel" style="width:58%; height:33px; padding:0 10px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="填写验证码"/>
+            <div class="super-btn-out" style="width:38%; height:33px; margin-top:-0.68px; float:right;">
+              <span class="super-btn-in" style="width:90%; height:24px; line-height:26px;">重新获取</span>
+            </div>
+          </div>
+
+          <div class="super-btn-out" style="width:88%; height:34px; margin:14px auto 0; display:block; border-radius:17px;">
+            <span class="super-btn-in" style="width:95%; height:26px; top:48%; border-radius:13px; line-height:28px; font-size:18px;">下一步</span>
           </div>
         </div>
 
