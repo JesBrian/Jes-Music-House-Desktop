@@ -10,8 +10,8 @@ export default {
   name: 'EmojiCell',
 
   props: {
-    index: {},
-    emojiInfo: {}
+    index: Number,
+    emojiInfo: String
   },
 
   methods: {

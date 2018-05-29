@@ -12,7 +12,9 @@ import CommentCell from './CommentCell.vue'
 export default {
   name: 'CommentGroup',
 
-  components: {CommentCell},
+  components: {
+    CommentCell
+  },
 
   data () {
     return {

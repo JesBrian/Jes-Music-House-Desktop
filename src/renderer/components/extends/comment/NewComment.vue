@@ -18,13 +18,15 @@
 </template>
 
 <script>
-import EmojiButton from '../Emoji/EmojiButton.vue'
-import EmojiContent from '../Emoji/EmojiContent.vue'
+import EmojiButton from '../emoji/EmojiButton.vue'
+import EmojiContent from '../emoji/EmojiContent.vue'
 
 export default {
   name: 'NewComment',
 
-  components: {EmojiContent, EmojiButton},
+  components: {
+    EmojiContent, EmojiButton
+  },
 
   data () {
     return {

@@ -27,11 +27,11 @@
 </template>
 
 <script>
-import Pagination from '../../components/base/Pagination/Pagination.vue'
-import SingerGroup from '../../components/extends/Search/Singer/SingerGroup.vue'
-import PlayListGroup from '../../components/extends/Search/PlayList/PlayListGroup.vue'
-import UserGroup from '../../components/extends/Search/User/UserGroup.vue'
-import SongGroup from '../../components/extends/Song/SongGroup.vue'
+import Pagination from '../../components/base/pagination/Pagination.vue'
+import SingerGroup from '../../components/extends/search/singer/SingerGroup.vue'
+import PlayListGroup from '../../components/extends/search/play-list/PlayListGroup.vue'
+import UserGroup from '../../components/extends/search/user/UserGroup.vue'
+import SongGroup from '../../components/extends/song/SongGroup.vue'
 
 export default {
   name: 'SearchPage',

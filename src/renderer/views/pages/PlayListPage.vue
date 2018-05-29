@@ -74,8 +74,8 @@
 </template>
 
 <script>
-import SongGroup from '../../components/extends/Song/SongGroup.vue'
-import CommentTotal from '../../components/extends/Comment/CommentTotal.vue'
+import SongGroup from '../../components/extends/song/SongGroup.vue'
+import CommentTotal from '../../components/extends/comment/CommentTotal.vue'
 
 export default {
   name: 'PlayListPage',

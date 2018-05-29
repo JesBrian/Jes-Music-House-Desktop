@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import CommentTotal from '../components/extends/Comment/CommentTotal.vue'
+import CommentTotal from '../components/extends/comment/CommentTotal.vue'
 
 export default {
   name: 'SongView',

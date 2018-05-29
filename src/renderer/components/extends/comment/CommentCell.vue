@@ -37,7 +37,9 @@ import NewComment from './NewComment.vue'
 export default {
   name: 'CommentCell',
 
-  components: {NewComment},
+  components: {
+    NewComment
+  },
 
   data () {
     return {

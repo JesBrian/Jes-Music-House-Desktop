@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import ShowPlayList from '../../components/extends/PlayList/ShowPlayList.vue'
+import ShowPlayList from '../../components/extends/play-list/ShowPlayList.vue'
 
 export default {
   name: 'UserPage',

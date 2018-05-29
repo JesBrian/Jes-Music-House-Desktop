@@ -50,12 +50,12 @@
 </template>
 
 <script>
-import PlayList from '../../components/extends/PlayList/ShowPlayList.vue'
-import Descript from '../../components/base/Descript/Descript.vue'
-import SimilarSinger from '../../components/extends/Search/Singer/SingerGroup.vue'
-import PictureGroup from '../../components/extends/PlayList/Picture/PictureGroup.vue'
-import ListGroup from '../../components/extends/PlayList/List/ListGroup.vue'
-import PictureListGroup from '../../components/extends/PlayList/PictureList/PictureListGroup.vue'
+import PlayList from '../../components/extends/play-list/ShowPlayList.vue'
+import Descript from '../../components/base/descript/Descript.vue'
+import SimilarSinger from '../../components/extends/search/singer/SingerGroup.vue'
+import PictureGroup from '../../components/extends/play-list/picture/PictureGroup.vue'
+import ListGroup from '../../components/extends/play-list/list/ListGroup.vue'
+import PictureListGroup from '../../components/extends/play-list/picture-list/PictureListGroup.vue'
 
 export default {
   name: 'SingerPage',

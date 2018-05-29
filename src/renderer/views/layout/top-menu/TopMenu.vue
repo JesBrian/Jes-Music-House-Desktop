@@ -65,10 +65,10 @@
 </template>
 
 <script>
-import UserOperation from './ShowContentType/UserOperation.vue'
-import MessageContent from './ShowContentType/MessageContent.vue'
-import ChooseTheme from './ShowContentType/ChooseTheme.vue'
-import UserLogin from './ShowContentType/UserLogin.vue'
+import UserOperation from './type/UserOperation.vue'
+import MessageContent from './type/MessageContent.vue'
+import ChooseTheme from './type/ChooseTheme.vue'
+import UserLogin from './type/UserLogin.vue'
 
 var ipcRenderer = require('electron').ipcRenderer
 

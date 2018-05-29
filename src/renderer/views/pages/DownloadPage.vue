@@ -49,8 +49,8 @@
 </template>
 
 <script>
-import NowDownloadGroup from '../../components/extends/Download/NowDownloadGroup.vue'
-import DownloadedGroup from '../../components/extends/Download/DownloadedGroup.vue'
+import NowDownloadGroup from '../../components/extends/download/NowDownloadGroup.vue'
+import DownloadedGroup from '../../components/extends/download/DownloadedGroup.vue'
 
 export default {
   name: 'DownloadPage',

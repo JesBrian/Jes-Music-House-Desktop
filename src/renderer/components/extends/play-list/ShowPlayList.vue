@@ -3,9 +3,9 @@
 </template>
 
 <script>
-import PictureGroup from './Picture/PictureGroup.vue'
-import ListGroup from './List/ListGroup.vue'
-import PictureListGroup from './PictureList/PictureListGroup.vue'
+import PictureGroup from './picture/PictureGroup.vue'
+import ListGroup from './list/ListGroup.vue'
+import PictureListGroup from './picture-list/PictureListGroup.vue'
 
 export default {
   name: 'ShowPlayList',
@@ -14,7 +14,9 @@ export default {
     PictureGroup, ListGroup, PictureListGroup
   },
 
-  props: ['showType']
+  props: {
+    showType: String
+  }
 }
 </script>
 

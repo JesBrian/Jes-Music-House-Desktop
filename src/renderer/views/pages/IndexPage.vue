@@ -18,11 +18,11 @@
 </template>
 
 <script>
-import IndexRecommend from '../../components/extends/IndexContent/Recommend/IndexRecommend.vue'
-import IndexDisc from '../../components/extends/IndexContent/disc/IndexDisc.vue'
-import IndexPlayList from '../../components/extends/IndexContent/PlayList/IndexPlayList.vue'
-import IndexRank from '../../components/extends/IndexContent/Rank/IndexRank.vue'
-import IndexSinger from '../../components/extends/IndexContent/Singer/IndexSinger.vue'
+import IndexRecommend from '../../components/extends/index-content/recommend/IndexRecommend.vue'
+import IndexDisc from '../../components/extends/index-content/disc/IndexDisc.vue'
+import IndexPlayList from '../../components/extends/index-content/play-list/IndexPlayList.vue'
+import IndexRank from '../../components/extends/index-content/rank/IndexRank.vue'
+import IndexSinger from '../../components/extends/index-content/singer/IndexSinger.vue'
 
 export default {
   name: 'IndexPage',

@@ -129,8 +129,8 @@
 </template>
 
 <script>
-import SlideBox from '../../../base/SlideBox/SlideBox.vue'
-import AlbumGroup from '../../Album/AlbumGroup.vue'
+import SlideBox from '../../../base/slide-box/SlideBox.vue'
+import AlbumGroup from '../../album/AlbumGroup.vue'
 
 export default {
   name: 'IndexRecommend',
