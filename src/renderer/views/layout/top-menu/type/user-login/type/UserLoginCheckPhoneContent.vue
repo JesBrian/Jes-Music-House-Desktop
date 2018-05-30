@@ -27,7 +27,7 @@ export default {
 
   data () {
     return {
-      getIdentifyingCodeTime: 60,
+      getIdentifyingCodeTime: 59,
       getIdentifyingCodeTimer: null
     }
   },
@@ -35,7 +35,6 @@ export default {
   mounted () {
     this.getIdentifyingCodeTimer = setInterval(() => {
       --this.getIdentifyingCodeTime
-      console.log(this.getIdentifyingCodeTime)
       if (this.getIdentifyingCodeTime === 0) {
         clearInterval(this.getIdentifyingCodeTimer)
         this.getIdentifyingCodeTime = 60
@@ -49,7 +48,7 @@ export default {
 
   computed: {
     getIdentifyingCodeTips () {
-      if (this.getIdentifyingCodeTime === 60) {
+      if (this.getIdentifyingCodeTime === 60 || this.getIdentifyingCodeTime === 0) {
         return '重新获取'
       }
       return this.getIdentifyingCodeTime + 'S'
@@ -57,14 +56,16 @@ export default {
   },
 
   methods: {
+    changeContentType (type) {
+      this.$parent.changeContentType(type)
+    },
+
     getIdentifyingCodeAgain () {
-      if (this.getIdentifyingCodeTime > 0) {
+      if (this.getIdentifyingCodeTime > -1 && this.getIdentifyingCodeTime < 60) {
         return false
       }
-
       this.getIdentifyingCodeTimer = setInterval(() => {
         --this.getIdentifyingCodeTime
-        console.log(this.getIdentifyingCodeTime)
         if (this.getIdentifyingCodeTime === 0) {
           clearInterval(this.getIdentifyingCodeTimer)
           this.getIdentifyingCodeTime = 60
