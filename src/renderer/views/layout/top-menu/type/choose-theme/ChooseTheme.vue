@@ -23,10 +23,10 @@
           <div style="width:100%; height:100%; background:lightskyblue;"></div>
         </div>
         <div class="box-show" style="width:188px; height:6px; margin:22px 16px 0 0; position:relative; float:right; border-radius:3px; background-image:linear-gradient(to right, #FF0000, #FF7F00, #FFFF00, #00FF00, #00FFFF, #0000FF, #8B00FF);">
-          <div style="width:16px; height:16px; top:-5px; left:48%; position:absolute; border-radius:50%; background:url(../../../../static/images/default/slide-pointer.png) no-repeat; background-size:100% 100%;"></div>
+          <div style="width:16px; height:16px; top:-5px; left:48%; position:absolute; border-radius:50%; background:url(../../../../../../../static/images/default/slide-pointer.png) no-repeat; background-size:100% 100%;"></div>
         </div>
         <div class="box-show" style="width:188px; height:6px; margin:22px 16px 0 0; position:relative; float:right; border-radius:3px; background-image:linear-gradient(to right, #000, #00D8FF);">
-          <div style="width:16px; height:16px; top:-5px; left:48%; position:absolute; border-radius:50%; background:url(../../../../static/images/default/slide-pointer.png) no-repeat; background-size:100% 100%;"></div>
+          <div style="width:16px; height:16px; top:-5px; left:48%; position:absolute; border-radius:50%; background:url(../../../../../../../static/images/default/slide-pointer.png) no-repeat; background-size:100% 100%;"></div>
         </div>
       </div>
     </div>
