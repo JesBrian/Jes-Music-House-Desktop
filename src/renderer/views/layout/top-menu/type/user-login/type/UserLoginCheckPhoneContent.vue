@@ -7,7 +7,10 @@
     </div>
 
     <div style="width:88%; margin:18px auto;">
-      <input class="glass-bg" type="tel" style="width:58%; height:33px; padding:0 10px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="填写验证码"/>
+      <label style="position:relative;">
+        <i class="mh-if code" style="top:-3px; left:4px; position:absolute; font-size:21px; color:#20DBFC;"></i>
+        <input class="glass-bg" type="tel" style="width:58%; height:33px; padding:0 8px 0 28px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="填写验证码"/>
+      </label>
       <div @click="getIdentifyingCodeAgain" class="super-btn-out" style="width:38%; height:33px; margin-top:-0.68px; float:right;">
         <span class="super-btn-in" style="width:90%; height:24px; line-height:26px;">
           {{ getIdentifyingCodeTips }}

@@ -15,13 +15,18 @@
                 </router-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/friend">
-                  <i class="mh-if singer" style="margin-right:6px;"></i>朋友动态
+                <router-link to="/rank">
+                  <i class="mh-if exponential" style="margin-right:4px;"></i>榜单推荐
                 </router-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
                 <router-link to="/comment">
-                  <i class="mh-if exponential" style="margin-right:4px;"></i>榜单推荐
+                  <i class="mh-if level" style="margin-right:4px;"></i>个人推荐
+                </router-link>
+              </li>
+              <li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
+                <router-link to="/friend">
+                  <i class="mh-if singer" style="margin-right:6px;"></i>朋友动态
                 </router-link>
               </li>
 						</ul>

@@ -1,7 +1,15 @@
 /**
+ * 路由跳转函数
+ * @param url  跳转到的URL
+ */
+export function changePage (url) {
+  this.$router.push(url)
+}
+
+/**
  * 时间戳 转成 分钟:秒时间 [00:00]
- * @param timestamp
- * @return {string}
+ * @param timestamp   要转换的时间戳
+ * @return {string}   转换后的时间字符串
  */
 export function timeStampToMinuteSecondTime (timestamp) {
   let tempMin = Math.floor(timestamp / 60)
@@ -11,8 +19,8 @@ export function timeStampToMinuteSecondTime (timestamp) {
 
 /**
  * 获取鼠标坐标
- * @param event
- * @return {{x: number, y: number}}
+ * @param event                      鼠标点击事件
+ * @return {{x: number, y: number}}  X & Y 坐标
  */
 export function mouseCoords (event) {
   if (event.pageX || event.pageY) {
@@ -31,7 +39,7 @@ export function mouseCoords (event) {
  * 获取元素的定位
  * @param element    要获取定位元素
  * @param direction  要获取的 X/Y 轴位置
- * @return {number}
+ * @return {number}  返回 X/Y 定位
  */
 export function getElemenPosion (element, direction) {
   let position = 0
@@ -56,7 +64,7 @@ export function getElemenPosion (element, direction) {
 
 /**
  * 获取元素滚动高度
- * @return {number}
+ * @return {number}  返回元素滚动高度
  */
 export function getScrollTop (element) {
   return element.scrollTop
