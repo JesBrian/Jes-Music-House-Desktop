@@ -18,6 +18,12 @@ export default {
     SongMenu, PlayListMenu, UserMenu, SingerMenu
   },
 
+  created () {
+    this.$root.eventHub.$on('changeRouter', () => {
+      this.$store.commit('SHOW_ALERT_MENU')
+    })
+  },
+
   mounted () {
     let elT = this.$store.state.AlertMenu.positionY
     let elL = this.$store.state.AlertMenu.positionX

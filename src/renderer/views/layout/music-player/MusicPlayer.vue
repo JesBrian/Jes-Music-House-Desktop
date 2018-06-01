@@ -120,20 +120,27 @@ export default {
     }
   },
 
+  computed: {
+    playStatus () {
+      return this.$store.state.Music.playStatus
+    }
+  },
+
+  created () {
+    this.$root.eventHub.$on('changeRouter', () => {
+      this.playListContentStatus = false
+    })
+  },
+
   mounted () {
     this.musicSource = this.$refs['musicSource']
     this.musicSource.addEventListener('timeupdate', this._currentTime)
     this.musicSource.addEventListener('canplay', this._durationTime)
   },
+
   beforeDestroy () {
     this.musicSource.removeEventListener('timeupdate', this._currentTime)
     this.musicSource.removeEventListener('canplay', this._durationTime)
-  },
-
-  computed: {
-    playStatus () {
-      return this.$store.state.Music.playStatus
-    }
   },
 
   methods: {

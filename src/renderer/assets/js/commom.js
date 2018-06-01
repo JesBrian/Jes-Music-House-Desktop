@@ -1,9 +1,12 @@
+
 /**
  * 路由跳转函数
- * @param url  跳转到的URL
+ * @param url   跳转到的URL
+ * @param that  this 对象
  */
-export function changePage (url) {
-  this.$router.push(url)
+export function changePage (url = '', that = {}) {
+  that.$root.eventHub.$emit('changeRouter')
+  that.$router.push(url)
 }
 
 /**

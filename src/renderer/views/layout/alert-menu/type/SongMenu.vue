@@ -1,7 +1,7 @@
 <template>
   <div style="width:184px; padding:6px 5px 0;">
     <ul>
-      <li @click="closeAlertMenu" class="super-btn-in" style="margin-bottom:5px; top:12px; display:block; padding:5px 13px 5px 8px; position:relative; text-align:left;">
+      <li @click="songComment" class="super-btn-in" style="margin-bottom:5px; top:12px; display:block; padding:5px 13px 5px 8px; position:relative; text-align:left;">
         <i class="mh-if feedback" style="margin-right:3px;"></i> 查看评论
       </li>
       <li @click="closeAlertMenu" class="super-btn-in" style="margin-bottom:5px; top:12px; display:block; padding:5px 13px 5px 8px; position:relative; text-align:left;">
@@ -29,10 +29,16 @@
 </template>
 
 <script>
+import { changePage } from '../../../../assets/js/commom.js'
+
 export default {
   name: 'SongMenu',
 
   methods: {
+    songComment () {
+      changePage('comment', this)
+    },
+
     closeAlertMenu () {
       this.$parent.closeAlertMenu()
     }

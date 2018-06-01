@@ -10,24 +10,24 @@
             </p>
 						<ul v-show="recomShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/">
+                <a @click="changeUrl('/')">
                   <i class="mh-if music-box" style="margin-right:6px;"></i>发现音乐
-                </router-link>
+                </a>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/rank">
+                <a @click="changeUrl('/rank')">
                   <i class="mh-if exponential" style="margin-right:4px;"></i>榜单推荐
-                </router-link>
+                </a>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/comment">
+                <a @click="changeUrl('/comment')">
                   <i class="mh-if level" style="margin-right:4px;"></i>个人推荐
-                </router-link>
+                </a>
               </li>
               <li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/friend">
+                <a @click="changeUrl('/friend')">
                   <i class="mh-if singer" style="margin-right:6px;"></i>朋友动态
-                </router-link>
+                </a>
               </li>
 						</ul>
 					</li>
@@ -37,19 +37,19 @@
             </p>
 						<ul v-show="musicShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/local">
+                <a @click="changeUrl('/local')">
                   <i class="mh-if redis" style="margin-right:6px;"></i>本地音乐
-                </router-link>
+                </a>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/download">
+                <a @click="changeUrl('/download')">
                   <i class="mh-if download" style="margin-right:6px;"></i>下载管理
-                </router-link>
+                </a>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/collection">
+                <a @click="changeUrl('/collection')">
                   <i class="mh-if collection-music" style="margin-right:6px;"></i>我的收藏
-                </router-link>
+                </a>
               </li>
 						</ul>
 					</li>
@@ -60,19 +60,19 @@
             <i @click="changeModalType('NewAlbum')" class="mh-if add-collection"></i>
 						<ul v-show="albumShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list">
+                <a @click="changeUrl('/play-list')">
                   <i class="mh-if non-colloection" style="margin-right:6px;"></i>我喜欢的音乐
-                </router-link>
+                </a>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list">
+                <a @click="changeUrl('/play-list')">
                   <i class="mh-if music-list" style="margin-right:6px;"></i>tywque
-                </router-link>
+                </a>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list">
+                <a @click="changeUrl('/play-list')">
                   <i class="mh-if music-list" style="margin-right:6px;"></i>洝ij45省的sj
-                </router-link>
+                </a>
               </li>
 						</ul>
 					</li>
@@ -82,19 +82,19 @@
             </p>
 						<ul v-show="collectionShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list">
+                <a @click="changeUrl('/play-list')">
                   <i class="mh-if menu" style="margin-right:6px;"></i>XXXX
-                </router-link>
+                </a>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list">
+                <a @click="changeUrl('/play-list')">
                   <i class="mh-if menu" style="margin-right:6px;"></i>YYYY
-                </router-link>
+                </a>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <router-link to="/play-list">
+                <a @click="changeUrl('/play-list')">
                   <i class="mh-if menu" style="margin-right:6px;"></i>ZZZZ
-                </router-link>
+                </a>
               </li>
 						</ul>
 					</li>
@@ -109,11 +109,11 @@
 			</div>
       <div @click="changeShowMusicView" class="now-song-name">Song Name</div>
       <div class="now-singer text-hidden">
-        <router-link to="/singer">环境是</router-link>
+        <a @click="changeUrl('/singer')">环境是</a>
         <i style="margin:0 1px;">/</i>
-        <router-link to="/singer">JesBan</router-link>
+        <a @click="changeUrl('/singer')">JesBan</a>
         <i style="margin:0 1px;">/</i>
-        <router-link to="/singer">参数</router-link>
+        <a @click="changeUrl('/singer')">参数</a>
       </div>
 			<a @click="changeCollection" :class="{'active': isCollection}" class="mh-if non-colloection"></a>
 			<a @click="changeModalType('Share')" class="mh-if share"></a>
@@ -122,6 +122,8 @@
 </template>
 
 <script>
+import { changePage } from '../../../assets/js/commom.js'
+
 export default {
   name: 'LeftMenu',
 
@@ -136,6 +138,10 @@ export default {
   },
 
   methods: {
+    changeUrl (url = '') {
+      changePage(url, this)
+    },
+
     changeShowMusicView () {
       this.$store.commit('CHANGE_SHOW_MUSIC_VIEW')
     },
@@ -176,6 +182,7 @@ export default {
   }
   li > a {
     display: block;
+    cursor:pointer;
   }
   li > a:hover .mh-if {
     color:#20dbfc;
