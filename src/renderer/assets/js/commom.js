@@ -5,8 +5,19 @@
  * @param that  this 对象
  */
 export function changePage (url = '', that = {}) {
+  // 发布页面改变事件
   that.$root.eventHub.$emit('changeRouter')
-  that.$router.push(url)
+
+  // 关闭歌曲详情页
+  if (that.$store.state.Music.showMusicView) {
+    that.$store.commit('CLOSE_MUSIC_VIEW')
+  }
+
+  // 判断要跳转的路由是否是当前页面
+  if (url !== that.$store.state.Router.historyRecord[that.$store.state.Router.nowIndex]) {
+    that.$router.push(url)
+    that.$store.commit('PUSH_URL_HISTORY_RECORD', url)
+  }
 }
 
 /**

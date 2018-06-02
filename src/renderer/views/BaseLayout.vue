@@ -53,9 +53,16 @@ export default {
   watch: {
     '$route' (to, from) {
       document.getElementById('mainContent').scrollTop = 0
-      if (this.$store.state.Music.showMusicView) {
-        this.$store.commit('CLOSE_MUSIC_VIEW')
-      }
+    },
+
+    routerHistoryRecordNowIndex () {
+      this.$router.push(this.$store.state.Router.historyRecord[this.$store.state.Router.nowIndex])
+    }
+  },
+
+  computed: {
+    routerHistoryRecordNowIndex () {
+      return this.$store.state.Router.nowIndex
     }
   }
 }

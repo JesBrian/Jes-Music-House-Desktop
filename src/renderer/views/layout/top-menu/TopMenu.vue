@@ -3,15 +3,15 @@
 		<!-- LOGO -->
 		<div style="width:188px; height:100%; float:left;">
 			<div @click="changeUrl('/')" style="-webkit-app-region:no-drag; float:left; cursor:pointer;">
-				<img src="../../../../../static/images/Logo.png" style="width:30px; height:30px; margin:10px 12px 0; float:left;"/>
+				<img src="../../../../../static/images/Logo.png" style="width:30px; height:30px; margin:10px 6px 0 13px; float:left;"/>
 				<span style="font-size:22px; font-weight:700; color:#22e8ff; text-shadow:1.5px 1.5px 6px #30cdff; line-height:52px;">Music House</span>
 			</div>
 		</div>
 
 		<!-- 前进后退 -->
-		<div style="-webkit-app-region:no-drag; width:68px; height:32px; margin:9px 18px 0 8px; float:left; text-align:center; line-height:30px; font-weight:700; cursor:pointer;">
-			<a class="glass-bg box-show mh-if double-arrow-left" style="width:50%; height:100%; float:left; border-radius:5px 0 0 5px;"></a>
-			<a class="glass-bg box-show mh-if double-arrow-right" style="width:50%; height:100%; float:right; border-radius:0 5px 5px 0;"></a>
+		<div style="-webkit-app-region:no-drag; width:68px; height:30px; margin:12px 18px 0 8px; float:left; text-align:center; line-height:28px; font-weight:700; cursor:pointer;">
+			<a @click="changeRouter(-1)" :style="$store.state.Router.nowIndex === 0 ? '' : 'color:#00D8FF'" class="cube-bg box-show mh-if double-arrow-left" style="width:50%; height:100%; float:left; border-radius:5px 0 0 5px;" title="后退"></a>
+			<a @click="changeRouter(1)" :style="$store.state.Router.nowIndex === $store.state.Router.historyRecord.length - 1 ? '' : 'color:#00D8FF'" class="cube-bg box-show mh-if double-arrow-right" style="width:50%; height:100%; float:right; border-radius:0 5px 5px 0;" title="前进"></a>
 		</div>
 
 		<!-- 搜索栏 -->
@@ -91,6 +91,14 @@ export default {
   },
 
   methods: {
+    changeRouter (type) {
+      if (type === 1) {
+        this.$store.commit('CHANGE_NOW_INDEX', this.$store.state.Router.nowIndex + 1)
+      } else {
+        this.$store.commit('CHANGE_NOW_INDEX', this.$store.state.Router.nowIndex - 1)
+      }
+    },
+
     changeUrl (url = '') {
       changePage(url, this)
     },
