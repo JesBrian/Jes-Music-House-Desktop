@@ -10,8 +10,8 @@
 
 		<!-- 前进后退 -->
 		<div style="-webkit-app-region:no-drag; width:68px; height:30px; margin:12px 18px 0 8px; float:left; text-align:center; line-height:28px; font-weight:700; cursor:pointer;">
-			<a @click="changeRouter(-1)" :style="$store.state.Router.nowIndex === 0 ? '' : 'color:#00D8FF'" class="cube-bg box-show mh-if double-arrow-left" style="width:50%; height:100%; float:left; border-radius:5px 0 0 5px;" title="后退"></a>
-			<a @click="changeRouter(1)" :style="$store.state.Router.nowIndex === $store.state.Router.historyRecord.length - 1 ? '' : 'color:#00D8FF'" class="cube-bg box-show mh-if double-arrow-right" style="width:50%; height:100%; float:right; border-radius:0 5px 5px 0;" title="前进"></a>
+			<a @click="changeRouter(-1)" :style="$store.state.Router.nowIndex === 0 ? '' : 'color:#00D8FF'" class="history-controller-btn cube-bg box-show mh-if double-arrow-left" title="后退"></a>
+			<a @click="changeRouter(1)" :style="$store.state.Router.nowIndex === $store.state.Router.historyRecord.length - 1 ? '' : 'color:#00D8FF'" class="history-controller-btn cube-bg box-show mh-if double-arrow-right" title="前进"></a>
 		</div>
 
 		<!-- 搜索栏 -->
@@ -132,6 +132,19 @@ export default {
 </script>
 
 <style scoped>
+  .history-controller-btn {
+    width:50%; height:100%; float:left;
+  }
+  .history-controller-btn.double-arrow-left {
+    border-radius:5px 0 0 5px;
+  }
+  .history-controller-btn.double-arrow-right {
+    border-radius:0 5px 5px 0;
+  }
+  .history-controller-btn:active {
+    background:#282828;
+  }
+
   .close-show-content {
     top:-2.8px; right:2px; position:absolute; font-size:28px; cursor:pointer;
   }
