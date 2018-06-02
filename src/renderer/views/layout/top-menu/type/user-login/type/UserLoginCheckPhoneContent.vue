@@ -9,7 +9,7 @@
     <div style="width:88%; margin:18px auto;">
       <label style="position:relative;">
         <i class="mh-if code" style="top:-3px; left:4px; position:absolute; font-size:21px; color:#20DBFC;"></i>
-        <input class="glass-bg" type="tel" style="width:58%; height:33px; padding:0 8px 0 28px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="填写验证码"/>
+        <input v-model="identifyingCode" class="glass-bg" type="tel" style="width:58%; height:33px; padding:0 8px 0 28px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="填写验证码"/>
       </label>
       <div @click="getIdentifyingCodeAgain" class="super-btn-out" style="width:38%; height:33px; margin-top:-0.68px; float:right;">
         <span class="super-btn-in" style="width:90%; height:24px; line-height:26px;">
@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <div class="super-btn-out" style="width:88%; height:34px; margin:14px auto 0; display:block; border-radius:17px;">
+    <div @click="checkIdentifyingCode" class="super-btn-out" style="width:88%; height:34px; margin:14px auto 0; display:block; border-radius:17px;">
       <span class="super-btn-in" style="width:95%; height:26px; top:48%; border-radius:13px; line-height:28px; font-size:18px;">下一步</span>
     </div>
   </div>
@@ -30,6 +30,7 @@ export default {
 
   data () {
     return {
+      identifyingCode: '',
       getIdentifyingCodeTime: 59,
       getIdentifyingCodeTimer: null
     }
@@ -74,6 +75,9 @@ export default {
           this.getIdentifyingCodeTime = 60
         }
       }, 1000)
+    },
+
+    checkIdentifyingCode () {
     }
   }
 }

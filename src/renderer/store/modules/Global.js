@@ -1,6 +1,6 @@
 const state = {
-  API_URL: 'http://local.jesbrian.cn/Jes-MusicHouse/JesMusicHouse-Backstage/public/',
-  RESOURCE_URL: 'http://local.jesbrian.cn/Jes-MusicHouse/JesMusicHouse-Backstage/resource/'
+  API_URL: 'http://local.musichouse.cn/api/',
+  RESOURCE_URL: 'http://local.jesbrian.cn/Jes-MusicHouse/MusicHouse-Backstage/resource/'
 }
 
 const mutations = {
