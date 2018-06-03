@@ -8,10 +8,10 @@ export default new Router({
     {
       path: '/',
       component: () => import('@/views/BaseLayout.vue'),
-      redirect: '/index',
+      redirect: '/index/recommend',
       children: [
         {
-          path: '/index',
+          path: '/index/:type',
           component: () => import('@/views/pages/IndexPage.vue')
         },
         {

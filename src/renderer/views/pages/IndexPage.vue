@@ -3,15 +3,15 @@
     <!-- 主页菜单 -->
     <div style="width:92%; height:38px; margin:0 auto 28px; padding:0 68px; box-sizing:border-box; box-shadow:0 2px 3px -3px #FFF; text-align:center;">
       <div style="width:100%; height:28px; padding-top:10px; line-height:24px; color:#BBB; font-size:18px; font-weight:700; text-shadow:1px 1px 0.5px #000;">
-        <span @click="changeIndexContent('recommend')" :class="{'active': this.type === 'recommend'}" class="index-menu-cell">推荐</span>
-        <span @click="changeIndexContent('play-list')" :class="{'active': this.type === 'play-list'}" class="index-menu-cell">歌单</span>
-        <span @click="changeIndexContent('singer')" :class="{'active': this.type === 'singer'}" class="index-menu-cell">歌手</span>
-        <span @click="changeIndexContent('disc')" :class="{'active': this.type === 'disc'}" class="index-menu-cell">新碟上架</span>
+        <span @click="changeIndexContent('recommend')" :class="{'active': indexContentType === 'recommend'}" class="index-menu-cell">推荐</span>
+        <span @click="changeIndexContent('play-list')" :class="{'active': indexContentType === 'play-list'}" class="index-menu-cell">歌单</span>
+        <span @click="changeIndexContent('singer')" :class="{'active': indexContentType === 'singer'}" class="index-menu-cell">歌手</span>
+        <span @click="changeIndexContent('disc')" :class="{'active': indexContentType === 'disc'}" class="index-menu-cell">新碟上架</span>
       </div>
     </div>
 
     <!-- 内容 -->
-    <component :is="'index-' + type" />
+    <component :is="'index-' + indexContentType" />
 
   </div>
 </template>
@@ -22,6 +22,8 @@ import IndexDisc from '../../components/extends/index-content/disc/IndexDisc.vue
 import IndexPlayList from '../../components/extends/index-content/play-list/IndexPlayList.vue'
 import IndexSinger from '../../components/extends/index-content/singer/IndexSinger.vue'
 
+import { changePage } from '../../assets/js/commom.js'
+
 export default {
   name: 'IndexPage',
 
@@ -31,13 +33,18 @@ export default {
 
   data () {
     return {
-      type: 'recommend'
+    }
+  },
+
+  computed: {
+    indexContentType () {
+      return this.$route.params.type
     }
   },
 
   methods: {
     changeIndexContent (type = 'recommend') {
-      this.type = type
+      changePage('/index/' + type, this)
     }
   }
 }
