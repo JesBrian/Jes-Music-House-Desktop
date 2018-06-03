@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height:688px;">
     this is index IndexNewsMusic
   </div>
 </template>
