@@ -6,7 +6,7 @@
         <span @click="changeIndexContent('recommend')" :class="{'active': indexContentType === 'recommend'}" class="index-menu-cell">推荐</span>
         <span @click="changeIndexContent('play-list')" :class="{'active': indexContentType === 'play-list'}" class="index-menu-cell">歌单</span>
         <span @click="changeIndexContent('singer')" :class="{'active': indexContentType === 'singer'}" class="index-menu-cell">歌手</span>
-        <span @click="changeIndexContent('disc')" :class="{'active': indexContentType === 'disc'}" class="index-menu-cell">新碟上架</span>
+        <span @click="changeIndexContent('news-music')" :class="{'active': indexContentType === 'news-music'}" class="index-menu-cell">最新音乐</span>
       </div>
     </div>
 
@@ -18,7 +18,7 @@
 
 <script>
 import IndexRecommend from '../../components/extends/index-content/recommend/IndexRecommend.vue'
-import IndexDisc from '../../components/extends/index-content/disc/IndexDisc.vue'
+import IndexNewsMusic from '../../components/extends/index-content/news-music/IndexNewsMusic.vue'
 import IndexPlayList from '../../components/extends/index-content/play-list/IndexPlayList.vue'
 import IndexSinger from '../../components/extends/index-content/singer/IndexSinger.vue'
 
@@ -28,7 +28,7 @@ export default {
   name: 'IndexPage',
 
   components: {
-    IndexSinger, IndexPlayList, IndexDisc, IndexRecommend
+    IndexSinger, IndexPlayList, IndexNewsMusic, IndexRecommend
   },
 
   data () {

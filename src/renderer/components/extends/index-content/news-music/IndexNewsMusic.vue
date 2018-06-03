@@ -1,12 +1,12 @@
 <template>
   <div>
-    this is index disc
+    this is index IndexNewsMusic
   </div>
 </template>
 
 <script>
 export default {
-  name: 'IndexDisc'
+  name: 'IndexNewsMusic'
 }
 </script>
 
