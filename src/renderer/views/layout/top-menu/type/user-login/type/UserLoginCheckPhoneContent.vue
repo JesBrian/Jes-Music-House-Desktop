@@ -1,5 +1,5 @@
 <template>
-  <!-- 手机验证 -->
+  <!-- 手机验证码验证 -->
   <div>
 
     <div @click="changeContentType('ChooseContent')" class="super-btn-out" style="width:56px; height:23px; margin:5px 3px;">
@@ -9,7 +9,7 @@
     <div style="width:88%; margin:18px auto;">
       <label style="position:relative;">
         <i class="mh-if code" style="top:-3px; left:4px; position:absolute; font-size:21px; color:#20DBFC;"></i>
-        <input v-model="identifyingCode" class="glass-bg" type="tel" style="width:58%; height:33px; padding:0 8px 0 28px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="填写验证码"/>
+        <input v-model.trim="identifyingCode" class="glass-bg" type="tel" style="width:58%; height:33px; padding:0 8px 0 28px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="填写验证码"/>
       </label>
       <div @click="getIdentifyingCodeAgain" class="super-btn-out" style="width:38%; height:33px; margin-top:-0.68px; float:right;">
         <span class="super-btn-in" style="width:90%; height:24px; line-height:26px;">
@@ -78,6 +78,17 @@ export default {
     },
 
     checkIdentifyingCode () {
+      if (this.identifyingCode === '') {
+        return false
+      }
+      let data = {
+        identifyingCode: this.identifyingCode
+      }
+      this.$http.post('createUser', data).then((response) => {
+        console.log(response)
+      }).catch((error) => {
+        console.log(error)
+      })
     }
   }
 }

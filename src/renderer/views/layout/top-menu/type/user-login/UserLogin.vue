@@ -63,6 +63,7 @@ import UserLoginCheckPhoneContent from './type/UserLoginCheckPhoneContent.vue'
 import UserLoginChooseContent from './type/UserLoginChooseContent.vue'
 import UserLoginLoginContent from './type/UserLoginLoginContent.vue'
 import UserLoginRegisterContent from './type/UserLoginRegisterContent.vue'
+
 export default {
   name: 'UserLogin',
 
@@ -78,7 +79,6 @@ export default {
 
   methods: {
     changeContentType (type = 'ChooseContent') {
-      console.log(type)
       this.contentType = type
     },
 

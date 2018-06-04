@@ -12,8 +12,8 @@ import './assets/css/common.css'
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 axios.defaults.baseURL = store.state.Global.API_URL // 配置域名
+axios.defaults.withCredentials = true
 Vue.http = Vue.prototype.$http = axios
-// Vue.http.options.credentials = true
 Vue.config.productionTip = false
 Vue.use(vueLazyload, {
   error: require('./assets/img/loading.svg'),

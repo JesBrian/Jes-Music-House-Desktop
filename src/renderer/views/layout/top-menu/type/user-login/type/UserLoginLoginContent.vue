@@ -9,11 +9,11 @@
     <div style="width:88%; margin:5px auto 18px;">
       <label style="position:relative;">
         <i class="mh-if phone" style="top:-3px; left:4px; position:absolute; font-size:21px; color:#20DBFC;"></i>
-        <input v-model="phone" class="glass-bg" type="tel" style="width:100%; height:33px; padding:0 8px 0 28px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="请输入手机号"/>
+        <input v-model.trim="phone" class="glass-bg" type="tel" style="width:100%; height:33px; padding:0 8px 0 28px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="请输入手机号"/>
       </label>
       <label style="position:relative;">
         <i class="mh-if key" style="top:-3px; left:4px; position:absolute; font-size:21px; color:#20DBFC;"></i>
-        <input v-model="passwd" class="glass-bg" type="password" style="width:100%; height:33px; margin-top:-1px; padding:0 8px 0 28px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="请输入密码"/>
+        <input v-model.trim="passwd" class="glass-bg" type="password" style="width:100%; height:33px; margin-top:-1px; padding:0 8px 0 28px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="请输入密码"/>
       </label>
     </div>
 
@@ -24,6 +24,8 @@
 </template>
 
 <script>
+import { validateInfoByReg } from '../../../../../../assets/js/validateInfo.js'
+
 export default {
   name: 'UserLoginLoginContent',
 
@@ -36,7 +38,7 @@ export default {
 
   methods: {
     userLogin () {
-      if ((this.phone === '') || (this.passwd === '')) {
+      if ((!validateInfoByReg('phone', this.phone)) || (this.passwd === '')) {
         return false
       }
 
