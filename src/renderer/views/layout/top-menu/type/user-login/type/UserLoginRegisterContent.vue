@@ -42,7 +42,12 @@ export default {
     },
 
     userRegister () {
-      if ((!validateInfoByReg('phone', this.phone)) || (this.passwd === '')) {
+      if (validateInfoByReg('phone', this.phone) === false) {
+        this.$store.commit('SHOW_TIPS', {msg: '请填写正确的手机号码', type: 'warning'})
+        return false
+      }
+      if (validateInfoByReg('passwd', this.passwd) === false) {
+        this.$store.commit('SHOW_TIPS', {msg: '密码必须为4位以上的数字或字母搭配', type: 'warning'})
         return false
       }
 
@@ -50,8 +55,12 @@ export default {
         phone: this.phone,
         passwd: this.passwd
       }).then((response) => {
-        console.log(response)
-        this.changeContentType('CheckPhoneContent')
+        let result = response.data
+        if (result.state === '200') {
+          this.changeContentType('CheckPhoneContent')
+        } else {
+          this.$store.commit('SHOW_TIPS', {msg: result.msg, type: 'warning'})
+        }
       }).catch((error) => {
         console.error(error)
       })

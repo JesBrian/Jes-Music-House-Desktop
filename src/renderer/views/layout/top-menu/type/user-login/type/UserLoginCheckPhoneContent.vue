@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import { validateInfoByReg } from '../../../../../../assets/js/validateInfo.js'
+
 export default {
   name: 'UserLoginCheckPhoneContent',
 
@@ -78,14 +80,21 @@ export default {
     },
 
     checkIdentifyingCode () {
-      if (this.identifyingCode === '') {
+      if (validateInfoByReg('identifyingCode', this.identifyingCode) === false) {
+        this.$store.commit('SHOW_TIPS', {msg: '验证码为4位数字', type: 'warning'})
         return false
       }
+
       let data = {
         identifyingCode: this.identifyingCode
       }
       this.$http.post('createUser', data).then((response) => {
-        console.log(response)
+        let result = response.data
+        if (result.state === '200') {
+          console.log(result)
+        } else {
+          this.$store.commit('SHOW_TIPS', {msg: result.msg, type: 'warning'})
+        }
       }).catch((error) => {
         console.log(error)
       })
