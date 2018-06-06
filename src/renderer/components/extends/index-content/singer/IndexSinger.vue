@@ -1,25 +1,25 @@
 <template>
   <div>
-    <div style="width:92%; margin:-16px auto 28px; padding:0 0 10px 18px; box-sizing:border-box; box-shadow:0 2px 3px -3px #FFF;">
+    <div style="width:92%; margin:-16px auto 28px; padding:0 0 10px 15px; box-sizing:border-box; box-shadow:0 2px 3px -3px #FFF; overflow:visible;">
       <div style="width:100%; line-height:1.68em; font-size:14px;">
-        <p>
+        <div>
           <span>{{ languageArr.name }}：</span>
           <span v-for="item in languageArr.data" class="search-type-item">
             <span :class="language === item.value ? 'active': ''" @click="changeSearchType('language', item.value)" class="search-type-item-content">{{ item.name }}</span>
           </span>
-        </p>
-        <p>
+        </div>
+        <div>
           <span>{{ categoryArr.name }}：</span>
           <span v-for="item in categoryArr.data" class="search-type-item">
             <span :class="category === item.value ? 'active': ''" @click="changeSearchType('category', item.value)" class="search-type-item-content">{{ item.name }}</span>
           </span>
-        </p>
-        <p>
+        </div>
+        <div>
           <span>{{ filterArr.name }}：</span>
           <span v-for="item in filterArr.data" class="search-type-item">
             <span :class="filter === item.value ? 'active': ''" @click="changeSearchType('filter', item.value)" class="search-type-item-content">{{ item.name }}</span>
           </span>
-        </p>
+        </div>
       </div>
     </div>
 
@@ -70,29 +70,7 @@ export default {
       filterArr: {
         name: '筛选',
         data: [
-          {name: '热门', value: 'hot'},
-          {name: 'A', value: 'A'},
-          {name: 'B', value: 'B'},
-          {name: 'C', value: 'C'},
-          {name: 'D', value: 'D'},
-          {name: 'E', value: 'E'},
-          {name: 'F', value: 'F'},
-          {name: 'G', value: 'G'},
-          {name: 'H', value: 'H'},
-          {name: 'I', value: 'I'},
-          {name: 'J', value: 'J'},
-          {name: 'K', value: 'K'},
-          {name: 'L', value: 'L'},
-          {name: 'M', value: 'M'},
-          {name: 'N', value: 'N'},
-          {name: 'O', value: 'O'},
-          {name: 'P', value: 'P'},
-          {name: 'Q', value: 'Q'},
-          {name: 'R', value: 'R'},
-          {name: 'S', value: 'S'},
-          {name: 'T', value: 'T'},
-          {name: 'U', value: 'U'},
-          {name: 'V', value: 'V'}
+          {name: '热门', value: 'hot'}, {name: 'A', value: 'A'}, {name: 'B', value: 'B'}, {name: 'C', value: 'C'}, {name: 'D', value: 'D'}, {name: 'E', value: 'E'}, {name: 'F', value: 'F'}, {name: 'G', value: 'G'}, {name: 'H', value: 'H'}, {name: 'I', value: 'I'}, {name: 'J', value: 'J'}, {name: 'K', value: 'K'}, {name: 'L', value: 'L'}, {name: 'M', value: 'M'}, {name: 'N', value: 'N'}, {name: 'O', value: 'O'}, {name: 'P', value: 'P'}, {name: 'Q', value: 'Q'}, {name: 'R', value: 'R'}, {name: 'S', value: 'S'}, {name: 'T', value: 'T'}, {name: 'U', value: 'U'}, {name: 'V', value: 'V'}, {name: 'W', value: 'W'}, {name: 'X', value: 'X'}, {name: 'Y', value: 'Y'}, {name: 'Z', value: 'Z'}
         ]
       }
     }
@@ -108,10 +86,11 @@ export default {
 
 <style scoped>
   .search-type-item {
+    box-sizing:border-box;
     border-right:1px solid #444;
   }
   .search-type-item-content {
-    margin:4px 8px; padding:0 6px; display:inline-block; box-sizing:border-box; color:#AAA; text-shadow:2px 2px 2px #000; cursor:pointer;
+    margin:4px 8px; padding:0 6px; display:inline-block; color:#AAA; text-shadow:2px 2px 2px #000; cursor:pointer;
   }
   .search-type-item-content:hover {
     color:#DDD;
