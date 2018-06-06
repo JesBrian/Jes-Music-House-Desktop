@@ -21,18 +21,18 @@
           <p class="text-hidden" style="width:68%; font-size:14px; line-height:2em; ">JesBrianJesBrianJesBrianJesBrian</p>
         </div>
         <div style="width:99%; height:43px; margin:16px auto 0; padding-bottom:12px; text-align:center; font-weight:700;">
-          <div @click="changeRouter('/user')" style="width:33%; height:100%; float:left;">
+          <page-link url="/user" style="width:33%; height:100%; float:left;">
             <p style="font-size:20px; color:#DDD;">0</p>
             <p style="margin-left:9px; line-height:1.5em; letter-spacing:8px;">动态</p>
-          </div>
-          <div @click="changeRouter('/user')" style="width:34%; height:100%; float:left; box-sizing:border-box; border-left:1px solid #282828; border-right:1px solid #282828;">
+          </page-link>
+          <page-link url="/user" style="width:34%; height:100%; float:left; box-sizing:border-box; border-left:1px solid #282828; border-right:1px solid #282828;">
             <p style="font-size:20px; color:#DDD;">0</p>
             <p style="margin-left:9px; line-height:1.5em; letter-spacing:8px;">关注</p>
-          </div>
-          <div @click="changeRouter('/user')" style="width:33%; height:100%; float:left;">
+          </page-link>
+          <page-link url="/user" style="width:33%; height:100%; float:left;">
             <p style="font-size:20px; color:#DDD;">0</p>
             <p style="margin-left:9px; line-height:1.5em; letter-spacing:8px;">粉丝</p>
-          </div>
+          </page-link>
         </div>
       </div>
       <div></div>
@@ -42,15 +42,13 @@
 </template>
 
 <script>
-import { changePage } from '../../assets/js/commom.js'
+import PageLink from '../../components/base/page-link/page-link.vue'
 
 export default {
   name: 'FriendPage',
 
-  methods: {
-    changeRouter (url) {
-      changePage(url, this)
-    }
+  components: {
+    PageLink
   }
 }
 </script>

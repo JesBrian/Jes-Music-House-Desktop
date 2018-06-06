@@ -40,11 +40,11 @@
         <div style="font-size:14px;">
           <p style="margin-bottom:8px;">
             <span style="color:#DDD;">标签：</span>
-            <span @click="changeRouter('/')" style="color:#00d8ff;">666</span>
+            <page-link :url="'/index/play-list'" style="color:#00d8ff;">666</page-link>
             <i style="margin:0 3px; color:#FFF;">/</i>
-            <span @click="changeRouter('/')" style="color:#00d8ff;">888</span>
+            <page-link :url="'/index/play-list'" style="color:#00d8ff;">888</page-link>
             <i style="margin:0 3px; color:#FFF;">/</i>
-            <span @click="changeRouter('/')" style="color:#00d8ff;">999</span>
+            <page-link :url="'/index/play-list'" style="color:#00d8ff;">999</page-link>
           </p>
           <p style="word-break:break-all; line-height:1.2em;">
             <span style="color:#DDD;">简介：</span>
@@ -75,14 +75,13 @@
 <script>
 import SongGroup from '../../components/extends/song/SongGroup.vue'
 import CommentTotal from '../../components/extends/comment/CommentTotal.vue'
-
-import { changePage } from '../../assets/js/commom.js'
+import PageLink from '../../components/base/page-link/page-link.vue'
 
 export default {
   name: 'PlayListPage',
 
   components: {
-    SongGroup, CommentTotal
+    PageLink, SongGroup, CommentTotal
   },
 
   data () {
@@ -94,10 +93,6 @@ export default {
   methods: {
     changeContent (type = 'playList') {
       this.type = type
-    },
-
-    changeRouter (url) {
-      changePage(url, this)
     }
   }
 }

@@ -2,10 +2,10 @@
 	<div class="glass-bg box-show" style="-webkit-app-region:drag; width:100%; height:54px; top:0; left:0; position:fixed; z-index:999; border-radius:0; color:#999;">
 		<!-- LOGO -->
 		<div style="width:188px; height:100%; float:left;">
-			<div @click="changeUrl('/')" style="-webkit-app-region:no-drag; float:left; cursor:pointer;">
-				<img src="../../../../../static/images/Logo.png" style="width:30px; height:30px; margin:10px 6px 0 13px; float:left;"/>
-				<span style="font-size:22px; font-weight:700; color:#22e8ff; text-shadow:1.5px 1.5px 6px #30cdff; line-height:52px;">Music House</span>
-			</div>
+      <page-link url="/" style="-webkit-app-region:no-drag; float:left; cursor:pointer;">
+        <img src="../../../../../static/images/Logo.png" style="width:30px; height:30px; margin:10px 6px 0 13px; float:left;"/>
+        <span style="font-size:22px; font-weight:700; color:#22e8ff; text-shadow:1.5px 1.5px 6px #30cdff; line-height:52px;">Music House</span>
+      </page-link>
 		</div>
 
 		<!-- 前进后退 -->
@@ -18,7 +18,7 @@
 		<div style="height:100%; float:left;">
 			<div @keyup.enter="gotoSearch" style="-webkit-app-region:no-drag; width:300px; height:38px; margin:6px 28px 0 0; position:relative;">
 				<div class="super-btn-out" style="width:100%; height:100%;"></div>
-				<label><input v-model="searchKey" class="super-btn-in" placeholder="搜索一下更精彩" style="width:253px; height:27px; left:44.3%; margin-top:1.2px; padding:2px 8px 0; box-sizing:border-box; text-align:left; letter-spacing:1px; font-size:18px; color:#DDD;"/></label>
+				<label><input v-model.trim="searchKey" class="super-btn-in" placeholder="搜索一下更精彩" style="width:253px; height:27px; left:44.3%; margin-top:1.2px; padding:2px 8px 0; box-sizing:border-box; text-align:left; letter-spacing:1px; font-size:18px; color:#DDD;"/></label>
 				<div class="super-btn-out" style="width:28px; height:28px; top:5px; right:4px; position:absolute;">
           <a @click="gotoSearch" class="super-btn-in mh-if search" style="width:30px; height:28.5px; display:inline-block; float:right; font-size:21px; line-height:30px;" ></a>
 				</div>
@@ -26,26 +26,28 @@
 		</div>
 
 		 <!--用户操作 -->
-		<!--<div style="-webkit-app-region:no-drag; height:25px; margin:15px 268px 0 0; float:right; line-height:25px; ">-->
-      <!--<img @click="changeUrl('/user')" class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:25px; height:24px; margin:-0.5px 8px 0 0; padding:2px; float:left; cursor:pointer;" />-->
-      <!--<div @click="changeShowContentType('UserOperation')" style="display:inline-block; font-size:18px; cursor:pointer;">-->
-        <!--<p class="text-hidden" style="max-width:108px; display:inline-block; color:#CCC;">JesBrianJesBrian</p>-->
-        <!--<i style="width:0; height:0; margin:10px 0 0 6px; border-width:6px; border-style:solid; border-color:#999 transparent transparent transparent; float:right;"></i>-->
-      <!--</div>-->
-    <!--</div>-->
 		<div style="-webkit-app-region:no-drag; height:25px; margin:15px 268px 0 0; float:right; line-height:25px; ">
-      <div @click="changeShowContentType('UserLogin')" style="display:inline-block; font-size:18px; cursor:pointer;">
-        <img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:25px; margin:-1px 8px 0 0; padding:1.5px; float:left;" />
-        <p class="text-hidden" style="max-width:108px; display:inline-block; color:#CCC;">请登录</p>
+      <page-link url="/user" style="margin:-1px 8px 0 0; float:left;">
+        <img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:25px; height:24px; padding:2px;" />
+      </page-link>
+      <div @click="changeShowContentType('UserOperation')" style="display:inline-block; font-size:18px; cursor:pointer;">
+        <p class="text-hidden" style="max-width:108px; display:inline-block; color:#CCC;">JesBrianJesBrian</p>
         <i style="width:0; height:0; margin:10px 0 0 6px; border-width:6px; border-style:solid; border-color:#999 transparent transparent transparent; float:right;"></i>
       </div>
     </div>
+		<!--<div style="-webkit-app-region:no-drag; height:25px; margin:15px 268px 0 0; float:right; line-height:25px; ">-->
+      <!--<div @click="changeShowContentType('UserLogin')" style="display:inline-block; font-size:18px; cursor:pointer;">-->
+        <!--<img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:25px; margin:-1px 8px 0 0; padding:1.5px; float:left;" />-->
+        <!--<p class="text-hidden" style="max-width:108px; display:inline-block; color:#CCC;">请登录</p>-->
+        <!--<i style="width:0; height:0; margin:10px 0 0 6px; border-width:6px; border-style:solid; border-color:#999 transparent transparent transparent; float:right;"></i>-->
+      <!--</div>-->
+    <!--</div>-->
 
 		<!-- 应用设置 & 控制窗口 -->
 		<div style="height:50%; top:15px; right:18px; position:absolute; z-index:9; color:#DDD;">
 			<i @click="changeShowContentType('ChooseTheme')" class="mh-if theme" style="-webkit-app-region:no-drag; margin:0 8px; font-size:21px;"></i>
 			<i @click="changeShowContentType('MessageContent')" class="mh-if feedback" style="-webkit-app-region:no-drag; margin:0 8px; font-size:23px;"></i>
-			<i @click="changeUrl('/config')" class="mh-if gear" style="-webkit-app-region:no-drag; margin:0 8px; color:#DDD; font-size:23px;"></i>
+			<page-link url="/config" class="mh-if gear" style="-webkit-app-region:no-drag; margin:0 8px; color:#DDD; font-size:23px;"></page-link>
 			<i style="margin:0 18px; padding:8px 0 5px; border-right:2px solid #222;"></i>
 			<i @click="atest" class="mh-if lessen" style="-webkit-app-region:no-drag; margin:0 2px; font-size:23px;"></i>
 			<i @click="closeWindow" class="mh-if close" style="-webkit-app-region:no-drag; margin:0 2px; font-size:23px;"></i>
@@ -65,6 +67,7 @@ import UserOperation from './type/user-operation/UserOperation.vue'
 import MessageContent from './type/message-content/MessageContent.vue'
 import ChooseTheme from './type/choose-theme/ChooseTheme.vue'
 import UserLogin from './type/user-login/UserLogin.vue'
+import PageLink from '../../../components/base/page-link/page-link.vue'
 
 import { changePage } from '../../../assets/js/commom.js'
 
@@ -74,7 +77,7 @@ export default {
   name: 'TopMenu',
 
   components: {
-    UserOperation, MessageContent, ChooseTheme, UserLogin
+    PageLink, UserOperation, MessageContent, ChooseTheme, UserLogin
   },
 
   data () {
@@ -99,15 +102,11 @@ export default {
       }
     },
 
-    changeUrl (url = '') {
-      changePage(url, this)
-    },
-
     gotoSearch () {
       if (this.searchKey === '') {
         return false
       }
-      this.changeUrl('/search/' + this.searchKey)
+      changePage('/search/' + this.searchKey, this)
     },
 
     closeShowContent () {

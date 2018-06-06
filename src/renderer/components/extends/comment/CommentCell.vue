@@ -1,10 +1,13 @@
 <template>
   <div class="comment-cell" style="padding:13px 0 16px 68px; position:relative; color:#999;">
-    <img @click="changeRouter('/user')" class="box-show" v-lazy="'http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80'" style="width:40px; height:38px; top:16px; left:16px; padding:3px; position:absolute;"/>
+    <page-link url="/user" style="width:40px; height:38px; top:16px; left:16px; position:absolute;">
+      <img class="box-show" v-lazy="'http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80'" style="width:100%; height:100%; padding:3px;"/>
+    </page-link>
+
 
     <div style="width:100%;">
       <p style="word-break:break-all; line-height:1.28em; color:#CDD;">
-        <span @click="changeRouter('/user')" style="float:left; color:#00d8ff;">JesBrian</span>
+        <page-link url="/user" style="float:left; color:#00d8ff;">JesBrian</page-link>
         ：rdctfvygrdchjrdctfvygubhjrdctfvygrdchjrdctfvygubhj
       </p>
 
@@ -32,14 +35,13 @@
 
 <script>
 import NewComment from './NewComment.vue'
-
-import { changePage } from '../../../assets/js/commom.js'
+import PageLink from '../../base/page-link/page-link.vue'
 
 export default {
   name: 'CommentCell',
 
   components: {
-    NewComment
+    PageLink, NewComment
   },
 
   data () {
@@ -60,10 +62,6 @@ export default {
     replyComment () {
       this.$emit('hiddenOtherReplyContent', this)
       this.isShowReplyContent = !this.isShowReplyContent
-    },
-
-    changeRouter (url) {
-      changePage(url, this)
     }
   }
 }
