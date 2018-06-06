@@ -13,7 +13,7 @@ export function changePage (url = '', that = {}) {
     that.$store.commit('CLOSE_MUSIC_VIEW')
   }
 
-  // 判断要跳转的路由是否是当前页面
+  // 判断要跳转的路由是否为当前页面
   if (url !== that.$store.state.Router.historyRecord[that.$store.state.Router.nowIndex]) {
     that.$router.push(url)
     that.$store.commit('PUSH_URL_HISTORY_RECORD', url)

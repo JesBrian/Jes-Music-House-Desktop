@@ -8,7 +8,7 @@
     <div>
       <div style="width:93%; height:53px; margin:0 auto 28px; padding:0 43px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px; text-shadow:1px 1px 0.5px #000;">
         <i class="mh-if music-box" style="margin-right:8px; font-size:23px; color:#00d8ff;"></i><span style="font-size:23px; font-weight:700; color:#CCC;">推荐歌单</span>
-        <router-link to="/album" class="read-more">更多 <i class="mh-if double-arrow-right"></i></router-link>
+        <span @click="changeRouter('/album')" class="read-more">更多 <i class="mh-if double-arrow-right"></i></span>
       </div>
 
       <album-group />
@@ -17,7 +17,7 @@
     <div>
       <div style="width:93%; height:53px; margin:0 auto 28px; padding:0 43px 0 23px; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px; text-shadow:1px 1px 0.5px #000;">
         <i class="mh-if music-albu" style="margin-right:8px; font-size:23px; color:#00d8ff;"></i><span style="font-size:23px; font-weight:700; color:#CCC;">新碟上架</span>
-        <router-link to="/disc" class="read-more">更多 <i class="mh-if double-arrow-right"></i></router-link>
+        <span @click="changeRouter('/disc')" class="read-more">更多 <i class="mh-if double-arrow-right"></i></span>
       </div>
       <div class="glass-bg box-show" style="width:93%; height:138px; margin:0 auto 18px; position:relative;">
         <a class="p-n-btn prev-btn ban-select" style="width:23px; height:43px; top:48%; left:13px; position:absolute; display:inline-block; transform:translate(0,-50%);"></a>
@@ -132,11 +132,19 @@
 import SlideBox from '../../../base/slide-box/SlideBox.vue'
 import AlbumGroup from '../../album/AlbumGroup.vue'
 
+import { changePage } from '../../../../assets/js/commom.js'
+
 export default {
   name: 'IndexRecommend',
 
   components: {
     AlbumGroup, SlideBox
+  },
+
+  methods: {
+    changeRouter (url) {
+      changePage(url, this)
+    }
   }
 }
 </script>

@@ -19,18 +19,18 @@
         </div>
 
         <div style="width:100%; height:38px; padding:8px 0; box-shadow:0 3px 2px -2px #666; clear:both; text-align:center;">
-          <router-link to="/user" style="width:88px; height:100%; float:left;">
+          <div @click="changeRouter('/user')" style="width:88px; height:100%; float:left;">
             <p style="font-size:20px; color:#DDD;">0</p>
             <p style="margin-left:9px; line-height:1.3em; letter-spacing:8px;">动态</p>
-          </router-link>
-          <router-link to="/user" style="width:88px; height:100%; float:left; border-left:1px solid #333; border-right:1px solid #333;">
+          </div>
+          <div @click="changeRouter('/user')" style="width:88px; height:100%; float:left; border-left:1px solid #333; border-right:1px solid #333;">
             <p style="font-size:20px; color:#DDD;">0</p>
             <p style="margin-left:9px; line-height:1.3em; letter-spacing:8px;">关注</p>
-          </router-link>
-          <router-link to="/user" style="width:88px; height:100%; float:left;">
+          </div>
+          <div @click="changeRouter('/user')" style="width:88px; height:100%; float:left;">
             <p style="font-size:20px; color:#DDD;">0</p>
             <p style="margin-left:9px; line-height:1.3em; letter-spacing:8px;">粉丝</p>
-          </router-link>
+          </div>
         </div>
 
         <p style="float:left; margin-top:13px; word-break:break-all; line-height:1.2em;">
@@ -88,6 +88,8 @@
 <script>
 import ShowPlayList from '../../components/extends/play-list/ShowPlayList.vue'
 
+import { changePage } from '../../assets/js/commom.js'
+
 export default {
   name: 'UserPage',
 
@@ -105,6 +107,10 @@ export default {
   methods: {
     changePlayListShowType (playListType, showType = 'picture') {
       this[playListType] = showType
+    },
+
+    changeRouter (url) {
+      changePage(url, this)
     }
   }
 }

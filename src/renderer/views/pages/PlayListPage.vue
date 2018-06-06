@@ -8,10 +8,9 @@
       <div style="width:65%; margin-top:3px; display:inline-block; position:relative; color:#999;">
         <p style="font-size:23px; color:#EEE;">史克威尔艾尼克斯 · 游戏音乐编年史 ♪</p>
         <div style="height:32px; margin-top:18px; display:inline-block; line-height:32px;">
-          <router-link to="/user" style="margin-right:12px; float:left;">
-            <img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:26px; border-radius:50%;"/>
-          </router-link>
-          <router-link to="/user" style="margin-right:38px; font-size:20px;">JesBrian</router-link>
+
+          <img @click="changeRouter('/user')" class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:26px; height:26px; margin-right:12px; float:left; border-radius:50%;"/>
+          <span @click="changeRouter('/user')" style="margin-right:38px; font-size:20px;">JesBrian</span>
 
           <span style="font-size:13.5px;">2018-09-23 创建</span>
 
@@ -41,11 +40,11 @@
         <div style="font-size:14px;">
           <p style="margin-bottom:8px;">
             <span style="color:#DDD;">标签：</span>
-            <router-link to="/" style="color:#00d8ff;">666</router-link>
+            <span @click="changeRouter('/')" style="color:#00d8ff;">666</span>
             <i style="margin:0 3px; color:#FFF;">/</i>
-            <router-link to="/" style="color:#00d8ff;">888</router-link>
+            <span @click="changeRouter('/')" style="color:#00d8ff;">888</span>
             <i style="margin:0 3px; color:#FFF;">/</i>
-            <router-link to="/" style="color:#00d8ff;">999</router-link>
+            <span @click="changeRouter('/')" style="color:#00d8ff;">999</span>
           </p>
           <p style="word-break:break-all; line-height:1.2em;">
             <span style="color:#DDD;">简介：</span>
@@ -77,6 +76,8 @@
 import SongGroup from '../../components/extends/song/SongGroup.vue'
 import CommentTotal from '../../components/extends/comment/CommentTotal.vue'
 
+import { changePage } from '../../assets/js/commom.js'
+
 export default {
   name: 'PlayListPage',
 
@@ -93,6 +94,10 @@ export default {
   methods: {
     changeContent (type = 'playList') {
       this.type = type
+    },
+
+    changeRouter (url) {
+      changePage(url, this)
     }
   }
 }
