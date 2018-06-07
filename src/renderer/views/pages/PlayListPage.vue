@@ -75,13 +75,12 @@
 <script>
 import SongGroup from '../../components/extends/song/SongGroup.vue'
 import CommentTotal from '../../components/extends/comment/CommentTotal.vue'
-import PageLink from '../../components/global/page-link/PageLink.vue'
 
 export default {
   name: 'PlayListPage',
 
   components: {
-    PageLink, SongGroup, CommentTotal
+    SongGroup, CommentTotal
   },
 
   data () {

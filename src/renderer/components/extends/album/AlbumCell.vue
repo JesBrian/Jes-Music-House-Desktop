@@ -18,16 +18,10 @@
 </template>
 
 <script>
-import PageLink from '../../global/page-link/PageLink.vue'
-
 import { mouseCoords } from '../../../assets/js/commom.js'
 
 export default {
   name: 'AlbumCell',
-
-  components: {
-    PageLink
-  },
 
   methods: {
     showAlertMenu (event) {

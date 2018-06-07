@@ -35,13 +35,12 @@
 
 <script>
 import NewComment from './NewComment.vue'
-import PageLink from '../../global/page-link/PageLink.vue'
 
 export default {
   name: 'CommentCell',
 
   components: {
-    PageLink, NewComment
+    NewComment
   },
 
   data () {

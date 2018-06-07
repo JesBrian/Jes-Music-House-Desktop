@@ -42,14 +42,8 @@
 </template>
 
 <script>
-import PageLink from '../../components/global/page-link/PageLink.vue'
-
 export default {
-  name: 'FriendPage',
-
-  components: {
-    PageLink
-  }
+  name: 'FriendPage'
 }
 </script>
 

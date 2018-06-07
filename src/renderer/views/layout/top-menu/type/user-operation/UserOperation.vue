@@ -72,16 +72,10 @@
 </template>
 
 <script>
-import PageLink from '../../../../../components/global/page-link/PageLink.vue'
-
 var ipcRenderer = require('electron').ipcRenderer
 
 export default {
   name: 'UserOperation',
-
-  components: {
-    PageLink
-  },
 
   methods: {
     userSignIn () {

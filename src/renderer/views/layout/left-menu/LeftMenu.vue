@@ -10,22 +10,22 @@
             </p>
 						<ul v-show="recomShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/">
+                <page-link url="/" class="left-menu-item">
                   <i class="mh-if music-box" style="margin-right:6px;"></i>发现音乐
                 </page-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/rank">
+                <page-link url="/rank" class="left-menu-item">
                   <i class="mh-if exponential" style="margin-right:4px;"></i>榜单推荐
                 </page-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/comment">
+                <page-link url="/comment" class="left-menu-item">
                   <i class="mh-if level" style="margin-right:4px;"></i>个人推荐
                 </page-link>
               </li>
               <li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/friend">
+                <page-link url="/friend" class="left-menu-item">
                   <i class="mh-if singer" style="margin-right:6px;"></i>朋友动态
                 </page-link>
               </li>
@@ -37,17 +37,17 @@
             </p>
 						<ul v-show="musicShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/local">
+                <page-link url="/local" class="left-menu-item">
                   <i class="mh-if redis" style="margin-right:6px;"></i>本地音乐
                 </page-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/download">
+                <page-link url="/download" class="left-menu-item">
                   <i class="mh-if download" style="margin-right:6px;"></i>下载管理
                 </page-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/collection">
+                <page-link url="/collection" class="left-menu-item">
                   <i class="mh-if collection-music" style="margin-right:6px;"></i>我的收藏
                 </page-link>
               </li>
@@ -65,12 +65,12 @@
                 </page-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/play-list">
+                <page-link url="/play-list" class="left-menu-item">
                   <i class="mh-if music-list" style="margin-right:6px;"></i>tywque
                 </page-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/play-list">
+                <page-link url="/play-list" class="left-menu-item">
                   <i class="mh-if music-list" style="margin-right:6px;"></i>洝ij45省的sj
                 </page-link>
               </li>
@@ -82,17 +82,17 @@
             </p>
 						<ul v-show="collectionShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/play-list">
+                <page-link url="/play-list" class="left-menu-item">
                   <i class="mh-if menu" style="margin-right:6px;"></i>XXXX
                 </page-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/play-list">
+                <page-link url="/play-list" class="left-menu-item">
                   <i class="mh-if menu" style="margin-right:6px;"></i>YYYY
                 </page-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/play-list">
+                <page-link url="/play-list" class="left-menu-item">
                   <i class="mh-if menu" style="margin-right:6px;"></i>ZZZZ
                 </page-link>
               </li>
@@ -122,14 +122,8 @@
 </template>
 
 <script>
-import PageLink from '../../../components/global/page-link/PageLink.vue'
-
 export default {
   name: 'LeftMenu',
-
-  components: {
-    PageLink
-  },
 
   data () {
     return {
@@ -180,14 +174,15 @@ export default {
   p > .mh-if:hover {
     color:#20dbfc;
   }
-  li > a {
-    display: block;
-    cursor:pointer;
+  li > .left-menu-item {
+    width:100%;
+    height:100%;
+    color:#999;
   }
-  li > a:hover .mh-if {
+  li > .left-menu-item:hover .mh-if {
     color:#20dbfc;
   }
-  li > a:hover {
+  li > .left-menu-item:hover {
     color:#DDD;
   }
 

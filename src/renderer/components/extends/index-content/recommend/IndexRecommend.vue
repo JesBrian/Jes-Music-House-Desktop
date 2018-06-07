@@ -131,13 +131,12 @@
 <script>
 import SlideBox from '../../../base/slide-box/SlideBox.vue'
 import AlbumGroup from '../../album/AlbumGroup.vue'
-import PageLink from '../../../global/page-link/PageLink.vue'
 
 export default {
   name: 'IndexRecommend',
 
   components: {
-    PageLink, AlbumGroup, SlideBox
+    AlbumGroup, SlideBox
   }
 }
 </script>
