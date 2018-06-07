@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import PageLink from '../../components/base/page-link/page-link.vue'
+import PageLink from '../../components/global/page-link/PageLink.vue'
 
 export default {
   name: 'FriendPage',

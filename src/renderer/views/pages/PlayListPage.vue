@@ -75,7 +75,7 @@
 <script>
 import SongGroup from '../../components/extends/song/SongGroup.vue'
 import CommentTotal from '../../components/extends/comment/CommentTotal.vue'
-import PageLink from '../../components/base/page-link/page-link.vue'
+import PageLink from '../../components/global/page-link/PageLink.vue'
 
 export default {
   name: 'PlayListPage',

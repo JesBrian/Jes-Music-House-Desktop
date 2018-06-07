@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import PageLink from '../../../../../components/base/page-link/page-link.vue'
+import PageLink from '../../../../../components/global/page-link/PageLink.vue'
 
 var ipcRenderer = require('electron').ipcRenderer
 

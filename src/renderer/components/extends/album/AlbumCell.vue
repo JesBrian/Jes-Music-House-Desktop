@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import PageLink from '../../base/page-link/page-link.vue'
+import PageLink from '../../global/page-link/PageLink.vue'
 
 import { mouseCoords } from '../../../assets/js/commom.js'
 

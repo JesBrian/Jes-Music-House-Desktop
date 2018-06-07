@@ -67,7 +67,7 @@ import UserOperation from './type/user-operation/UserOperation.vue'
 import MessageContent from './type/message-content/MessageContent.vue'
 import ChooseTheme from './type/choose-theme/ChooseTheme.vue'
 import UserLogin from './type/user-login/UserLogin.vue'
-import PageLink from '../../../components/base/page-link/page-link.vue'
+import PageLink from '../../../components/global/page-link/PageLink.vue'
 
 import { changePage } from '../../../assets/js/commom.js'
 

@@ -10,24 +10,24 @@
             </p>
 						<ul v-show="recomShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <a @click="changeUrl('/')">
+                <page-link url="/">
                   <i class="mh-if music-box" style="margin-right:6px;"></i>发现音乐
-                </a>
+                </page-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <a @click="changeUrl('/rank')">
+                <page-link url="/rank">
                   <i class="mh-if exponential" style="margin-right:4px;"></i>榜单推荐
-                </a>
+                </page-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <a @click="changeUrl('/comment')">
+                <page-link url="/comment">
                   <i class="mh-if level" style="margin-right:4px;"></i>个人推荐
-                </a>
+                </page-link>
               </li>
               <li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <a @click="changeUrl('/friend')">
+                <page-link url="/friend">
                   <i class="mh-if singer" style="margin-right:6px;"></i>朋友动态
-                </a>
+                </page-link>
               </li>
 						</ul>
 					</li>
@@ -37,19 +37,19 @@
             </p>
 						<ul v-show="musicShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <a @click="changeUrl('/local')">
+                <page-link url="/local">
                   <i class="mh-if redis" style="margin-right:6px;"></i>本地音乐
-                </a>
+                </page-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <a @click="changeUrl('/download')">
+                <page-link url="/download">
                   <i class="mh-if download" style="margin-right:6px;"></i>下载管理
-                </a>
+                </page-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <a @click="changeUrl('/collection')">
+                <page-link url="/collection">
                   <i class="mh-if collection-music" style="margin-right:6px;"></i>我的收藏
-                </a>
+                </page-link>
               </li>
 						</ul>
 					</li>
@@ -60,19 +60,19 @@
             <i @click="changeModalType('NewAlbum')" class="mh-if add-collection"></i>
 						<ul v-show="albumShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <a @click="changeUrl('/play-list')">
+                <page-link url="/play-list">
                   <i class="mh-if non-colloection" style="margin-right:6px;"></i>我喜欢的音乐
-                </a>
+                </page-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <a @click="changeUrl('/play-list')">
+                <page-link url="/play-list">
                   <i class="mh-if music-list" style="margin-right:6px;"></i>tywque
-                </a>
+                </page-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <a @click="changeUrl('/play-list')">
+                <page-link url="/play-list">
                   <i class="mh-if music-list" style="margin-right:6px;"></i>洝ij45省的sj
-                </a>
+                </page-link>
               </li>
 						</ul>
 					</li>
@@ -82,19 +82,19 @@
             </p>
 						<ul v-show="collectionShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <a @click="changeUrl('/play-list')">
+                <page-link url="/play-list">
                   <i class="mh-if menu" style="margin-right:6px;"></i>XXXX
-                </a>
+                </page-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <a @click="changeUrl('/play-list')">
+                <page-link url="/play-list">
                   <i class="mh-if menu" style="margin-right:6px;"></i>YYYY
-                </a>
+                </page-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <a @click="changeUrl('/play-list')">
+                <page-link url="/play-list">
                   <i class="mh-if menu" style="margin-right:6px;"></i>ZZZZ
-                </a>
+                </page-link>
               </li>
 						</ul>
 					</li>
@@ -109,11 +109,11 @@
 			</div>
       <div @click="changeShowMusicView" class="now-song-name">Song Name</div>
       <div class="now-singer text-hidden">
-        <a @click="changeUrl('/singer')">环境是</a>
+        <page-link url="/singer">环境是</page-link>
         <i style="margin:0 1px;">/</i>
-        <a @click="changeUrl('/singer')">JesBan</a>
+        <page-link url="/singer">JesBan</page-link>
         <i style="margin:0 1px;">/</i>
-        <a @click="changeUrl('/singer')">参数</a>
+        <page-link url="/singer">参数</page-link>
       </div>
 			<a @click="changeCollection" :class="{'active': isCollection}" class="mh-if non-colloection"></a>
 			<a @click="changeModalType('Share')" class="mh-if share"></a>
@@ -122,10 +122,14 @@
 </template>
 
 <script>
-import { changePage } from '../../../assets/js/commom.js'
+import PageLink from '../../../components/global/page-link/PageLink.vue'
 
 export default {
   name: 'LeftMenu',
+
+  components: {
+    PageLink
+  },
 
   data () {
     return {
@@ -138,10 +142,6 @@ export default {
   },
 
   methods: {
-    changeUrl (url = '') {
-      changePage(url, this)
-    },
-
     changeShowMusicView () {
       this.$store.commit('CHANGE_SHOW_MUSIC_VIEW')
     },

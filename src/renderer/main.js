@@ -6,6 +6,8 @@ import router from './router'
 import store from './store'
 import vueLazyload from 'vue-lazyload'
 
+// import PageLink from './components/global/page-link/PageLink.vue'
+
 import './assets/plugins/icon-font/iconfont.css'
 import './assets/css/common.css'
 
@@ -19,6 +21,8 @@ Vue.use(vueLazyload, {
   error: require('./assets/img/loading.svg'),
   loading: require('./assets/img/loading.svg')
 })
+
+// Vue.use(PageLink)
 
 /* eslint-disable no-new */
 new Vue({
