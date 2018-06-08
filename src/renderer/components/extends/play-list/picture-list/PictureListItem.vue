@@ -21,7 +21,7 @@
 import { mouseCoords } from '../../../../assets/js/commom.js'
 
 export default {
-  name: 'PictureListCell',
+  name: 'PictureListItem',
 
   methods: {
     showAlertMenu (type) {

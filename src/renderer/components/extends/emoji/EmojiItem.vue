@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'EmojiCell',
+  name: 'EmojiItem',
 
   props: {
     index: Number,

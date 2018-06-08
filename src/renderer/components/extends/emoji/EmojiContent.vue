@@ -4,7 +4,7 @@
     <ul>
       <li style="margin:1px 0 -18px 3px; float:left;" v-for="(value, index) in emojiInfos" :key="index">
         <!-- 单个小表情组件 -->
-        <emoji-cell :index=index+1 :emojiInfo="value"/>
+        <emoji-item :index=index+1 :emojiInfo="value"/>
       </li>
     </ul>
 
@@ -16,13 +16,13 @@
 </template>
 
 <script>
-import EmojiCell from './EmojiCell.vue'
+import EmojiItem from './EmojiItem.vue'
 
 export default {
   name: 'EmojiContent',
 
   components: {
-    EmojiCell
+    EmojiItem
   },
 
   data () {

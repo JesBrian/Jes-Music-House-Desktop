@@ -10,7 +10,7 @@
 import { mouseCoords } from '../../../../assets/js/commom.js'
 
 export default {
-  name: 'PictureCell',
+  name: 'PictureItem',
 
   methods: {
     showAlertMenu (event) {

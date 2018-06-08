@@ -1,19 +1,19 @@
 <template>
   <div>
     <div v-for="n in 4" class="box-shadow" style="padding:8px 0;">
-      <picture-list-cell />
+      <picture-list-item />
     </div>
   </div>
 </template>
 
 <script>
-import PictureListCell from './PictureListCell.vue'
+import PictureListItem from './PictureListItem.vue'
 
 export default {
   name: 'PictureListGroup',
 
   components: {
-    PictureListCell
+    PictureListItem
   }
 }
 </script>

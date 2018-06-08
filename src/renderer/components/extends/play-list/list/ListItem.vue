@@ -9,7 +9,7 @@
 import { mouseCoords } from '../../../../assets/js/commom.js'
 
 export default {
-  name: 'ListCell',
+  name: 'ListItem',
 
   methods: {
     showAlertMenu (event) {

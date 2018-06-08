@@ -8,19 +8,19 @@
       </div>
     </li>
     <li v-for="n in 18" class="box-shadow" style="padding:2px 0;">
-      <now-download-cell :index="n" />
+      <now-download-item :index="n" />
     </li>
   </ul>
 </template>
 
 <script>
-import NowDownloadCell from './NowDownloadCell.vue'
+import NowDownloadItem from './NowDownloadItem.vue'
 
 export default {
   name: 'NowDownloadGroup',
 
   components: {
-    NowDownloadCell
+    NowDownloadItem
   }
 }
 </script>

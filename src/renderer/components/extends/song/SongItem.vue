@@ -7,8 +7,8 @@
       <i class="mh-if download" style="margin:0 2px;"></i>
     </p>
     <p class="text-hidden" style="width:48%; padding:0 8px 0 3px; float:left; box-sizing:border-box;">66</p>
-    <p class="text-hidden" style="width:28%; float:left;">66</p>
-    <p style="width:8%; float:right; text-align:center;">59:59</p>
+    <p class="text-hidden" style="width:25%; float:left;">66</p>
+    <p style="width:10%; float:left; text-align:center;">59:59</p>
   </div>
 </template>
 
@@ -16,7 +16,7 @@
 import { mouseCoords } from '../../../assets/js/commom.js'
 
 export default {
-  name: 'SongCell',
+  name: 'SongItem',
 
   props: {
     index: Number

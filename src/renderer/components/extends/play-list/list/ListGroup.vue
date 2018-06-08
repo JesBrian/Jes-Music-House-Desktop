@@ -1,19 +1,19 @@
 <template>
   <div>
     <div v-for="n in 8" class="box-shadow">
-      <list-cell />
+      <list-item />
     </div>
   </div>
 </template>
 
 <script>
-import ListCell from './ListCell.vue'
+import ListItem from './ListItem.vue'
 
 export default {
   name: 'ListGroup',
 
   components: {
-    ListCell
+    ListItem
   }
 }
 </script>
