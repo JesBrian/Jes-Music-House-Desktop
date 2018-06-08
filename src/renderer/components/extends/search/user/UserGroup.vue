@@ -1,19 +1,19 @@
 <template>
   <ul>
     <li v-for="n in 18" style="width:46%; margin:25px 0 0 3%; display:inline-block;">
-      <user-cell />
+      <user-item />
     </li>
   </ul>
 </template>
 
 <script>
-import UserCell from './UserCell.vue'
+import UserItem from './UserItem.vue'
 
 export default {
   name: 'UserGroup',
 
   components: {
-    UserCell
+    UserItem
   }
 }
 </script>

@@ -9,7 +9,9 @@
         <p style="font-size:23px; color:#EEE;">史克威尔艾尼克斯 · 游戏音乐编年史 ♪</p>
         <div style="height:32px; margin-top:18px; display:inline-block; line-height:32px;">
 
-          <img @click="changeRouter('/user')" class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:26px; height:26px; margin-right:12px; float:left; border-radius:50%;"/>
+          <page-link url="/singer" style="width:26px; height:26px; margin:3px 12px 0 0; float:left; border-radius:50%;">
+            <img @click="changeRouter('/user')" class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:100%; height:100%; padding:1px; border-radius:50%;"/>
+          </page-link>
           <span @click="changeRouter('/user')" style="margin-right:38px; font-size:20px;">JesBrian</span>
 
           <span style="font-size:13.5px;">2018-09-23 创建</span>

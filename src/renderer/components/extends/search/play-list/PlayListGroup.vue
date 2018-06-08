@@ -1,19 +1,19 @@
 <template>
   <ul>
     <li v-for="n in 18" style="width:46%; margin:25px 0 0 3%; display:inline-block;">
-      <play-list-cell />
+      <play-list-item />
     </li>
   </ul>
 </template>
 
 <script>
-import PlayListCell from './PlayListCell.vue'
+import PlayListItem from './PlayListItem.vue'
 
 export default {
   name: 'PlayListGroup',
 
   components: {
-    PlayListCell
+    PlayListItem
   }
 }
 </script>

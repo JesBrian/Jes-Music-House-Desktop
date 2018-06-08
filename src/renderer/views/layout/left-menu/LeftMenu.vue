@@ -60,7 +60,7 @@
             <i @click="changeModalType('NewAlbum')" class="mh-if add-collection"></i>
 						<ul v-show="albumShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/play-list">
+                <page-link url="/play-list" class="left-menu-item">
                   <i class="mh-if non-colloection" style="margin-right:6px;"></i>我喜欢的音乐
                 </page-link>
               </li>
