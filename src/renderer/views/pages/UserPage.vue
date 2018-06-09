@@ -10,7 +10,7 @@
 
         <div style="width:100%; height:48px; box-shadow:0 3px 2px -2px #666;">
           <p style="float:left; text-indent:0.9em; font-size:26px; line-height:2em;">JesBrian</p>
-          <div class="super-btn-out" style="width:50px; height:26px; margin:11px 0 0 28px; float:left;">
+          <div @click="openBrowser('http://music.jesbrian.cn/#/level')" class="super-btn-out" style="width:50px; height:26px; margin:11px 0 0 28px; float:left;">
             <span class="super-btn-in" style="width:44px; height:20px; line-height:20px;">Lv 9</span>
           </div>
           <div class="super-btn-out" style="width:114px; height:26px; right:18px; margin-top:11px; float:right;">
@@ -88,6 +88,8 @@
 <script>
 import ShowPlayList from '../../components/extends/play-list/ShowPlayList.vue'
 
+var ipcRenderer = require('electron').ipcRenderer
+
 export default {
   name: 'UserPage',
 
@@ -105,6 +107,10 @@ export default {
   methods: {
     changePlayListShowType (playListType, showType = 'picture') {
       this[playListType] = showType
+    },
+
+    openBrowser (url = '') {
+      ipcRenderer.send('open-browser-url', url)
     }
   }
 }

@@ -4,9 +4,15 @@
       <div style="height:30px;">
         <div style="width:5.5%; height:100%; float:left; box-sizing:border-box; border-right:1px solid #282828;"></div>
         <div style="width:9%; height:100%; float:left; box-sizing:border-box; border-right:1px solid #282828; text-align:center;">操作</div>
-        <div style="width:47.5%; height:100%; padding-left:14px; float:left; box-sizing:border-box; border-right:1px solid #282828; cursor:pointer;">音乐标题</div>
-        <div style="width:30%; height:100%; padding-left:16px; float:left; box-sizing:border-box; border-right:1px solid #282828; cursor:pointer;">歌手</div>
-        <div style="width:8%; height:100%; float:left; box-sizing:border-box; border-right:1px solid #282828; text-align:center; cursor:pointer;">时长</div>
+        <div @click="changeOrder('titleOrder')" style="width:47.5%; height:100%; padding-left:14px; position:relative; float:left; box-sizing:border-box; border-right:1px solid #282828; cursor:pointer;">
+          音乐标题<i :class="titleOrder" class="mh-if" style="top:0; right:10px; position:absolute; font-size:13px; color:#888;"></i>
+        </div>
+        <div @click="changeOrder('singerOrder')" style="width:28%; height:100%; padding-left:16px; position:relative; float:left; box-sizing:border-box; border-right:1px solid #282828; cursor:pointer;">
+          歌手<i :class="singerOrder" class="mh-if" style="top:0; right:10px; position:absolute; font-size:13px; color:#888;"></i>
+        </div>
+        <div @click="changeOrder('timeOrder')" style="width:10%; height:100%; padding-left:16px; position:relative; float:left; box-sizing:border-box; border-right:1px solid #282828; cursor:pointer;">
+          时长<i :class="timeOrder" class="mh-if" style="top:0; right:10px; position:absolute; font-size:13px; color:#888;"></i>
+        </div>
       </div>
     </li>
     <li v-for="n in 18" class="box-shadow" style="padding:2px 0;">
@@ -23,6 +29,26 @@ export default {
 
   components: {
     DownloadedItem
+  },
+
+  data () {
+    return {
+      titleOrder: 'up-down',
+      singerOrder: 'up-down',
+      timeOrder: 'up-down'
+    }
+  },
+
+  methods: {
+    changeOrder (type) {
+      if (this[type] === 'up-down') {
+        this[type] = 'up'
+      } else if (this[type] === 'up') {
+        this[type] = 'down'
+      } else {
+        this[type] = 'up-down'
+      }
+    }
   }
 }
 </script>
