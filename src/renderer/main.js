@@ -21,7 +21,6 @@ Vue.use(vueLazyload, {
   error: require('./assets/img/loading.svg'),
   loading: require('./assets/img/loading.svg')
 })
-
 Vue.use(PageLink)
 Vue.component('page-link', PageLink)
 

@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import localStorage from 'store'
 import { validateInfoByReg } from '../../../../../../assets/js/validateInfo.js'
 
 export default {
@@ -52,6 +53,16 @@ export default {
         passwd: this.passwd
       }).then((response) => {
         console.log(response)
+        let result = response.data
+        if (result.state === '200') {
+          localStorage.set('user', {
+            'id': result.data.id,
+            'name': result.data.username,
+            'avatar': result.data.avatar
+          })
+        } else {
+          this.$store.commit('SHOW_TIPS', {msg: result.msg, type: 'warning'})
+        }
       }).catch((error) => {
         console.error(error)
       })
