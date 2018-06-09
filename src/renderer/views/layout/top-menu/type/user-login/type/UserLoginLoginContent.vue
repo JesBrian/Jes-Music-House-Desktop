@@ -52,17 +52,19 @@ export default {
         phone: this.phone,
         passwd: this.passwd
       }).then((response) => {
-        console.log(response)
         let result = response.data
+        let tipsType = 'warning'
+
         if (result.state === '200') {
+          tipsType = 'info'
           localStorage.set('user', {
             'id': result.data.id,
-            'name': result.data.username,
+            'username': result.data.username,
             'avatar': result.data.avatar
           })
-        } else {
-          this.$store.commit('SHOW_TIPS', {msg: result.msg, type: 'warning'})
+          this.$store.commit('SAVE_LOGIN_USER_INFO', result.data)
         }
+        this.$store.commit('SHOW_TIPS', {msg: result.msg, type: tipsType})
       }).catch((error) => {
         console.error(error)
       })

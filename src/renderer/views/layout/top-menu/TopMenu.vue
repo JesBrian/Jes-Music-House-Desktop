@@ -26,12 +26,12 @@
 		</div>
 
 		 <!--用户操作 -->
-		<div v-if="isLogin" style="-webkit-app-region:no-drag; height:25px; margin:15px 268px 0 0; float:right; line-height:25px; ">
+		<div v-if="$store.state.User.id !== '0'" style="-webkit-app-region:no-drag; height:25px; margin:15px 268px 0 0; float:right; line-height:25px; ">
       <page-link url="/user" style="margin:-1px 8px 0 0; float:left;">
         <img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:25px; height:24px; padding:2px;" />
       </page-link>
       <div @click="changeShowContentType('UserOperation')" style="display:inline-block; font-size:18px; cursor:pointer;">
-        <p class="text-hidden" style="max-width:108px; display:inline-block; color:#CCC;">JesBrianJesBrian</p>
+        <p class="text-hidden" style="max-width:108px; display:inline-block; color:#CCC;">Jesbrian</p>
         <i style="width:0; height:0; margin:10px 0 0 6px; border-width:6px; border-style:solid; border-color:#999 transparent transparent transparent; float:right;"></i>
       </div>
     </div>
@@ -68,7 +68,6 @@ import MessageContent from './type/message-content/MessageContent.vue'
 import ChooseTheme from './type/choose-theme/ChooseTheme.vue'
 import UserLogin from './type/user-login/UserLogin.vue'
 
-import localStore from 'store'
 import { changePage } from '../../../assets/js/commom.js'
 
 var ipcRenderer = require('electron').ipcRenderer
@@ -91,12 +90,6 @@ export default {
     this.$root.eventHub.$on('changeRouter', () => {
       this.showContentType = ''
     })
-  },
-
-  computed: {
-    isLogin () {
-      return localStore.get('user') ? 1 : 0
-    }
   },
 
   methods: {
