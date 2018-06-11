@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { closeCloverComponent } from '../../../../../../assets/js/commom.js'
 import { validateInfoByReg } from '../../../../../../assets/js/validateInfo.js'
 
 export default {
@@ -90,11 +91,12 @@ export default {
       }
       this.$http.post('createUser', data).then((response) => {
         let result = response.data
+        let tipsType = 'warning'
         if (result.state === '200') {
-          console.log(result)
-        } else {
-          this.$store.commit('SHOW_TIPS', {msg: result.msg, type: 'warning'})
+          tipsType = 'info'
+          closeCloverComponent(this)
         }
+        this.$store.commit('SHOW_TIPS', {msg: result.msg, type: tipsType})
       }).catch((error) => {
         console.log(error)
       })

@@ -26,7 +26,7 @@ function createWindow () {
     height: 638,
     width: 1180,
     frame: false,
-    webPreferences: {webSecurity: false},
+    webPreferences: {webSecurity: false}
   })
 
   mainWindow.loadURL(winURL)
@@ -42,7 +42,13 @@ function createWindow () {
       click: () => {} // 打开相应页面
     },
     {
-      label: '退出Music House',
+      label: '最小化 Music House',
+      click: () => {
+        mainWindow.hide()
+      }
+    },
+    {
+      label: '退出 Music House',
       click: () => {
         app.quit()
       }

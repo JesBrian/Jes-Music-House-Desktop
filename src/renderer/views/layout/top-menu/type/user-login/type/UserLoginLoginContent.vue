@@ -25,6 +25,7 @@
 
 <script>
 import localStorage from 'store'
+import { closeCloverComponent } from '../../../../../../assets/js/commom.js'
 import { validateInfoByReg } from '../../../../../../assets/js/validateInfo.js'
 
 export default {
@@ -55,13 +56,14 @@ export default {
         let result = response.data
         let tipsType = 'warning'
 
-        if (result.state === '200') {
+        if (result.state === '620') {
           tipsType = 'info'
           localStorage.set('user', {
             'id': result.data.id,
             'username': result.data.username,
             'avatar': result.data.avatar
           })
+          closeCloverComponent(this)
           this.$store.commit('SAVE_LOGIN_USER_INFO', result.data)
         }
         this.$store.commit('SHOW_TIPS', {msg: result.msg, type: tipsType})

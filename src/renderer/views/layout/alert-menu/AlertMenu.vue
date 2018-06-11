@@ -19,7 +19,7 @@ export default {
   },
 
   created () {
-    this.$root.eventHub.$on('changeRouter', () => {
+    this.$root.eventHub.$on('closeCloverComponent', () => {
       this.$store.commit('SHOW_ALERT_MENU')
     })
   },

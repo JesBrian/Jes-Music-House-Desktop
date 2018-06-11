@@ -6,12 +6,18 @@ const state = {
 
 const mutations = {
   /**
-   * Vuex 存储当前登录用户信息
+   * 存储当前登录用户信息
    */
   SAVE_LOGIN_USER_INFO (state, userInfo) {
     state.id = userInfo.id
     state.username = userInfo.username
     state.avatar = userInfo.avatar
+  },
+
+  RESET_USER_INFO (state) {
+    state.id = '0'
+    state.username = ''
+    state.avatar = ''
   }
 }
 

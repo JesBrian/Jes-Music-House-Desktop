@@ -3,7 +3,7 @@
     <div class="box-show" style="width:100%; height:48px; position:relative;">
       <slot />
       <page-link url="/user" class="text-hidden" style="max-width:138px; margin-left:18px; display:inline-block; color:#DDD; line-height:48px; letter-spacing:0.68px; font-size:16px;">
-        JesBrianJesBrianJesBrianJesBrianJesBrian
+        {{ $store.state.User.username }}
       </page-link>
       <div @click="userSignIn" class="super-btn-out" style="width:68px; height:28px; margin:9px 38px 0 0; float:right;">
         <span class="super-btn-in mh-if sign-in" style="width:60px; height:21px; top:50%; line-height:20px;"> 签到</span>
@@ -63,15 +63,17 @@
       </li>
     </ul>
     <div class="box-shadow" style="width:99%; margin:0 auto 1px;">
-      <page-link url="/" class="user-oper-cell" style="display:block; line-height:2.3em; text-indent:2em; border-radius:0 0 4px 4px;">
+      <div @click="userLogout" class="user-oper-cell" style="display:block; line-height:2.3em; text-indent:2em; border-radius:0 0 4px 4px; cursor:pointer;">
         <i class="mh-if exit" style="margin-right:8px;"></i>
         <span>安全退出</span>
-      </page-link>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { changePage } from '../../../../../assets/js/commom.js'
+
 var ipcRenderer = require('electron').ipcRenderer
 
 export default {
@@ -84,6 +86,12 @@ export default {
         msg: '签到成功，积分+2',
         type: 'info'
       })
+    },
+
+    userLogout () {
+      localStorage.removeItem('user')
+      this.$store.commit('RESET_USER_INFO')
+      changePage('/', this)
     },
 
     openBrowser (url = '') {
