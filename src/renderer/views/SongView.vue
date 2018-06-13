@@ -38,7 +38,7 @@
           <p style="font-size:22px;">The Name of the Song</p>
           <p style="line-height:1.6em; font-size:15px;">sdvsdvsdbdfbhusibhfdbukvsodvsdvsdrhukvfsdbhifsdvbuigesdd</p>
         </div>
-        <div style="width:100%; height:438px; padding:38px 62px 38px 68px; box-sizing:border-box; background:url(../../../static/images/default/lyric-bg.png) no-repeat; background-size:100% 100%;">
+        <div class="lyrics-content">
           <div style="width:100%; height:100%; overflow:auto;">
             <div style="width:100%; height:1888px; background:lightgreen"></div>
           </div>
@@ -136,5 +136,9 @@ export default {
   }
   .disk-bg {
     width:100%; height:100%; position:relative; background:url(../../../static/images/default/disk.png) no-repeat; background-size:100% 100%; border-radius:50%;
+  }
+
+  .lyrics-content {
+    width:100%; height:438px; padding:38px 62px 38px 68px; box-sizing:border-box; background:url(../../../static/images/default/lyric-bg.png) no-repeat; background-size:100% 100%;
   }
 </style>

@@ -7,6 +7,7 @@ const mutations = {
   /**
    * 展示 / 关闭 操作提示框
    * @param state
+   * @param tipsObj
    */
   SHOW_TIPS (state, tipsObj) {
     state.tips = tipsObj.msg

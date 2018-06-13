@@ -7,17 +7,34 @@ const state = {
 }
 
 const mutations = {
+  /**
+   * 展示 / 关闭 音乐播放
+   * @param state
+   */
   CHANGE_PLAY_STATUS (state) {
     state.playStatus = !state.playStatus
   },
 
+  /**
+   * 展示 / 关闭 音乐详情页
+   * @param state
+   */
   CHANGE_SHOW_MUSIC_VIEW (state) {
     state.showMusicView = !state.showMusicView
   },
+
+  /**
+   * 关闭音乐详情页
+   * @param state
+   */
   CLOSE_MUSIC_VIEW (state) {
     state.showMusicView = false
   },
 
+  /**
+   * 展示 / 关闭 展示歌词
+   * @param state
+   */
   CHANGE_SHOW_LYRIC (state) {
     state.showLyric = !state.showLyric
   }

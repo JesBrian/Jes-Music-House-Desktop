@@ -1,8 +1,8 @@
 'use strict'
 
-import { app, ipcMain, Tray, BrowserWindow, shell } from 'electron'
-const electron = require('electron')
-const path = require('path')
+import { app, ipcMain, Tray, BrowserWindow, Menu, shell } from 'electron'
+
+var iconPath = require('path').join(__dirname, '../../static/images/icon.ico')
 
 /**
  * Set `__static` path to static files in production
@@ -10,6 +10,7 @@ const path = require('path')
  */
 if (process.env.NODE_ENV !== 'development') {
   global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
+  iconPath = '../../static/images/icon.ico'
 }
 
 let mainWindow
@@ -34,9 +35,28 @@ function createWindow () {
   mainWindow.on('closed', () => {
     mainWindow = null
   })
+}
 
+app.on('ready', createWindow)
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+app.on('activate', () => {
+  if (mainWindow === null) {
+    createWindow()
+  }
+})
+
+let tray = null
+app.on('ready', () => {
+  tray = new Tray(iconPath)
+  tray.setToolTip('Music House')
   // 系统托盘右键菜单
-  var trayMenuTemplate = [
+  tray.setContextMenu(Menu.buildFromTemplate([
     {
       label: '设置',
       click: () => {} // 打开相应页面
@@ -53,37 +73,11 @@ function createWindow () {
         app.quit()
       }
     }
-  ]
-
-  const url = path.join(__dirname, '../../static/images/icon.ico')
-  // 系统托盘图标
-  let tray = new Tray(url)
-  const Menu = electron.Menu
-  // 鼠标放到系统托盘图标上时的tips;
-  tray.setToolTip('Music House')
-  // 图标的上下文菜单
-  const contextMenu = Menu.buildFromTemplate(trayMenuTemplate)
-  // 设置此图标的上下文菜单
-  tray.setContextMenu(contextMenu)
-  // 双击图片显示窗口
+  ]))
   tray.on('double-click', () => {
     mainWindow.show()
     mainWindow.focus()
   })
-}
-
-app.on('ready', createWindow)
-
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
-})
-
-app.on('activate', () => {
-  if (mainWindow === null) {
-    createWindow()
-  }
 })
 
 /**

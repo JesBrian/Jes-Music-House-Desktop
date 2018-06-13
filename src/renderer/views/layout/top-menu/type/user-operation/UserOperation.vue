@@ -89,9 +89,10 @@ export default {
     },
 
     userLogout () {
-      localStorage.removeItem('user')
       this.$store.commit('RESET_USER_INFO')
+      localStorage.removeItem('user')
       changePage('/', this)
+      this.$store.commit('CLEAR_URL_HISTPRY')
     },
 
     openBrowser (url = '') {

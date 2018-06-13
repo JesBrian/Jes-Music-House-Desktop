@@ -8,7 +8,6 @@ const mutations = {
    * 添加浏览历史纪录
    * @param state
    * @param url
-   * @constructor
    */
   PUSH_URL_HISTORY_RECORD (state, url = '/') {
     if (state.nowIndex === 28) {
@@ -26,12 +25,20 @@ const mutations = {
    * 修改当前历史纪录定位
    * @param state
    * @param index
-   * @constructor
    */
   CHANGE_NOW_INDEX (state, index) {
     if (index >= 0 && index <= state.historyRecord.length - 1) {
       state.nowIndex = index
     }
+  },
+
+  /**
+   * 清空当前历史纪录
+   * @param state
+   */
+  CLEAR_URL_HISTPRY (state) {
+    state.nowIndex = 0
+    state.historyRecord = ['/']
   }
 }
 

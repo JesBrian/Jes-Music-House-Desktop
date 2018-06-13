@@ -7,6 +7,8 @@ const state = {
 const mutations = {
   /**
    * 存储当前登录用户信息
+   * @param state
+   * @param userInfo
    */
   SAVE_LOGIN_USER_INFO (state, userInfo) {
     state.id = userInfo.id
@@ -14,6 +16,10 @@ const mutations = {
     state.avatar = userInfo.avatar
   },
 
+  /**
+   * 重置用户信息
+   * @param state
+   */
   RESET_USER_INFO (state) {
     state.id = '0'
     state.username = ''

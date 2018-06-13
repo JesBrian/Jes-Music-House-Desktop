@@ -9,7 +9,6 @@ const mutations = {
    * 展示 / 关闭 操作提示框
    * @param state
    * @param conf
-   * @constructor
    */
   SHOW_ALERT_MENU (state, conf = null) {
     if (conf) {
