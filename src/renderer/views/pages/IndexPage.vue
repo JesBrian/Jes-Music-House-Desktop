@@ -11,53 +11,52 @@
     </div>
 
     <!-- 内容 -->
-    <component :is="'index-' + indexContentType" />
+    <component :is="'index-' + indexContentType"/>
 
   </div>
 </template>
 
 <script>
-import IndexRecommend from '../../components/extends/index-content/recommend/IndexRecommend.vue'
-import IndexNewsMusic from '../../components/extends/index-content/news-music/IndexNewsMusic.vue'
-import IndexPlayList from '../../components/extends/index-content/play-list/IndexPlayList.vue'
-import IndexSinger from '../../components/extends/index-content/singer/IndexSinger.vue'
+  import IndexRecommend from '../../components/extends/index-content/recommend/IndexRecommend.vue'
+  import IndexNewsMusic from '../../components/extends/index-content/news-music/IndexNewsMusic.vue'
+  import IndexPlayList from '../../components/extends/index-content/play-list/IndexPlayList.vue'
+  import IndexSinger from '../../components/extends/index-content/singer/IndexSinger.vue'
 
-import { changePage } from '../../assets/js/commom.js'
+  import {changePage} from '../../assets/js/commom.js'
 
-export default {
-  name: 'IndexPage',
+  export default {
+    name: 'IndexPage',
 
-  components: {
-    IndexSinger, IndexPlayList, IndexNewsMusic, IndexRecommend
-  },
+    components: {
+      IndexSinger, IndexPlayList, IndexNewsMusic, IndexRecommend
+    },
 
-  data () {
-    return {
-    }
-  },
+    data () {
+      return {}
+    },
 
-  computed: {
-    indexContentType () {
-      return this.$route.params.type
-    }
-  },
+    computed: {
+      indexContentType () {
+        return this.$route.params.type
+      }
+    },
 
-  methods: {
-    changeIndexContent (type = 'recommend') {
-      changePage('/index/' + type, this)
+    methods: {
+      changeIndexContent (type = 'recommend') {
+        changePage('/index/' + type, this)
+      }
     }
   }
-}
 </script>
 
 <style scoped>
-	.index-menu-cell {
-		margin:0 15px; padding:0 12px 6px 10px; cursor:pointer;
-	}
-	.index-menu-cell:hover {
-		color:#EEE;
-	}
-	.index-menu-cell.active {
-		border-bottom:2px solid #20dbfc; color:#20dbfc
-	}
+  .index-menu-cell {
+    margin:0 15px; padding:0 12px 6px 10px; cursor:pointer;
+  }
+  .index-menu-cell:hover {
+    color:#EEE;
+  }
+  .index-menu-cell.active {
+    border-bottom:2px solid #20dbfc; color:#20dbfc
+  }
 </style>

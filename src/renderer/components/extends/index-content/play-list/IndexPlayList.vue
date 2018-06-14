@@ -28,31 +28,31 @@
 </template>
 
 <script>
-import AlbumGroup from '../../album/AlbumGroup.vue'
+  import AlbumGroup from '../../album/AlbumGroup.vue'
 
-export default {
-  name: 'IndexPlayList',
+  export default {
+    name: 'IndexPlayList',
 
-  components: {
-    AlbumGroup
-  },
-
-  data () {
-    return {
-      showAlbumTypeContent: false
-    }
-  },
-
-  methods: {
-    changeShowAlbumTypeContent () {
-      this.showAlbumTypeContent = !this.showAlbumTypeContent
+    components: {
+      AlbumGroup
     },
 
-    chooseAlbumType () {
-      this.changeShowAlbumTypeContent()
+    data () {
+      return {
+        showAlbumTypeContent: false
+      }
+    },
+
+    methods: {
+      changeShowAlbumTypeContent () {
+        this.showAlbumTypeContent = !this.showAlbumTypeContent
+      },
+
+      chooseAlbumType () {
+        this.changeShowAlbumTypeContent()
+      }
     }
   }
-}
 </script>
 
 <style scoped>

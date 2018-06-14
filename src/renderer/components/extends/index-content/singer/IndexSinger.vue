@@ -48,22 +48,14 @@ export default {
       languageArr: {
         name: '语种',
         data: [
-          { name: '全部', value: 'all' },
-          { name: '华语', value: 'chinese' },
-          { name: '欧美', value: 'west' },
-          { name: '日本', value: 'japan' },
-          { name: 'korea', value: 'korea' },
-          { name: '其他', value: 'value' }
+          { name: '全部', value: 'all' }, { name: '华语', value: 'chinese' }, { name: '欧美', value: 'west' }, { name: '日本', value: 'japan' }, { name: 'korea', value: 'korea' }, { name: '其他', value: 'value' }
         ]
       },
 
       categoryArr: {
         name: '分类',
         data: [
-          { name: '全部', value: 'all' },
-          { name: '男歌手', value: 'male' },
-          { name: '女歌手', value: 'female' },
-          { name: '乐队', value: 'band' }
+          { name: '全部', value: 'all' }, { name: '男歌手', value: 'male' }, { name: '女歌手', value: 'female' }, { name: '乐队', value: 'band' }
         ]
       },
 
@@ -86,8 +78,7 @@ export default {
 
 <style scoped>
   .search-type-item {
-    box-sizing:border-box;
-    border-right:1px solid #444;
+    border-right:1px solid #444; box-sizing:border-box;
   }
   .search-type-item-content {
     margin:4px 8px; padding:0 6px; display:inline-block; color:#AAA; text-shadow:2px 2px 2px #000; cursor:pointer;

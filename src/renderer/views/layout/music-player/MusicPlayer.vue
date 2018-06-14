@@ -195,11 +195,11 @@ export default {
      * 修改音乐播放进度
      */
     changePlayProgress (progress = 0) {
-      if (progress < 0 || progress > 458) {
+      if (progress < 0 || progress > 438) {
         return false
       }
       clearInterval(this.timer)
-      let progressRate = progress / 458
+      let progressRate = progress / 438
       this.musicSource.currentTime = Number.parseInt(this.musicDTime * progressRate)
     },
 

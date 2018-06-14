@@ -10,16 +10,16 @@
 </template>
 
 <script>
-import AlbumCell from './AlbumCell.vue'
-import Pagination from '../../base/pagination/Pagination.vue'
+  import AlbumCell from './AlbumCell.vue'
+  import Pagination from '../../base/pagination/Pagination.vue'
 
-export default {
-  name: 'AlbumGroup',
+  export default {
+    name: 'AlbumGroup',
 
-  components: {
-    Pagination, AlbumCell
+    components: {
+      Pagination, AlbumCell
+    }
   }
-}
 </script>
 
 <style scoped>
