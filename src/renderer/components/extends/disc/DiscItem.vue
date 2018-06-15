@@ -3,9 +3,9 @@
 </template>
 
 <script>
-export default {
-  name: 'DiscItem'
-}
+  export default {
+    name: 'DiscItem'
+  }
 </script>
 
 <style scoped>

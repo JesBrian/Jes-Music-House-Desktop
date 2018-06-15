@@ -18,34 +18,34 @@
 </template>
 
 <script>
-import NowDownloadItem from './NowDownloadItem.vue'
+  import NowDownloadItem from './NowDownloadItem.vue'
 
-export default {
-  name: 'NowDownloadGroup',
+  export default {
+    name: 'NowDownloadGroup',
 
-  components: {
-    NowDownloadItem
-  },
+    components: {
+      NowDownloadItem
+    },
 
-  data () {
-    return {
-      titleOrder: 'up-down',
-      progressOrder: 'up-down'
-    }
-  },
+    data () {
+      return {
+        titleOrder: 'up-down',
+        progressOrder: 'up-down'
+      }
+    },
 
-  methods: {
-    changeOrder (type) {
-      if (this[type] === 'up-down') {
-        this[type] = 'up'
-      } else if (this[type] === 'up') {
-        this[type] = 'down'
-      } else {
-        this[type] = 'up-down'
+    methods: {
+      changeOrder (type) {
+        if (this[type] === 'up-down') {
+          this[type] = 'up'
+        } else if (this[type] === 'up') {
+          this[type] = 'down'
+        } else {
+          this[type] = 'up-down'
+        }
       }
     }
   }
-}
 </script>
 
 <style scoped>

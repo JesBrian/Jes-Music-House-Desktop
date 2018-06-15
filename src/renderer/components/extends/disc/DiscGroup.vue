@@ -5,9 +5,9 @@
 </template>
 
 <script>
-export default {
-  name: 'DiscGroup'
-}
+  export default {
+    name: 'DiscGroup'
+  }
 </script>
 
 <style scoped>

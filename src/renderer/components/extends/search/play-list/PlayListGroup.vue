@@ -7,15 +7,15 @@
 </template>
 
 <script>
-import PlayListItem from './PlayListItem.vue'
+  import PlayListItem from './PlayListItem.vue'
 
-export default {
-  name: 'PlayListGroup',
+  export default {
+    name: 'PlayListGroup',
 
-  components: {
-    PlayListItem
+    components: {
+      PlayListItem
+    }
   }
-}
 </script>
 
 <style scoped>

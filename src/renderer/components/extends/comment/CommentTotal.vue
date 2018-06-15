@@ -19,17 +19,17 @@
 </template>
 
 <script>
-import NewComment from './NewComment.vue'
-import CommentGroup from './CommentGroup.vue'
-import Pagination from '../../base/pagination/Pagination.vue'
+  import NewComment from './NewComment.vue'
+  import CommentGroup from './CommentGroup.vue'
+  import Pagination from '../../base/pagination/Pagination.vue'
 
-export default {
-  name: 'CommentTotal',
+  export default {
+    name: 'CommentTotal',
 
-  components: {
-    Pagination, NewComment, CommentGroup
+    components: {
+      Pagination, NewComment, CommentGroup
+    }
   }
-}
 </script>
 
 <style scoped>

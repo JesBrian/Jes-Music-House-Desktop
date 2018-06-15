@@ -6,26 +6,26 @@
 </template>
 
 <script>
-export default {
-  name: 'EmojiItem',
+  export default {
+    name: 'EmojiItem',
 
-  props: {
-    index: Number,
-    emojiInfo: String
-  },
+    props: {
+      index: Number,
+      emojiInfo: String
+    },
 
-  methods: {
-    getEmoji () {
-      this.$parent.getEmoji(this.emojiInfo)
-    },
-    showEmoji () {
-      this.$parent.showEmoji(this.index)
-    },
-    hiddenEmoji () {
-      this.$parent.hiddenEmoji()
+    methods: {
+      getEmoji () {
+        this.$parent.getEmoji(this.emojiInfo)
+      },
+      showEmoji () {
+        this.$parent.showEmoji(this.index)
+      },
+      hiddenEmoji () {
+        this.$parent.hiddenEmoji()
+      }
     }
   }
-}
 </script>
 
 <style scoped>

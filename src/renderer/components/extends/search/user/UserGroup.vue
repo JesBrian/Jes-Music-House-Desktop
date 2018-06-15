@@ -7,15 +7,15 @@
 </template>
 
 <script>
-import UserItem from './UserItem.vue'
+  import UserItem from './UserItem.vue'
 
-export default {
-  name: 'UserGroup',
+  export default {
+    name: 'UserGroup',
 
-  components: {
-    UserItem
+    components: {
+      UserItem
+    }
   }
-}
 </script>
 
 <style scoped>

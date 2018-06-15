@@ -18,22 +18,22 @@
 </template>
 
 <script>
-import { mouseCoords } from '../../../../assets/js/commom.js'
+  import { mouseCoords } from '../../../../assets/js/commom.js'
 
-export default {
-  name: 'PictureListItem',
+  export default {
+    name: 'PictureListItem',
 
-  methods: {
-    showAlertMenu (type) {
-      let position = mouseCoords(event)
-      let alertMenuConf = {
-        type: type,
-        position: position
+    methods: {
+      showAlertMenu (type) {
+        let position = mouseCoords(event)
+        let alertMenuConf = {
+          type: type,
+          position: position
+        }
+        this.$store.commit('SHOW_ALERT_MENU', alertMenuConf)
       }
-      this.$store.commit('SHOW_ALERT_MENU', alertMenuConf)
     }
   }
-}
 </script>
 
 <style scoped>

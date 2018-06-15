@@ -34,36 +34,36 @@
 </template>
 
 <script>
-import NewComment from './NewComment.vue'
+  import NewComment from './NewComment.vue'
 
-export default {
-  name: 'CommentCell',
+  export default {
+    name: 'CommentCell',
 
-  components: {
-    NewComment
-  },
-
-  data () {
-    return {
-      isShowReplyContent: false
-    }
-  },
-
-  methods: {
-    changeLike () {
-      console.log(666)
+    components: {
+      NewComment
     },
 
-    showModal (type = '') {
-      this.$store.commit('CHANGE_MODAL_TYPE', type)
+    data () {
+      return {
+        isShowReplyContent: false
+      }
     },
 
-    replyComment () {
-      this.$emit('hiddenOtherReplyContent', this)
-      this.isShowReplyContent = !this.isShowReplyContent
+    methods: {
+      changeLike () {
+        console.log(666)
+      },
+
+      showModal (type = '') {
+        this.$store.commit('CHANGE_MODAL_TYPE', type)
+      },
+
+      replyComment () {
+        this.$emit('hiddenOtherReplyContent', this)
+        this.isShowReplyContent = !this.isShowReplyContent
+      }
     }
   }
-}
 </script>
 
 <style scoped>

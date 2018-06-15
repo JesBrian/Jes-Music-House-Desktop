@@ -5,21 +5,21 @@
 </template>
 
 <script>
-import { changePage } from '../../../assets/js/commom.js'
+  import { changePage } from '../../../assets/js/commom.js'
 
-export default {
-  name: 'page-link',
+  export default {
+    name: 'page-link',
 
-  props: {
-    url: String
-  },
+    props: {
+      url: String
+    },
 
-  methods: {
-    changePage () {
-      changePage(this.url, this)
+    methods: {
+      changePage () {
+        changePage(this.url, this)
+      }
     }
   }
-}
 </script>
 
 <style scoped>

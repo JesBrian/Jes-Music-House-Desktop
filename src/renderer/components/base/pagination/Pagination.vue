@@ -12,48 +12,49 @@
 </template>
 
 <script>
-export default {
-  name: 'Pagination',
+  export default {
+    name: 'Pagination',
 
-  data () {
-    return {
-      current: 1,
-      showItem: 7,
-      allPage: 12
-    }
-  },
-
-  computed: {
-    showPage () {
-      let pag = []
-      if (this.current < this.showItem) { // 如果当前的激活的项 小于要显示的条数
-        // 总页数和要显示的条数那个大就显示多少条
-        let i = Math.min(this.showItem, this.allPage)
-        while (i) {
-          pag.unshift(i--)
-        }
-      } else { // 当前页数大于显示页数了
-        let middle = this.current - Math.floor(this.showItem / 2) // 从哪里开始
-        let i = this.showItem
-        if (middle > (this.allPage - this.showItem)) {
-          middle = (this.allPage - this.showItem) + 1
-        }
-        while (i--) {
-          pag.push(middle++)
-        }
+    data () {
+      return {
+        current: 1,
+        showItem: 7,
+        allPage: 12
       }
-      return pag
-    }
-  },
-  methods: {
-    goto: function (index) {
-      // 如果 [ 要跳转的页数为当前页数 / 跳转页数 < 1 / 跳转页数 > 总页数 ] 都直接返回
-      if (index === this.current || index < 1 || index > this.allPage) return false
-      // 否则进行跳转 / 数据更新
-      else this.current = index
+    },
+
+    computed: {
+      showPage () {
+        let pages = []
+        if (this.current < this.showItem) { // 如果当前的激活的项 小于要显示的条数
+          // 总页数和要显示的条数那个大就显示多少条
+          let i = Math.min(this.showItem, this.allPage)
+          while (i) {
+            pages.unshift(i--)
+          }
+        } else { // 当前页数大于显示页数了
+          let middle = this.current - Math.floor(this.showItem / 2) // 从哪里开始
+          let i = this.showItem
+          if (middle > (this.allPage - this.showItem)) {
+            middle = (this.allPage - this.showItem) + 1
+          }
+          while (i--) {
+            pages.push(middle++)
+          }
+        }
+        return pages
+      }
+    },
+
+    methods: {
+      goto: function (index) {
+        // 如果 [ 要跳转的页数为当前页数 / 跳转页数 < 1 / 跳转页数 > 总页数 ] 都直接返回
+        if (index === this.current || index < 1 || index > this.allPage) return false
+        // 否则进行跳转 / 数据更新
+        else this.current = index
+      }
     }
   }
-}
 </script>
 
 <style scoped>

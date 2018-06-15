@@ -22,35 +22,35 @@
 </template>
 
 <script>
-import DownloadedItem from './DownloadedItem.vue'
+  import DownloadedItem from './DownloadedItem.vue'
 
-export default {
-  name: 'DownloadedGroup',
+  export default {
+    name: 'DownloadedGroup',
 
-  components: {
-    DownloadedItem
-  },
+    components: {
+      DownloadedItem
+    },
 
-  data () {
-    return {
-      titleOrder: 'up-down',
-      singerOrder: 'up-down',
-      timeOrder: 'up-down'
-    }
-  },
+    data () {
+      return {
+        titleOrder: 'up-down',
+        singerOrder: 'up-down',
+        timeOrder: 'up-down'
+      }
+    },
 
-  methods: {
-    changeOrder (type) {
-      if (this[type] === 'up-down') {
-        this[type] = 'up'
-      } else if (this[type] === 'up') {
-        this[type] = 'down'
-      } else {
-        this[type] = 'up-down'
+    methods: {
+      changeOrder (type) {
+        if (this[type] === 'up-down') {
+          this[type] = 'up'
+        } else if (this[type] === 'up') {
+          this[type] = 'down'
+        } else {
+          this[type] = 'up-down'
+        }
       }
     }
   }
-}
 </script>
 
 <style scoped>

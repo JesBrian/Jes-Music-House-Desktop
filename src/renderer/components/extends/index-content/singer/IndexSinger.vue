@@ -30,50 +30,50 @@
 </template>
 
 <script>
-import SingerGroup from '../../singer/SingerGroup.vue'
+  import SingerGroup from '../../singer/SingerGroup.vue'
 
-export default {
-  name: 'IndexSinger',
+  export default {
+    name: 'IndexSinger',
 
-  components: {
-    SingerGroup
-  },
+    components: {
+      SingerGroup
+    },
 
-  data () {
-    return {
-      language: 'all',
-      category: 'all',
-      filter: 'hot',
+    data () {
+      return {
+        language: 'all',
+        category: 'all',
+        filter: 'hot',
 
-      languageArr: {
-        name: '语种',
-        data: [
-          { name: '全部', value: 'all' }, { name: '华语', value: 'chinese' }, { name: '欧美', value: 'west' }, { name: '日本', value: 'japan' }, { name: 'korea', value: 'korea' }, { name: '其他', value: 'value' }
-        ]
-      },
+        languageArr: {
+          name: '语种',
+          data: [
+            { name: '全部', value: 'all' }, { name: '华语', value: 'chinese' }, { name: '欧美', value: 'west' }, { name: '日本', value: 'japan' }, { name: 'korea', value: 'korea' }, { name: '其他', value: 'value' }
+          ]
+        },
 
-      categoryArr: {
-        name: '分类',
-        data: [
-          { name: '全部', value: 'all' }, { name: '男歌手', value: 'male' }, { name: '女歌手', value: 'female' }, { name: '乐队', value: 'band' }
-        ]
-      },
+        categoryArr: {
+          name: '分类',
+          data: [
+            { name: '全部', value: 'all' }, { name: '男歌手', value: 'male' }, { name: '女歌手', value: 'female' }, { name: '乐队', value: 'band' }
+          ]
+        },
 
-      filterArr: {
-        name: '筛选',
-        data: [
-          {name: '热门', value: 'hot'}, {name: 'A', value: 'A'}, {name: 'B', value: 'B'}, {name: 'C', value: 'C'}, {name: 'D', value: 'D'}, {name: 'E', value: 'E'}, {name: 'F', value: 'F'}, {name: 'G', value: 'G'}, {name: 'H', value: 'H'}, {name: 'I', value: 'I'}, {name: 'J', value: 'J'}, {name: 'K', value: 'K'}, {name: 'L', value: 'L'}, {name: 'M', value: 'M'}, {name: 'N', value: 'N'}, {name: 'O', value: 'O'}, {name: 'P', value: 'P'}, {name: 'Q', value: 'Q'}, {name: 'R', value: 'R'}, {name: 'S', value: 'S'}, {name: 'T', value: 'T'}, {name: 'U', value: 'U'}, {name: 'V', value: 'V'}, {name: 'W', value: 'W'}, {name: 'X', value: 'X'}, {name: 'Y', value: 'Y'}, {name: 'Z', value: 'Z'}
-        ]
+        filterArr: {
+          name: '筛选',
+          data: [
+            {name: '热门', value: 'hot'}, {name: 'A', value: 'A'}, {name: 'B', value: 'B'}, {name: 'C', value: 'C'}, {name: 'D', value: 'D'}, {name: 'E', value: 'E'}, {name: 'F', value: 'F'}, {name: 'G', value: 'G'}, {name: 'H', value: 'H'}, {name: 'I', value: 'I'}, {name: 'J', value: 'J'}, {name: 'K', value: 'K'}, {name: 'L', value: 'L'}, {name: 'M', value: 'M'}, {name: 'N', value: 'N'}, {name: 'O', value: 'O'}, {name: 'P', value: 'P'}, {name: 'Q', value: 'Q'}, {name: 'R', value: 'R'}, {name: 'S', value: 'S'}, {name: 'T', value: 'T'}, {name: 'U', value: 'U'}, {name: 'V', value: 'V'}, {name: 'W', value: 'W'}, {name: 'X', value: 'X'}, {name: 'Y', value: 'Y'}, {name: 'Z', value: 'Z'}
+          ]
+        }
+      }
+    },
+
+    methods: {
+      changeSearchType (type, value) {
+        this[type] = value
       }
     }
-  },
-
-  methods: {
-    changeSearchType (type, value) {
-      this[type] = value
-    }
   }
-}
 </script>
 
 <style scoped>

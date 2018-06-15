@@ -3,15 +3,15 @@
 </template>
 
 <script>
-export default {
-  name: 'EmojiButton',
+  export default {
+    name: 'EmojiButton',
 
-  methods: {
-    sendEmoji () {
-      this.$emit('sendEmoji')
+    methods: {
+      sendEmoji () {
+        this.$emit('sendEmoji')
+      }
     }
   }
-}
 </script>
 
 <style scoped>

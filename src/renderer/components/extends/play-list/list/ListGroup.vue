@@ -7,15 +7,15 @@
 </template>
 
 <script>
-import ListItem from './ListItem.vue'
+  import ListItem from './ListItem.vue'
 
-export default {
-  name: 'ListGroup',
+  export default {
+    name: 'ListGroup',
 
-  components: {
-    ListItem
+    components: {
+      ListItem
+    }
   }
-}
 </script>
 
 <style scoped>

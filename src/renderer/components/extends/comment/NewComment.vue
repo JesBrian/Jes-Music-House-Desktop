@@ -18,28 +18,28 @@
 </template>
 
 <script>
-import EmojiButton from '../emoji/EmojiButton.vue'
-import EmojiContent from '../emoji/EmojiContent.vue'
+  import EmojiButton from '../emoji/EmojiButton.vue'
+  import EmojiContent from '../emoji/EmojiContent.vue'
 
-export default {
-  name: 'NewComment',
+  export default {
+    name: 'NewComment',
 
-  components: {
-    EmojiContent, EmojiButton
-  },
+    components: {
+      EmojiContent, EmojiButton
+    },
 
-  data () {
-    return {
-      isShowEmojiContent: false
-    }
-  },
+    data () {
+      return {
+        isShowEmojiContent: false
+      }
+    },
 
-  methods: {
-    changeShowEmojiContent () {
-      this.isShowEmojiContent = !this.isShowEmojiContent
+    methods: {
+      changeShowEmojiContent () {
+        this.isShowEmojiContent = !this.isShowEmojiContent
+      }
     }
   }
-}
 </script>
 
 <style scoped>

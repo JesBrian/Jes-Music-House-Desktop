@@ -7,15 +7,15 @@
 </template>
 
 <script>
-import PictureItem from './PictureItem.vue'
+  import PictureItem from './PictureItem.vue'
 
-export default {
-  name: 'PictureGroup',
+  export default {
+    name: 'PictureGroup',
 
-  components: {
-    PictureItem
+    components: {
+      PictureItem
+    }
   }
-}
 </script>
 
 <style scoped>

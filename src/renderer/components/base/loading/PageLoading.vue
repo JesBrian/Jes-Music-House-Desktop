@@ -7,9 +7,9 @@
 </template>
 
 <script>
-export default {
-  name: 'PageLoading'
-}
+  export default {
+    name: 'PageLoading'
+  }
 </script>
 
 <style scoped>

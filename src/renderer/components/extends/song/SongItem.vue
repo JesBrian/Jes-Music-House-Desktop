@@ -13,26 +13,26 @@
 </template>
 
 <script>
-import { mouseCoords } from '../../../assets/js/commom.js'
+  import { mouseCoords } from '../../../assets/js/commom.js'
 
-export default {
-  name: 'SongItem',
+  export default {
+    name: 'SongItem',
 
-  props: {
-    index: Number
-  },
+    props: {
+      index: Number
+    },
 
-  methods: {
-    showAlertMenu (event) {
-      let position = mouseCoords(event)
-      let alertMenuConf = {
-        type: 'SongMenu',
-        position: position
+    methods: {
+      showAlertMenu (event) {
+        let position = mouseCoords(event)
+        let alertMenuConf = {
+          type: 'SongMenu',
+          position: position
+        }
+        this.$store.commit('SHOW_ALERT_MENU', alertMenuConf)
       }
-      this.$store.commit('SHOW_ALERT_MENU', alertMenuConf)
     }
   }
-}
 </script>
 
 <style scoped>

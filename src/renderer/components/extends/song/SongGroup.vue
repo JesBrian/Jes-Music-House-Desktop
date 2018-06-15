@@ -22,35 +22,35 @@
 </template>
 
 <script>
-import SongItem from './SongItem.vue'
+  import SongItem from './SongItem.vue'
 
-export default {
-  name: 'SongGroup',
+  export default {
+    name: 'SongGroup',
 
-  components: {
-    SongItem
-  },
+    components: {
+      SongItem
+    },
 
-  data () {
-    return {
-      titleOrder: 'up-down',
-      singerOrder: 'up-down',
-      timeOrder: 'up-down'
-    }
-  },
+    data () {
+      return {
+        titleOrder: 'up-down',
+        singerOrder: 'up-down',
+        timeOrder: 'up-down'
+      }
+    },
 
-  methods: {
-    changeOrder (type) {
-      if (this[type] === 'up-down') {
-        this[type] = 'up'
-      } else if (this[type] === 'up') {
-        this[type] = 'down'
-      } else {
-        this[type] = 'up-down'
+    methods: {
+      changeOrder (type) {
+        if (this[type] === 'up-down') {
+          this[type] = 'up'
+        } else if (this[type] === 'up') {
+          this[type] = 'down'
+        } else {
+          this[type] = 'up-down'
+        }
       }
     }
   }
-}
 </script>
 
 <style scoped>

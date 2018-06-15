@@ -23,21 +23,21 @@
 </template>
 
 <script>
-export default {
-  name: 'IndexNewsMusic',
+  export default {
+    name: 'IndexNewsMusic',
 
-  data () {
-    return {
-      contentType: 'song'
-    }
-  },
+    data () {
+      return {
+        contentType: 'song'
+      }
+    },
 
-  methods: {
-    changeContentType (type) {
-      this.contentType = type
+    methods: {
+      changeContentType (type) {
+        this.contentType = type
+      }
     }
   }
-}
 </script>
 
 <style scoped>

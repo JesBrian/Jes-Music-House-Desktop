@@ -7,30 +7,30 @@
 </template>
 
 <script>
-import CommentCell from './CommentCell.vue'
+  import CommentCell from './CommentCell.vue'
 
-export default {
-  name: 'CommentGroup',
+  export default {
+    name: 'CommentGroup',
 
-  components: {
-    CommentCell
-  },
+    components: {
+      CommentCell
+    },
 
-  data () {
-    return {
-      newNewCommentObj: null
-    }
-  },
-
-  methods: {
-    hiddenOtherReplyContent (obj) {
-      if ((this.newNewCommentObj !== null) && (this.newNewCommentObj._uid !== obj._uid)) {
-        this.newNewCommentObj.isShowReplyContent = false
+    data () {
+      return {
+        newNewCommentObj: null
       }
-      this.newNewCommentObj = obj
+    },
+
+    methods: {
+      hiddenOtherReplyContent (obj) {
+        if ((this.newNewCommentObj !== null) && (this.newNewCommentObj._uid !== obj._uid)) {
+          this.newNewCommentObj.isShowReplyContent = false
+        }
+        this.newNewCommentObj = obj
+      }
     }
   }
-}
 </script>
 
 <style scoped>

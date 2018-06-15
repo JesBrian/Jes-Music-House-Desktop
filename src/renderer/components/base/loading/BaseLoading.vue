@@ -1,13 +1,6 @@
 <template>
   <div class="loadEffect">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
+    <span v-for="n in 8" :key="n + 9999"></span>
   </div>
 </template>
 

@@ -16,67 +16,67 @@
 </template>
 
 <script>
-import {swiper, swiperSlide} from 'vue-awesome-swiper'
-import 'swiper/dist/css/swiper.css'
-// import baseLoading from '../../../../components/common/loading/BaseLoading.vue'
+  import {swiper, swiperSlide} from 'vue-awesome-swiper'
+  import 'swiper/dist/css/swiper.css'
+  // import baseLoading from '../../../../components/common/loading/BaseLoading.vue'
 
-export default {
-  name: 'SlideBox',
+  export default {
+    name: 'SlideBox',
 
-  components: {
-    swiper,
-    swiperSlide
-    // baseLoading
-  },
+    components: {
+      swiper,
+      swiperSlide
+      // baseLoading
+    },
 
-  data () {
-    return {
-      swiperOption: {
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true
+    data () {
+      return {
+        swiperOption: {
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+          },
+
+          navigation: {
+            prevEl: '.prev-btn',
+            nextEl: '.next-btn'
+          },
+
+          effect: 'coverflow',
+          slidesPerView: 1.1,
+          centeredSlides: true,
+          coverflowEffect: {
+            rotate: 30,
+            stretch: 18,
+            depth: 88,
+            modifier: 2,
+            slideShadows: true
+          },
+
+          autoplay: {
+            delay: 3000,
+            stopOnLastSlide: false,
+            disableOnInteraction: false
+          },
+
+          loop: true, // 循环
+
+          lazy: {
+            loadPrevNext: true,
+            loadOnTransitionStart: true,
+            preloaderClass: 'my-lazy-preloader'
+          }
         },
-
-        navigation: {
-          prevEl: '.prev-btn',
-          nextEl: '.next-btn'
-        },
-
-        effect: 'coverflow',
-        slidesPerView: 1.1,
-        centeredSlides: true,
-        coverflowEffect: {
-          rotate: 30,
-          stretch: 18,
-          depth: 88,
-          modifier: 2,
-          slideShadows: true
-        },
-
-        autoplay: {
-          delay: 3000,
-          stopOnLastSlide: false,
-          disableOnInteraction: false
-        },
-
-        loop: true, // 循环
-
-        lazy: {
-          loadPrevNext: true,
-          loadOnTransitionStart: true,
-          preloaderClass: 'my-lazy-preloader'
-        }
-      },
-      swiperSlides: [
-        'https://c.s-microsoft.com/zh-cn/CMSImages/Image_ExcelSurfaceBook_886x510.png?version=b2e11d71-cffa-4e18-6145-330849b098de',
-        'https://c.s-microsoft.com/zh-cn/CMSImages/Hero_OfficeOnline-SamResume_1920x560.jpg?version=9a25ef6b-57d9-7117-f80b-83d467dda82a',
-        'https://c.s-microsoft.com/zh-cn/CMSImages/Image_FamiliarUI_240x140.png?version=743b6633-e9d8-91fb-4942-05ed748ea15c',
-        'https://c.s-microsoft.com/zh-cn/CMSImages/Image_WordTablet_v02_750x421.png?version=48ad4fda-d8ff-8e42-7303-5bb3bb1ae33a',
-        'https://c.s-microsoft.com/zh-cn/CMSImages/Image_WordTablet_v02_750x421.png?version=48ad4fda-d8ff-8e42-7303-5bb3bb1ae33a'
-      ]
+        swiperSlides: [
+          'https://c.s-microsoft.com/zh-cn/CMSImages/Image_ExcelSurfaceBook_886x510.png?version=b2e11d71-cffa-4e18-6145-330849b098de',
+          'https://c.s-microsoft.com/zh-cn/CMSImages/Hero_OfficeOnline-SamResume_1920x560.jpg?version=9a25ef6b-57d9-7117-f80b-83d467dda82a',
+          'https://c.s-microsoft.com/zh-cn/CMSImages/Image_FamiliarUI_240x140.png?version=743b6633-e9d8-91fb-4942-05ed748ea15c',
+          'https://c.s-microsoft.com/zh-cn/CMSImages/Image_WordTablet_v02_750x421.png?version=48ad4fda-d8ff-8e42-7303-5bb3bb1ae33a',
+          'https://c.s-microsoft.com/zh-cn/CMSImages/Image_WordTablet_v02_750x421.png?version=48ad4fda-d8ff-8e42-7303-5bb3bb1ae33a'
+        ]
+      }
     }
   }
-}
 </script>
 
 <style scoped>

@@ -129,16 +129,16 @@
 </template>
 
 <script>
-import SlideBox from '../../../base/slide-box/SlideBox.vue'
-import AlbumGroup from '../../album/AlbumGroup.vue'
+  import SlideBox from '../../../base/slide-box/SlideBox.vue'
+  import AlbumGroup from '../../album/AlbumGroup.vue'
 
-export default {
-  name: 'IndexRecommend',
+  export default {
+    name: 'IndexRecommend',
 
-  components: {
-    AlbumGroup, SlideBox
+    components: {
+      AlbumGroup, SlideBox
+    }
   }
-}
 </script>
 
 <style scoped>

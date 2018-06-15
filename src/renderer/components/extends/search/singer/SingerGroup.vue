@@ -7,15 +7,15 @@
 </template>
 
 <script>
-import SingerItem from './Singeritem.vue'
+  import SingerItem from './Singeritem.vue'
 
-export default {
-  name: 'SingerGroup',
+  export default {
+    name: 'SingerGroup',
 
-  components: {
-    SingerItem
+    components: {
+      SingerItem
+    }
   }
-}
 </script>
 
 <style scoped>
