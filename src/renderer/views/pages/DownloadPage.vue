@@ -49,28 +49,28 @@
 </template>
 
 <script>
-import NowDownloadGroup from '../../components/extends/download/NowDownloadGroup.vue'
-import DownloadedGroup from '../../components/extends/download/DownloadedGroup.vue'
+  import NowDownloadGroup from '../../components/extends/download/NowDownloadGroup.vue'
+  import DownloadedGroup from '../../components/extends/download/DownloadedGroup.vue'
 
-export default {
-  name: 'DownloadPage',
+  export default {
+    name: 'DownloadPage',
 
-  components: {
-    DownloadedGroup, NowDownloadGroup
-  },
+    components: {
+      DownloadedGroup, NowDownloadGroup
+    },
 
-  data () {
-    return {
-      type: 'downloaded'
-    }
-  },
+    data () {
+      return {
+        type: 'downloaded'
+      }
+    },
 
-  methods: {
-    changeType (type = 'downloaded') {
-      this.type = type
+    methods: {
+      changeType (type = 'downloaded') {
+        this.type = type
+      }
     }
   }
-}
 </script>
 
 <style scoped>

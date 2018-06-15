@@ -42,9 +42,9 @@
 </template>
 
 <script>
-export default {
-  name: 'FriendPage'
-}
+  export default {
+    name: 'FriendPage'
+  }
 </script>
 
 <style scoped>

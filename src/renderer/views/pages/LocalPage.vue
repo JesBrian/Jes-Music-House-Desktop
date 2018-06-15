@@ -5,9 +5,9 @@
 </template>
 
 <script>
-export default {
-  name: 'LocalPage'
-}
+  export default {
+    name: 'LocalPage'
+  }
 </script>
 
 <style scoped>

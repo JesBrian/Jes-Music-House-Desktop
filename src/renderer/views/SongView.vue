@@ -66,58 +66,58 @@
 </template>
 
 <script>
-import CommentTotal from '../components/extends/comment/CommentTotal.vue'
+  import CommentTotal from '../components/extends/comment/CommentTotal.vue'
 
-export default {
-  name: 'SongView',
+  export default {
+    name: 'SongView',
 
-  components: {
-    CommentTotal
-  },
+    components: {
+      CommentTotal
+    },
 
-  data () {
-    return {
-      nowPlayTime: 0,
-      timer: null
-    }
-  },
+    data () {
+      return {
+        nowPlayTime: 0,
+        timer: null
+      }
+    },
 
-  watch: {
-    playStatus () {
+    watch: {
+      playStatus () {
+        this.setRoateTimer()
+      }
+    },
+
+    mounted () {
       this.setRoateTimer()
-    }
-  },
-
-  mounted () {
-    this.setRoateTimer()
-  },
-
-  computed: {
-    playStatus () {
-      return this.$store.state.Music.playStatus
-    }
-  },
-
-  methods: {
-    showModal (type = '') {
-      this.$store.commit('CHANGE_MODAL_TYPE', type)
     },
 
-    goBackView () {
-      this.$store.commit('CLOSE_MUSIC_VIEW')
+    computed: {
+      playStatus () {
+        return this.$store.state.Music.playStatus
+      }
     },
 
-    setRoateTimer () {
-      if (this.$store.state.Music.playStatus) {
-        this.timer = setInterval(() => {
-          this.nowPlayTime++
-        }, 38)
-      } else if (this.timer !== null) {
-        clearInterval(this.timer)
+    methods: {
+      showModal (type = '') {
+        this.$store.commit('CHANGE_MODAL_TYPE', type)
+      },
+
+      goBackView () {
+        this.$store.commit('CLOSE_MUSIC_VIEW')
+      },
+
+      setRoateTimer () {
+        if (this.$store.state.Music.playStatus) {
+          this.timer = setInterval(() => {
+            this.nowPlayTime++
+          }, 38)
+        } else if (this.timer !== null) {
+          clearInterval(this.timer)
+        }
       }
     }
   }
-}
 </script>
 
 <style scoped>
@@ -125,7 +125,7 @@ export default {
     width:138px; top:8px; left:-23px; display:inline-block; position:absolute;
     transform-origin:12.8px 12.8px;
     transform:rotate(-13deg);
-    transition: transform 0.28s;
+    transition:transform 0.28s;
   }
   #playPointer.active {
     transform:rotate(-38deg);

@@ -35,37 +35,37 @@
 </template>
 
 <script>
-import TopMenu from './layout/top-menu/TopMenu.vue'
-import LeftMenu from './layout/left-menu/LeftMenu.vue'
-import MusicPlayer from './layout/music-player/MusicPlayer.vue'
-import Modal from './layout/modal/Modal.vue'
-import Tips from './layout/tips/Tips.vue'
-import SongView from './SongView.vue'
-import AlertMenu from './layout/alert-menu/AlertMenu.vue'
+  import TopMenu from './layout/top-menu/TopMenu.vue'
+  import LeftMenu from './layout/left-menu/LeftMenu.vue'
+  import MusicPlayer from './layout/music-player/MusicPlayer.vue'
+  import Modal from './layout/modal/Modal.vue'
+  import Tips from './layout/tips/Tips.vue'
+  import SongView from './SongView.vue'
+  import AlertMenu from './layout/alert-menu/AlertMenu.vue'
 
-export default {
-  name: 'BaseLayout',
+  export default {
+    name: 'BaseLayout',
 
-  components: {
-    AlertMenu, SongView, Tips, Modal, MusicPlayer, LeftMenu, TopMenu
-  },
-
-  watch: {
-    '$route' (to, from) {
-      document.getElementById('mainContent').scrollTop = 0
+    components: {
+      AlertMenu, SongView, Tips, Modal, MusicPlayer, LeftMenu, TopMenu
     },
 
-    routerHistoryRecordNowIndex () {
-      this.$router.push(this.$store.state.Router.historyRecord[this.$store.state.Router.nowIndex])
-    }
-  },
+    watch: {
+      '$route' (to, from) {
+        document.getElementById('mainContent').scrollTop = 0
+      },
 
-  computed: {
-    routerHistoryRecordNowIndex () {
-      return this.$store.state.Router.nowIndex
+      routerHistoryRecordNowIndex () {
+        this.$router.push(this.$store.state.Router.historyRecord[this.$store.state.Router.nowIndex])
+      }
+    },
+
+    computed: {
+      routerHistoryRecordNowIndex () {
+        return this.$store.state.Router.nowIndex
+      }
     }
   }
-}
 </script>
 
 <style scoped>

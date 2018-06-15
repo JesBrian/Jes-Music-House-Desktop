@@ -27,41 +27,41 @@
 </template>
 
 <script>
-import Pagination from '../../components/base/pagination/Pagination.vue'
-import SingerGroup from '../../components/extends/search/singer/SingerGroup.vue'
-import PlayListGroup from '../../components/extends/search/play-list/PlayListGroup.vue'
-import UserGroup from '../../components/extends/search/user/UserGroup.vue'
-import SongGroup from '../../components/extends/song/SongGroup.vue'
+  import Pagination from '../../components/base/pagination/Pagination.vue'
+  import SingerGroup from '../../components/extends/search/singer/SingerGroup.vue'
+  import PlayListGroup from '../../components/extends/search/play-list/PlayListGroup.vue'
+  import UserGroup from '../../components/extends/search/user/UserGroup.vue'
+  import SongGroup from '../../components/extends/song/SongGroup.vue'
 
-export default {
-  name: 'SearchPage',
+  export default {
+    name: 'SearchPage',
 
-  components: {
-    SongGroup, UserGroup, PlayListGroup, SingerGroup, Pagination
-  },
+    components: {
+      SongGroup, UserGroup, PlayListGroup, SingerGroup, Pagination
+    },
 
-  data () {
-    return {
-      searchType: 'song'
-    }
-  },
+    data () {
+      return {
+        searchType: 'song'
+      }
+    },
 
-  watch: {
-    searchType () {
-      console.log(this.searchType)
-    }
-  },
+    watch: {
+      searchType () {
+        console.log(this.searchType)
+      }
+    },
 
-  mounted () {
-    console.log(this.$route.params.key)
-  },
+    mounted () {
+      console.log(this.$route.params.key)
+    },
 
-  methods: {
-    changeSearchType (type = 'song') {
-      this.searchType = type
+    methods: {
+      changeSearchType (type = 'song') {
+        this.searchType = type
+      }
     }
   }
-}
 </script>
 
 <style scoped>

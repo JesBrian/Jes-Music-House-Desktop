@@ -50,37 +50,37 @@
 </template>
 
 <script>
-import PlayList from '../../components/extends/play-list/ShowPlayList.vue'
-import Descript from '../../components/base/descript/Descript.vue'
-import SimilarSinger from '../../components/extends/search/singer/SingerGroup.vue'
-import PictureGroup from '../../components/extends/play-list/picture/PictureGroup.vue'
-import ListGroup from '../../components/extends/play-list/list/ListGroup.vue'
-import PictureListGroup from '../../components/extends/play-list/picture-list/PictureListGroup.vue'
+  import PlayList from '../../components/extends/play-list/ShowPlayList.vue'
+  import Descript from '../../components/base/descript/Descript.vue'
+  import SimilarSinger from '../../components/extends/search/singer/SingerGroup.vue'
+  import PictureGroup from '../../components/extends/play-list/picture/PictureGroup.vue'
+  import ListGroup from '../../components/extends/play-list/list/ListGroup.vue'
+  import PictureListGroup from '../../components/extends/play-list/picture-list/PictureListGroup.vue'
 
-export default {
-  name: 'SingerPage',
+  export default {
+    name: 'SingerPage',
 
-  components: {
-    PlayList, Descript, SimilarSinger, PictureGroup, ListGroup, PictureListGroup
-  },
-
-  data () {
-    return {
-      type: 'play-list',
-      playListShowType: 'picture-group'
-    }
-  },
-
-  methods: {
-    changeContent (type) {
-      this.type = type
+    components: {
+      PlayList, Descript, SimilarSinger, PictureGroup, ListGroup, PictureListGroup
     },
 
-    changePlayListShowType (type = 'picture') {
-      this.playListShowType = type
+    data () {
+      return {
+        type: 'play-list',
+        playListShowType: 'picture-group'
+      }
+    },
+
+    methods: {
+      changeContent (type) {
+        this.type = type
+      },
+
+      changePlayListShowType (type = 'picture') {
+        this.playListShowType = type
+      }
     }
   }
-}
 </script>
 
 <style scoped>

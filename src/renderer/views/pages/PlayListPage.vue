@@ -75,28 +75,28 @@
 </template>
 
 <script>
-import SongGroup from '../../components/extends/song/SongGroup.vue'
-import CommentTotal from '../../components/extends/comment/CommentTotal.vue'
+  import SongGroup from '../../components/extends/song/SongGroup.vue'
+  import CommentTotal from '../../components/extends/comment/CommentTotal.vue'
 
-export default {
-  name: 'PlayListPage',
+  export default {
+    name: 'PlayListPage',
 
-  components: {
-    SongGroup, CommentTotal
-  },
+    components: {
+      SongGroup, CommentTotal
+    },
 
-  data () {
-    return {
-      type: 'SongGroup'
-    }
-  },
+    data () {
+      return {
+        type: 'SongGroup'
+      }
+    },
 
-  methods: {
-    changeContent (type = 'playList') {
-      this.type = type
+    methods: {
+      changeContent (type = 'playList') {
+        this.type = type
+      }
     }
   }
-}
 </script>
 
 <style scoped>

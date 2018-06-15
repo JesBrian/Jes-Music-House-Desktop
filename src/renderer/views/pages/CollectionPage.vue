@@ -22,21 +22,21 @@
 </template>
 
 <script>
-export default {
-  name: 'CollectionPage',
+  export default {
+    name: 'CollectionPage',
 
-  data () {
-    return {
-      type: 'singer'
-    }
-  },
+    data () {
+      return {
+        type: 'singer'
+      }
+    },
 
-  methods: {
-    changeType (type = 'user') {
-      this.type = type
+    methods: {
+      changeType (type = 'user') {
+        this.type = type
+      }
     }
   }
-}
 </script>
 
 <style scoped>

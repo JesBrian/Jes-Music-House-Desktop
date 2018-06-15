@@ -62,11 +62,11 @@
 </template>
 
 <script>
-export default {
-  name: 'SettingPage',
+  export default {
+    name: 'SettingPage',
 
-  components: {}
-}
+    components: {}
+  }
 </script>
 
 <style scoped>

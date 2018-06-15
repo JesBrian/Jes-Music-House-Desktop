@@ -86,34 +86,34 @@
 </template>
 
 <script>
-import ShowPlayList from '../../components/extends/play-list/ShowPlayList.vue'
+  import ShowPlayList from '../../components/extends/play-list/ShowPlayList.vue'
 
-var ipcRenderer = require('electron').ipcRenderer
+  var ipcRenderer = require('electron').ipcRenderer
 
-export default {
-  name: 'UserPage',
+  export default {
+    name: 'UserPage',
 
-  components: {
-    ShowPlayList
-  },
-
-  data () {
-    return {
-      createPlayListShowType: 'picture-group',
-      collectionPlayListShowType: 'picture-group'
-    }
-  },
-
-  methods: {
-    changePlayListShowType (playListType, showType = 'picture') {
-      this[playListType] = showType
+    components: {
+      ShowPlayList
     },
 
-    openBrowser (url = '') {
-      ipcRenderer.send('open-browser-url', url)
+    data () {
+      return {
+        createPlayListShowType: 'picture-group',
+        collectionPlayListShowType: 'picture-group'
+      }
+    },
+
+    methods: {
+      changePlayListShowType (playListType, showType = 'picture') {
+        this[playListType] = showType
+      },
+
+      openBrowser (url = '') {
+        ipcRenderer.send('open-browser-url', url)
+      }
     }
   }
-}
 </script>
 
 <style scoped>

@@ -85,11 +85,11 @@
 </template>
 
 <script>
-export default {
-  name: 'RankPage',
+  export default {
+    name: 'RankPage',
 
-  components: {}
-}
+    components: {}
+  }
 </script>
 
 <style scoped>

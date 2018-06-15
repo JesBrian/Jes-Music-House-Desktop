@@ -20,21 +20,21 @@
 </template>
 
 <script>
-import CommentTotal from '../../components/extends/comment/CommentTotal.vue'
+  import CommentTotal from '../../components/extends/comment/CommentTotal.vue'
 
-export default {
-  name: 'SongCommentPage',
+  export default {
+    name: 'SongCommentPage',
 
-  components: {
-    CommentTotal
-  },
+    components: {
+      CommentTotal
+    },
 
-  methods: {
-    playThisSong () {
-      console.log(666)
+    methods: {
+      playThisSong () {
+        console.log(666)
+      }
     }
   }
-}
 </script>
 
 <style scoped>
