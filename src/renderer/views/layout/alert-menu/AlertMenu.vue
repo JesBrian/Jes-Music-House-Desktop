@@ -6,49 +6,49 @@
 </template>
 
 <script>
-import SongMenu from './type/SongMenu.vue'
-import PlayListMenu from './type/PlayListMenu.vue'
-import UserMenu from './type/UserMenu.vue'
-import SingerMenu from './type/SingerMenu.vue'
+  import SongMenu from './type/SongMenu.vue'
+  import PlayListMenu from './type/PlayListMenu.vue'
+  import UserMenu from './type/UserMenu.vue'
+  import SingerMenu from './type/SingerMenu.vue'
 
-export default {
-  name: 'AlertMenu',
+  export default {
+    name: 'AlertMenu',
 
-  components: {
-    SongMenu, PlayListMenu, UserMenu, SingerMenu
-  },
+    components: {
+      SongMenu, PlayListMenu, UserMenu, SingerMenu
+    },
 
-  created () {
-    this.$root.eventHub.$on('closeCloverComponent', () => {
-      this.$store.commit('SHOW_ALERT_MENU')
-    })
-  },
+    created () {
+      this.$root.eventHub.$on('closeCloverComponent', () => {
+        this.$store.commit('SHOW_ALERT_MENU')
+      })
+    },
 
-  mounted () {
-    let elT = this.$store.state.AlertMenu.positionY
-    let elL = this.$store.state.AlertMenu.positionX
+    mounted () {
+      let elT = this.$store.state.AlertMenu.positionY
+      let elL = this.$store.state.AlertMenu.positionX
 
-    let elH = this.$refs['alertMenuContent'].$el.offsetHeight
-    let elW = this.$refs['alertMenuContent'].$el.offsetWidth
+      let elH = this.$refs['alertMenuContent'].$el.offsetHeight
+      let elW = this.$refs['alertMenuContent'].$el.offsetWidth
 
-    let html = document.documentElement
-    let vx = html.clientWidth - 14 // 14 是右边界空隙
-    let vy = html.clientHeight - 48 // 48 是底部 fixed 空隙
+      let html = document.documentElement
+      let vx = html.clientWidth - 14 // 14 是右边界空隙
+      let vy = html.clientHeight - 48 // 48 是底部 fixed 空隙
 
-    if ((elT + elH) > vy) {
-      this.$refs['alertMenuContent'].$el.style.top = (vy - elH) + 'px'
-    }
-    if ((elL + elW) > vx) {
-      this.$refs['alertMenuContent'].$el.style.left = (vx - elW) + 'px'
-    }
-  },
+      if ((elT + elH) > vy) {
+        this.$refs['alertMenuContent'].$el.style.top = (vy - elH) + 'px'
+      }
+      if ((elL + elW) > vx) {
+        this.$refs['alertMenuContent'].$el.style.left = (vx - elW) + 'px'
+      }
+    },
 
-  methods: {
-    closeAlertMenu () {
-      this.$store.commit('SHOW_ALERT_MENU')
+    methods: {
+      closeAlertMenu () {
+        this.$store.commit('SHOW_ALERT_MENU')
+      }
     }
   }
-}
 </script>
 
 <style scoped>

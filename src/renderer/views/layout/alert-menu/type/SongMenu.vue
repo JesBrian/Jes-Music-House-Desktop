@@ -39,15 +39,15 @@
 </template>
 
 <script>
-export default {
-  name: 'SongMenu',
+  export default {
+    name: 'SongMenu',
 
-  methods: {
-    closeAlertMenu () {
-      this.$parent.closeAlertMenu()
+    methods: {
+      closeAlertMenu () {
+        this.$parent.closeAlertMenu()
+      }
     }
   }
-}
 </script>
 
 <style scoped>

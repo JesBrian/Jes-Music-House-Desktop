@@ -11,9 +11,9 @@
 </template>
 
 <script>
-export default {
-  name: 'Share'
-}
+  export default {
+    name: 'Share'
+  }
 </script>
 
 <style scoped>

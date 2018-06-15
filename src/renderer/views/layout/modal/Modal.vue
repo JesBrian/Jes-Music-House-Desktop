@@ -16,25 +16,25 @@
 </template>
 
 <script>
-import NewAlbum from './type/NewAlbum.vue'
-import Share from './type/Share.vue'
-import Warning from './type/Warning.vue'
-import AddAlbum from './type/AddAlbum.vue'
-import OauthLogin from './type/OauthLogin.vue'
+  import NewAlbum from './type/NewAlbum.vue'
+  import Share from './type/Share.vue'
+  import Warning from './type/Warning.vue'
+  import AddAlbum from './type/AddAlbum.vue'
+  import OauthLogin from './type/OauthLogin.vue'
 
-export default {
-  name: 'Modal',
+  export default {
+    name: 'Modal',
 
-  components: {
-    NewAlbum, Share, Warning, AddAlbum, OauthLogin
-  },
+    components: {
+      NewAlbum, Share, Warning, AddAlbum, OauthLogin
+    },
 
-  methods: {
-    closeModal () {
-      this.$store.commit('CHANGE_MODAL_TYPE')
+    methods: {
+      closeModal () {
+        this.$store.commit('CHANGE_MODAL_TYPE')
+      }
     }
   }
-}
 </script>
 
 <style scoped>

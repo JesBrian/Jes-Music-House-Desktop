@@ -24,49 +24,49 @@
 </template>
 
 <script>
-import { validateInfoByReg } from '../../../../../../assets/js/validateInfo.js'
+  import { validateInfoByReg } from '../../../../../../assets/js/validateInfo.js'
 
-export default {
-  name: 'UserLoginRegisterContent',
+  export default {
+    name: 'UserLoginRegisterContent',
 
-  data () {
-    return {
-      phone: '',
-      passwd: ''
-    }
-  },
-
-  methods: {
-    changeContentType (type) {
-      this.$parent.changeContentType(type)
+    data () {
+      return {
+        phone: '',
+        passwd: ''
+      }
     },
 
-    userRegister () {
-      if (validateInfoByReg('phone', this.phone) === false) {
-        this.$store.commit('SHOW_TIPS', {msg: '请填写正确的手机号码', type: 'warning'})
-        return false
-      }
-      if (validateInfoByReg('passwd', this.passwd) === false) {
-        this.$store.commit('SHOW_TIPS', {msg: '密码必须为4位以上的数字或字母搭配', type: 'warning'})
-        return false
-      }
+    methods: {
+      changeContentType (type) {
+        this.$parent.changeContentType(type)
+      },
 
-      this.$http.post('userRegister', {
-        phone: this.phone,
-        passwd: this.passwd
-      }).then((response) => {
-        let result = response.data
-        if (result.state === '200') {
-          this.changeContentType('CheckPhoneContent')
-        } else {
-          this.$store.commit('SHOW_TIPS', {msg: result.msg, type: 'warning'})
+      userRegister () {
+        if (validateInfoByReg('phone', this.phone) === false) {
+          this.$store.commit('SHOW_TIPS', {msg: '请填写正确的手机号码', type: 'warning'})
+          return false
         }
-      }).catch((error) => {
-        console.error(error)
-      })
+        if (validateInfoByReg('passwd', this.passwd) === false) {
+          this.$store.commit('SHOW_TIPS', {msg: '密码必须为4位以上的数字或字母搭配', type: 'warning'})
+          return false
+        }
+
+        this.$http.post('userRegister', {
+          phone: this.phone,
+          passwd: this.passwd
+        }).then((response) => {
+          let result = response.data
+          if (result.state === '200') {
+            this.changeContentType('CheckPhoneContent')
+          } else {
+            this.$store.commit('SHOW_TIPS', {msg: result.msg, type: 'warning'})
+          }
+        }).catch((error) => {
+          console.error(error)
+        })
+      }
     }
   }
-}
 </script>
 
 <style scoped>

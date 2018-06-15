@@ -26,37 +26,37 @@
 </template>
 
 <script>
-export default {
-  name: 'NewAlbum',
+  export default {
+    name: 'NewAlbum',
 
-  data () {
-    return {
-      albumName: ''
-    }
-  },
-
-  methods: {
-    newAlbum () {
-      if (this.albumName === '') {
-        this.$store.commit('SHOW_TIPS', {
-          msg: '请输入歌单名',
-          type: 'warning'
-        })
-        return false
+    data () {
+      return {
+        albumName: ''
       }
-
-      this.closeModal()
-      this.$store.commit('SHOW_TIPS', {
-        msg: '已创建新歌单',
-        type: 'info'
-      })
     },
 
-    closeModal () {
-      this.$parent.closeModal()
+    methods: {
+      newAlbum () {
+        if (this.albumName === '') {
+          this.$store.commit('SHOW_TIPS', {
+            msg: '请输入歌单名',
+            type: 'warning'
+          })
+          return false
+        }
+
+        this.closeModal()
+        this.$store.commit('SHOW_TIPS', {
+          msg: '已创建新歌单',
+          type: 'info'
+        })
+      },
+
+      closeModal () {
+        this.$parent.closeModal()
+      }
     }
   }
-}
 </script>
 
 <style scoped>

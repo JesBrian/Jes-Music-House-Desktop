@@ -29,23 +29,23 @@
 </template>
 
 <script>
-export default {
-  name: 'AddAlbum',
+  export default {
+    name: 'AddAlbum',
 
-  methods: {
-    newAlbum () {
-      this.$store.commit('CHANGE_MODAL_TYPE', 'NewAlbum')
-    },
+    methods: {
+      newAlbum () {
+        this.$store.commit('CHANGE_MODAL_TYPE', 'NewAlbum')
+      },
 
-    addToThisPlayList () {
-      this.$parent.closeModal()
-      this.$store.commit('SHOW_TIPS', {
-        msg: '已收藏到歌单',
-        type: 'info'
-      })
+      addToThisPlayList () {
+        this.$parent.closeModal()
+        this.$store.commit('SHOW_TIPS', {
+          msg: '已收藏到歌单',
+          type: 'info'
+        })
+      }
     }
   }
-}
 </script>
 
 <style scoped>

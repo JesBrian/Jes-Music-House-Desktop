@@ -22,7 +22,7 @@
   import IndexPlayList from '../../components/extends/index-content/play-list/IndexPlayList.vue'
   import IndexSinger from '../../components/extends/index-content/singer/IndexSinger.vue'
 
-  import {changePage} from '../../assets/js/commom.js'
+  import { changePage } from '../../assets/js/commom.js'
 
   export default {
     name: 'IndexPage',

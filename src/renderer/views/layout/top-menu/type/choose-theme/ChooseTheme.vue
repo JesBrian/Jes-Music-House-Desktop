@@ -34,21 +34,21 @@
 </template>
 
 <script>
-export default {
-  name: 'ChooseTheme',
+  export default {
+    name: 'ChooseTheme',
 
-  data () {
-    return {
-      contentType: 'theme'
-    }
-  },
+    data () {
+      return {
+        contentType: 'theme'
+      }
+    },
 
-  methods: {
-    changeContentType (type = 'theme') {
-      this.contentType = type
+    methods: {
+      changeContentType (type = 'theme') {
+        this.contentType = type
+      }
     }
   }
-}
 </script>
 
 <style scoped>

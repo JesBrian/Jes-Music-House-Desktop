@@ -11,15 +11,15 @@
 </template>
 
 <script>
-export default {
-  name: 'UserLoginChooseContent',
+  export default {
+    name: 'UserLoginChooseContent',
 
-  methods: {
-    changeContentType (type) {
-      this.$parent.changeContentType(type)
+    methods: {
+      changeContentType (type) {
+        this.$parent.changeContentType(type)
+      }
     }
   }
-}
 </script>
 
 <style scoped>

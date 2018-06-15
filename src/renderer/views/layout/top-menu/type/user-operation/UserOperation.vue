@@ -72,34 +72,34 @@
 </template>
 
 <script>
-import { changePage } from '../../../../../assets/js/commom.js'
+  import { changePage } from '../../../../../assets/js/commom.js'
 
-var ipcRenderer = require('electron').ipcRenderer
+  var ipcRenderer = require('electron').ipcRenderer
 
-export default {
-  name: 'UserOperation',
+  export default {
+    name: 'UserOperation',
 
-  methods: {
-    userSignIn () {
-      this.$parent.closeShowContent()
-      this.$store.commit('SHOW_TIPS', {
-        msg: '签到成功，积分+2',
-        type: 'info'
-      })
-    },
+    methods: {
+      userSignIn () {
+        this.$parent.closeShowContent()
+        this.$store.commit('SHOW_TIPS', {
+          msg: '签到成功，积分+2',
+          type: 'info'
+        })
+      },
 
-    userLogout () {
-      this.$store.commit('RESET_USER_INFO')
-      localStorage.removeItem('user')
-      changePage('/', this)
-      this.$store.commit('CLEAR_URL_HISTPRY')
-    },
+      userLogout () {
+        this.$store.commit('RESET_USER_INFO')
+        localStorage.removeItem('user')
+        changePage('/', this)
+        this.$store.commit('CLEAR_URL_HISTPRY')
+      },
 
-    openBrowser (url = '') {
-      ipcRenderer.send('open-browser-url', url)
+      openBrowser (url = '') {
+        ipcRenderer.send('open-browser-url', url)
+      }
     }
   }
-}
 </script>
 
 <style scoped>

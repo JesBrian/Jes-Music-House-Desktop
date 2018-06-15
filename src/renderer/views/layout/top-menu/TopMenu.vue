@@ -63,70 +63,70 @@
 </template>
 
 <script>
-import UserOperation from './type/user-operation/UserOperation.vue'
-import MessageContent from './type/message-content/MessageContent.vue'
-import ChooseTheme from './type/choose-theme/ChooseTheme.vue'
-import UserLogin from './type/user-login/UserLogin.vue'
+  import UserOperation from './type/user-operation/UserOperation.vue'
+  import MessageContent from './type/message-content/MessageContent.vue'
+  import ChooseTheme from './type/choose-theme/ChooseTheme.vue'
+  import UserLogin from './type/user-login/UserLogin.vue'
 
-import { changePage } from '../../../assets/js/commom.js'
+  import { changePage } from '../../../assets/js/commom.js'
 
-var ipcRenderer = require('electron').ipcRenderer
+  var ipcRenderer = require('electron').ipcRenderer
 
-export default {
-  name: 'TopMenu',
+  export default {
+    name: 'TopMenu',
 
-  components: {
-    UserOperation, MessageContent, ChooseTheme, UserLogin
-  },
+    components: {
+      UserOperation, MessageContent, ChooseTheme, UserLogin
+    },
 
-  data () {
-    return {
-      searchKey: '',
-      showContentType: ''
-    }
-  },
-
-  created () {
-    this.$root.eventHub.$on('closeCloverComponent', () => {
-      this.showContentType = ''
-    })
-  },
-
-  methods: {
-    changeRouter (type) {
-      if (type === 1) {
-        this.$store.commit('CHANGE_NOW_INDEX', this.$store.state.Router.nowIndex + 1)
-      } else {
-        this.$store.commit('CHANGE_NOW_INDEX', this.$store.state.Router.nowIndex - 1)
+    data () {
+      return {
+        searchKey: '',
+        showContentType: ''
       }
     },
 
-    gotoSearch () {
-      if (this.searchKey === '') {
-        return false
-      }
-      changePage('/search/' + this.searchKey, this)
-    },
-
-    closeShowContent () {
-      this.showContentType = ''
-    },
-    changeShowContentType (tyepe = '') {
-      if (this.showContentType === tyepe) {
+    created () {
+      this.$root.eventHub.$on('closeCloverComponent', () => {
         this.showContentType = ''
-      } else {
-        this.showContentType = tyepe
-      }
+      })
     },
 
-    closeWindow () {
-      ipcRenderer.send('hide-main-window')
-    },
-    atest () {
-      ipcRenderer.send('hide-window')
+    methods: {
+      changeRouter (type) {
+        if (type === 1) {
+          this.$store.commit('CHANGE_NOW_INDEX', this.$store.state.Router.nowIndex + 1)
+        } else {
+          this.$store.commit('CHANGE_NOW_INDEX', this.$store.state.Router.nowIndex - 1)
+        }
+      },
+
+      gotoSearch () {
+        if (this.searchKey === '') {
+          return false
+        }
+        changePage('/search/' + this.searchKey, this)
+      },
+
+      closeShowContent () {
+        this.showContentType = ''
+      },
+      changeShowContentType (tyepe = '') {
+        if (this.showContentType === tyepe) {
+          this.showContentType = ''
+        } else {
+          this.showContentType = tyepe
+        }
+      },
+
+      closeWindow () {
+        ipcRenderer.send('hide-main-window')
+      },
+      atest () {
+        ipcRenderer.send('hide-window')
+      }
     }
   }
-}
 </script>
 
 <style scoped>

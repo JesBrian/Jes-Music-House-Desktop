@@ -11,15 +11,15 @@
 </template>
 
 <script>
-export default {
-  name: 'Tips',
+  export default {
+    name: 'Tips',
 
-  methods: {
-    closeTips () {
-      this.$store.commit('SHOW_TIPS', {})
+    methods: {
+      closeTips () {
+        this.$store.commit('SHOW_TIPS', {})
+      }
     }
   }
-}
 </script>
 
 <style scoped>

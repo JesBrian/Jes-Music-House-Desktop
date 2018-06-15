@@ -25,52 +25,21 @@
 </template>
 
 <script>
-import { closeCloverComponent } from '../../../../../../assets/js/commom.js'
-import { validateInfoByReg } from '../../../../../../assets/js/validateInfo.js'
+  import { closeCloverComponent } from '../../../../../../assets/js/commom.js'
+  import { validateInfoByReg } from '../../../../../../assets/js/validateInfo.js'
 
-export default {
-  name: 'UserLoginCheckPhoneContent',
+  export default {
+    name: 'UserLoginCheckPhoneContent',
 
-  data () {
-    return {
-      identifyingCode: '',
-      getIdentifyingCodeTime: 59,
-      getIdentifyingCodeTimer: null
-    }
-  },
-
-  mounted () {
-    this.getIdentifyingCodeTimer = setInterval(() => {
-      --this.getIdentifyingCodeTime
-      if (this.getIdentifyingCodeTime === 0) {
-        clearInterval(this.getIdentifyingCodeTimer)
-        this.getIdentifyingCodeTime = 60
+    data () {
+      return {
+        identifyingCode: '',
+        getIdentifyingCodeTime: 59,
+        getIdentifyingCodeTimer: null
       }
-    }, 1000)
-  },
-
-  beforeDestroy () {
-    clearInterval(this.getIdentifyingCodeTimer)
-  },
-
-  computed: {
-    getIdentifyingCodeTips () {
-      if (this.getIdentifyingCodeTime === 60 || this.getIdentifyingCodeTime === 0) {
-        return '重新获取'
-      }
-      return this.getIdentifyingCodeTime + 'S'
-    }
-  },
-
-  methods: {
-    changeContentType (type) {
-      this.$parent.changeContentType(type)
     },
 
-    getIdentifyingCodeAgain () {
-      if (this.getIdentifyingCodeTime > -1 && this.getIdentifyingCodeTime < 60) {
-        return false
-      }
+    mounted () {
       this.getIdentifyingCodeTimer = setInterval(() => {
         --this.getIdentifyingCodeTime
         if (this.getIdentifyingCodeTime === 0) {
@@ -80,29 +49,60 @@ export default {
       }, 1000)
     },
 
-    checkIdentifyingCode () {
-      if (validateInfoByReg('identifyingCode', this.identifyingCode) === false) {
-        this.$store.commit('SHOW_TIPS', {msg: '验证码为4位数字', type: 'warning'})
-        return false
-      }
+    beforeDestroy () {
+      clearInterval(this.getIdentifyingCodeTimer)
+    },
 
-      let data = {
-        identifyingCode: this.identifyingCode
-      }
-      this.$http.post('createUser', data).then((response) => {
-        let result = response.data
-        let tipsType = 'warning'
-        if (result.state === '200') {
-          tipsType = 'info'
-          closeCloverComponent(this)
+    computed: {
+      getIdentifyingCodeTips () {
+        if (this.getIdentifyingCodeTime === 60 || this.getIdentifyingCodeTime === 0) {
+          return '重新获取'
         }
-        this.$store.commit('SHOW_TIPS', {msg: result.msg, type: tipsType})
-      }).catch((error) => {
-        console.log(error)
-      })
+        return this.getIdentifyingCodeTime + 'S'
+      }
+    },
+
+    methods: {
+      changeContentType (type) {
+        this.$parent.changeContentType(type)
+      },
+
+      getIdentifyingCodeAgain () {
+        if (this.getIdentifyingCodeTime > -1 && this.getIdentifyingCodeTime < 60) {
+          return false
+        }
+        this.getIdentifyingCodeTimer = setInterval(() => {
+          --this.getIdentifyingCodeTime
+          if (this.getIdentifyingCodeTime === 0) {
+            clearInterval(this.getIdentifyingCodeTimer)
+            this.getIdentifyingCodeTime = 60
+          }
+        }, 1000)
+      },
+
+      checkIdentifyingCode () {
+        if (validateInfoByReg('identifyingCode', this.identifyingCode) === false) {
+          this.$store.commit('SHOW_TIPS', {msg: '验证码为4位数字', type: 'warning'})
+          return false
+        }
+
+        let data = {
+          identifyingCode: this.identifyingCode
+        }
+        this.$http.post('createUser', data).then((response) => {
+          let result = response.data
+          let tipsType = 'warning'
+          if (result.state === '200') {
+            tipsType = 'info'
+            closeCloverComponent(this)
+          }
+          this.$store.commit('SHOW_TIPS', {msg: result.msg, type: tipsType})
+        }).catch((error) => {
+          console.log(error)
+        })
+      }
     }
   }
-}
 </script>
 
 <style scoped>

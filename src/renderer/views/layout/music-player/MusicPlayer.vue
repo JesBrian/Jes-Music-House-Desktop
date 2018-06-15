@@ -88,196 +88,196 @@
 </template>
 
 <script>
-import { timeStampToMinuteSecondTime, mouseCoords, getElemenPosion } from '../../../assets/js/commom.js'
+  import { timeStampToMinuteSecondTime, mouseCoords, getElemenPosion } from '../../../assets/js/commom.js'
 
-export default {
-  name: 'MusicPlayer',
+  export default {
+    name: 'MusicPlayer',
 
-  data () {
-    return {
-      musicSource: null,
-      playModel: 'loop', // 音乐播放模式 - [ loop列表循环/single-loop单曲循环/random随机播放 ]
-      playListContentStatus: false,
-      playListContentType: 'now',
-      volumeStatus: true, // 是否开启音量开关
-      volumeLevel: 0.76, // 音量大小
-      musicCTime: 0, // 歌曲播放当前时间
-      musicDTime: 0 // 歌曲总播放时间
-    }
-  },
-
-  watch: {
-    playStatus () {
-      if (this.$store.state.Music.playStatus) {
-        this.musicSource.play()
-      } else {
-        this.musicSource.pause()
+    data () {
+      return {
+        musicSource: null,
+        playModel: 'loop', // 音乐播放模式 - [ loop列表循环/single-loop单曲循环/random随机播放 ]
+        playListContentStatus: false,
+        playListContentType: 'now',
+        volumeStatus: true, // 是否开启音量开关
+        volumeLevel: 0.76, // 音量大小
+        musicCTime: 0, // 歌曲播放当前时间
+        musicDTime: 0 // 歌曲总播放时间
       }
     },
 
-    volumeLevel () {
-      this.musicSource.volume = this.volumeLevel
-    }
-  },
+    watch: {
+      playStatus () {
+        if (this.$store.state.Music.playStatus) {
+          this.musicSource.play()
+        } else {
+          this.musicSource.pause()
+        }
+      },
 
-  computed: {
-    playStatus () {
-      return this.$store.state.Music.playStatus
-    }
-  },
-
-  created () {
-    this.$root.eventHub.$on('closeCloverComponent', () => {
-      this.playListContentStatus = false
-    })
-  },
-
-  mounted () {
-    this.musicSource = this.$refs['musicSource']
-    this.musicSource.addEventListener('timeupdate', this._currentTime)
-    this.musicSource.addEventListener('canplay', this._durationTime)
-  },
-
-  beforeDestroy () {
-    this.musicSource.removeEventListener('timeupdate', this._currentTime)
-    this.musicSource.removeEventListener('canplay', this._durationTime)
-  },
-
-  methods: {
-    _currentTime () {
-      this.musicCTime = this.musicSource.currentTime
-    },
-    _durationTime () {
-      this.musicDTime = this.musicSource.duration
-    },
-
-    changePlayStatus () {
-      this.$store.commit('CHANGE_PLAY_STATUS')
-    },
-
-    changeVolumeStatus () {
-      this.volumeStatus = !this.volumeStatus
-      this.volumeStatus ? this.musicSource.volume = this.volumeLevel : this.musicSource.volume = 0
-    },
-
-    changePlayModel () {
-      let type = ''
-      if (this.playModel === 'loop') {
-        type = 'single-loop'
-      } else if (this.playModel === 'single-loop') {
-        type = 'random'
-      } else {
-        type = 'loop'
+      volumeLevel () {
+        this.musicSource.volume = this.volumeLevel
       }
-      this.playModel = type
     },
 
-    changeShowLyric () {
-      this.$store.commit('CHANGE_SHOW_LYRIC')
-    },
-
-    changePlayListContentStatus () {
-      this.playListContentStatus = !this.playListContentStatus
-    },
-
-    changePlayListContentType (type = 'now') {
-      this.playListContentType = type
-    },
-
-    collectionThisSong () {
-      this.$store.commit('CHANGE_MODAL_TYPE', 'AddAlbum')
-    },
-    shareThisSong () {
-      this.$store.commit('CHANGE_MODAL_TYPE', 'Share')
-    },
-
-    /**
-     * 修改音乐播放进度
-     */
-    changePlayProgress (progress = 0) {
-      if (progress < 0 || progress > 438) {
-        return false
+    computed: {
+      playStatus () {
+        return this.$store.state.Music.playStatus
       }
-      clearInterval(this.timer)
-      let progressRate = progress / 438
-      this.musicSource.currentTime = Number.parseInt(this.musicDTime * progressRate)
     },
 
-    /**
-     * 点击播放进度条
-     */
-    clickMusicProgressBar (event) {
-      let mousePos = mouseCoords(event)
-      let x = mousePos.x
-      let x1 = getElemenPosion(this.$refs['progressBar'], 'left')
-      this.changePlayProgress(x - x1)
+    created () {
+      this.$root.eventHub.$on('closeCloverComponent', () => {
+        this.playListContentStatus = false
+      })
     },
 
-    /**
-     * 拖动播放进度条指针
-     */
-    dragProgressControllerPointer (event) {
-      let x1 = getElemenPosion(this.$refs['progressBar'], 'left')
-      // 注册document的mousemove事件
-      document.onmousemove = (ev) => {
-        let oEvent = ev || event
-        let mousePos = mouseCoords(oEvent)
+    mounted () {
+      this.musicSource = this.$refs['musicSource']
+      this.musicSource.addEventListener('timeupdate', this._currentTime)
+      this.musicSource.addEventListener('canplay', this._durationTime)
+    },
+
+    beforeDestroy () {
+      this.musicSource.removeEventListener('timeupdate', this._currentTime)
+      this.musicSource.removeEventListener('canplay', this._durationTime)
+    },
+
+    methods: {
+      _currentTime () {
+        this.musicCTime = this.musicSource.currentTime
+      },
+      _durationTime () {
+        this.musicDTime = this.musicSource.duration
+      },
+
+      changePlayStatus () {
+        this.$store.commit('CHANGE_PLAY_STATUS')
+      },
+
+      changeVolumeStatus () {
+        this.volumeStatus = !this.volumeStatus
+        this.volumeStatus ? this.musicSource.volume = this.volumeLevel : this.musicSource.volume = 0
+      },
+
+      changePlayModel () {
+        let type = ''
+        if (this.playModel === 'loop') {
+          type = 'single-loop'
+        } else if (this.playModel === 'single-loop') {
+          type = 'random'
+        } else {
+          type = 'loop'
+        }
+        this.playModel = type
+      },
+
+      changeShowLyric () {
+        this.$store.commit('CHANGE_SHOW_LYRIC')
+      },
+
+      changePlayListContentStatus () {
+        this.playListContentStatus = !this.playListContentStatus
+      },
+
+      changePlayListContentType (type = 'now') {
+        this.playListContentType = type
+      },
+
+      collectionThisSong () {
+        this.$store.commit('CHANGE_MODAL_TYPE', 'AddAlbum')
+      },
+      shareThisSong () {
+        this.$store.commit('CHANGE_MODAL_TYPE', 'Share')
+      },
+
+      /**
+       * 修改音乐播放进度
+       */
+      changePlayProgress (progress = 0) {
+        if (progress < 0 || progress > 438) {
+          return false
+        }
+        clearInterval(this.timer)
+        let progressRate = progress / 438
+        this.musicSource.currentTime = Number.parseInt(this.musicDTime * progressRate)
+      },
+
+      /**
+       * 点击播放进度条
+       */
+      clickMusicProgressBar (event) {
+        let mousePos = mouseCoords(event)
         let x = mousePos.x
+        let x1 = getElemenPosion(this.$refs['progressBar'], 'left')
         this.changePlayProgress(x - x1)
-      }
+      },
 
-      // 鼠标放开清除事件
-      document.onmouseup = () => {
-        document.onmousemove = null
-        document.onmouseup = null
-      }
-    },
+      /**
+       * 拖动播放进度条指针
+       */
+      dragProgressControllerPointer (event) {
+        let x1 = getElemenPosion(this.$refs['progressBar'], 'left')
+        // 注册document的mousemove事件
+        document.onmousemove = (ev) => {
+          let oEvent = ev || event
+          let mousePos = mouseCoords(oEvent)
+          let x = mousePos.x
+          this.changePlayProgress(x - x1)
+        }
 
-    /**
-     * 修改音量大小
-     */
-    changeMusicVolume (volume = 0) {
-      if (volume < 0 || volume > 138) {
-        return false
-      }
-      this.volumeLevel = volume / 138
-    },
+        // 鼠标放开清除事件
+        document.onmouseup = () => {
+          document.onmousemove = null
+          document.onmouseup = null
+        }
+      },
 
-    /**
-     * 点击音量条调节音量大小
-     */
-    clickMusicVolumeBar (event) {
-      let mousePos = mouseCoords(event)
-      let x = mousePos.x
-      let x1 = getElemenPosion(this.$refs['volumeBar'], 'left')
-      this.changeMusicVolume(x - x1)
-    },
+      /**
+       * 修改音量大小
+       */
+      changeMusicVolume (volume = 0) {
+        if (volume < 0 || volume > 138) {
+          return false
+        }
+        this.volumeLevel = volume / 138
+      },
 
-    /**
-     * 拖动音量指针
-     */
-    dragVolumeControllerPointer (event) {
-      let x1 = getElemenPosion(this.$refs['volumeBar'], 'left')
-      // 注册document的mousemove事件
-      document.onmousemove = (ev) => {
-        let oEvent = ev || event
-        let mousePos = mouseCoords(oEvent)
+      /**
+       * 点击音量条调节音量大小
+       */
+      clickMusicVolumeBar (event) {
+        let mousePos = mouseCoords(event)
         let x = mousePos.x
+        let x1 = getElemenPosion(this.$refs['volumeBar'], 'left')
         this.changeMusicVolume(x - x1)
-      }
+      },
 
-      // 鼠标放开清除事件
-      document.onmouseup = () => {
-        document.onmousemove = null
-        document.onmouseup = null
-      }
-    },
+      /**
+       * 拖动音量指针
+       */
+      dragVolumeControllerPointer (event) {
+        let x1 = getElemenPosion(this.$refs['volumeBar'], 'left')
+        // 注册document的mousemove事件
+        document.onmousemove = (ev) => {
+          let oEvent = ev || event
+          let mousePos = mouseCoords(oEvent)
+          let x = mousePos.x
+          this.changeMusicVolume(x - x1)
+        }
 
-    timeStampToMinuteSecondTime (timestamp) {
-      return timeStampToMinuteSecondTime(timestamp)
+        // 鼠标放开清除事件
+        document.onmouseup = () => {
+          document.onmousemove = null
+          document.onmouseup = null
+        }
+      },
+
+      timeStampToMinuteSecondTime (timestamp) {
+        return timeStampToMinuteSecondTime(timestamp)
+      }
     }
   }
-}
 </script>
 
 <style scoped>

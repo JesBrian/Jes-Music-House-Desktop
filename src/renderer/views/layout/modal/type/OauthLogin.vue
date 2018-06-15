@@ -14,9 +14,9 @@
 </template>
 
 <script>
-export default {
-  name: 'OauthLogin'
-}
+  export default {
+    name: 'OauthLogin'
+  }
 </script>
 
 <style scoped>

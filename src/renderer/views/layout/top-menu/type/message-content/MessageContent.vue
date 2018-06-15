@@ -19,21 +19,21 @@
 </template>
 
 <script>
-export default {
-  name: 'MessageContent',
+  export default {
+    name: 'MessageContent',
 
-  data () {
-    return {
-      contentType: 'message'
-    }
-  },
+    data () {
+      return {
+        contentType: 'message'
+      }
+    },
 
-  methods: {
-    changeMessageContentType (type = 'message') {
-      this.contentType = type
+    methods: {
+      changeMessageContentType (type = 'message') {
+        this.contentType = type
+      }
     }
   }
-}
 </script>
 
 <style scoped>

@@ -24,59 +24,59 @@
 </template>
 
 <script>
-import localStorage from 'store'
-import { closeCloverComponent } from '../../../../../../assets/js/commom.js'
-import { validateInfoByReg } from '../../../../../../assets/js/validateInfo.js'
+  import localStorage from 'store'
+  import { closeCloverComponent } from '../../../../../../assets/js/commom.js'
+  import { validateInfoByReg } from '../../../../../../assets/js/validateInfo.js'
 
-export default {
-  name: 'UserLoginLoginContent',
+  export default {
+    name: 'UserLoginLoginContent',
 
-  data () {
-    return {
-      phone: '',
-      passwd: ''
-    }
-  },
-
-  methods: {
-    userLogin () {
-      if (validateInfoByReg('phone', this.phone) === false) {
-        this.$store.commit('SHOW_TIPS', {msg: '请填写正确的手机号码', type: 'warning'})
-        return false
+    data () {
+      return {
+        phone: '',
+        passwd: ''
       }
-      if (validateInfoByReg('passwd', this.passwd) === false) {
-        this.$store.commit('SHOW_TIPS', {msg: '密码必须为4位以上的数字或字母搭配', type: 'warning'})
-        return false
-      }
-
-      this.$http.post('phoneLogin', {
-        phone: this.phone,
-        passwd: this.passwd
-      }).then((response) => {
-        let result = response.data
-        let tipsType = 'warning'
-
-        if (result.state === '620') {
-          tipsType = 'info'
-          localStorage.set('user', {
-            'id': result.data.id,
-            'username': result.data.username,
-            'avatar': result.data.avatar
-          })
-          closeCloverComponent(this)
-          this.$store.commit('SAVE_LOGIN_USER_INFO', result.data)
-        }
-        this.$store.commit('SHOW_TIPS', {msg: result.msg, type: tipsType})
-      }).catch((error) => {
-        console.error(error)
-      })
     },
 
-    changeContentType (type) {
-      this.$parent.changeContentType(type)
+    methods: {
+      userLogin () {
+        if (validateInfoByReg('phone', this.phone) === false) {
+          this.$store.commit('SHOW_TIPS', {msg: '请填写正确的手机号码', type: 'warning'})
+          return false
+        }
+        if (validateInfoByReg('passwd', this.passwd) === false) {
+          this.$store.commit('SHOW_TIPS', {msg: '密码必须为4位以上的数字或字母搭配', type: 'warning'})
+          return false
+        }
+
+        this.$http.post('phoneLogin', {
+          phone: this.phone,
+          passwd: this.passwd
+        }).then((response) => {
+          let result = response.data
+          let tipsType = 'warning'
+
+          if (result.state === '620') {
+            tipsType = 'info'
+            localStorage.set('user', {
+              'id': result.data.id,
+              'username': result.data.username,
+              'avatar': result.data.avatar
+            })
+            closeCloverComponent(this)
+            this.$store.commit('SAVE_LOGIN_USER_INFO', result.data)
+          }
+          this.$store.commit('SHOW_TIPS', {msg: result.msg, type: tipsType})
+        }).catch((error) => {
+          console.error(error)
+        })
+      },
+
+      changeContentType (type) {
+        this.$parent.changeContentType(type)
+      }
     }
   }
-}
 </script>
 
 <style scoped>

@@ -122,37 +122,37 @@
 </template>
 
 <script>
-export default {
-  name: 'LeftMenu',
+  export default {
+    name: 'LeftMenu',
 
-  data () {
-    return {
-      recomShow: true,
-      musicShow: true,
-      albumShow: true,
-      collectionShow: true,
-      isCollection: false
-    }
-  },
-
-  methods: {
-    changeShowMusicView () {
-      this.$store.commit('CHANGE_SHOW_MUSIC_VIEW')
+    data () {
+      return {
+        recomShow: true,
+        musicShow: true,
+        albumShow: true,
+        collectionShow: true,
+        isCollection: false
+      }
     },
 
-    changeFirstMenuTypeShow (firstMenuType) {
-      this[firstMenuType] = !this[firstMenuType]
-    },
+    methods: {
+      changeShowMusicView () {
+        this.$store.commit('CHANGE_SHOW_MUSIC_VIEW')
+      },
 
-    changeCollection () {
-      this.isCollection = !this.isCollection
-    },
+      changeFirstMenuTypeShow (firstMenuType) {
+        this[firstMenuType] = !this[firstMenuType]
+      },
 
-    changeModalType (type = '') {
-      this.$store.commit('CHANGE_MODAL_TYPE', type)
+      changeCollection () {
+        this.isCollection = !this.isCollection
+      },
+
+      changeModalType (type = '') {
+        this.$store.commit('CHANGE_MODAL_TYPE', type)
+      }
     }
   }
-}
 </script>
 
 <style scoped>

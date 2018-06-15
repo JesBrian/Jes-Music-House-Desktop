@@ -59,34 +59,34 @@
 </template>
 
 <script>
-import UserLoginCheckPhoneContent from './type/UserLoginCheckPhoneContent.vue'
-import UserLoginChooseContent from './type/UserLoginChooseContent.vue'
-import UserLoginLoginContent from './type/UserLoginLoginContent.vue'
-import UserLoginRegisterContent from './type/UserLoginRegisterContent.vue'
+  import UserLoginCheckPhoneContent from './type/UserLoginCheckPhoneContent.vue'
+  import UserLoginChooseContent from './type/UserLoginChooseContent.vue'
+  import UserLoginLoginContent from './type/UserLoginLoginContent.vue'
+  import UserLoginRegisterContent from './type/UserLoginRegisterContent.vue'
 
-export default {
-  name: 'UserLogin',
+  export default {
+    name: 'UserLogin',
 
-  components: {
-    UserLoginRegisterContent, UserLoginLoginContent, UserLoginChooseContent, UserLoginCheckPhoneContent
-  },
-
-  data () {
-    return {
-      contentType: 'ChooseContent'
-    }
-  },
-
-  methods: {
-    changeContentType (type = 'ChooseContent') {
-      this.contentType = type
+    components: {
+      UserLoginRegisterContent, UserLoginLoginContent, UserLoginChooseContent, UserLoginCheckPhoneContent
     },
 
-    oauthLogin () {
-      this.$store.commit('CHANGE_MODAL_TYPE', 'OauthLogin')
+    data () {
+      return {
+        contentType: 'ChooseContent'
+      }
+    },
+
+    methods: {
+      changeContentType (type = 'ChooseContent') {
+        this.contentType = type
+      },
+
+      oauthLogin () {
+        this.$store.commit('CHANGE_MODAL_TYPE', 'OauthLogin')
+      }
     }
   }
-}
 </script>
 
 <style scoped>
