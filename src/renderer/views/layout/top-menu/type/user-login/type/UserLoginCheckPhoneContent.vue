@@ -27,6 +27,7 @@
 <script>
   import { closeCloverComponent } from '../../../../../../assets/js/commom.js'
   import { validateInfoByReg } from '../../../../../../assets/js/validateInfo.js'
+  import localStorage from 'store'
 
   export default {
     name: 'UserLoginCheckPhoneContent',
@@ -94,7 +95,10 @@
           let tipsType = 'warning'
           if (result.state === '200') {
             tipsType = 'info'
+            console.log(response.data)
+            localStorage.set('user', result.data)
             closeCloverComponent(this)
+            this.$store.commit('SAVE_LOGIN_USER_INFO', result.data)
           }
           this.$store.commit('SHOW_TIPS', {msg: result.msg, type: tipsType})
         }).catch((error) => {

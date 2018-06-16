@@ -58,11 +58,7 @@
 
           if (result.state === '620') {
             tipsType = 'info'
-            localStorage.set('user', {
-              'id': result.data.id,
-              'username': result.data.username,
-              'avatar': result.data.avatar
-            })
+            localStorage.set('user', result.data)
             closeCloverComponent(this)
             this.$store.commit('SAVE_LOGIN_USER_INFO', result.data)
           }

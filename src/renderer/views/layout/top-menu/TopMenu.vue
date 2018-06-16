@@ -44,13 +44,13 @@
     </div>
 
 		<!-- 应用设置 & 控制窗口 -->
-		<div style="height:50%; top:15px; right:18px; position:absolute; z-index:9; color:#DDD;">
+		<div style="height:50%; top:15px; right:8px; position:absolute; z-index:9; color:#DDD;">
 			<i @click="changeShowContentType('ChooseTheme')" class="mh-if theme" style="-webkit-app-region:no-drag; margin:0 8px; font-size:21px;"></i>
 			<i @click="changeShowContentType('MessageContent')" class="mh-if feedback" style="-webkit-app-region:no-drag; margin:0 8px; font-size:23px;"></i>
 			<page-link url="/config" class="mh-if gear" style="-webkit-app-region:no-drag; margin:0 8px; color:#DDD; font-size:23px;"></page-link>
-			<i style="margin:0 18px; padding:8px 0 5px; border-right:2px solid #222;"></i>
-			<i @click="atest" class="mh-if lessen" style="-webkit-app-region:no-drag; margin:0 2px; font-size:23px;"></i>
-			<i @click="closeWindow" class="mh-if close" style="-webkit-app-region:no-drag; margin:0 2px; font-size:23px;"></i>
+			<i style="margin:0 8px; padding:8px 0 5px; border-right:2px solid #222;"></i>
+			<i @click="atest" class="mh-if lessen" style="-webkit-app-region:no-drag; margin:0 8px; font-size:23px;"></i>
+			<i @click="closeWindow" class="mh-if close" style="-webkit-app-region:no-drag; margin:0 8px; font-size:23px;"></i>
 		</div>
 
     <!-- 展示内容 -->
