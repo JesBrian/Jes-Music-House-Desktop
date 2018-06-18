@@ -1,8 +1,16 @@
 <template>
-  <div style="width:128px; height:100%; margin:0 auto;">
-    <img @click.right="showAlertMenu" src="http://p1.music.126.net/wkon8FidWZUeUtBgXi-wOQ==/109951163288308673.jpg?param=140y140" class="box-show cube-bg" style="width:100%; height:128px; padding:4px;" />
-    <p class="text-hidden" style="width:100%; line-height:1.8em;">This is PlayList Name</p>
-    <p style="font-size:12.5px; color:#999;">XX 首</p>
+  <div style="width:20%; height:168px; margin:23px -4px 0 0; display:inline-block;">
+    <div style="width:128px; height:100%; margin:0 auto;">
+      <page-link url="/play-list" style="width:128px; height:128px;">
+        <img @click.right="showAlertMenu" src="http://p1.music.126.net/wkon8FidWZUeUtBgXi-wOQ==/109951163288308673.jpg?param=140y140" class="box-show cube-bg" style="width:100%; height:100%; padding:4px;" />
+      </page-link>
+      <p class="text-hidden" style="width:100%; line-height:1.8em;">
+        <page-link url="/play-list">Name PlayList</page-link>
+      </p>
+      <p style="font-size:12.5px;">
+        <page-link url="/play-list" style="color:#999;">XX 首</page-link>
+      </p>
+    </div>
   </div>
 </template>
 

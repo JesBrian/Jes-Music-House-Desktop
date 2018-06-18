@@ -13,9 +13,9 @@
           <div @click="openBrowser('http://music.jesbrian.cn/#/level')" class="super-btn-out" style="width:50px; height:26px; margin:11px 0 0 28px; float:left;">
             <span class="super-btn-in" style="width:44px; height:20px; line-height:20px;">Lv 9</span>
           </div>
-          <div class="super-btn-out" style="width:114px; height:26px; right:18px; margin-top:11px; float:right;">
+          <page-link url="/setting" class="super-btn-out" style="width:114px; height:26px; right:18px; margin-top:11px; float:right;">
             <span class="super-btn-in" style="width:108px; height:20px; line-height:20px;"> 编辑个人信息</span>
-          </div>
+          </page-link>
         </div>
 
         <div style="width:100%; height:38px; padding:8px 0 10px; box-shadow:0 3px 2px -2px #666; clear:both; text-align:center;">
@@ -76,10 +76,9 @@
         </div>
       </div>
     </div>
+
     <div style="width:96%; margin:0 auto 28px;">
-
       <show-play-list :showType="collectionPlayListShowType" />
-
     </div>
 
 	</div>
@@ -87,8 +86,6 @@
 
 <script>
   import ShowPlayList from '../../components/extends/play-list/ShowPlayList.vue'
-
-  var ipcRenderer = require('electron').ipcRenderer
 
   export default {
     name: 'UserPage',
@@ -110,6 +107,7 @@
       },
 
       openBrowser (url = '') {
+        var ipcRenderer = require('electron').ipcRenderer
         ipcRenderer.send('open-browser-url', url)
       }
     }

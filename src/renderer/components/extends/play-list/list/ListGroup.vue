@@ -1,8 +1,7 @@
 <template>
   <div>
-    <div v-for="n in 8" class="box-shadow">
-      <list-item />
-    </div>
+    <list-item class="box-shadow" />
+    <list-item v-for="n in 8" class="box-shadow" />
   </div>
 </template>
 

@@ -1,8 +1,7 @@
 <template>
   <div>
-    <div v-for="n in 4" class="box-shadow" style="padding:8px 0;">
-      <picture-list-item />
-    </div>
+    <picture-list-item class="box-shadow" />
+    <picture-list-item v-for="n in 4" class="box-shadow" />
   </div>
 </template>
 
