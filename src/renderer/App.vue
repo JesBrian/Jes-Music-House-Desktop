@@ -6,16 +6,29 @@
 
 <script>
   import localStore from 'store'
+  import localForage from 'localforage'
 
   export default {
     name: 'music-house',
 
     mounted () {
-      //  vuex + localStorage 实现保存登录用户信息
-      let userInfo = localStore.get('user')
+      // vuex + localStorage
 
-      // 如果用户已经登陆了
-      if (userInfo) {
+      // localForage.setItem('users', '666', (result) => {
+      //
+      // })
+      localForage.getItem('users', (result, value) => {
+        console.log(value)
+      })
+
+      // 客户端配置信息
+      let configInfo = localStore.get('config')
+      if (configInfo) {
+      }
+
+      // 登录用户信息
+      let userInfo = localStore.get('user')
+      if (userInfo) { // 如果用户已经登陆了
         // 检验 localStore 所存的用户信息是否正确
         this.$http.post('verifyUserLogin', {
           userId: userInfo.id,

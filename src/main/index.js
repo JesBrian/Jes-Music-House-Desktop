@@ -2,6 +2,10 @@
 
 import { app, ipcMain, Tray, BrowserWindow, Menu, shell } from 'electron'
 
+import localForage from 'localforage'
+
+// var ipcRenderer = require('electron').ipcRenderer
+
 var iconPath = require('path').join(__dirname, '../../static/images/icon.ico')
 
 /**
@@ -59,7 +63,11 @@ app.on('ready', () => {
   tray.setContextMenu(Menu.buildFromTemplate([
     {
       label: '设置',
-      click: () => {} // 打开相应页面
+      click: () => { // 打开相应页面
+        localForage.setItem('users', '888', (result) => {
+        })
+        console.log(666)
+      }
     },
     {
       label: '最小化 Music House',
