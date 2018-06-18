@@ -30,6 +30,10 @@
           console.log(error)
         })
       }
+
+      let musicInfo = localStore.get('music')
+      if (musicInfo) {
+      }
     }
   }
 </script>

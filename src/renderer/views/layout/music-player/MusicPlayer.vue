@@ -31,10 +31,10 @@
     <!-- 控制音量部分 -->
     <div style="width:180px; height:100%; margin:0 0 0 28px; float:left;">
       <!-- 音量开关 -->
-			<i @click="changeVolumeStatus" :class="volumeStatus ? 'volume-on' : 'volume-off'" class="mh-if" style="margin-right:6px; font-size:24px;"></i>
+			<i @click="changeVolumeStatus" :class="$store.state.Music.volumeStatus ? 'volume-on' : 'volume-off'" class="mh-if" style="margin-right:6px; font-size:24px;"></i>
       <!-- 音量条 -->
-      <div @click="clickMusicVolumeBar" :class="{'ban-change': !volumeStatus}" ref="volumeBar" class="volume-bar box-show">
-				<div :style="{'width' : volumeLevel * 100 + '%'}" style="height:88%; margin-top:1px; position:relative; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:5px;">
+      <div @click="clickMusicVolumeBar" :class="{'ban-change': !$store.state.Music.volumeStatus}" ref="volumeBar" class="volume-bar box-show">
+				<div :style="{'width' : $store.state.Music.volumeLevel * 100 + '%'}" style="height:88%; margin-top:1px; position:relative; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:5px;">
 					<a @mousedown="dragVolumeControllerPointer" class="pointer box-show" style="top:-4.5px;"></a>
 				</div>
 			</div>
@@ -43,8 +43,8 @@
     <!-- 其他控制部分 -->
 		<div>
       <!-- 播放模式控制 -->
-			<i @click="changePlayModel" :class="playModel" class="play-model mh-if">
-        <span class="glass-bg">{{ playModel === 'loop' ? '循环列表': playModel === 'single-loop' ? '单曲循环' : '随机播放' }}</span>
+			<i @click="changePlayModel" :class="$store.state.Music.playModel" class="play-model mh-if">
+        <span class="glass-bg">{{ $store.state.Music.playModel === 'loop' ? '循环列表': $store.state.Music.playModel === 'single-loop' ? '单曲循环' : '随机播放' }}</span>
       </i>
       <!-- 展示歌词控制 -->
 			<i @click="changeShowLyric" :class="{'active' : $store.state.Music.showLyric}" class="mh-if lyrics" style="margin:5px; font-size:24px;"></i>
@@ -96,11 +96,10 @@
     data () {
       return {
         musicSource: null,
-        playModel: 'loop', // 音乐播放模式 - [ loop列表循环/single-loop单曲循环/random随机播放 ]
+
         playListContentStatus: false,
         playListContentType: 'now',
-        volumeStatus: true, // 是否开启音量开关
-        volumeLevel: 0.76, // 音量大小
+
         musicCTime: 0, // 歌曲播放当前时间
         musicDTime: 0 // 歌曲总播放时间
       }
@@ -123,6 +122,9 @@
     computed: {
       playStatus () {
         return this.$store.state.Music.playStatus
+      },
+      volumeLevel () {
+        return this.$store.state.Music.volumeLevel
       }
     },
 
@@ -154,24 +156,13 @@
       changePlayStatus () {
         this.$store.commit('CHANGE_PLAY_STATUS')
       },
-
       changeVolumeStatus () {
-        this.volumeStatus = !this.volumeStatus
-        this.volumeStatus ? this.musicSource.volume = this.volumeLevel : this.musicSource.volume = 0
+        this.$store.commit('CHANGE_VOLUME_STATUS', this.musicSource)
       },
 
       changePlayModel () {
-        let type = ''
-        if (this.playModel === 'loop') {
-          type = 'single-loop'
-        } else if (this.playModel === 'single-loop') {
-          type = 'random'
-        } else {
-          type = 'loop'
-        }
-        this.playModel = type
+        this.$store.commit('CHANGE_PLAY_MODEL')
       },
-
       changeShowLyric () {
         this.$store.commit('CHANGE_SHOW_LYRIC')
       },
@@ -179,7 +170,6 @@
       changePlayListContentStatus () {
         this.playListContentStatus = !this.playListContentStatus
       },
-
       changePlayListContentType (type = 'now') {
         this.playListContentType = type
       },
@@ -240,7 +230,7 @@
         if (volume < 0 || volume > 138) {
           return false
         }
-        this.volumeLevel = volume / 138
+        this.$store.commit('CHANGE_VOLUME_LEVEL', volume)
       },
 
       /**
@@ -282,19 +272,14 @@
 
 <style scoped>
   .mh-if {
-    color:#999;
-    text-shadow: 0 0 6px #000;
+    color:#999; text-shadow:0 0 6px #000;
   }
   .mh-if:hover, .mh-if.active {
-    cursor:pointer;
-    color: #20dbfc;
-    text-shadow: 0 0 3px #444, 0 0 18px #000;
-    opacity:1!important;
+    cursor:pointer; color:#20dbfc; text-shadow:0 0 3px #444, 0 0 18px #000; opacity:1!important;
   }
   .mh-if.menu > span {
     width:38px; height:17px; top:3.2px; left:20px; padding:0 3px; position:absolute; z-index:-1; box-sizing:border-box; border-radius:0 10px 10px 0;
-    background:#222;
-    box-shadow:0.3px 0.3px 2.5px -0.6px #AAA, inset 0 0 6px #080808, inset 0 2px 2px #080808, inset 3px 0 2px #080808, inset -2px 0 2px #080808;
+    background:#222; box-shadow:0.3px 0.3px 2.5px -0.6px #AAA, inset 0 0 6px #080808, inset 0 2px 2px #080808, inset 3px 0 2px #080808, inset -2px 0 2px #080808;
     text-align:center; font-size:12.5px; line-height:17px; color:#888; text-shadow:2px 2px 6px #000;
   }
   .mh-if.menu:hover > span {
@@ -306,7 +291,7 @@
   }
   .play-model > span {
     width:88px; height:30px; bottom:38px; left:-33px; position:absolute; z-index:9; font-size:16px; line-height:29px; display:none;
-    box-shadow:0 0 3px -1px #00d8ff, inset 0 2px 1px -1px rgba(255, 255, 255, 0.2), inset 0 -2px 1px -1px rgba(0, 0, 0, 0.2), 0 12px 12px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 0 0 1px #272727;
+    box-shadow:0 0 5px -1px #00d8ff, inset 0 2px 1px -1px rgba(255, 255, 255, 0.2), inset 0 -2px 1px -1px rgba(0, 0, 0, 0.2), 0 12px 12px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 0 0 1px #272727;
   }
   .play-model:hover > span {
     display:block;

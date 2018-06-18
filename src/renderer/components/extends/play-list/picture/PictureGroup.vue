@@ -1,7 +1,7 @@
 <template>
   <div style="margin-bottom:18px;">
     <picture-item />
-    <picture-item v-for="n in 8" />
+    <picture-item v-for="n in 8" :key="n  + 888" />
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <picture-list-item class="box-shadow" />
-    <picture-list-item v-for="n in 4" class="box-shadow" />
+    <picture-list-item v-for="n in 4" :key="n + 888" class="box-shadow" />
   </div>
 </template>
 

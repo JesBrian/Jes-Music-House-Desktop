@@ -1,7 +1,7 @@
 <template>
   <div>
     <list-item class="box-shadow" />
-    <list-item v-for="n in 8" class="box-shadow" />
+    <list-item v-for="n in 8" :key="n + 888" class="box-shadow" />
   </div>
 </template>
 
