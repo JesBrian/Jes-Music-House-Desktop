@@ -138,7 +138,7 @@
           volumeLevel: this.volumeLevel,
           musicCTime: this.musicCTime
         }
-        this.localForage.setItem('music', musicData, (result) => {
+        this.localForage.setItem('music', musicData, () => {
           this.ipcRenderer.send('window-all-closed')
         })
       })
@@ -148,6 +148,16 @@
       this.musicSource = this.$refs['musicSource']
       this.musicSource.addEventListener('timeupdate', this._currentTime)
       this.musicSource.addEventListener('canplay', this._durationTime)
+
+      // 读取 localForage 音乐信息
+      this.localForage.getItem('music', (result, value) => {
+        if (value) {
+          this.playModel = value.playModel
+          this.volumeStatus = value.volumeStatus
+          this.volumeLevel = value.volumeLevel
+          this.musicCTime = value.musicCTime
+        }
+      })
     },
 
     beforeDestroy () {

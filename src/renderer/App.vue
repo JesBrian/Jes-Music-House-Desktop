@@ -35,12 +35,6 @@
           })
         }
       })
-
-      // 音乐信息
-      this.localForage.getItem('music', (result, value) => {
-        if (value) {
-        }
-      })
     }
   }
 </script>
