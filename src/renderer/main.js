@@ -1,10 +1,11 @@
 import Vue from 'vue'
-import axios from 'axios'
-
 import App from './App'
 import router from './router'
 import store from './store'
 import vueLazyload from 'vue-lazyload'
+import axios from 'axios'
+import localForage from 'localforage'
+import { ipcRenderer } from 'electron'
 
 import PageLink from './components/global/page-link/PageLink.vue'
 
@@ -16,6 +17,11 @@ if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 axios.defaults.baseURL = store.state.Global.API_URL // 配置域名
 axios.defaults.withCredentials = true
 Vue.http = Vue.prototype.$http = axios
+
+Vue.localForage = Vue.prototype.localForage = localForage
+
+Vue.ipcRenderer = Vue.prototype.ipcRenderer = ipcRenderer
+
 Vue.config.productionTip = false
 Vue.use(vueLazyload, {
   error: require('./assets/img/loading.svg'),

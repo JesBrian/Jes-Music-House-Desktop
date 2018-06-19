@@ -70,8 +70,6 @@
 
   import { changePage } from '../../../assets/js/commom.js'
 
-  var ipcRenderer = require('electron').ipcRenderer
-
   export default {
     name: 'TopMenu',
 
@@ -89,6 +87,12 @@
     created () {
       this.$root.eventHub.$on('closeCloverComponent', () => {
         this.showContentType = ''
+      })
+
+      this.ipcRenderer.on('test-ipcMain-send', (event) => {
+        this.localForage.getItem('userInfo', (result, value) => {
+          console.log(value)
+        })
       })
     },
 
@@ -120,10 +124,10 @@
       },
 
       closeWindow () {
-        ipcRenderer.send('hide-main-window')
+        this.ipcRenderer.send('hide-main-window')
       },
       atest () {
-        ipcRenderer.send('hide-window')
+        this.ipcRenderer.send('hide-window')
       }
     }
   }

@@ -107,8 +107,7 @@
       },
 
       openBrowser (url = '') {
-        var ipcRenderer = require('electron').ipcRenderer
-        ipcRenderer.send('open-browser-url', url)
+        this.ipcRenderer.send('open-browser-url', url)
       }
     }
   }

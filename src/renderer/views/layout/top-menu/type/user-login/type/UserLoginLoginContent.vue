@@ -24,7 +24,6 @@
 </template>
 
 <script>
-  import localStorage from 'store'
   import { closeCloverComponent } from '../../../../../../assets/js/commom.js'
   import { validateInfoByReg } from '../../../../../../assets/js/validateInfo.js'
 
@@ -58,7 +57,7 @@
 
           if (result.state === '620') {
             tipsType = 'info'
-            localStorage.set('user', result.data)
+            this.localForage.setItem('user', result.data)
             closeCloverComponent(this)
             this.$store.commit('SAVE_LOGIN_USER_INFO', result.data)
           }

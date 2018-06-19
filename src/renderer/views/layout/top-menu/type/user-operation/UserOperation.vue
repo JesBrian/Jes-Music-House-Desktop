@@ -74,8 +74,6 @@
 <script>
   import { changePage } from '../../../../../assets/js/commom.js'
 
-  var ipcRenderer = require('electron').ipcRenderer
-
   export default {
     name: 'UserOperation',
 
@@ -89,14 +87,14 @@
       },
 
       userLogout () {
+        this.localForage.setItem('user', null)
         this.$store.commit('RESET_USER_INFO')
-        localStorage.removeItem('user')
         changePage('/', this)
         this.$store.commit('CLEAR_URL_HISTPRY')
       },
 
       openBrowser (url = '') {
-        ipcRenderer.send('open-browser-url', url)
+        this.ipcRenderer.send('open-browser-url', url)
       }
     }
   }
