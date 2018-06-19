@@ -96,11 +96,11 @@
     data () {
       return {
         musicSource: null,
-        playModel: 'loop', // 音乐播放模式 - [ loop列表循环/single-loop单曲循环/random随机播放 ]
         playListContentStatus: false,
         playListContentType: 'now',
+        playModel: 'loop', // 音乐播放模式 - [ loop列表循环/single-loop单曲循环/random随机播放 ]
         volumeStatus: true, // 是否开启音量开关
-        volumeLevel: 0.76, // 音量大小
+        volumeLevel: 0.68, // 音量大小
         musicCTime: 0, // 歌曲播放当前时间
         musicDTime: 0 // 歌曲总播放时间
       }
@@ -129,6 +129,18 @@
     created () {
       this.$root.eventHub.$on('closeCloverComponent', () => {
         this.playListContentStatus = false
+      })
+
+      this.ipcRenderer.on('save-music-info', () => {
+        let musicData = {
+          playModel: this.playModel,
+          volumeStatus: this.volumeStatus,
+          volumeLevel: this.volumeLevel,
+          musicCTime: this.musicCTime
+        }
+        this.localForage.setItem('music', musicData, (result) => {
+          this.ipcRenderer.send('window-all-closed')
+        })
       })
     },
 

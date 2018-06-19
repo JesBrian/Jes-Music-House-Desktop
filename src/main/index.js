@@ -60,7 +60,6 @@ app.on('ready', () => {
     {
       label: '设置',
       click: () => { // 打开相应页面
-        mainWindow.webContents.send('test-ipcMain-send')
       }
     },
     {
@@ -72,7 +71,7 @@ app.on('ready', () => {
     {
       label: '退出 Music House',
       click: () => {
-        app.quit()
+        mainWindow.webContents.send('save-music-info')
       }
     }
   ]))

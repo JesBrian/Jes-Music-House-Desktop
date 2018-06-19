@@ -88,12 +88,6 @@
       this.$root.eventHub.$on('closeCloverComponent', () => {
         this.showContentType = ''
       })
-
-      this.ipcRenderer.on('test-ipcMain-send', (event) => {
-        this.localForage.getItem('userInfo', (result, value) => {
-          console.log(value)
-        })
-      })
     },
 
     methods: {
