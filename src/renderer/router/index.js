@@ -15,7 +15,7 @@ export default new Router({
           component: () => import('@/views/pages/IndexPage.vue')
         },
         {
-          path: '/search/:key',
+          path: '/search/:key/:type',
           component: () => import('@/views/pages/SearchPage.vue')
         },
         {

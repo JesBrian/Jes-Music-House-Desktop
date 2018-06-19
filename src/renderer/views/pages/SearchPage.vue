@@ -7,7 +7,7 @@
       <div @click="changeSearchType('song')" :class="{'active' : searchType === 'song'}" class="super-btn-out">
         <span class="super-btn-in mh-if music-list"> 单曲</span>
       </div>
-      <div @click="changeSearchType('play-list')" :class="{'active' : searchType === 'play-list'}" class="super-btn-out">
+      <div @click="changeSearchType('playList')" :class="{'active' : searchType === 'playList'}" class="super-btn-out">
         <span class="super-btn-in mh-if music-albu"> 歌单</span>
       </div>
       <div @click="changeSearchType('singer')" :class="{'active' : searchType === 'singer'}" class="super-btn-out">
@@ -19,7 +19,7 @@
     </div>
     <div style="width:100%; margin:0 auto; padding:2px 0 18px; text-align:left;">
 
-      <component :is="searchType + '-group'" />
+      <component :is="`${searchType}Group`" />
 
       <pagination />
     </div>
@@ -32,6 +32,8 @@
   import PlayListGroup from '../../components/extends/search/play-list/PlayListGroup.vue'
   import UserGroup from '../../components/extends/search/user/UserGroup.vue'
   import SongGroup from '../../components/extends/song/SongGroup.vue'
+
+  import { changePage } from '../../assets/js/commom.js'
 
   export default {
     name: 'SearchPage',
@@ -47,18 +49,33 @@
     },
 
     watch: {
-      searchType () {
-        console.log(this.searchType)
+      $route () {
+        this.$http.post('searchInfo', {
+          key: this.$route.params['key'],
+          type: this.$route.params['type']
+        }).then((response) => {
+          console.log(response)
+        }).catch((error) => {
+          console.log(error)
+        })
       }
     },
 
     mounted () {
-      console.log(this.$route.params.key)
+      this.$http.post('searchInfo', {
+        key: this.$route.params['key'],
+        type: 'song'
+      }).then((response) => {
+        console.log(response)
+      }).catch((error) => {
+        console.log(error)
+      })
     },
 
     methods: {
       changeSearchType (type = 'song') {
         this.searchType = type
+        changePage(`/search/${this.$route.params['key']}/${type}`, this)
       }
     }
   }

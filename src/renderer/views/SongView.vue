@@ -104,6 +104,7 @@
       },
 
       goBackView () {
+        this.$root.eventHub.$emit('closeCloverComponent')
         this.$store.commit('CLOSE_MUSIC_VIEW')
       },
 

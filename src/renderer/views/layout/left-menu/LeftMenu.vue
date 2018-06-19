@@ -138,6 +138,7 @@
     methods: {
       changeShowMusicView () {
         this.$store.commit('CHANGE_SHOW_MUSIC_VIEW')
+        this.$root.eventHub.$emit('closeCloverComponent')
       },
 
       changeFirstMenuTypeShow (firstMenuType) {
@@ -193,7 +194,10 @@
     width:44px; height:42.5px; margin:8px; padding:3px; position:relative; float:left;
   }
   .now-song .now-song-img > div {
-    width:100%; height:100%; top:0; left:0; position:absolute; display:none; background:rgba(0,0,0,0.68); text-align:center; line-height:43px; font-size:38px; color: #00d8ff;
+    width:100%; height:100%; top:0; left:0; position:absolute; display:none; background:rgba(0,0,0,0.68); text-align:center; line-height:45px; font-size:38px; color: #00d8ff;
+  }
+  .now-song .now-song-img:hover {
+    background:#555;
   }
   .now-song .now-song-img:hover > div {
     display:block;

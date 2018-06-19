@@ -103,7 +103,7 @@
         if (this.searchKey === '') {
           return false
         }
-        changePage('/search/' + this.searchKey, this)
+        changePage(`/search/${this.searchKey}/song`, this)
       },
 
       closeShowContent () {
