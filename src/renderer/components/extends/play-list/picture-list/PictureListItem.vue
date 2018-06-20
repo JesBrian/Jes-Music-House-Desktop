@@ -18,7 +18,7 @@
           </div>
         </li>
       </ul>
-      <page-link url="/plsy-list" style="line-height:2.8em; font-size:13px; color:#999;">查看全部135首</page-link>
+      <page-link url="/play-list" style="line-height:2.8em; font-size:13px; color:#999;">查看全部135首</page-link>
     </div>
   </div>
 </template>

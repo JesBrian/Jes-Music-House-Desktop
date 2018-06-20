@@ -50,9 +50,12 @@
 
     watch: {
       $route () {
+        if (this.searchType !== this.$route.params['type']) {
+          this.searchType = this.$route.params['type']
+        }
         this.$http.post('searchInfo', {
           key: this.$route.params['key'],
-          type: this.$route.params['type']
+          type: this.searchType
         }).then((response) => {
           console.log(response)
         }).catch((error) => {

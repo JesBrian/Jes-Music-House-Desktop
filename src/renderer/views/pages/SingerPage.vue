@@ -71,6 +71,14 @@
       }
     },
 
+    mounted () {
+      this.localForage.getItem('singerPlayListShowType', (result, value) => {
+        if (value) {
+          this.playListShowType = value
+        }
+      })
+    },
+
     methods: {
       changeContent (type) {
         this.type = type
@@ -78,6 +86,7 @@
 
       changePlayListShowType (type = 'picture') {
         this.playListShowType = type
+        this.localForage.setItem('singerPlayListShowType', this.playListShowType)
       }
     }
   }

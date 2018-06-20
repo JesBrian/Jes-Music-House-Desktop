@@ -101,9 +101,22 @@
       }
     },
 
+    mounted () {
+      this.localForage.getItem('userPlayListShowType', (result, value) => {
+        if (value) {
+          this.createPlayListShowType = value.create
+          this.collectionPlayListShowType = value.collection
+        }
+      })
+    },
+
     methods: {
       changePlayListShowType (playListType, showType = 'picture') {
         this[playListType] = showType
+        this.localForage.setItem('userPlayListShowType', {
+          create: this.createPlayListShowType,
+          collection: this.collectionPlayListShowType
+        })
       },
 
       openBrowser (url = '') {
