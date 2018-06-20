@@ -101,7 +101,7 @@
       }
     },
 
-    mounted () {
+    created () {
       this.localForage.getItem('playListShowType', (result, value) => {
         if (value) {
           this.createPlayListShowType = value.create

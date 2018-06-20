@@ -8,7 +8,7 @@
   export default {
     name: 'music-house',
 
-    mounted () {
+    created () {
       // vuex + localForage
 
       // 客户端配置信息

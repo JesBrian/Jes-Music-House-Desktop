@@ -18,9 +18,9 @@
 
 <script>
   import IndexRecommend from '../../components/extends/index-content/recommend/IndexRecommend.vue'
-  import IndexNewsMusic from '../../components/extends/index-content/news-music/IndexNewsMusic.vue'
   import IndexPlayList from '../../components/extends/index-content/play-list/IndexPlayList.vue'
   import IndexSinger from '../../components/extends/index-content/singer/IndexSinger.vue'
+  import IndexNewsMusic from '../../components/extends/index-content/news-music/IndexNewsMusic.vue'
 
   import { changePage } from '../../assets/js/commom.js'
 
@@ -28,7 +28,7 @@
     name: 'IndexPage',
 
     components: {
-      IndexSinger, IndexPlayList, IndexNewsMusic, IndexRecommend
+      IndexRecommend, IndexPlayList, IndexSinger, IndexNewsMusic
     },
 
     data () {
@@ -51,7 +51,7 @@
 
 <style scoped>
   .index-menu-cell {
-    margin:0 15px; padding:0 12px 6px 10px; cursor:pointer;
+    margin:0 15px; padding:0 25px 6px 23px; cursor:pointer;
   }
   .index-menu-cell:hover {
     color:#EEE;

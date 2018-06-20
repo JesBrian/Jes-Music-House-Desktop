@@ -48,7 +48,7 @@
         languageArr: {
           name: '语种',
           data: [
-            { name: '全部', value: 'all' }, { name: '华语', value: 'chinese' }, { name: '欧美', value: 'west' }, { name: '日本', value: 'japan' }, { name: 'korea', value: 'korea' }, { name: '其他', value: 'value' }
+            { name: '全部', value: 'all' }, { name: '华语', value: 'chinese' }, { name: '欧美', value: 'west' }, { name: '日本', value: 'japan' }, { name: '韩国', value: 'korea' }, { name: '其他', value: 'value' }
           ]
         },
 

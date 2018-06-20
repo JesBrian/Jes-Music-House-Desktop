@@ -11,11 +11,11 @@
     </div>
 
     <div style="width:92%; margin:8px auto 0; padding:28px 18px 6px; box-sizing:border-box; box-shadow:0 2px 3px -3px #FFF; font-size:14px; text-shadow:1px 1px 1px #000;">
-      <span @click="" style="margin-right:18px; padding:0 10px 5px; border-bottom:3px solid #00d8ff; color:#00d8ff;">全部</span>
-      <span @click="" style="margin-right:18px; padding:0 10px 5px;">华语</span>
-      <span @click="" style="margin-right:18px; padding:0 10px 5px;">欧美</span>
-      <span @click="" style="margin-right:18px; padding:0 10px 5px;">韩国</span>
-      <span @click="" style="margin-right:18px; padding:0 10px 5px;">日本</span>
+      <span @click="changeLanguageType('all')" :class="languageType === 'all' ? 'active' : ''" class="language-type">全部</span>
+      <span @click="changeLanguageType('chinese')" :class="languageType === 'chinese' ? 'active' : ''" class="language-type">华语</span>
+      <span @click="changeLanguageType('west')" :class="languageType === 'west' ? 'active' : ''" class="language-type">欧美</span>
+      <span @click="changeLanguageType('japan')" :class="languageType === 'japan' ? 'active' : ''" class="language-type">韩国</span>
+      <span @click="changeLanguageType('korea')" :class="languageType === 'korea' ? 'active' : ''" class="language-type">日本</span>
     </div>
 
 
@@ -28,13 +28,17 @@
 
     data () {
       return {
-        contentType: 'song'
+        contentType: 'song',
+        languageType: 'all'
       }
     },
 
     methods: {
       changeContentType (type) {
         this.contentType = type
+      },
+      changeLanguageType (type) {
+        this.languageType = type
       }
     }
   }
@@ -44,5 +48,12 @@
   .cube-bg.box-show {
     color:#EEE;
     line-height:27px;
+  }
+
+  .language-type {
+    margin-right:23px; padding:0 13px 5px 14px; cursor:pointer;
+  }
+  .language-type.active {
+    border-bottom:3px solid #00d8ff; color:#00d8ff;
   }
 </style>

@@ -6,9 +6,9 @@
 				<ul>
 					<li>
 						<p @click="changeFirstMenuTypeShow('recomShow')" style="margin-top:3px;">
-              推荐<i :class="recomShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
+              推荐<i :class="leftMenuSwitch.recomShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
             </p>
-						<ul v-show="recomShow">
+						<ul v-show="leftMenuSwitch.recomShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
                 <page-link url="/" class="left-menu-item">
                   <i class="mh-if music-box" style="margin-right:6px;"></i>发现音乐
@@ -33,9 +33,9 @@
 					</li>
 					<li>
 						<p @click="changeFirstMenuTypeShow('musicShow')">
-              我的音乐<i :class="musicShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
+              我的音乐<i :class="leftMenuSwitch.musicShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
             </p>
-						<ul v-show="musicShow">
+						<ul v-show="leftMenuSwitch.musicShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
                 <page-link url="/local" class="left-menu-item">
                   <i class="mh-if redis" style="margin-right:6px;"></i>本地音乐
@@ -55,10 +55,10 @@
 					</li>
 					<li style="position:relative;">
 						<p @click="changeFirstMenuTypeShow('albumShow')">
-              创建的歌单<i :class="albumShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
+              创建的歌单<i :class="leftMenuSwitch.albumShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
             </p>
             <i @click="changeModalType('NewAlbum')" class="mh-if add-collection"></i>
-						<ul v-show="albumShow">
+						<ul v-show="leftMenuSwitch.albumShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
                 <page-link url="/play-list" class="left-menu-item">
                   <i class="mh-if non-colloection" style="margin-right:6px;"></i>我喜欢的音乐
@@ -78,9 +78,9 @@
 					</li>
 					<li>
 						<p @click="changeFirstMenuTypeShow('collectionShow')">
-              收藏的歌单<i :class="collectionShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
+              收藏的歌单<i :class="leftMenuSwitch.collectionShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
             </p>
-						<ul v-show="collectionShow">
+						<ul v-show="leftMenuSwitch.collectionShow">
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
                 <page-link url="/play-list" class="left-menu-item">
                   <i class="mh-if menu" style="margin-right:6px;"></i>XXXX
@@ -127,12 +127,22 @@
 
     data () {
       return {
-        recomShow: true,
-        musicShow: true,
-        albumShow: true,
-        collectionShow: true,
+        leftMenuSwitch: {
+          recomShow: true,
+          musicShow: true,
+          albumShow: true,
+          collectionShow: true
+        },
         isCollection: false
       }
+    },
+
+    created () {
+      this.localForage.getItem('leftMenu', (result, value) => {
+        if (value) {
+          this.leftMenuSwitch = value
+        }
+      })
     },
 
     methods: {
@@ -142,7 +152,8 @@
       },
 
       changeFirstMenuTypeShow (firstMenuType) {
-        this[firstMenuType] = !this[firstMenuType]
+        this.leftMenuSwitch[firstMenuType] = !this.leftMenuSwitch[firstMenuType]
+        this.localForage.setItem('leftMenu', this.leftMenuSwitch)
       },
 
       changeCollection () {
