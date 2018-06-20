@@ -72,9 +72,9 @@
     },
 
     mounted () {
-      this.localForage.getItem('singerPlayListShowType', (result, value) => {
+      this.localForage.getItem('playListShowType', (result, value) => {
         if (value) {
-          this.playListShowType = value
+          this.playListShowType = value.singer
         }
       })
     },
@@ -86,7 +86,17 @@
 
       changePlayListShowType (type = 'picture') {
         this.playListShowType = type
-        this.localForage.setItem('singerPlayListShowType', this.playListShowType)
+        this.localForage.getItem('playListShowType', (result, value) => {
+          let saveData = {}
+          if (value) {
+            saveData = value
+          } else {
+            saveData.create = 'picture-group'
+            saveData.collection = 'picture-group'
+          }
+          saveData.singer = this.playListShowType
+          this.localForage.setItem('playListShowType', saveData)
+        })
       }
     }
   }

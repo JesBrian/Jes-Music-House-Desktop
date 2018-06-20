@@ -102,7 +102,7 @@
     },
 
     mounted () {
-      this.localForage.getItem('userPlayListShowType', (result, value) => {
+      this.localForage.getItem('playListShowType', (result, value) => {
         if (value) {
           this.createPlayListShowType = value.create
           this.collectionPlayListShowType = value.collection
@@ -113,9 +113,16 @@
     methods: {
       changePlayListShowType (playListType, showType = 'picture') {
         this[playListType] = showType
-        this.localForage.setItem('userPlayListShowType', {
-          create: this.createPlayListShowType,
-          collection: this.collectionPlayListShowType
+        this.localForage.getItem('playListShowType', (result, value) => {
+          let saveData = {}
+          if (value) {
+            saveData = value
+          } else {
+            saveData.singer = 'picture-group'
+          }
+          saveData.create = this.createPlayListShowType
+          saveData.collection = this.collectionPlayListShowType
+          this.localForage.setItem('playListShowType', saveData)
         })
       },
 
