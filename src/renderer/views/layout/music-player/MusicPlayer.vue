@@ -69,7 +69,7 @@
       </div>
       <ul style="width:99.5%; height:348px; margin:0; padding:0 2px; box-sizing:border-box; overflow:auto;">
         <li v-for="n in 120" class="box-shadow" style="background:#181818;">
-          <div :class="{'active' : n === 5}" class="play-list-cell" style="width:100%; height:30px; margin:2px 0; padding:0 6px; box-sizing:border-box; text-align:left; line-height:30px;">
+          <div @click.right="showAlertMenu" :class="{'active' : n === 5}" class="play-list-cell" style="width:100%; height:30px; margin:2px 0; padding:0 6px; box-sizing:border-box; text-align:left; line-height:30px;">
             <i class="mh-if play"></i>
             <p class="text-hidden" style="width:318px; height:100%; float:left;">{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}</p>
             <p class="music-oper" style="margin:0 12px;">
@@ -293,6 +293,15 @@
           document.onmousemove = null
           document.onmouseup = null
         }
+      },
+
+      showAlertMenu (event) {
+        let position = mouseCoords(event)
+        let alertMenuConf = {
+          type: 'PlayListHistoryMenu',
+          position: position
+        }
+        this.$store.commit('SHOW_ALERT_MENU', alertMenuConf)
       },
 
       timeStampToMinuteSecondTime (timestamp) {

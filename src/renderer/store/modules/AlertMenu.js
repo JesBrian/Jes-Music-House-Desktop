@@ -6,7 +6,7 @@ const state = {
 
 const mutations = {
   /**
-   * 展示 / 关闭 操作提示框
+   * 展示 / 关闭 右键菜单
    * @param state
    * @param conf
    */

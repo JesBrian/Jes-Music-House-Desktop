@@ -1,5 +1,5 @@
 <template>
-  <div style="width:100%; height:100%; top:0; left:0; position:fixed; z-index:9">
+  <div style="width:100%; height:100%; top:0; left:0; position:fixed; z-index:9999">
     <component :is="$store.state.AlertMenu.menuType" ref="alertMenuContent" :style="{'top': $store.state.AlertMenu.positionY + 'px', 'left': $store.state.AlertMenu.positionX + 'px'}" class="super-btn-out" style="position:fixed;" />
     <div @click="closeAlertMenu" style="width:100%; height:100%; background:transparent;"></div>
   </div>
@@ -8,6 +8,7 @@
 <script>
   import SongMenu from './type/SongMenu.vue'
   import PlayListMenu from './type/PlayListMenu.vue'
+  import PlayListHistoryMenu from './type/PlayListHistoryMenu.vue'
   import UserMenu from './type/UserMenu.vue'
   import SingerMenu from './type/SingerMenu.vue'
 
@@ -15,7 +16,7 @@
     name: 'AlertMenu',
 
     components: {
-      SongMenu, PlayListMenu, UserMenu, SingerMenu
+      SongMenu, PlayListMenu, PlayListHistoryMenu, UserMenu, SingerMenu
     },
 
     created () {
