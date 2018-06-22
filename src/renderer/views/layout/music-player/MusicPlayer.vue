@@ -98,6 +98,7 @@
         musicSource: null,
         playListContentStatus: false,
         playListContentType: 'now',
+
         playModel: 'loop', // 音乐播放模式 - [ loop列表循环/single-loop单曲循环/random随机播放 ]
         volumeStatus: true, // 是否开启音量开关
         volumeLevel: 0.68, // 音量大小
@@ -108,11 +109,19 @@
 
     watch: {
       playStatus () {
+        // 检查播放进度 & 播放音量
+        this.volumeStatus ? this.musicSource.volume = this.volumeLevel : this.musicSource.volume = 0
+        this.musicSource.currentTime = this.musicCTime
+
         if (this.$store.state.Music.playStatus) {
           this.musicSource.play()
         } else {
           this.musicSource.pause()
         }
+      },
+
+      volumeStatus () {
+        this.volumeStatus ? this.musicSource.volume = this.volumeLevel : this.musicSource.volume = 0
       },
 
       volumeLevel () {
@@ -127,6 +136,16 @@
     },
 
     created () {
+      // 读取 localForage 音乐信息
+      this.localForage.getItem('music', (result, value) => {
+        if (value) {
+          this.playModel = value.playModel
+          this.volumeStatus = value.volumeStatus
+          this.volumeLevel = value.volumeLevel
+          this.musicCTime = value.musicCTime
+        }
+      })
+
       this.$root.eventHub.$on('closeCloverComponent', () => {
         this.playListContentStatus = false
       })
@@ -148,16 +167,6 @@
       this.musicSource = this.$refs['musicSource']
       this.musicSource.addEventListener('timeupdate', this._currentTime)
       this.musicSource.addEventListener('canplay', this._durationTime)
-
-      // 读取 localForage 音乐信息
-      this.localForage.getItem('music', (result, value) => {
-        if (value) {
-          this.playModel = value.playModel
-          this.volumeStatus = value.volumeStatus
-          this.volumeLevel = value.volumeLevel
-          this.musicCTime = value.musicCTime
-        }
-      })
     },
 
     beforeDestroy () {
@@ -179,7 +188,7 @@
 
       changeVolumeStatus () {
         this.volumeStatus = !this.volumeStatus
-        this.volumeStatus ? this.musicSource.volume = this.volumeLevel : this.musicSource.volume = 0
+        this.saveLocalForageData()
       },
 
       changePlayModel () {
@@ -192,6 +201,7 @@
           type = 'loop'
         }
         this.playModel = type
+        this.saveLocalForageData()
       },
 
       changeShowLyric () {
@@ -273,6 +283,7 @@
         let x = mousePos.x
         let x1 = getElemenPosion(this.$refs['volumeBar'], 'left')
         this.changeMusicVolume(x - x1)
+        this.saveLocalForageData()
       },
 
       /**
@@ -292,6 +303,7 @@
         document.onmouseup = () => {
           document.onmousemove = null
           document.onmouseup = null
+          this.saveLocalForageData()
         }
       },
 
@@ -306,6 +318,16 @@
 
       timeStampToMinuteSecondTime (timestamp) {
         return timeStampToMinuteSecondTime(timestamp)
+      },
+
+      saveLocalForageData () {
+        let musicData = {
+          playModel: this.playModel,
+          volumeStatus: this.volumeStatus,
+          volumeLevel: this.volumeLevel,
+          musicCTime: this.musicCTime
+        }
+        this.localForage.setItem('music', musicData)
       }
     }
   }
