@@ -1,5 +1,6 @@
 const state = {
-  modalType: ''
+  modalType: '',
+  oauthType: ''
 }
 
 const mutations = {
@@ -8,6 +9,13 @@ const mutations = {
    */
   CHANGE_MODAL_TYPE (state, type = '') {
     state.modalType = type
+  },
+
+  /**
+   * 修改OAuth第三方登录类型
+   */
+  CHANGE_OAUTH_TYPE (state, type = '') {
+    state.oauthType = type
   }
 }
 

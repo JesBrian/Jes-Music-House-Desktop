@@ -19,34 +19,34 @@
 
         <div style="height:53px; padding:0 6px; margin-bottom:8px;">
           <div style="width:33%; height:100%; float:left;">
-            <div class="super-btn-out" style="width:38px; height:38px; margin-top:7px;">
+            <div @click="oauthLogin('qq')" class="super-btn-out" title="QQ" style="width:38px; height:38px; margin-top:7px;">
               <span class="super-btn-in" style="width:29px; height:29px;"></span>
             </div>
           </div>
           <div style="width:34%; height:100%; float:left; box-sizing:border-box;">
-            <div class="super-btn-out" style="width:38px; height:38px; margin-top:7px;">
+            <div @click="oauthLogin('wechat')" class="super-btn-out" title="WeChat" style="width:38px; height:38px; margin-top:7px;">
               <span class="super-btn-in" style="width:29px; height:29px;"></span>
             </div>
           </div>
           <div style="width:33%; height:100%; float:left;">
-            <div class="super-btn-out" style="width:38px; height:38px; margin-top:7px;">
+            <div @click="oauthLogin('weibo')" class="super-btn-out" title="WeiBo" style="width:38px; height:38px; margin-top:7px;">
               <span class="super-btn-in" style="width:29px; height:29px;"></span>
             </div>
           </div>
         </div>
         <div style="height:53px; padding:0 6px; margin-bottom:8px;">
           <div style="width:33%; height:100%; float:left;">
-            <div class="super-btn-out" style="width:38px; height:38px; margin-top:7px;">
+            <div @click="oauthLogin('baidu')" class="super-btn-out" title="BaiDu" style="width:38px; height:38px; margin-top:7px;">
               <span class="super-btn-in" style="width:29px; height:29px;"></span>
             </div>
           </div>
           <div style="width:34%; height:100%; float:left; box-sizing:border-box;">
-            <div class="super-btn-out" style="width:38px; height:38px; margin-top:7px;">
+            <div @click="oauthLogin('gitee')" class="super-btn-out" title="Gitee" style="width:38px; height:38px; margin-top:7px;">
               <span class="super-btn-in" style="width:29px; height:29px;"></span>
             </div>
           </div>
           <div style="width:33%; height:100%; float:left;">
-            <div @click="oauthLogin" class="super-btn-out" style="width:38px; height:38px; margin-top:7px;">
+            <div @click="oauthLogin('github')" class="super-btn-out" title="Github" style="width:38px; height:38px; margin-top:7px;">
               <span class="super-btn-in" style="width:29px; height:29px;"></span>
             </div>
           </div>
@@ -82,7 +82,8 @@
         this.contentType = type
       },
 
-      oauthLogin () {
+      oauthLogin (oauthType = '') {
+        this.$store.commit('CHANGE_OAUTH_TYPE', oauthType)
         this.$store.commit('CHANGE_MODAL_TYPE', 'OauthLogin')
       }
     }
