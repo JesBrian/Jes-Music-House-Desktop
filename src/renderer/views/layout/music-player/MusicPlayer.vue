@@ -69,8 +69,8 @@
       </div>
       <ul style="width:99.5%; height:348px; margin:0; padding:0 2px; box-sizing:border-box; overflow:auto;">
         <li v-for="(songItem, index) in $store.state.Music.nowPlayList" class="box-shadow" style="background:#181818;">
-          <div @click.right="showAlertMenu" :class="{'active' : index === $store.state.Music.nowPlayIndex}" class="play-list-cell" style="width:100%; height:30px; margin:2px 0; padding:0 6px; box-sizing:border-box; text-align:left; line-height:30px;">
-            <i class="mh-if play"></i>
+          <div @dblclick="playThisMusic(index)" @click.right="showAlertMenu" :class="{'active' : index === $store.state.Music.nowPlayIndex}" class="play-list-cell" style="width:100%; height:30px; margin:2px 0; padding:0 6px; box-sizing:border-box; text-align:left; line-height:30px;">
+            <i @click="playThisMusic(index)" class="mh-if play"></i>
             <p class="text-hidden" style="width:318px; height:100%; float:left;">{{ songItem.name }}</p>
             <p class="music-oper" style="margin:0 12px;">
               <i @click="collectionThisSong" class="mh-if collection-music" style="margin:0 2px;"></i>
@@ -120,6 +120,13 @@
         }
       },
 
+      nowPlayIndex () {
+        console.log(888)
+        setTimeout(() => {
+          this.musicSource.play()
+        }, 168)
+      },
+
       volumeStatus () {
         this.volumeStatus ? this.musicSource.volume = this.volumeLevel : this.musicSource.volume = 0
       },
@@ -132,6 +139,9 @@
     computed: {
       playStatus () {
         return this.$store.state.Music.playStatus
+      },
+      nowPlayIndex () {
+        return this.$store.state.Music.nowPlayIndex
       }
     },
 
@@ -191,6 +201,9 @@
         this.saveLocalForageData()
       },
 
+      /**
+       * 修改播放模式
+       */
       changePlayModel () {
         let type = ''
         if (this.playModel === 'loop') {
@@ -204,14 +217,23 @@
         this.saveLocalForageData()
       },
 
+      /**
+       * 展示/隐藏桌面歌词
+       */
       changeShowLyric () {
         this.$store.commit('CHANGE_SHOW_LYRIC')
       },
 
+      /**
+       * 展示/隐藏播放列表内容区域
+       */
       changePlayListContentStatus () {
         this.playListContentStatus = !this.playListContentStatus
       },
 
+      /**
+       *
+       */
       changePlayListContentType (type = 'now') {
         this.playListContentType = type
       },
@@ -323,6 +345,13 @@
           this.$store.commit('CHANGE_NOW_PLAY_INDEX', {nowIndexNum: indexTemp})
         }
         this.$store.commit('CHANGE_PLAY_STATUS', true)
+      },
+
+      /**
+       * 切换播放列表中的歌曲
+       */
+      playThisMusic (playIndex) {
+        this.$store.commit('CHANGE_NOW_PLAY_INDEX', {nowIndexNum: playIndex})
       },
 
       showAlertMenu (event) {

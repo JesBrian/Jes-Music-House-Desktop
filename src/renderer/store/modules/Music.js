@@ -50,6 +50,7 @@ const mutations = {
     } else {
       state.nowPlayIndex = option.nowIndexNum
     }
+    state.playStatus = true
   },
 
   /**
