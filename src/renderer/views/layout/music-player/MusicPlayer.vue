@@ -2,7 +2,7 @@
   <div class="glass-bg box-show ban-select" style="width:100%; height:46px; bottom:0; left:0; position:fixed; border-radius:0; color:#AAA; text-align:center; line-height:44px;">
 
     <!-- 音乐播放器资源 -->
-    <audio id="musicSource" ref="musicSource" :src="$store.state.Global.RESOURCE_URL + 'test1.mp3'"></audio>
+    <audio id="musicSource" ref="musicSource" v-if="$store.state.Music.nowPlayList.length !== 0" preload @ended="nowMusicEndNextPlay" :src="$store.state.Global.RESOURCE_URL + $store.state.Music.nowPlayList[$store.state.Music.nowPlayIndex].name + '.mp3'" style="top:0; position:absolute;"></audio>
 
     <!-- 播放器控制样式 -->
     <div style="width:188px; height:100%; float:left; text-align:center;">
@@ -68,10 +68,10 @@
         <i @click="changePlayListContentStatus" class="mh-if close" style="top:0; right:6px; position:absolute; font-size:22px;"></i>
       </div>
       <ul style="width:99.5%; height:348px; margin:0; padding:0 2px; box-sizing:border-box; overflow:auto;">
-        <li v-for="n in 120" class="box-shadow" style="background:#181818;">
-          <div @click.right="showAlertMenu" :class="{'active' : n === 5}" class="play-list-cell" style="width:100%; height:30px; margin:2px 0; padding:0 6px; box-sizing:border-box; text-align:left; line-height:30px;">
+        <li v-for="(songItem, index) in $store.state.Music.nowPlayList" class="box-shadow" style="background:#181818;">
+          <div @click.right="showAlertMenu" :class="{'active' : index === $store.state.Music.nowPlayIndex}" class="play-list-cell" style="width:100%; height:30px; margin:2px 0; padding:0 6px; box-sizing:border-box; text-align:left; line-height:30px;">
             <i class="mh-if play"></i>
-            <p class="text-hidden" style="width:318px; height:100%; float:left;">{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}{{ n }}</p>
+            <p class="text-hidden" style="width:318px; height:100%; float:left;">{{ songItem.name }}</p>
             <p class="music-oper" style="margin:0 12px;">
               <i @click="collectionThisSong" class="mh-if collection-music" style="margin:0 2px;"></i>
               <i @click="shareThisSong" class="mh-if share" style="margin:0 2px;"></i>
@@ -79,7 +79,7 @@
               <i class="mh-if trash" style="margin:0 2px;"></i>
             </p>
             <span style="margin:0 8px 0 12px; float:right;">00:00</span>
-            <p class="text-hidden" style="width:132px; float:right;">JesBrian{{ n }}JesBrian{{ n }}JesBrian{{ n }}</p>
+            <p class="text-hidden" style="width:132px; float:right;">JesBrian</p>
           </div>
         </li>
       </ul>
@@ -307,6 +307,24 @@
         }
       },
 
+      /**
+       * 播放结束下一首
+       */
+      nowMusicEndNextPlay () {
+        if (this.playModel === 'loop') {
+          this.$store.commit('CHANGE_NOW_PLAY_INDEX')
+        } else if (this.playModel === 'single-loop') {
+          this.musicSource.play()
+        } else {
+          let indexTemp
+          do {
+            indexTemp = Number.parseInt(this.$store.state.Music.nowPlayList.length * Math.random())
+          } while (indexTemp === this.$store.state.nowPlayIndex)
+          this.$store.commit('CHANGE_NOW_PLAY_INDEX', {nowIndexNum: indexTemp})
+        }
+        this.$store.commit('CHANGE_PLAY_STATUS', true)
+      },
+
       showAlertMenu (event) {
         let position = mouseCoords(event)
         let alertMenuConf = {
@@ -384,12 +402,10 @@
     color:#888;
   }
   .play-list-cell:hover {
-    background:#0B0B0B;
-    color:#CCC;
+    background:#121212; color:#CCC;
   }
   .play-list-cell.active {
-    background:#000;
-    color:#EEE;
+    background:#0B0B0B; color:#EEE;
   }
   .play-list-cell > .play {
     margin:0 8px 0 4px; float:left;

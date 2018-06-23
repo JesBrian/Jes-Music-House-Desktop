@@ -7,8 +7,6 @@ const state = {
 const mutations = {
   /**
    * 展示 / 关闭 右键菜单
-   * @param state
-   * @param conf
    */
   SHOW_ALERT_MENU (state, conf = null) {
     if (conf) {
