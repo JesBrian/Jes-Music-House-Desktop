@@ -34,6 +34,13 @@ const mutations = {
   },
 
   /**
+   *
+   */
+  SET_NOW_PLAY_INDEX (state, nowIndex = -1) {
+    state.nowPlayIndex = nowIndex
+  },
+
+  /**
    * 修改当前播放歌曲在播放列表的位置
    */
   CHANGE_NOW_PLAY_INDEX (state, option = {nowIndexNum: -1, prevOrNext: 'next'}) {

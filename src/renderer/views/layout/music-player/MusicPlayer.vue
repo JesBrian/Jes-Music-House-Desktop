@@ -6,9 +6,11 @@
 
     <!-- 播放器控制样式 -->
     <div style="width:188px; height:100%; float:left; text-align:center;">
-      <i class="mh-if double-arrow-left" style="margin:1px 0 0 33px; float:left; font-size:22px;"></i>
+      <i @click="changePlayListIndex('prev')" class="mh-if double-arrow-left" style="margin:1px 0 0 33px; float:left; font-size:22px;"></i>
+      <!--<i class="mh-if double-arrow-left" style="margin:1px 0 0 33px; float:left; font-size:22px;"></i>-->
       <i @click="changePlayStatus" :class="playStatus ? 'stop' : 'play'" class="mh-if" style="display:inline-block; font-size:35px;"></i>
-      <i class="mh-if double-arrow-right" style="margin:1px 28px 0 0; float:right; font-size:22px;"></i>
+      <i @click="changePlayListIndex('next')" class="mh-if double-arrow-right" style="margin:1px 28px 0 0; float:right; font-size:22px;"></i>
+      <!--<i class="mh-if double-arrow-right" style="margin:1px 28px 0 0; float:right; font-size:22px;"></i>-->
     </div>
 
     <!-- 播放进度部分 -->
@@ -114,17 +116,13 @@
         this.musicSource.currentTime = this.musicCTime
 
         if (this.$store.state.Music.playStatus) {
-          this.musicSource.play()
+          setTimeout(() => {
+            this.musicSource.play()
+          }, 138)
         } else {
           this.musicSource.pause()
+          this.saveLocalForageData()
         }
-      },
-
-      nowPlayIndex () {
-        console.log(888)
-        setTimeout(() => {
-          this.musicSource.play()
-        }, 168)
       },
 
       volumeStatus () {
@@ -139,9 +137,6 @@
     computed: {
       playStatus () {
         return this.$store.state.Music.playStatus
-      },
-      nowPlayIndex () {
-        return this.$store.state.Music.nowPlayIndex
       }
     },
 
@@ -149,10 +144,13 @@
       // 读取 localForage 音乐信息
       this.localForage.getItem('music', (result, value) => {
         if (value) {
+          this.$store.commit('SET_NOW_PLAY_INDEX', value.nowPlayIndex)
           this.playModel = value.playModel
           this.volumeStatus = value.volumeStatus
           this.volumeLevel = value.volumeLevel
-          this.musicCTime = value.musicCTime
+          setTimeout(() => {
+            this.musicCTime = value.musicCTime
+          }, 0.1)
         }
       })
 
@@ -165,7 +163,8 @@
           playModel: this.playModel,
           volumeStatus: this.volumeStatus,
           volumeLevel: this.volumeLevel,
-          musicCTime: this.musicCTime
+          musicCTime: this.musicCTime,
+          nowPlayIndex: this.$store.state.Music.nowPlayIndex
         }
         this.localForage.setItem('music', musicData, () => {
           this.ipcRenderer.send('window-all-closed')
@@ -231,9 +230,6 @@
         this.playListContentStatus = !this.playListContentStatus
       },
 
-      /**
-       *
-       */
       changePlayListContentType (type = 'now') {
         this.playListContentType = type
       },
@@ -352,6 +348,16 @@
        */
       playThisMusic (playIndex) {
         this.$store.commit('CHANGE_NOW_PLAY_INDEX', {nowIndexNum: playIndex})
+        setTimeout(() => {
+          this.musicSource.play()
+        })
+      },
+
+      changePlayListIndex (type) {
+        this.$store.commit('CHANGE_NOW_PLAY_INDEX', {nowIndexNum: -1, prevOrNext: type})
+        setTimeout(() => {
+          this.musicSource.play()
+        })
       },
 
       showAlertMenu (event) {
@@ -372,7 +378,8 @@
           playModel: this.playModel,
           volumeStatus: this.volumeStatus,
           volumeLevel: this.volumeLevel,
-          musicCTime: this.musicCTime
+          musicCTime: this.musicCTime,
+          nowPlayIndex: this.$store.state.Music.nowPlayIndex
         }
         this.localForage.setItem('music', musicData)
       }
