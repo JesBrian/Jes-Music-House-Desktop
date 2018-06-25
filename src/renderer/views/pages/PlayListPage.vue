@@ -39,7 +39,7 @@
           </div>
         </div>
 
-        <div style="font-size:14px;">
+        <div style="position:relative; letter-spacing:1px; font-size:14px;">
           <p style="margin-bottom:8px;">
             <span style="color:#DDD;">标签：</span>
             <page-link :url="'/index/play-list'" style="color:#00d8ff;">666</page-link>
@@ -48,16 +48,17 @@
             <i style="margin:0 3px; color:#FFF;">/</i>
             <page-link :url="'/index/play-list'" style="color:#00d8ff;">999</page-link>
           </p>
-          <p style="word-break:break-all; line-height:1.2em;">
+          <p ref="playListDescript" :style="isShowDescript ? 'height:100%;' : 'height:38px;'" style="width:92%; word-break:break-all; line-height:19px; overflow:hidden;">
             <span style="color:#DDD;">简介：</span>
-            wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,
+            wsedjnm'fgvh测试jnkml,ws恐怕edjn4515gvhjnk486djnm相差谁vhjnkml,wsed场设jnm'fgvh4156jnkml,w现备和健康sedjnm'fgvhjnkml513vjv处理vhjnk产量数52edjnm急哦fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml
           </p>
+          <i v-if="isShowReadMoreDescriptBtn" @click="isShowDescript = !isShowDescript" :class="['mh-if', isShowDescript ? 'double-arrow-up' : 'double-arrow-down']" style="top:33px; right:8px; position:absolute;"></i>
         </div>
       </div>
     </div>
 
     <!-- 歌单内容切换 -->
-    <div style="width:100%; height:32px; margin:28px auto 0; padding:0 3%; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; color:#BBB; font-size:17px; font-weight:700; text-shadow:1px 1px 0.5px #000; line-height:28px;">
+    <div style="width:100%; height:32px; margin:32px auto 0; padding:0 3%; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; color:#BBB; font-size:17px; font-weight:700; text-shadow:1px 1px 0.5px #000; line-height:28px;">
       <span @click="changeContent('SongGroup')" :class="{'active': type === 'SongGroup'}" class="play-list-menu-cell">歌曲列表</span>
       <span @click="changeContent('CommentTotal')" :class="{'active': type === 'CommentTotal'}" class="play-list-menu-cell">评论 [666]</span>
       <label v-if="type === 'SongGroup'" class="super-btn-out active" style="width:268px; height:32px; margin:-2px 8px 0 0; float:right; position:relative; border:none; border-radius:16px;">
@@ -87,7 +88,15 @@
 
     data () {
       return {
+        isShowReadMoreDescriptBtn: false,
+        isShowDescript: false,
         type: 'SongGroup'
+      }
+    },
+
+    mounted () {
+      if (this.$refs['playListDescript'].scrollHeight > this.$refs['playListDescript'].clientHeight) {
+        this.isShowReadMoreDescriptBtn = true
       }
     },
 
