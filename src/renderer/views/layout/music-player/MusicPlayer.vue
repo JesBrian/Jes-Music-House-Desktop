@@ -7,10 +7,8 @@
     <!-- 播放器控制样式 -->
     <div style="width:188px; height:100%; float:left; text-align:center;">
       <i @click="changePlayListIndex('prev')" class="mh-if double-arrow-left" style="margin:1px 0 0 33px; float:left; font-size:22px;"></i>
-      <!--<i class="mh-if double-arrow-left" style="margin:1px 0 0 33px; float:left; font-size:22px;"></i>-->
       <i @click="changePlayStatus" :class="playStatus ? 'stop' : 'play'" class="mh-if" style="display:inline-block; font-size:35px;"></i>
       <i @click="changePlayListIndex('next')" class="mh-if double-arrow-right" style="margin:1px 28px 0 0; float:right; font-size:22px;"></i>
-      <!--<i class="mh-if double-arrow-right" style="margin:1px 28px 0 0; float:right; font-size:22px;"></i>-->
     </div>
 
     <!-- 播放进度部分 -->

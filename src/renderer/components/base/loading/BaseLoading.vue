@@ -23,7 +23,7 @@ export default {
     width: 30px;
     height: 8.5px;
     border-radius: 5px;
-    background: linear-gradient(to right, #64E0FF, #33cdff, #2893ff); /* 标准的语法 */
+    background: linear-gradient(to right, #64E0FF, #33cdff, #2893ff);
     /*box-shadow: 3px 0 3px 0 #69d2e7;*/
     position: absolute;
     -webkit-animation: load 1.04s ease infinite;
