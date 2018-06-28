@@ -25,7 +25,7 @@
     <!-- 歌手内容切换 -->
     <div style="width:100%; height:32px; margin:28px auto 0; padding:0 3%; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; color:#BBB; font-size:17px; font-weight:700; text-shadow:1px 1px 0.5px #000; line-height:28px;">
       <span @click="changeContent('play-list')" :class="{'active': type === 'play-list'}" class="singer-menu-cell">专辑</span>
-      <span @click="changeContent('descript')" :class="{'active': type === 'descript'}" class="singer-menu-cell">歌手详情</span>
+      <span @click="changeContent('description')" :class="{'active': type === 'description'}" class="singer-menu-cell">歌手详情</span>
       <span @click="changeContent('similar-singer')" :class="{'active': type === 'similar-singer'}" class="singer-menu-cell">相似歌手</span>
 
       <div v-if="type === 'play-list'" style="height:100%; margin-top:-4px; float:right;">
@@ -51,7 +51,7 @@
 
 <script>
   import PlayList from '../../components/extends/play-list/ShowPlayList.vue'
-  import Descript from '../../components/base/descript/Descript.vue'
+  import Description from '../../components/base/description/Description.vue'
   import SimilarSinger from '../../components/extends/search/singer/SingerGroup.vue'
   import PictureGroup from '../../components/extends/play-list/picture/PictureGroup.vue'
   import ListGroup from '../../components/extends/play-list/list/ListGroup.vue'
@@ -61,7 +61,7 @@
     name: 'SingerPage',
 
     components: {
-      PlayList, Descript, SimilarSinger, PictureGroup, ListGroup, PictureListGroup
+      PlayList, Description, SimilarSinger, PictureGroup, ListGroup, PictureListGroup
     },
 
     data () {

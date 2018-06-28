@@ -16,7 +16,7 @@
 
           <span style="font-size:13.5px;">2018-09-23 创建</span>
 
-          <div style="top:0; right:0; position:absolute; text-align:right; line-height:1.2em; color:#AAA; font-size:13.5px;">
+          <div style="top:0; right:0; position:absolute; text-align:right; line-height:1.2em; color:#AAA; font-size:13.5px; letter-spacing:1.8px;">
             歌曲数<br/>106
           </div>
         </div>
@@ -48,11 +48,11 @@
             <i style="margin:0 3px; color:#FFF;">/</i>
             <page-link :url="'/index/play-list'" style="color:#00d8ff;">999</page-link>
           </p>
-          <p ref="playListDescript" :style="isShowDescript ? 'height:100%;' : 'height:38px;'" style="width:92%; word-break:break-all; line-height:19px; overflow:hidden;">
+          <p ref="playListDescription" :style="isShowDescription ? 'height:100%;' : 'height:38px;'" style="width:92%; word-break:break-all; line-height:19px; overflow:hidden;">
             <span style="color:#DDD;">简介：</span>
             wsedjnm'fgvh测试jnkml,ws恐怕edjn4515gvhjnk486djnm相差谁vhjnkml,wsed场设jnm'fgvh4156jnkml,w现备和健康sedjnm'fgvhjnkml513vjv处理vhjnk产量数52edjnm急哦fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml,wsedjnm'fgvhjnkml
           </p>
-          <i v-if="isShowReadMoreDescriptBtn" @click="isShowDescript = !isShowDescript" :class="['mh-if', isShowDescript ? 'double-arrow-up' : 'double-arrow-down']" style="top:33px; right:8px; position:absolute;"></i>
+          <i v-if="isShowDescriptionBtn" @click="isShowDescription = !isShowDescription" :class="['mh-if', isShowDescription ? 'double-arrow-up' : 'double-arrow-down']" class="show-description-btn"></i>
         </div>
       </div>
     </div>
@@ -88,15 +88,15 @@
 
     data () {
       return {
-        isShowReadMoreDescriptBtn: false,
-        isShowDescript: false,
+        isShowDescriptionBtn: false,
+        isShowDescription: false,
         type: 'SongGroup'
       }
     },
 
     mounted () {
-      if (this.$refs['playListDescript'].scrollHeight > this.$refs['playListDescript'].clientHeight) {
-        this.isShowReadMoreDescriptBtn = true
+      if (this.$refs['playListDescription'].scrollHeight > this.$refs['playListDescription'].clientHeight) {
+        this.isShowDescriptionBtn = true
       }
     },
 
@@ -118,6 +118,13 @@
   }
   .play-list-menu-cell.active {
     border-bottom:2px solid #20dbfc; color:#20dbfc
+  }
+
+  .show-description-btn {
+    top:33px; right:8px; position:absolute; cursor:pointer;
+  }
+  .show-description-btn:hover {
+    color: #00d8ff;
   }
 
 </style>

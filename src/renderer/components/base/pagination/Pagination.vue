@@ -71,6 +71,7 @@
     position: relative;
     bottom: -9px;
     text-align: center;
+    cursor:pointer;
   }
 
   #menu .prev, #menu .next {

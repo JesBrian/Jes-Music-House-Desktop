@@ -214,7 +214,7 @@
     display:block;
   }
 	.now-song .now-song-name {
-		margin:10px 0 6px; float:left; font-size:18px; color:#CCC;
+		margin:10px 0 6px; float:left; font-size:18px; color:#CCC; cursor:pointer;
 	}
 	.now-song .now-singer {
     width:138px;

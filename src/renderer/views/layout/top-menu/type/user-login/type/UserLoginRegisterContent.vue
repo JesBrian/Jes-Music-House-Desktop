@@ -6,7 +6,7 @@
       <span class="super-btn-in mh-if double-arrow-left" style="width:50px; height:18px; line-height:20px; font-size:13px;"> 返回</span>
     </div>
 
-    <div style="width:88%; margin:5px auto 18px;">
+    <div @keyup.enter="userRegister" style="width:88%; margin:5px auto 18px;">
       <label style="position:relative;">
         <i class="mh-if phone" style="top:-3px; left:4px; position:absolute; font-size:21px; color:#20DBFC;"></i>
         <input v-model.trim="phone" class="glass-bg" type="tel" style="width:100%; height:33px; padding:0 8px 0 28px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="请输入手机号"/>

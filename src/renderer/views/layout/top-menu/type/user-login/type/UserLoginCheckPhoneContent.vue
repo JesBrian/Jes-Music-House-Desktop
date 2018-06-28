@@ -6,7 +6,7 @@
       <span class="super-btn-in mh-if double-arrow-left" style="width:50px; height:18px; line-height:20px; font-size:13px;"> 返回</span>
     </div>
 
-    <div style="width:88%; margin:18px auto;">
+    <div @keyup.enter="checkIdentifyingCode" style="width:88%; margin:18px auto;">
       <label style="position:relative;">
         <i class="mh-if code" style="top:-3px; left:4px; position:absolute; font-size:21px; color:#20DBFC;"></i>
         <input v-model.trim="identifyingCode" class="glass-bg" type="tel" style="width:58%; height:33px; padding:0 8px 0 28px; border:none; border-radius:0; color:#20dbfc; font-size:15px; letter-spacing:1px;" placeholder="填写验证码"/>
