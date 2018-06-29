@@ -132,9 +132,11 @@
       },
 
       nowPlayIndex () {
-        setTimeout(() => {
-          this.musicSource.play()
-        }, 138)
+        if (this.$store.state.Music.playStatus) {
+          setTimeout(() => {
+            this.musicSource.play()
+          }, 138)
+        }
       }
     },
 
