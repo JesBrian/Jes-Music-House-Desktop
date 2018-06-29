@@ -56,9 +56,7 @@
       </div>
     </div>
     <div style="width:96%; margin:0 auto;">
-
       <show-play-list :showType="createPlayListShowType" />
-
     </div>
 
     <!-- 收藏的歌单 -->
