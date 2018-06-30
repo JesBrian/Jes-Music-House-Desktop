@@ -129,12 +129,22 @@
 
       volumeLevel () {
         this.musicSource.volume = this.volumeLevel
+      },
+
+      nowPlayIndex () {
+        setTimeout(() => {
+          this.musicSource.play()
+        }, 138)
       }
     },
 
     computed: {
       playStatus () {
         return this.$store.state.Music.playStatus
+      },
+
+      nowPlayIndex () {
+        return this.$store.state.Music.nowPlayIndex
       }
     },
 

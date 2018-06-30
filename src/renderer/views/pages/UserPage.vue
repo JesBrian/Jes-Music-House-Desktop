@@ -55,7 +55,7 @@
         </div>
       </div>
     </div>
-    <div style="width:96%; margin:0 auto;">
+    <div style="width:96%; margin:0 auto 28px;">
       <show-play-list :showType="createPlayListShowType" />
     </div>
 
@@ -74,7 +74,6 @@
         </div>
       </div>
     </div>
-
     <div style="width:96%; margin:0 auto 28px;">
       <show-play-list :showType="collectionPlayListShowType" />
     </div>
