@@ -39,8 +39,8 @@ export default new Router({
           component: () => import('@/views/pages/UserPage.vue')
         },
         {
-          path: '/collection',
-          component: () => import('@/views/pages/CollectionPage.vue')
+          path: '/follow',
+          component: () => import('@/views/pages/FollowPage.vue')
         },
         {
           path: '/download',

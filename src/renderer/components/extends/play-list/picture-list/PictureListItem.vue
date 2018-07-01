@@ -18,16 +18,16 @@
           <div @click.right="showAlertMenu('SongMenu')" style="width:100%; height:28px; line-height:28px; text-align:center;">
             <p style="width:6%; float:left;">{{ n }}</p>
             <p style="width:10%; float:left;">
-              <i class="mh-if play" style="margin:0 3px;"></i>
-              <i class="mh-if non-colloection" style="margin:0 3px;"></i>
-              <i class="mh-if download" style="margin:0 3px;"></i>
+              <i class="mh-if play" style="margin:0 2px;"></i>
+              <i class="mh-if non-colloection" style="margin:0 2px;"></i>
+              <i class="mh-if download" style="margin:0 2px;"></i>
             </p>
-            <P style="width:68%; float:left; text-indent:1.5em; text-align:left;">The Name of this Song</P>
+            <P style="width:68%; float:left; text-indent:1.2em; text-align:left;">The Name of this Song</P>
             <p style="width:12%; float:left;">00:00</p>
           </div>
         </li>
       </ul>
-      <page-link url="/play-list" style="line-height:2.8em; font-size:13px; color:#999;">查看全部135首</page-link>
+      <page-link url="/play-list" style="line-height:2.5em; font-size:13px; color:#999;">查看全部135首</page-link>
     </div>
   </div>
 </template>
