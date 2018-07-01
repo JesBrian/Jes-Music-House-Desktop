@@ -47,7 +47,7 @@
                 </page-link>
               </li>
 							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/follow" class="left-menu-item">
+                <page-link url="/follow/singer" class="left-menu-item">
                   <i class="mh-if collection-music" style="margin-right:6px;"></i>我的关注
                 </page-link>
               </li>

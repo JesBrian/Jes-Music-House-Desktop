@@ -30,6 +30,8 @@
   import UserGroup from '../../components/extends/search/user/UserGroup.vue'
   import Pagination from '../../components/base/pagination/Pagination.vue'
 
+  import { changePage } from '../../assets/js/commom.js'
+
   export default {
     name: 'FollowPage',
 
@@ -43,9 +45,18 @@
       }
     },
 
+    watch: {
+      $route () {
+        if (this.type !== this.$route.params['type']) {
+          this.type = this.$route.params['type']
+        }
+      }
+    },
+
     methods: {
       changeType (type = 'user') {
         this.type = type
+        changePage(`/follow/${type}`, this)
       }
     }
   }

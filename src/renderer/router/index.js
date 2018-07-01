@@ -39,7 +39,7 @@ export default new Router({
           component: () => import('@/views/pages/UserPage.vue')
         },
         {
-          path: '/follow',
+          path: '/follow/:type',
           component: () => import('@/views/pages/FollowPage.vue')
         },
         {
