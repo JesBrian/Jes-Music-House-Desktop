@@ -4,7 +4,7 @@
     <div style="width:676px; height:53px; top:50px; padding:0 43px; position:fixed; box-sizing:border-box; background:#111; box-shadow:0 3px 3px -3px #20dbfc; text-shadow:1px 1px 0.5px #000; z-index:5;">
       <span style="font-size:23px; font-weight:700; color:#CCC; line-height:63px;">动态</span>
       <div class="super-btn-out" style="width:84px; height:30px; margin-top:13px; float:right;">
-        <span class="super-btn-in mh-if non-colloection" style="width:76px; height:22px; line-height:23px;"> 写动态</span>
+        <span class="super-btn-in mh-if feedback" style="width:76px; height:22px; line-height:23px;"> 写动态</span>
       </div>
     </div>
 

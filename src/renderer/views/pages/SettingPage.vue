@@ -53,7 +53,7 @@
 
     <!-- 修改头像 -->
     <div style="width:38%; float:right; text-align:center;">
-      <img src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" class="cube-bg box-show" style="width:138px; height:138px; margin:0 auto; padding:8px; display:block;"/>
+      <img src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" class="glass-bg box-show" style="width:138px; height:138px; margin:0 auto; padding:5px; display:block;"/>
       <div class="super-btn-out" style="width:128px; height:32px; margin-top:12px;">
         <span class="super-btn-in mh-if datum" style="width:118px; height:22px; line-height:22px;">&nbsp;&nbsp;修改头像</span>
       </div>
