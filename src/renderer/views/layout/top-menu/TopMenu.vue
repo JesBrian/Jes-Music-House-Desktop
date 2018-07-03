@@ -68,7 +68,7 @@
   import ChooseTheme from './type/choose-theme/ChooseTheme.vue'
   import UserLogin from './type/user-login/UserLogin.vue'
 
-  import { changePage } from '../../../assets/js/commom.js'
+  import { changePage, closeCloverComponent } from '../../../assets/js/commom.js'
 
   export default {
     name: 'TopMenu',
@@ -92,6 +92,7 @@
 
     methods: {
       changeRouter (type) {
+        closeCloverComponent(this)
         if (type === 1) {
           this.$store.commit('CHANGE_NOW_INDEX', this.$store.state.Router.nowIndex + 1)
         } else {
