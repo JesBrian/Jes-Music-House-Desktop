@@ -303,33 +303,33 @@
       // 原图样式
       sourceImgStyle () {
         let {
-            scale,
-            sourceImgMasking
-          } = this,
-          top = scale.y + sourceImgMasking.y + 'px',
-          left = scale.x + sourceImgMasking.x + 'px'
+          scale,
+          sourceImgMasking
+        } = this
+        let top = scale.y + sourceImgMasking.y + 'px'
+        let left = scale.x + sourceImgMasking.x + 'px'
         return {
           top,
           left,
           width: scale.width + 'px',
-          height: scale.height + 'px',// 兼容 Opera
+          height: scale.height + 'px'// 兼容 Opera
         }
       },
       // 原图蒙版属性
       sourceImgMasking () {
         let {
-            width,
-            height,
-            ratio,
-            sourceImgContainer
-          } = this,
-          sic = sourceImgContainer,
-          sicRatio = sic.width / sic.height, // 原图容器宽高比
-          x = 0,
-          y = 0,
-          w = sic.width,
-          h = sic.height,
-          scale = 1
+          width,
+          height,
+          ratio,
+          sourceImgContainer
+        } = this
+        let sic = sourceImgContainer
+        let sicRatio = sic.width / sic.height // 原图容器宽高比
+        let x = 0
+        let y = 0
+        let w = sic.width
+        let h = sic.height
+        let scale = 1
         if (ratio < sicRatio) {
           scale = sic.height / height
           w = sic.height * ratio
@@ -351,13 +351,13 @@
       // 原图遮罩样式
       sourceImgShadeStyle () {
         let {
-            sourceImgMasking,
-            sourceImgContainer
-          } = this,
-          sic = sourceImgContainer,
-          sim = sourceImgMasking,
-          w = sim.width === sic.width ? sim.width : (sic.width - sim.width) / 2,
-          h = sim.height === sic.height ? sim.height : (sic.height - sim.height) / 2
+          sourceImgMasking,
+          sourceImgContainer
+        } = this
+        let sic = sourceImgContainer
+        let sim = sourceImgMasking
+        let w = sim.width === sic.width ? sim.width : (sic.width - sim.width) / 2
+        let h = sim.height === sic.height ? sim.height : (sic.height - sim.height) / 2
         return {
           width: w + 'px',
           height: h + 'px'
@@ -365,15 +365,15 @@
       },
       previewStyle () {
         let {
-            width,
-            height,
-            ratio,
-            previewContainer
-          } = this,
-          pc = previewContainer,
-          w = pc.width,
-          h = pc.height,
-          pcRatio = w / h
+          // width,
+          // height,
+          ratio,
+          previewContainer
+        } = this
+        let pc = previewContainer
+        let w = pc.width
+        let h = pc.height
+        let pcRatio = w / h
         if (ratio < pcRatio) {
           w = pc.height * ratio
         }
@@ -395,20 +395,20 @@
     },
     methods: {
       // 点击波纹效果
-      ripple(e) {
+      ripple (e) {
         effectRipple(e)
       },
       // 关闭控件
-      off() {
+      off () {
         setTimeout(() => {
           this.$emit('input', false)
-          if (this.step == 3 && this.loading == 2) {
+          if (this.step === 3 && this.loading === 2) {
             this.setStep(1)
           }
         }, 200)
       },
       // 设置步骤
-      setStep(no) {
+      setStep (no) {
         // 延时是为了显示动画效果呢，哈哈哈
         setTimeout(() => {
           this.step = no
@@ -501,13 +501,13 @@
         let img = new Image()
         img.src = sourceImgUrl
         img.onload = function () {
-          let nWidth = img.naturalWidth,
-            nHeight = img.naturalHeight,
-            nRatio = nWidth / nHeight,
-            w = sim.width,
-            h = sim.height,
-            x = 0,
-            y = 0
+          let nWidth = img.naturalWidth
+          let nHeight = img.naturalHeight
+          let nRatio = nWidth / nHeight
+          let w = sim.width
+          let h = sim.height
+          let x = 0
+          let y = 0
           // 图片像素不达标
           if (nWidth < width || nHeight < height) {
             that.hasError = true
@@ -545,12 +545,12 @@
         if (this.isSupportTouch && !e.targetTouches) {
           return false
         }
-        let et = e.targetTouches ? e.targetTouches[0] : e,
-          {
-            sourceImgMouseDown,
-            scale
-          } = this,
-          simd = sourceImgMouseDown
+        let et = e.targetTouches ? e.targetTouches[0] : e
+        let {
+          sourceImgMouseDown,
+          scale
+        } = this
+        let simd = sourceImgMouseDown
         simd.mX = et.screenX
         simd.mY = et.screenY
         simd.x = scale.x
@@ -558,31 +558,25 @@
         simd.on = true
       },
       // 鼠标按下状态下移动，图片移动
-      imgMove(e) {
+      imgMove (e) {
         e.preventDefault()
         // 支持触摸事件，则鼠标事件无效
         if (this.isSupportTouch && !e.targetTouches) {
           return false
         }
-        let et = e.targetTouches ? e.targetTouches[0] : e,
-          {
-            sourceImgMouseDown: {
-              on,
-              mX,
-              mY,
-              x,
-              y
-            },
-            scale,
-            sourceImgMasking
-          } = this,
-          sim = sourceImgMasking,
-          nX = et.screenX,
-          nY = et.screenY,
-          dX = nX - mX,
-          dY = nY - mY,
-          rX = x + dX,
-          rY = y + dY
+        let et = e.targetTouches ? e.targetTouches[0] : e
+        let {
+          sourceImgMouseDown: {on, mX, mY, x, y},
+          scale,
+          sourceImgMasking
+        } = this
+        let sim = sourceImgMasking
+        let nX = et.screenX
+        let nY = et.screenY
+        let dX = nX - mX
+        let dY = nY - mY
+        let rX = x + dX
+        let rY = y + dY
         if (!on) return
         if (rX > 0) {
           rX = 0
@@ -600,18 +594,18 @@
         scale.y = rY
       },
       // 顺时针旋转图片
-      rotateImg(e) {
+      rotateImg (e) {
         let {
-            sourceImg,
-            scale: {
-              naturalWidth,
-              naturalHeight,
-            }
-          } = this,
-          width = naturalHeight,
-          height = naturalWidth,
-          canvas = this.$refs.canvas,
-          ctx = canvas.getContext('2d')
+          sourceImg,
+          scale: {
+            naturalWidth,
+            naturalHeight
+          }
+        } = this
+        let width = naturalHeight
+        let height = naturalWidth
+        let canvas = this.$refs.canvas
+        let ctx = canvas.getContext('2d')
         canvas.width = width
         canvas.height = height
         ctx.clearRect(0, 0, width, height)
@@ -630,14 +624,14 @@
       },
 
       // 按钮按下开始放大
-      startZoomAdd(e) {
-        let that = this,
-          {
-            scale
-          } = that
+      startZoomAdd (e) {
+        let that = this
+        let {
+          scale
+        } = that
         scale.zoomAddOn = true
 
-        function zoom() {
+        function zoom () {
           if (scale.zoomAddOn) {
             let range = scale.range >= 100 ? 100 : ++scale.range
             that.zoomImg(range)
@@ -650,18 +644,18 @@
         zoom()
       },
       // 按钮松开或移开取消放大
-      endZoomAdd(e) {
+      endZoomAdd (e) {
         this.scale.zoomAddOn = false
       },
       // 按钮按下开始缩小
-      startZoomSub(e) {
-        let that = this,
-          {
-            scale
-          } = that
+      startZoomSub (e) {
+        let that = this
+        let {
+          scale
+        } = that
         scale.zoomSubOn = true
 
-        function zoom() {
+        function zoom () {
           if (scale.zoomSubOn) {
             let range = scale.range <= 0 ? 0 : --scale.range
             that.zoomImg(range)
@@ -674,44 +668,44 @@
         zoom()
       },
       // 按钮松开或移开取消缩小
-      endZoomSub(e) {
+      endZoomSub (e) {
         let {
           scale
         } = this
         scale.zoomSubOn = false
       },
-      zoomChange(e) {
+      zoomChange (e) {
         this.zoomImg(e.target.value)
       },
       // 缩放原图
-      zoomImg(newRange) {
-        let that = this,
-          {
-            sourceImgMasking,
-            sourceImgMouseDown,
-            scale
-          } = this,
-          {
-            maxWidth,
-            maxHeight,
-            minWidth,
-            minHeight,
-            width,
-            height,
-            x,
-            y,
-            range
-          } = scale,
-          sim = sourceImgMasking,
-          // 蒙版宽高
-          sWidth = sim.width,
-          sHeight = sim.height,
-          // 新宽高
-          nWidth = minWidth + (maxWidth - minWidth) * newRange / 100,
-          nHeight = minHeight + (maxHeight - minHeight) * newRange / 100,
-          // 新坐标（根据蒙版中心点缩放）
-          nX = sWidth / 2 - (nWidth / width) * (sWidth / 2 - x),
-          nY = sHeight / 2 - (nHeight / height) * (sHeight / 2 - y)
+      zoomImg (newRange) {
+        let that = this
+        let {
+          sourceImgMasking,
+          // sourceImgMouseDown,
+          scale
+        } = this
+        let {
+          maxWidth,
+          maxHeight,
+          minWidth,
+          minHeight,
+          width,
+          height,
+          x,
+          y
+          // range
+        } = scale
+        let sim = sourceImgMasking
+        // 蒙版宽高
+        let sWidth = sim.width
+        let sHeight = sim.height
+        // 新宽高
+        let nWidth = minWidth + (maxWidth - minWidth) * newRange / 100
+        let nHeight = minHeight + (maxHeight - minHeight) * newRange / 100
+        // 新坐标（根据蒙版中心点缩放）
+        let nX = sWidth / 2 - (nWidth / width) * (sWidth / 2 - x)
+        let nY = sHeight / 2 - (nHeight / height) * (sHeight / 2 - y)
 
         // 判断新坐标是否超过蒙版限制
         if (nX > 0) {
@@ -734,31 +728,21 @@
         scale.height = nHeight
         scale.range = newRange
         setTimeout(function () {
-          if (scale.range == newRange) {
+          if (scale.range === newRange) {
             that.createImg()
           }
         }, 300)
       },
       // 生成需求图片
-      createImg(e) {
-        let that = this,
-          {
-            imgFormat,
-            imgBgc,
-            mime,
-            sourceImg,
-            scale: {
-              x,
-              y,
-              width,
-              height,
-            },
-            sourceImgMasking: {
-              scale
-            }
-          } = that,
-          canvas = that.$refs.canvas,
-          ctx = canvas.getContext('2d')
+      createImg (e) {
+        let that = this
+        let {
+          imgFormat, imgBgc, mime, sourceImg,
+          scale: {x, y, width, height},
+          sourceImgMasking: {scale}
+        } = that
+        let canvas = that.$refs.canvas
+        let ctx = canvas.getContext('2d')
         if (e) {
           // 取消鼠标按下移动状态
           that.sourceImgMouseDown.on = false
@@ -767,7 +751,7 @@
         canvas.height = that.height
         ctx.clearRect(0, 0, that.width, that.height)
 
-        if (imgFormat == 'png') {
+        if (imgFormat === 'png') {
           ctx.fillStyle = 'rgba(0,0,0,0)'
         } else {
           // 如果jpg 为透明区域设置背景，默认白色
@@ -778,7 +762,7 @@
         ctx.drawImage(sourceImg, x / scale, y / scale, width / scale, height / scale)
         that.createImgUrl = canvas.toDataURL(mime)
       },
-      prepareUpload() {
+      prepareUpload () {
         let {
           url,
           createImgUrl,
@@ -786,28 +770,19 @@
           ki
         } = this
         this.$emit('crop-success', createImgUrl, field, ki)
-        if (typeof url == 'string' && url) {
+        if (typeof url === 'string' && url) {
           this.upload()
         } else {
           this.off()
         }
       },
       // 上传图片
-      upload() {
-        let that = this,
-          {
-            lang,
-            imgFormat,
-            mime,
-            url,
-            params,
-            headers,
-            field,
-            ki,
-            createImgUrl,
-            withCredentials
-          } = this,
-          fmData = new FormData()
+      upload () {
+        let that = this
+        let {
+          lang, imgFormat, mime, url, params, headers, field, ki, createImgUrl, withCredentials
+        } = this
+        let fmData = new FormData()
         fmData.append(field, data2blob(createImgUrl, mime), field + '.' + imgFormat)
 
         // 添加其他参数
@@ -870,7 +845,7 @@
         )
       }
     },
-    created() {
+    created () {
       // 绑定按键esc隐藏此插件事件
       document.addEventListener('keyup', (e) => {
         if (this.value && (e.key === 'Escape' || e.keyCode === 27)) {
