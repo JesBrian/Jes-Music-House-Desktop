@@ -69,7 +69,7 @@
       </div>
       <ul style="width:99.5%; height:348px; margin:0; padding:0 2px; box-sizing:border-box; overflow:auto;">
         <li v-for="(songItem, index) in $store.state.Music.nowPlayList" class="box-shadow" style="background:#181818;">
-          <div @dblclick="playThisMusic(index)" @click.right="showAlertMenu" :class="{'active' : index === $store.state.Music.nowPlayIndex}" class="play-list-cell" style="width:100%; height:30px; margin:2px 0; padding:0 6px; box-sizing:border-box; text-align:left; line-height:30px;">
+          <div @dblclick="playThisMusic(index)" @click.right="showAlertMenu" :class="{'active' : index === $store.state.Music.nowPlayIndex}" class="play-list-cell" style="width:100%; height:30px; margin:0 0 1px; padding:0 6px; box-sizing:border-box; text-align:left; line-height:30px;">
             <i @click="playThisMusic(index)" class="mh-if play"></i>
             <p class="text-hidden" style="width:318px; height:100%; float:left;">{{ songItem.name }}</p>
             <p class="music-oper" style="margin:0 12px;">
@@ -79,7 +79,9 @@
               <i class="mh-if trash" style="margin:0 2px;"></i>
             </p>
             <span style="margin:0 8px 0 12px; float:right;">00:00</span>
-            <p class="text-hidden" style="width:132px; float:right;">JesBrian</p>
+            <p class="text-hidden" style="width:132px; float:right;">
+              <page-link url="/singer">JesBrian</page-link>
+            </p>
           </div>
         </li>
       </ul>
