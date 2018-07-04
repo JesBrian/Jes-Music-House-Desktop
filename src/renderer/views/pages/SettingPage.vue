@@ -53,29 +53,29 @@
 
     <!-- 修改头像 -->
     <div style="width:38%; float:right; text-align:center;">
-      <img :src="imgDataUrl" class="glass-bg box-show" style="width:138px; height:138px; margin:0 auto; padding:5px; display:block;"/>
-      <div class="super-btn-out" style="width:128px; height:32px; margin-top:12px;">
+      <img @click="toggleShow" :src="imgDataUrl" class="glass-bg box-show" style="width:138px; height:138px; margin:0 auto; padding:5px; display:block;"/>
+      <div @click="toggleShow" class="super-btn-out" style="width:128px; height:32px; margin-top:12px;">
         <span class="super-btn-in mh-if datum" style="width:118px; height:22px; line-height:22px;">&nbsp;&nbsp;修改头像</span>
       </div>
     </div>
 
-    <my-upload field="img" @crop-success="cropSuccess" @crop-upload-success="cropUploadSuccess" @crop-upload-fail="cropUploadFail" v-model="show" :width="300" :height="300" url="/upload" :params="params" :headers="headers" img-format="png"></my-upload>
+    <upload-img field="img" @crop-success="cropSuccess" @crop-upload-success="cropUploadSuccess" @crop-upload-fail="cropUploadFail" v-model="show" :width="300" :height="300" url="/upload" :params="params" :headers="headers" img-format="png"></upload-img>
 	</div>
 </template>
 
 <script>
-  import MyUpload from 'vue-image-crop-upload'
+  import UploadImg from '../../components/extends/uploadImg/UploadImg.vue'
 
   export default {
     name: 'SettingPage',
 
     components: {
-      MyUpload
+      UploadImg
     },
 
     data () {
       return {
-        show: true,
+        show: false,
         params: {
           token: '123456798',
           name: 'avatar'
