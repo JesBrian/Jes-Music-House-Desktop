@@ -1244,7 +1244,7 @@
     margin-top: -3px;
     width: 12px;
     height: 12px;
-    background-color: #61c091;
+    background-color: #5EEBFF;
     border-radius: 100%;
     border: none;
     -webkit-transition: 0.2s;
@@ -1257,7 +1257,7 @@
     appearance: none;
     width: 12px;
     height: 12px;
-    background-color: #61c091;
+    background-color: #5EEBFF;
     border-radius: 100%;
     border: none;
     -webkit-transition: 0.2s;
@@ -1269,7 +1269,7 @@
     appearance: none;
     width: 12px;
     height: 12px;
-    background-color: #61c091;
+    background-color: #5EEBFF;
     border: none;
     border-radius: 100%;
     -webkit-transition: 0.2s;
@@ -1304,7 +1304,7 @@
     cursor: pointer;
     border-radius: 2px;
     border: none;
-    background-color: rgba(68, 170, 119, 0.3);
+    background-color: rgba(0, 216, 255, 0.3);
   }
 
   .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-moz-range-track {
@@ -1314,7 +1314,7 @@
     cursor: pointer;
     border-radius: 2px;
     border: none;
-    background-color: rgba(68, 170, 119, 0.3);
+    background-color: rgba(0, 216, 255, 0.3);
   }
 
   .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-ms-track {
@@ -1330,27 +1330,27 @@
   }
 
   .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-ms-fill-lower {
-    background-color: rgba(68, 170, 119, 0.3);
+    background-color: rgba(0, 216, 255, 0.3);
   }
 
   .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-ms-fill-upper {
-    background-color: rgba(68, 170, 119, 0.15);
+    background-color: rgba(0, 216, 255, 0.15);
   }
 
   .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:focus::-webkit-slider-runnable-track {
-    background-color: rgba(68, 170, 119, 0.5);
+    background-color: rgba(0, 216, 255, 0.5);
   }
 
   .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:focus::-moz-range-track {
-    background-color: rgba(68, 170, 119, 0.5);
+    background-color: rgba(0, 216, 255, 0.5);
   }
 
   .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:focus::-ms-fill-lower {
-    background-color: rgba(68, 170, 119, 0.45);
+    background-color: rgba(0, 216, 255, 0.45);
   }
 
   .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:focus::-ms-fill-upper {
-    background-color: rgba(68, 170, 119, 0.25);
+    background-color: rgba(0, 216, 255, 0.25);
   }
 
   .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right {
@@ -1437,9 +1437,9 @@
     display: block;
     height: 5px;
     border-radius: 3px;
-    background-color: #4a7;
-    -webkit-box-shadow: 0 2px 6px 0 rgba(68, 170, 119, 0.3);
-    box-shadow: 0 2px 6px 0 rgba(68, 170, 119, 0.3);
+    background-color: #00D8FF;
+    -webkit-box-shadow: 0 2px 6px 0 rgba(0, 216, 255, 0.3);
+    box-shadow: 0 2px 6px 0 rgba(0, 216, 255, 0.3);
     -webkit-transition: width 0.15s linear;
     transition: width 0.15s linear;
     background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
@@ -1458,10 +1458,10 @@
     width: 9px;
     height: 9px;
     border: 1px solid rgba(245, 246, 247, 0.7);
-    -webkit-box-shadow: 0 1px 4px 0 rgba(68, 170, 119, 0.7);
-    box-shadow: 0 1px 4px 0 rgba(68, 170, 119, 0.7);
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0, 216, 255, 0.7);
+    box-shadow: 0 1px 4px 0 rgba(0, 216, 255, 0.7);
     border-radius: 100%;
-    background-color: #4a7;
+    background-color: #00D8FF;
   }
 
   .vue-image-crop-upload .vicp-wrap .vicp-step3 .vicp-upload .vicp-error,
@@ -1487,7 +1487,7 @@
     text-align: center;
     cursor: pointer;
     font-size: 14px;
-    color: #4a7;
+    color: #00D8FF;
     border-radius: 2px;
     overflow: hidden;
     -webkit-user-select: none;
@@ -1512,7 +1512,7 @@
   }
 
   .vue-image-crop-upload .vicp-wrap .vicp-success {
-    color: #4a7;
+    color: #00D8FF;
   }
 
   .vue-image-crop-upload .vicp-wrap .vicp-icon3 {
@@ -1530,7 +1530,7 @@
     width: 6px;
     height: 10px;
     border-width: 0 2px 2px 0;
-    border-color: #4a7;
+    border-color: #00D8FF;
     border-style: solid;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);

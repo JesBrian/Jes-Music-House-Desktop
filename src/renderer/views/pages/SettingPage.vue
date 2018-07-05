@@ -59,7 +59,7 @@
       </div>
     </div>
 
-    <upload-img field="img" @crop-success="cropSuccess" @crop-upload-success="cropUploadSuccess" @crop-upload-fail="cropUploadFail" v-model="show" :width="300" :height="300" url="/upload" :params="params" :headers="headers" img-format="png"></upload-img>
+    <upload-img v-if="show" v-model="show" field="img" @crop-success="cropSuccess" @crop-upload-success="cropUploadSuccess" @crop-upload-fail="cropUploadFail" :width="300" :height="300" url="/upload" :params="params" :headers="headers" img-format="png"></upload-img>
 	</div>
 </template>
 
