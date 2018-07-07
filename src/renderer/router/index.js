@@ -6,6 +6,10 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/miniView',
+      component: () => import('@/views/MiniView.vue')
+    },
+    {
       path: '/',
       component: () => import('@/views/BaseLayout.vue'),
       redirect: '/index/recommend',

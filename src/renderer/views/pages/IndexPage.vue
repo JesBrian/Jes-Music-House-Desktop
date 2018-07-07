@@ -13,6 +13,8 @@
     <!-- 内容 -->
     <component :is="'index-' + indexContentType"/>
 
+    <router-link to="/miniView">Mini View</router-link>
+
   </div>
 </template>
 

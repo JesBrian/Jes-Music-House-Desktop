@@ -50,6 +50,7 @@
 			<page-link url="/config" class="mh-if gear" style="-webkit-app-region:no-drag; margin:0 8px; color:#DDD; font-size:23px;"></page-link>
 			<i style="margin:0 8px; padding:8px 0 5px; border-right:2px solid #222;"></i>
 			<i @click="atest" class="mh-if lessen" style="-webkit-app-region:no-drag; margin:0 8px; font-size:23px;"></i>
+      <i @click="showMiniView" class="mh-if enlarge" style="-webkit-app-region:no-drag; margin:0 8px; font-size:23px;"></i>
 			<i @click="closeWindow" class="mh-if close" style="-webkit-app-region:no-drag; margin:0 8px; font-size:23px;"></i>
 		</div>
 
@@ -118,6 +119,9 @@
         }
       },
 
+      showMiniView () {
+        this.ipcRenderer.send('show-mini-view')
+      },
       closeWindow () {
         this.ipcRenderer.send('hide-main-window')
       },

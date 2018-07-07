@@ -13,7 +13,7 @@ if (process.env.NODE_ENV !== 'development') {
   iconPath = '../../static/images/icon.ico'
 }
 
-let mainWindow
+let mainWindow, miniWin
 const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:9080`
   : `file://${__dirname}/index.html`
@@ -76,6 +76,9 @@ app.on('ready', () => {
     }
   ]))
   tray.on('double-click', () => {
+    if (miniWin) {
+      miniWin.hide()
+    }
     mainWindow.show()
     mainWindow.focus()
   })
@@ -93,6 +96,18 @@ ipcMain.on('open-browser-url', (event, arg) => {
  */
 ipcMain.on('hide-window', () => {
   mainWindow.minimize()
+})
+
+/**
+ * 最小化模式
+ */
+ipcMain.on('show-mini-view', () => {
+  mainWindow.hide()
+  if (!miniWin) {
+    miniWin = new BrowserWindow({width: 338, height: 48, frame: false, resizable: false})
+    miniWin.loadURL(`${winURL}/#/miniView`)
+  }
+  miniWin.show()
 })
 
 /**
