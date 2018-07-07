@@ -1,8 +1,8 @@
 <template>
-  <div class="glass-bg box-show" style="width:238px; top:54px; right:188px; position:fixed; border-radius:0 0 6px 6px; font-size:15px;">
+  <div v-if="$store.state.User.id === '0'" class="glass-bg box-show" style="width:238px; top:54px; right:188px; position:fixed; border-radius:0 0 6px 6px; font-size:15px;">
     <div class="box-show" style="width:100%; height:48px; position:relative;">
       <slot />
-      <p to="/user" class="text-hidden" style="max-width:138px; margin-left:18px; display:inline-block; color:#DDD; line-height:48px; letter-spacing:0.68px; font-size:16px;">用户登录</p>
+      <p class="text-hidden" style="max-width:138px; margin-left:18px; display:inline-block; color:#DDD; line-height:48px; letter-spacing:0.68px; font-size:16px;">用户登录</p>
     </div>
 
     <div style=" padding:0 1px;">
