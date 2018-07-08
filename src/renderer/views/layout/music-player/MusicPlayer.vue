@@ -2,7 +2,7 @@
   <div class="glass-bg box-show ban-select" style="width:100%; height:46px; bottom:0; left:0; position:fixed; border-radius:0; color:#AAA; text-align:center; line-height:44px;">
 
     <!-- 音乐播放器资源 -->
-    <audio id="musicSource" ref="musicSource" v-if="$store.state.Music.nowPlayList.length !== 0" preload @ended="nowMusicEndNextPlay" :src="$store.state.Global.RESOURCE_URL + $store.state.Music.nowPlayList[$store.state.Music.nowPlayIndex].name + '.mp3'" style="top:0; position:absolute;"></audio>
+    <audio id="musicSource" ref="musicSource" v-if="$store.state.Music.nowPlayList.length !== 0" preload @ended="nowMusicEndNextPlay" :src="$store.state.Global.DEV_RESOURCE_URL + $store.state.Music.nowPlayList[$store.state.Music.nowPlayIndex].name + '.mp3'" style="top:0; position:absolute;"></audio>
 
     <!-- 播放器控制样式 -->
     <div style="width:188px; height:100%; float:left; text-align:center;">

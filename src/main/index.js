@@ -104,7 +104,7 @@ ipcMain.on('hide-window', () => {
 ipcMain.on('show-mini-view', () => {
   mainWindow.hide()
   if (!miniWin) {
-    miniWin = new BrowserWindow({width: 338, height: 48, frame: false, resizable: false})
+    miniWin = new BrowserWindow({width: 338, height: 48, frame: false, transparent: true, resizable: false})
     miniWin.loadURL(`${winURL}/#/miniView`)
   }
   miniWin.show()
