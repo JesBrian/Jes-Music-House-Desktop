@@ -2,7 +2,8 @@
 
 import { app, ipcMain, Tray, BrowserWindow, Menu, shell } from 'electron'
 
-var iconPath = require('path').join(__dirname, '../../static/images/icon.ico')
+const iconName = process.platform === 'win32' ? 'icon.ico' : 'icon.png'
+var iconPath = require('path').join(__dirname, `../../static/images/${iconName}`)
 
 /**
  * Set `__static` path to static files in production
@@ -10,7 +11,7 @@ var iconPath = require('path').join(__dirname, '../../static/images/icon.ico')
  */
 if (process.env.NODE_ENV !== 'development') {
   global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
-  iconPath = '../../static/images/icon.ico'
+  iconPath = `../../static/images/${iconName}`
 }
 
 let mainWindow, miniWin
@@ -104,7 +105,7 @@ ipcMain.on('hide-window', () => {
 ipcMain.on('show-mini-view', () => {
   mainWindow.hide()
   if (!miniWin) {
-    miniWin = new BrowserWindow({width: 338, height: 48, frame: false, transparent: true, resizable: false})
+    miniWin = new BrowserWindow({width: 358, height: 52, frame: false, transparent: true, resizable: false})
     miniWin.loadURL(`${winURL}/#/miniView`)
   }
   miniWin.show()
