@@ -803,7 +803,7 @@
         that.reset()
         that.loading = 1
         that.setStep(3)
-        new Promise(function (resolve, reject) {
+        new Promise((resolve, reject) => {
           let client = new XMLHttpRequest()
           client.open('POST', url, true)
           client.withCredentials = withCredentials

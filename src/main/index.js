@@ -100,12 +100,21 @@ ipcMain.on('hide-window', () => {
 })
 
 /**
- * 最小化模式
+ * mini 播放器模式
  */
 ipcMain.on('show-mini-view', () => {
   mainWindow.hide()
   if (!miniWin) {
-    miniWin = new BrowserWindow({width: 358, height: 52, frame: false, transparent: true, resizable: false, devTools: false})
+    miniWin = new BrowserWindow({
+      width: 368,
+      height: 52,
+      frame: false,
+      transparent: true,
+      resizable: false,
+      webPreferences: {
+        devTools: false
+      }
+    })
     miniWin.loadURL(`${winURL}/#/miniView`)
   }
   miniWin.show()
