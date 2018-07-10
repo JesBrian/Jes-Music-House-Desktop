@@ -70,6 +70,12 @@ app.on('ready', () => {
       }
     },
     {
+      label: '显示窗口',
+      click: () => {
+        mainWindow.show()
+      }
+    },
+    {
       label: '退出 Music House',
       click: () => {
         mainWindow.webContents.send('save-music-info')
@@ -118,6 +124,14 @@ ipcMain.on('show-mini-view', () => {
     miniWin.loadURL(`${winURL}/#/miniView`)
   }
   miniWin.show()
+})
+
+/**
+ * 正常客户端模式
+ */
+ipcMain.on('show-main-view', () => {
+  mainWindow.show()
+  miniWin.hide()
 })
 
 /**

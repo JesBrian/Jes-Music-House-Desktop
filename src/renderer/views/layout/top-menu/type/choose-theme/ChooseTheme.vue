@@ -1,5 +1,5 @@
 <template>
-  <div class="glass-bg box-show" style="width:288px; height:128px; top:54px; right:82px; position:fixed; border-radius:0 0 6px 6px; font-size:15px;">
+  <div class="glass-bg box-show" style="width:288px; height:128px; top:54px; right:120px; position:fixed; border-radius:0 0 6px 6px; font-size:15px;">
     <div class="box-show" style="width:100%; height:48px; position:relative;">
       <slot />
       <div style="width:108px; height:26px; top:55%; left:50%; transform:translate(-50%,-50%); position:absolute; line-height:25px; text-align:center;">
