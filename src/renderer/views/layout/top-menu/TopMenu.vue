@@ -120,6 +120,7 @@
       },
 
       showMiniView () {
+        this.$store.commit('CHANGE_SHOW_MINI_VIEW')
         this.ipcRenderer.send('show-mini-view')
       },
       closeWindow () {

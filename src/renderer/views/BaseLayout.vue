@@ -7,7 +7,7 @@
     <left-menu style="z-index:55;"/>
 
     <!-- 主体内容 -->
-    <div style="width:100%; height:638px; padding:53px 3px 45px 228.5px; box-sizing:border-box; background:#181818;">
+    <div v-show="!$store.state.Views.showMiniView" style="width:100%; height:638px; padding:53px 3px 45px 228.5px; box-sizing:border-box; background:#181818;">
       <div id="mainContent" class="box-show" style="width:100%; height:100%; padding-top:8px; box-sizing:border-box; overflow:auto;">
         <router-view />
       </div>
@@ -15,10 +15,14 @@
 
     <!-- 歌曲详细页面 -->
     <transition name="slide-song">
-      <div v-if="$store.state.Music.showMusicView" class="song-view" style="width:100%; height:638px; top:0; left:0; padding:48px 2px 45px; box-sizing:border-box; position:fixed; background:#181818;">
+      <div v-if="$store.state.Views.showMusicView" class="song-view">
         <song-view />
       </div>
     </transition>
+    <!-- 歌曲详细页面 -->
+    <div v-if="$store.state.Views.showMiniView" style="width:368px; height:52px; top:0; left:0; position:fixed; z-index:99999;">
+      <mini-view />
+    </div>
 
     <!-- 拟态框 -->
     <modal />
@@ -40,6 +44,7 @@
   import MusicPlayer from './layout/music-player/MusicPlayer.vue'
   import Modal from './layout/modal/Modal.vue'
   import Tips from './layout/tips/Tips.vue'
+  import MiniView from './MiniView.vue'
   import SongView from './SongView.vue'
   import AlertMenu from './layout/alert-menu/AlertMenu.vue'
 
@@ -47,7 +52,7 @@
     name: 'BaseLayout',
 
     components: {
-      AlertMenu, SongView, Tips, Modal, MusicPlayer, LeftMenu, TopMenu
+      AlertMenu, SongView, MiniView, Tips, Modal, MusicPlayer, LeftMenu, TopMenu
     },
 
     watch: {

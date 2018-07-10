@@ -14,7 +14,7 @@ if (process.env.NODE_ENV !== 'development') {
   iconPath = `../../static/images/${iconName}`
 }
 
-let mainWindow, miniWin
+let mainWindow
 const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:9080`
   : `file://${__dirname}/index.html`
@@ -25,8 +25,8 @@ function createWindow () {
    */
   mainWindow = new BrowserWindow({
     resizable: false,
-    height: 638,
     width: 1180,
+    height: 638,
     frame: false,
     webPreferences: {webSecurity: false}
   })
@@ -83,9 +83,6 @@ app.on('ready', () => {
     }
   ]))
   tray.on('double-click', () => {
-    if (miniWin) {
-      miniWin.hide()
-    }
     mainWindow.show()
     mainWindow.focus()
   })
@@ -109,29 +106,14 @@ ipcMain.on('hide-window', () => {
  * mini 播放器模式
  */
 ipcMain.on('show-mini-view', () => {
-  mainWindow.hide()
-  if (!miniWin) {
-    miniWin = new BrowserWindow({
-      width: 368,
-      height: 52,
-      frame: false,
-      transparent: true,
-      resizable: false,
-      webPreferences: {
-        devTools: false
-      }
-    })
-    miniWin.loadURL(`${winURL}/#/miniView`)
-  }
-  miniWin.show()
+  mainWindow.setSize(368, 52)
 })
 
 /**
  * 正常客户端模式
  */
 ipcMain.on('show-main-view', () => {
-  mainWindow.show()
-  miniWin.hide()
+  mainWindow.setSize(1180, 638)
 })
 
 /**

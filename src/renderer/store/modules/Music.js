@@ -1,5 +1,4 @@
 const state = {
-  showMusicView: false, // 是否展示歌曲页面 - [ true/false ]
   playStatus: false, // 音乐播放状态 - [ true正在播放/false停止播放 ]
   nowPlayIndex: 0, // 当前播放歌曲在播放列表的位置
   nowPlayList: [
@@ -58,20 +57,6 @@ const mutations = {
       state.nowPlayIndex = option.nowIndexNum
     }
     state.playStatus = true
-  },
-
-  /**
-   * 展示 / 关闭 音乐详情页
-   */
-  CHANGE_SHOW_MUSIC_VIEW (state) {
-    state.showMusicView = !state.showMusicView
-  },
-
-  /**
-   * 关闭音乐详情页
-   */
-  CLOSE_MUSIC_VIEW (state) {
-    state.showMusicView = false
   },
 
   /**
