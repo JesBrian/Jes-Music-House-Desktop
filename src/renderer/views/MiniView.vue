@@ -28,7 +28,7 @@
             <div style="width:68%; height:100%; top:0; left:0; position:absolute; border-radius:3px; background:#38daf0;"></div>
         </div>
       </div>
-      <i style="top:0; right:0; position:absolute;">&times;</i>
+      <i @click="closeWindow" style="top:-1px; right:4px; position:absolute; cursor:pointer; -webkit-app-region:no-drag;">&times;</i>
     </div>
 
   </div>
@@ -42,6 +42,13 @@
       changeViewMode () {
         this.$store.commit('CLOSE_MINI_VIEW')
         this.ipcRenderer.send('show-main-view')
+      },
+
+      changePlayStatus () {
+        this.$store.commit('CHANGE_PLAY_STATUS')
+      },
+      closeWindow () {
+        this.ipcRenderer.send('hide-main-window')
       }
     }
   }

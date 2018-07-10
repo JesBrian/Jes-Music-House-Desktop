@@ -75,6 +75,6 @@
     margin-right:23px; padding:0 13px 5px 14px; cursor:pointer;
   }
   .language-type.active {
-    border-bottom:3px solid #00d8ff; color:#00d8ff;
+    border-bottom:2px solid #00d8ff; color:#00d8ff;
   }
 </style>
