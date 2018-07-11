@@ -20,7 +20,7 @@
       </div>
     </transition>
     <!-- 歌曲详细页面 -->
-    <div v-if="$store.state.Views.showMiniView" style="width:368px; height:52px; top:0; left:0; position:fixed; z-index:99999;">
+    <div v-if="$store.state.Views.showMiniView" style="width:368px; height:52px; top:0; left:0; position:fixed; z-index:999;">
       <mini-view />
     </div>
 
@@ -76,7 +76,7 @@
 <style scoped>
 
   .song-view {
-    width:100%; top:0; left:0; position:absolute; z-index:55;
+    width:100%; height:638px; top:0; left:0; padding:62px 3px 45px 0; position:fixed; box-sizing:border-box; z-index:55; background:#181818;
   }
   .slide-song-enter, .slide-song-leave-active {
     transform: translate(-80%, 80%) scale(0 , 0);
