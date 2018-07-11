@@ -14,7 +14,7 @@ if (process.env.NODE_ENV !== 'development') {
   iconPath = `../../static/images/${iconName}`
 }
 
-let mainWindow
+let mainWindow, timer
 const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:9080`
   : `file://${__dirname}/index.html`
@@ -32,6 +32,15 @@ function createWindow () {
   })
 
   mainWindow.loadURL(winURL)
+
+  mainWindow.on('move', () => {
+    if (timer) {
+      clearTimeout(timer)
+    }
+    timer = setTimeout(() => {
+      // mainWindow.webContents.send('window-move', mainWindow.getPosition())
+    }, 368)
+  })
 
   mainWindow.on('closed', () => {
     mainWindow = null
@@ -106,14 +115,26 @@ ipcMain.on('hide-window', () => {
  * mini 播放器模式
  */
 ipcMain.on('show-mini-view', () => {
-  mainWindow.setSize(368, 52)
+  // mainWindow.setSize(368, 52)
+  mainWindow.setContentBounds({
+    x: 0,
+    y: 0,
+    width: 368,
+    height: 52
+  })
 })
 
 /**
  * 正常客户端模式
  */
 ipcMain.on('show-main-view', () => {
-  mainWindow.setSize(1180, 638)
+  // mainWindow.setSize(1180, 638)
+  mainWindow.setContentBounds({
+    x: 0,
+    y: 0,
+    width: 1180,
+    height: 638
+  })
 })
 
 /**
