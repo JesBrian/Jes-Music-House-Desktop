@@ -79,6 +79,7 @@
           this.localForage.setItem('mainView', position)
         }
       })
+      this.ipcRenderer.send('save-view-position')
     }
   }
 </script>

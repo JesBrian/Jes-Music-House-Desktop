@@ -104,6 +104,10 @@ ipcMain.on('open-browser-url', (event, url) => {
   shell.openExternal(url)
 })
 
+ipcMain.on('save-view-position', () => {
+  mainWindow.webContents.send('window-move', mainWindow.getPosition())
+})
+
 /**
  * 窗口最小化
  */
