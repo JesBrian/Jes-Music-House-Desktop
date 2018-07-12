@@ -30,11 +30,11 @@
           <div class="cube-bg box-show" style="width:48px; height:48px; margin:10px 8px 0 15px; padding:4px; float:left;">
             <div style="width:100%; height:100%; background:lightskyblue;"></div>
           </div>
-          <div @click="clickColorBar" class="box-show" style="width:148px; height:6px; margin:19.5px 16px 0 0; position:relative; float:right; border-radius:3px; background-image:linear-gradient(to right, #FF0000, #FF7F00, #FFFF00, #00FF00, #00FFFF, #0000FF, #8B00FF);">
-            <div id="colorPointer" ref="colorPointer" :style="{'left' : `${colorRate * 100}%`}" style="width:16px; height:16px; top:-5px; position:absolute; border-radius:50%; background:url(../../../../../../../static/images/default/slide-pointer.png) no-repeat; background-size:100% 100%;"></div>
+          <div @click="clickColorBar" ref="colorBar" class="box-show" style="width:148px; height:6px; margin:19.5px 16px 0 0; position:relative; float:right; border-radius:3px; background-image:linear-gradient(to right, #FF0000, #FF7F00, #FFFF00, #00FF00, #00FFFF, #0000FF, #8B00FF); cursor:pointer;">
+            <div @mousedown="dragColorPointer" :style="{'left' : `${colorRate * 100}%`}" style="width:16px; height:16px; top:-5px; margin-left:-10px; position:absolute; border-radius:50%; background:url(../../../../../../../static/images/default/slide-pointer.png) no-repeat; background-size:100% 100%;"></div>
           </div>
-          <div @click="clickLightBar" class="box-show" style="width:148px; height:6px; margin:19.5px 16px 0 0; position:relative; float:right; border-radius:3px; background-image:linear-gradient(to right, #000, #00D8FF, #FFF);">
-            <div id="lightPointer" ref="lightPointer" :style="{'left' : `${lightRate * 100}%`}" style="width:16px; height:16px; top:-5px; position:absolute; border-radius:50%; background:url(../../../../../../../static/images/default/slide-pointer.png) no-repeat; background-size:100% 100%;"></div>
+          <div @click="clickLightBar" ref="lightBar" class="box-show" style="width:148px; height:6px; margin:19.5px 16px 0 0; position:relative; float:right; border-radius:3px; background-image:linear-gradient(to right, #000, #00D8FF, #FFF); cursor:pointer;">
+            <div @mousedown="dragLightPointer" :style="{'left' : `${lightRate * 100}%`}" style="width:16px; height:16px; top:-5px; margin-left:-10px; position:absolute; border-radius:50%; background:url(../../../../../../../static/images/default/slide-pointer.png) no-repeat; background-size:100% 100%;"></div>
           </div>
         </div>
 
@@ -52,6 +52,8 @@
 </template>
 
 <script>
+  import { mouseCoords, getElemenPosion } from '../../../../../assets/js/commom.js'
+
   export default {
     name: 'ChooseTheme',
 
@@ -72,12 +74,65 @@
        * 点击颜色条
        */
       clickColorBar () {
+        let mousePos = mouseCoords(event)
+        let x = mousePos.x
+        let x1 = getElemenPosion(this.$refs['colorBar'], 'left')
+        this.changeColorRate(x - x1)
+      },
+      dragColorPointer (event) {
+        let x1 = getElemenPosion(this.$refs['colorBar'], 'left')
+        // 注册document的mousemove事件
+        document.onmousemove = (ev) => {
+          let oEvent = ev || event
+          let mousePos = mouseCoords(oEvent)
+          let x = mousePos.x
+          this.changeColorRate(x - x1)
+        }
+
+        // 鼠标放开清除事件
+        document.onmouseup = () => {
+          document.onmousemove = null
+          document.onmouseup = null
+        }
+      },
+      changeColorRate (colorRate = 0) {
+        if (colorRate < 0 || colorRate > 148) {
+          return false
+        }
+        this.colorRate = colorRate / 148
       },
 
       /**
        * 点击亮度条
        */
-      clickLightBar () {
+      clickLightBar (event) {
+        let mousePos = mouseCoords(event)
+        let x = mousePos.x
+        let x1 = getElemenPosion(this.$refs['lightBar'], 'left')
+        this.changeLightRate(x - x1)
+        console.log(x - x1)
+      },
+      dragLightPointer (event) {
+        let x1 = getElemenPosion(this.$refs['lightBar'], 'left')
+        // 注册document的mousemove事件
+        document.onmousemove = (ev) => {
+          let oEvent = ev || event
+          let mousePos = mouseCoords(oEvent)
+          let x = mousePos.x
+          this.changeLightRate(x - x1)
+        }
+
+        // 鼠标放开清除事件
+        document.onmouseup = () => {
+          document.onmousemove = null
+          document.onmouseup = null
+        }
+      },
+      changeLightRate (lightRate = 0) {
+        if (lightRate < 0 || lightRate > 148) {
+          return false
+        }
+        this.lightRate = lightRate / 148
       }
     }
   }
