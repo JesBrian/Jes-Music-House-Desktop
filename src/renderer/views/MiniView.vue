@@ -41,7 +41,9 @@
     methods: {
       changeViewMode () {
         this.$store.commit('CLOSE_MINI_VIEW')
-        this.ipcRenderer.send('show-main-view')
+        this.localForage.getItem('mainView', (result, value) => {
+          this.ipcRenderer.send('show-main-view', value)
+        })
       },
 
       changePlayStatus () {

@@ -69,6 +69,16 @@
       routerHistoryRecordNowIndex () {
         return this.$store.state.Router.nowIndex
       }
+    },
+
+    created () {
+      this.ipcRenderer.on('window-move', (event, position) => {
+        if (this.$store.state.Views.showMiniView === true) {
+          this.localForage.setItem('miniView', position)
+        } else {
+          this.localForage.setItem('mainView', position)
+        }
+      })
     }
   }
 </script>
