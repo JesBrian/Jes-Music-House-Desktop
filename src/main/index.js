@@ -28,6 +28,7 @@ function createWindow () {
     width: 1180,
     height: 638,
     frame: false,
+    transparent: true,
     webPreferences: {webSecurity: false}
   })
 
@@ -120,6 +121,19 @@ ipcMain.on('hide-window', () => {
  */
 ipcMain.on('show-mini-view', (event, position) => {
   mainWindow.setContentBounds({x: position[0], y: position[1], width: 368, height: 52})
+})
+
+/**
+ * mini 播放器模式下展示内容
+ */
+ipcMain.on('mini-show-content', (event, isShow, contentType) => {
+  if ((isShow === true) && (contentType === 'volume')) {
+    mainWindow.setSize(368, 78)
+  } else if ((isShow === true) && (contentType === 'playList')) {
+    mainWindow.setSize(368, 168)
+  } else {
+    mainWindow.setSize(368, 52)
+  }
 })
 
 /**

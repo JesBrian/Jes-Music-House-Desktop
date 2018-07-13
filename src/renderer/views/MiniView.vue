@@ -1,6 +1,6 @@
 <template>
-  <div class="glass-bg box-show" style="width:100%; height:100%; overflow:hidden; -webkit-app-region:drag;">
-    <div style="width:100%; height:100%; position:relative;">
+  <div class="glass-bg box-show" style="width:368px; height:52px; position:relative; -webkit-app-region:drag;">
+    <div style="width:100%; height:100%; top:0; left:0; position:absolute; z-index:99;">
       <div @click="changeViewMode" class="cube-bg" style="width:38px; height:38px; margin:6px; padding:3px; float:left; box-sizing:border-box; -webkit-app-region:no-drag;">
         <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530963872613&di=fc5d6a5013940181dce717ca9034dfb9&imgtype=0&src=http%3A%2F%2Fstatic.open-open.com%2Fnews%2FuploadImg%2F20160513%2F20160513105701_693.png" style="width:100%; height:100%;"/>
       </div>
@@ -18,9 +18,9 @@
         </div>
         <div style="width:35%; height:100%; float:right; text-align:right; line-height:33px;">
           <i @click="addCollection" class="music-operation mh-if non-colloection"></i>
-          <i @click="showLyric" class="music-operation mh-if lyrics"></i>
-          <i @click="showVolumeBar" class="music-operation mh-if volume-on"></i>
-          <i @click="showPlayList" class="music-operation mh-if music-list"></i>
+          <i @click="showLyric" :class="$store.state.Music.showLyric === true ? 'active' : ''" class="music-operation mh-if lyrics"></i>
+          <i @click="showVolumeBar" :class="isShowVolumeBar === true ? 'active' : ''" class="music-operation mh-if volume-on"></i>
+          <i @click="showPlayList" :class="isShowPlayList === true ? 'active' : ''" class="music-operation mh-if music-list"></i>
         </div>
       </div>
       <div style="width:100%; height:14px; padding:0 15px 0 50px; box-sizing:border-box;">
@@ -31,12 +31,23 @@
       <i @click="closeWindow" style="top:-1px; right:4px; position:absolute; cursor:pointer; -webkit-app-region:no-drag;">&times;</i>
     </div>
 
+    <div v-if="isShowVolumeBar === true" class="glass-bg" style="width:100%; height:28px; top:49px; left:0; position:relative; z-index:-1;"></div>
+
+    <div v-if="isShowPlayList === true" class="glass-bg" style="width:100%; height:118px; top:48.5px; left:0; position:relative; z-index:-1;"></div>
+
   </div>
 </template>
 
 <script>
   export default {
     name: 'MiniView',
+
+    data () {
+      return {
+        isShowVolumeBar: false,
+        isShowPlayList: false
+      }
+    },
 
     methods: {
       changeViewMode () {
@@ -56,10 +67,17 @@
       addCollection () {
       },
       showLyric () {
+        this.$store.commit('CHANGE_SHOW_LYRIC')
       },
       showVolumeBar () {
+        this.isShowPlayList = false
+        this.isShowVolumeBar = !this.isShowVolumeBar
+        this.ipcRenderer.send('mini-show-content', this.isShowVolumeBar, 'volume')
       },
       showPlayList () {
+        this.isShowVolumeBar = false
+        this.isShowPlayList = !this.isShowPlayList
+        this.ipcRenderer.send('mini-show-content', this.isShowPlayList, 'playList')
       },
 
       closeWindow () {
@@ -89,7 +107,7 @@
   .music-operation {
     margin:0 5px 0 0; font-size:18px; -webkit-app-region:no-drag;
   }
-  .music-operation:hover {
+  .music-operation:hover, .music-operation.active {
     color:#00d8ff;
   }
 </style>
