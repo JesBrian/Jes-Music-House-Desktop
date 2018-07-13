@@ -8,7 +8,7 @@ export function closeCloverComponent (self = {}) {
   self.$root.eventHub.$emit('closeCloverComponent')
 
   // 关闭歌曲详情页
-  if (self.$store.state.Music.showMusicView) {
+  if (self.$store.state.Views.showMusicView) {
     self.$store.commit('CLOSE_MUSIC_VIEW')
   }
 }

@@ -1,5 +1,5 @@
 <template>
-	<div style="width:100%; height:100%; padding-top:8px; box-sizing:border-box; overflow:auto;">
+	<div style="width:100%; height:100%; box-sizing:border-box; overflow:auto;">
 		<div style="width:95%; height:468px; margin:0 auto 68px; position:relative;">
 
       <div @click="goBackView" class="super-btn-out" style="width:38px; height:38px; top:16px; right:8px; position:absolute;">

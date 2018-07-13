@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$store.state.Modal.modalType !== ''" :class="{'song-view' : $store.state.Music.showMusicView}" id="modalComponent">
+  <div v-if="$store.state.Modal.modalType !== ''" :class="{'song-view' : $store.state.Views.showMusicView}" id="modalComponent">
     <div style="width:100%; height:100%; position:relative;">
 
       <!-- 拟态框内容 -->
