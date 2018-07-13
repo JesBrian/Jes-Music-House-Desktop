@@ -1,5 +1,6 @@
 const state = {
   playStatus: false, // 音乐播放状态 - [ true正在播放/false停止播放 ]
+  nowPlayRate: '0%', // 当前歌曲播放进度
   nowPlayIndex: 0, // 当前播放歌曲在播放列表的位置
   nowPlayList: [
     {id: '11', name: 'test1'},
@@ -30,6 +31,13 @@ const mutations = {
       return
     }
     state.playStatus = !state.playStatus
+  },
+
+  /**
+   * 修改当前歌曲播放进度
+   */
+  CHANGE_NOW_PLAY_RATE (state, nowPlayRate) {
+    state.nowPlayRate = nowPlayRate
   },
 
   /**

@@ -19,7 +19,7 @@
       <div style="display:inline-block;">
         <div @click="clickMusicProgressBar" ref="progressBar" class="progress-bar box-show" style="width:438px; height:10px; margin-top:8px; position:relative; background:#080808; border-radius:6px; cursor:pointer;">
           <div style="width:80%; height:6px; top:2.4px; left:0; position:absolute; background:#181818; border-radius:6px;"></div>
-          <div :style="{'width' : musicCTime / musicDTime * 100 + '%'}" style="height:100%; top:0; left:0; position:absolute; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:6px;">
+          <div :style="{'width' : nowPlayRate}" style="height:100%; top:0; left:0; position:absolute; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:6px;">
             <a @mousedown="dragProgressControllerPointer" class="pointer box-show"></a>
           </div>
         </div>
@@ -109,6 +109,20 @@
       }
     },
 
+    computed: {
+      playStatus () {
+        return this.$store.state.Music.playStatus
+      },
+
+      nowPlayIndex () {
+        return this.$store.state.Music.nowPlayIndex
+      },
+
+      nowPlayRate () {
+        return this.musicCTime / this.musicDTime * 100 + '%'
+      }
+    },
+
     watch: {
       playStatus () {
         // 检查播放进度 & 播放音量
@@ -139,16 +153,10 @@
             this.musicSource.play()
           }, 138)
         }
-      }
-    },
-
-    computed: {
-      playStatus () {
-        return this.$store.state.Music.playStatus
       },
 
-      nowPlayIndex () {
-        return this.$store.state.Music.nowPlayIndex
+      nowPlayRate () {
+        this.$store.commit('CHANGE_NOW_PLAY_RATE', this.nowPlayRate)
       }
     },
 
@@ -168,6 +176,9 @@
 
       this.$root.eventHub.$on('closeCloverComponent', () => {
         this.playListContentStatus = false
+      })
+      this.$root.eventHub.$on('changePlayListIndex', (type) => {
+        this.changePlayListIndex(type)
       })
 
       this.ipcRenderer.on('save-music-info', () => {

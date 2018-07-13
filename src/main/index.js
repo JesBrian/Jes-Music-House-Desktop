@@ -38,7 +38,7 @@ function createWindow () {
       clearTimeout(timer)
     }
     timer = setTimeout(() => {
-      // mainWindow.webContents.send('window-move', mainWindow.getPosition())
+      mainWindow.webContents.send('window-move', mainWindow.getPosition())
     }, 368)
   })
 
@@ -100,8 +100,12 @@ app.on('ready', () => {
 /**
  * PC本地浏览器打开网页
  */
-ipcMain.on('open-browser-url', (event, arg) => {
-  shell.openExternal(arg)
+ipcMain.on('open-browser-url', (event, url) => {
+  shell.openExternal(url)
+})
+
+ipcMain.on('save-view-position', () => {
+  mainWindow.webContents.send('window-move', mainWindow.getPosition())
 })
 
 /**
@@ -114,27 +118,15 @@ ipcMain.on('hide-window', () => {
 /**
  * mini 播放器模式
  */
-ipcMain.on('show-mini-view', () => {
-  // mainWindow.setSize(368, 52)
-  mainWindow.setContentBounds({
-    x: 0,
-    y: 0,
-    width: 368,
-    height: 52
-  })
+ipcMain.on('show-mini-view', (event, position) => {
+  mainWindow.setContentBounds({x: position[0], y: position[1], width: 368, height: 52})
 })
 
 /**
  * 正常客户端模式
  */
-ipcMain.on('show-main-view', () => {
-  // mainWindow.setSize(1180, 638)
-  mainWindow.setContentBounds({
-    x: 0,
-    y: 0,
-    width: 1180,
-    height: 638
-  })
+ipcMain.on('show-main-view', (event, position) => {
+  mainWindow.setContentBounds({x: position[0], y: position[1], width: 1180, height: 638})
 })
 
 /**

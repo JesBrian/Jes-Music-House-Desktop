@@ -121,7 +121,9 @@
 
       showMiniView () {
         this.$store.commit('CHANGE_SHOW_MINI_VIEW')
-        this.ipcRenderer.send('show-mini-view')
+        this.localForage.getItem('miniView', (result, value) => {
+          this.ipcRenderer.send('show-mini-view', value)
+        })
       },
       closeWindow () {
         this.ipcRenderer.send('hide-main-window')
