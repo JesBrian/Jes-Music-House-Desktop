@@ -186,6 +186,9 @@
       this.$root.eventHub.$on('changePlayListIndex', (type) => {
         this.changePlayListIndex(type)
       })
+      this.$root.eventHub.$on('changeVolumeLevel', (volume) => {
+        this.changeMusicVolume(volume)
+      })
 
       this.ipcRenderer.on('save-music-info', () => {
         let musicData = {
@@ -304,7 +307,6 @@
           let x = mousePos.x
           this.changePlayProgress(x - x1)
         }
-
         // 鼠标放开清除事件
         document.onmouseup = () => {
           document.onmousemove = null
@@ -315,11 +317,15 @@
       /**
        * 修改音量大小
        */
-      changeMusicVolume (volume = 0) {
+      changeMusicVolume (volume) {
+        this.volumeLevel = volume
+      },
+
+      checkMusicVolume (volume = 0) {
         if (volume < 0 || volume > 138) {
           return false
         }
-        this.volumeLevel = volume / 138
+        this.changeMusicVolume(volume / 138)
       },
 
       /**
@@ -329,7 +335,7 @@
         let mousePos = mouseCoords(event)
         let x = mousePos.x
         let x1 = getElemenPosion(this.$refs['volumeBar'], 'left')
-        this.changeMusicVolume(x - x1)
+        this.checkMusicVolume(x - x1)
         this.saveLocalForageData()
       },
 
@@ -343,9 +349,8 @@
           let oEvent = ev || event
           let mousePos = mouseCoords(oEvent)
           let x = mousePos.x
-          this.changeMusicVolume(x - x1)
+          this.checkMusicVolume(x - x1)
         }
-
         // 鼠标放开清除事件
         document.onmouseup = () => {
           document.onmousemove = null

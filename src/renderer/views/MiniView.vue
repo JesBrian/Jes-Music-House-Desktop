@@ -39,9 +39,17 @@
       </div>
     </div>
 
-    <div v-if="isShowPlayList === true" style="width:100%; height:238px; top:50px; left:0; padding:3px 5px 0; position:relative; box-sizing:border-box; overflow:auto; background:#121212; z-index:-1;">
-      <div v-for="music in $store.state.Music.nowPlayList" :key="music.id" class="box-shadow" style="width:100%; height:28px;">
-        {{ music.name }}
+    <div v-if="isShowPlayList === true" style="width:100%; height:238px; top:50px; left:0; padding:5px 4px 3px 2px; position:relative; box-sizing:border-box; background:#121212; z-index:-1;">
+      <div style="width:100%; height:100%; padding:0 4px 0 0; box-sizing:border-box; overflow:auto;">
+        <div v-for="(music, index) in $store.state.Music.nowPlayList" :key="music.id" :class="{'active' : index === $store.state.Music.nowPlayIndex}" class="mini-play-list-cell box-shadow">
+          <p style="width:10%; height:100%; float:left; text-align:center;">
+            <i class="mh-if play"></i>
+          </p>
+          <p style="width:72%; height:100%; float:left; text-indent:0.08em;">
+            {{ music.name }}
+          </p>
+          <p style="width:18%; height:100%; float:left; text-align:center;">00:00</p>
+        </div>
       </div>
     </div>
 
@@ -49,6 +57,8 @@
 </template>
 
 <script>
+  import { mouseCoords, getElemenPosion } from '../assets/js/commom.js'
+
   export default {
     name: 'MiniView',
 
@@ -65,6 +75,42 @@
         this.localForage.getItem('mainView', (result, value) => {
           this.ipcRenderer.send('show-main-view', value)
         })
+      },
+
+      checkMusicVolume (volume = 0) {
+        if (volume < 0 || volume > 328) {
+          return false
+        }
+        this.$root.eventHub.$emit('changeVolumeLevel', volume / 328)
+      },
+
+      /**
+       * 点击音量条调节音量大小
+       */
+      clickMusicVolumeBar (event) {
+        let mousePos = mouseCoords(event)
+        let x = mousePos.x
+        let x1 = getElemenPosion(this.$refs['volumeBar'], 'left')
+        this.checkMusicVolume(x - x1)
+      },
+
+      /**
+       * 拖动音量指针
+       */
+      dragVolumeControllerPointer (event) {
+        let x1 = getElemenPosion(this.$refs['volumeBar'], 'left')
+        // 注册document的mousemove事件
+        document.onmousemove = (ev) => {
+          let oEvent = ev || event
+          let mousePos = mouseCoords(oEvent)
+          let x = mousePos.x
+          this.checkMusicVolume(x - x1)
+        }
+        // 鼠标放开清除事件
+        document.onmouseup = () => {
+          document.onmousemove = null
+          document.onmouseup = null
+        }
       },
 
       changePlayStatus () {
@@ -128,6 +174,25 @@
     box-shadow: inset 0 2px 1px -1px rgba(255, 255, 255, 0.2), inset 0 -2px 1px -1px rgba(0, 0, 0, 0.2), 0 12px 12px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 0 0 1px #272727, 0 0.5px 8px #2af1fc;
   }
   .volume-bar {
-    width:88%; height:10px; top:50%; left:50%; position:absolute; transform:translate(-50%, -50%); background:#080808; border-radius:6px; cursor:pointer;
+    width:328px; height:10px; top:50%; margin:0 21px; position:absolute; transform:translateY(-50%); background:#080808; border-radius:6px; cursor:pointer;
+  }
+
+  .mini-play-list-cell {
+    width:100%; height:28px; line-height:28px;
+  }
+  .mini-play-list-cell:hover {
+    background:#0C0C0C;
+  }
+  .mini-play-list-cell.active {
+    background:#080808;
+  }
+  .mini-play-list-cell .mh-if.play {
+    display:none;
+  }
+  .mini-play-list-cell:hover .mh-if.play {
+    display:block;
+  }
+  .mini-play-list-cell.active .mh-if.play {
+    display:block; color:#00d8ff;
   }
 </style>
