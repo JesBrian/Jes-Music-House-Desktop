@@ -1,5 +1,5 @@
 <template>
-  <div class="glass-bg box-show" style="width:368px; height:52px; position:relative; -webkit-app-region:drag;">
+  <div class="box-show" style="width:368px; height:52px; position:relative; background:#181818; -webkit-app-region:drag;">
     <div style="width:100%; height:100%; top:0; left:0; position:absolute; z-index:99;">
       <div @click="changeViewMode" class="cube-bg" style="width:38px; height:38px; margin:6px; padding:3px; float:left; box-sizing:border-box; -webkit-app-region:no-drag;">
         <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530963872613&di=fc5d6a5013940181dce717ca9034dfb9&imgtype=0&src=http%3A%2F%2Fstatic.open-open.com%2Fnews%2FuploadImg%2F20160513%2F20160513105701_693.png" style="width:100%; height:100%;"/>
@@ -31,9 +31,19 @@
       <i @click="closeWindow" style="top:-1px; right:4px; position:absolute; cursor:pointer; -webkit-app-region:no-drag;">&times;</i>
     </div>
 
-    <div v-if="isShowVolumeBar === true" class="glass-bg" style="width:100%; height:28px; top:49px; left:0; position:relative; z-index:-1;"></div>
+    <div v-if="isShowVolumeBar === true" style="width:100%; height:36px; top:50px; left:0; position:relative; box-sizing:border-box; background:#121212; z-index:-1;">
+      <div @click="clickMusicVolumeBar" ref="volumeBar" class="volume-bar box-show">
+        <div :style="{'width' : $store.state.Music.nowVolumeLevel}" style="height:88%; position:relative; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:5px;">
+          <a @mousedown="dragVolumeControllerPointer" class="pointer box-show" style="top:-4.5px;"></a>
+        </div>
+      </div>
+    </div>
 
-    <div v-if="isShowPlayList === true" class="glass-bg" style="width:100%; height:118px; top:48.5px; left:0; position:relative; z-index:-1;"></div>
+    <div v-if="isShowPlayList === true" style="width:100%; height:238px; top:50px; left:0; padding:3px 5px 0; position:relative; box-sizing:border-box; overflow:auto; background:#121212; z-index:-1;">
+      <div v-for="music in $store.state.Music.nowPlayList" :key="music.id" class="box-shadow" style="width:100%; height:28px;">
+        {{ music.name }}
+      </div>
+    </div>
 
   </div>
 </template>
@@ -109,5 +119,15 @@
   }
   .music-operation:hover, .music-operation.active {
     color:#00d8ff;
+  }
+
+  .pointer {
+    width:18px; height:18px; top:-4px; right:-8px; position:absolute; border-radius:50%; background:url(../../../static/images/default/slide-pointer.png) no-repeat; background-size:100% 100%;
+  }
+  .pointer:hover {
+    box-shadow: inset 0 2px 1px -1px rgba(255, 255, 255, 0.2), inset 0 -2px 1px -1px rgba(0, 0, 0, 0.2), 0 12px 12px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 0 0 1px #272727, 0 0.5px 8px #2af1fc;
+  }
+  .volume-bar {
+    width:88%; height:10px; top:50%; left:50%; position:absolute; transform:translate(-50%, -50%); background:#080808; border-radius:6px; cursor:pointer;
   }
 </style>

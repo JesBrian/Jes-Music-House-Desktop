@@ -34,7 +34,7 @@
       <i @click="changeVolumeStatus" :class="volumeStatus ? 'volume-on' : 'volume-off'" class="mh-if" style="margin-right:6px; font-size:24px;"></i>
       <!-- 音量条 -->
       <div @click="clickMusicVolumeBar" :class="{'ban-change': !volumeStatus}" ref="volumeBar" class="volume-bar box-show">
-        <div :style="{'width' : volumeLevel * 100 + '%'}" style="height:88%; margin-top:1px; position:relative; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:5px;">
+        <div :style="{'width' : nowVolumeLevel}" style="height:88%; margin-top:1px; position:relative; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:5px;">
           <a @mousedown="dragVolumeControllerPointer" class="pointer box-show" style="top:-4.5px;"></a>
         </div>
       </div>
@@ -120,6 +120,9 @@
 
       nowPlayRate () {
         return this.musicCTime / this.musicDTime * 100 + '%'
+      },
+      nowVolumeLevel () {
+        return this.volumeLevel * 100 + '%'
       }
     },
 
@@ -157,6 +160,9 @@
 
       nowPlayRate () {
         this.$store.commit('CHANGE_NOW_PLAY_RATE', this.nowPlayRate)
+      },
+      nowVolumeLevel () {
+        this.$store.commit('CHANGE_NOW_VOLUME_LEVEL', this.nowVolumeLevel)
       }
     },
 

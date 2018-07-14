@@ -128,9 +128,9 @@ ipcMain.on('show-mini-view', (event, position) => {
  */
 ipcMain.on('mini-show-content', (event, isShow, contentType) => {
   if ((isShow === true) && (contentType === 'volume')) {
-    mainWindow.setSize(368, 78)
+    mainWindow.setSize(368, 86)
   } else if ((isShow === true) && (contentType === 'playList')) {
-    mainWindow.setSize(368, 168)
+    mainWindow.setSize(368, 288)
   } else {
     mainWindow.setSize(368, 52)
   }
