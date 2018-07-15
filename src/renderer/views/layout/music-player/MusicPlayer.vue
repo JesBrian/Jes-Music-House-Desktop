@@ -189,6 +189,9 @@
       this.$root.eventHub.$on('changeVolumeLevel', (volume) => {
         this.changeMusicVolume(volume)
       })
+      this.$root.eventHub.$on('playThisMusic', (index) => {
+        this.playThisMusic(index)
+      })
 
       this.ipcRenderer.on('save-music-info', () => {
         let musicData = {

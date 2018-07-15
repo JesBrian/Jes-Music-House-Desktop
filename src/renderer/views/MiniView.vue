@@ -1,10 +1,10 @@
 <template>
   <div class="box-show" style="width:368px; height:52px; position:relative; background:#181818; -webkit-app-region:drag;">
     <div style="width:100%; height:100%; top:0; left:0; position:absolute; z-index:99;">
-      <div @click="changeViewMode" class="cube-bg" style="width:38px; height:38px; margin:6px; padding:3px; float:left; box-sizing:border-box; -webkit-app-region:no-drag;">
+      <div @click="changeViewMode" class="glass-bg box-show" style="width:38px; height:38px; margin:7.5px; padding:3px; float:left; border-radius:0; -webkit-app-region:no-drag;">
         <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530963872613&di=fc5d6a5013940181dce717ca9034dfb9&imgtype=0&src=http%3A%2F%2Fstatic.open-open.com%2Fnews%2FuploadImg%2F20160513%2F20160513105701_693.png" style="width:100%; height:100%;"/>
       </div>
-      <div style="width:100%; height:38px; padding:6px 15px 0 52px; box-sizing:border-box;">
+      <div style="width:100%; height:38px; padding:8px 15px 0 58px; box-sizing:border-box;">
         <div id="miniViewInfoAndOperation">
           <div id="miniViewInfo">
             <p class="text-hidden" style="text-align:center; font-size:16px;">Be Somewhere</p>
@@ -23,7 +23,7 @@
           <i @click="showPlayList" :class="isShowPlayList === true ? 'active' : ''" class="music-operation mh-if music-list"></i>
         </div>
       </div>
-      <div style="width:100%; height:14px; padding:0 15px 0 50px; box-sizing:border-box;">
+      <div style="width:100%; height:14px; padding:3px 15px 0 54px; box-sizing:border-box;">
         <div style="width:100%; height:3px; position:relative; background:#555; border-radius:3px;">
             <div :style="{'width' : $store.state.Music.nowPlayRate}" style="height:100%; top:0; left:0; position:absolute; border-radius:3px; background:#38daf0;"></div>
         </div>
@@ -41,9 +41,9 @@
 
     <div v-if="isShowPlayList === true" style="width:100%; height:238px; top:50px; left:0; padding:5px 4px 3px 2px; position:relative; box-sizing:border-box; background:#121212; z-index:-1;">
       <div style="width:100%; height:100%; padding:0 4px 0 0; box-sizing:border-box; overflow:auto;">
-        <div v-for="(music, index) in $store.state.Music.nowPlayList" :key="music.id" :class="{'active' : index === $store.state.Music.nowPlayIndex}" class="mini-play-list-cell box-shadow">
+        <div @dblclick="playThisMusic(index)" v-for="(music, index) in $store.state.Music.nowPlayList" :key="music.id" :class="{'active' : index === $store.state.Music.nowPlayIndex}" class="mini-play-list-cell box-shadow">
           <p style="width:10%; height:100%; float:left; text-align:center;">
-            <i class="mh-if play"></i>
+            <i @click="playThisMusic(index)" class="mh-if play"></i>
           </p>
           <p style="width:72%; height:100%; float:left; text-indent:0.08em;">
             {{ music.name }}
@@ -111,6 +111,10 @@
           document.onmousemove = null
           document.onmouseup = null
         }
+      },
+
+      playThisMusic (index) {
+        this.$root.eventHub.$emit('playThisMusic', index)
       },
 
       changePlayStatus () {

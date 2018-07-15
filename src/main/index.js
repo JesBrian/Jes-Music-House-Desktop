@@ -121,6 +121,7 @@ ipcMain.on('hide-window', () => {
  */
 ipcMain.on('show-mini-view', (event, position) => {
   mainWindow.setContentBounds({x: position[0], y: position[1], width: 368, height: 52})
+  mainWindow.setAlwaysOnTop(true)
 })
 
 /**
@@ -141,6 +142,7 @@ ipcMain.on('mini-show-content', (event, isShow, contentType) => {
  */
 ipcMain.on('show-main-view', (event, position) => {
   mainWindow.setContentBounds({x: position[0], y: position[1], width: 1180, height: 638})
+  mainWindow.setAlwaysOnTop(false)
 })
 
 /**
