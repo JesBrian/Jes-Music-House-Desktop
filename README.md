@@ -1,6 +1,6 @@
 # Jes Music House
 
-> An electron-vue project 
+> An electron-vue project
 
 #### Build Setup
 
