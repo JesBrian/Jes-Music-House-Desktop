@@ -7,35 +7,35 @@
     <!-- 基本信息 -->
     <div style="width:62%; display:inline-block;">
 
-      <table style="width:88%; margin:0 auto; background:lightseagreen;">
+      <table style="width:88%; margin:0 auto;">
         <tr>
-          <td style="padding-bottom:18px; text-align:right;">昵称</td>
+          <td style="padding-bottom:18px; text-align:center;">昵称</td>
           <td>
-            <input type="text" name="name" class="glass-bg box-show"/>
+            <input v-model="nickname" type="text" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
           </td>
         </tr>
         <tr>
-          <td style="padding-bottom:18px; text-align:right;">介绍</td>
+          <td style="padding-bottom:18px; text-align:center;">介绍</td>
           <td>
-            <textarea class="glass-bg box-show"></textarea>
+            <textarea v-model="description" class="cube-bg box-show" style="width:100%; height:128px; padding:8px; background:#383838; font-size:15px;"></textarea>
           </td>
         </tr>
         <tr>
-          <td style="padding-bottom:18px; text-align:right;">性别</td>
+          <td style="padding-bottom:18px; text-align:center;">性别</td>
           <td>
-            <input type="text" name="name" class="glass-bg box-show"/>
+            <input v-model="sex" type="text" name="name" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
           </td>
         </tr>
         <tr>
-          <td style="padding-bottom:18px; text-align:right;">生日</td>
+          <td style="padding-bottom:18px; text-align:center;">生日</td>
           <td>
-            <input type="text" name="name" class="glass-bg box-show"/>
+            <input v-model="birth" type="text" name="name" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
           </td>
         </tr>
         <tr>
-          <td style="padding-bottom:18px; text-align:right;">地区</td>
+          <td style="padding-bottom:18px; text-align:center;">地区</td>
           <td>
-            <input type="text" name="name" class="glass-bg box-show"/>
+            <input v-model="area" type="text" name="name" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
           </td>
         </tr>
       </table>
@@ -75,6 +75,12 @@
 
     data () {
       return {
+        nickname: '',
+        description: '',
+        sex: '',
+        birth: '',
+        area: '',
+
         show: false,
         params: {
           token: '123456798',
