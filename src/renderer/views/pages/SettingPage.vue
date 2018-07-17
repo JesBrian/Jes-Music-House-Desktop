@@ -42,7 +42,7 @@
 
       <!-- 保存按钮区域 -->
       <div style="margin-top:28px; text-align:center;">
-        <div class="super-btn-out" style="width:108px; height:32px; margin:0 18px;">
+        <div @click="updateUserInfo" class="super-btn-out" style="width:108px; height:32px; margin:0 18px;">
           <span class="super-btn-in mh-if makesure" style="width:98px; height:22px; line-height:23px;"> 确认保存</span>
         </div>
         <div class="super-btn-out" style="width:108px; height:32px; margin:0 18px;">
@@ -125,11 +125,33 @@
         console.log('-------- upload fail --------')
         console.log(status)
         console.log('field: ' + field)
+      },
+
+      updateUserInfo () {
+        if (this.nickname === '') {
+          return false
+        }
+
+        this.$http.post('', {
+        }).then((response) => {
+          console.log(response)
+        }).catch((error) => {
+          console.error(error)
+        })
       }
     }
   }
 </script>
 
 <style scoped>
-
+  input, textarea {
+    border-radius:4px;
+    border:2px solid #111;
+    color:#888; letter-spacing:1px;
+  }
+  input:focus, textarea:focus {
+    border-color: #2abae6;
+    box-shadow:inset 0 2px 1px -1px rgba(255, 255, 255, 0.2), inset 0 -2px 1px -1px rgba(0, 0, 0, 0.2), 0 0 10px -1px #00d8ff, 0 12px 12px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 0 0 1px #272727;
+    color:#CCC;
+  }
 </style>
