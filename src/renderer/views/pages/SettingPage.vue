@@ -7,38 +7,28 @@
     <!-- 基本信息 -->
     <div style="width:62%; display:inline-block;">
 
-      <table style="width:88%; margin:0 auto;">
-        <tr>
-          <td style="padding-bottom:18px; text-align:center;">昵称</td>
-          <td>
-            <input v-model="nickname" type="text" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
-          </td>
-        </tr>
-        <tr>
-          <td style="padding-bottom:18px; text-align:center;">介绍</td>
-          <td>
-            <textarea v-model="description" class="cube-bg box-show" style="width:100%; height:128px; padding:8px; background:#383838; font-size:15px;"></textarea>
-          </td>
-        </tr>
-        <tr>
-          <td style="padding-bottom:18px; text-align:center;">性别</td>
-          <td>
-            <input v-model="sex" type="text" name="name" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
-          </td>
-        </tr>
-        <tr>
-          <td style="padding-bottom:18px; text-align:center;">生日</td>
-          <td>
-            <input v-model="birth" type="text" name="name" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
-          </td>
-        </tr>
-        <tr>
-          <td style="padding-bottom:18px; text-align:center;">地区</td>
-          <td>
-            <input v-model="area" type="text" name="name" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
-          </td>
-        </tr>
-      </table>
+      <div style="width:88%; margin:0 auto;">
+        <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">昵称</div>
+        <div style="width:88%; display:inline-block;">
+          <input v-model="nickname" type="text" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
+        </div>
+        <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">介绍</div>
+        <div style="width:88%; display:inline-block;">
+          <textarea v-model="description" class="cube-bg box-show" style="width:100%; height:128px; padding:8px; background:#383838; font-size:15px;"></textarea>
+        </div>
+        <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">性别</div>
+        <div style="width:88%; display:inline-block;">
+          <input v-model="sex" type="text" name="name" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
+        </div>
+        <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">生日</div>
+        <div style="width:88%; display:inline-block;">
+          <input v-model="birth" type="text" name="name" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
+        </div>
+        <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">地区</div>
+        <div style="width:88%; display:inline-block;">
+          <input v-model="area" type="text" name="name" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
+        </div>
+      </div>
 
       <!-- 保存按钮区域 -->
       <div style="margin-top:28px; text-align:center;">

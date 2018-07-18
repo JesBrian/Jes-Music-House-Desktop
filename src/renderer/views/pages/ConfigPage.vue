@@ -28,11 +28,28 @@
         <li class="box-shadow">
           <div class="config-item" style="height:302px; margin-bottom:12px;">
             <p class="config-item-title">账号</p>
+            <div>
+              <page-link url="/setting" class="super-btn-out" style="width:88px; height:31px;">
+                <span class="super-btn-in" style="width:78px; height:22px; line-height:22px;"> 修改信息</span>
+              </page-link>
+              <page-link class="super-btn-out" style="width:88px; height:31px;">
+                <span class="super-btn-in" style="width:78px; height:22px; line-height:22px;"> 绑定账号</span>
+              </page-link>
+            </div>
           </div>
         </li>
         <li class="box-shadow">
           <div class="config-item" style="height:358px; margin-bottom:12px;">
             <p class="config-item-title">常规</p>
+            <div>
+              添加音乐到播放列表时:
+              <label>
+                <input type="radio"/> 下一首播放
+              </label>
+              <label>
+                <input type="radio"/> 列表最后播放
+              </label>
+            </div>
           </div>
         </li>
         <li class="box-shadow">
@@ -58,6 +75,21 @@
         <li class="box-shadow">
           <div class="config-item" style="height:368px; margin-bottom:12px;">
             <p class="config-item-title">歌词</p>
+            <div>
+              启用歌词显示:
+              <label>
+                <input type="checkbox"/> 启用歌词显示
+              </label>
+            </div>
+            <div>
+              歌词显示形式:
+              <label>
+                <input type="radio"/> 桌面歌词
+              </label>
+              <label>
+                <input type="radio"/> 菜单栏歌词
+              </label>
+            </div>
           </div>
         </li>
         <li class="box-shadow">
@@ -68,6 +100,24 @@
         <li class="box-shadow">
           <div style="height:288px; margin-bottom:12px;">
             <p class="config-item-title">关于 Music House</p>
+            <div>
+              当前版本：
+              <page-link class="super-btn-out" style="width:88px; height:30px;">
+                <span class="super-btn-in" style="width:78px; height:21px; line-height:20px;">意见反馈</span>
+              </page-link>
+            </div>
+            <div>
+              下载移动客户端：
+              <div class="super-btn-out" style="width:88px; height:30px;">
+                <span class="super-btn-in" style="width:78px; height:21px; line-height:20px;">iPhone版</span>
+              </div>
+              <div class="super-btn-out" style="width:88px; height:30px;">
+                <span class="super-btn-in" style="width:78px; height:21px; line-height:20px;">iPad版</span>
+              </div>
+            </div>
+            <div>
+              《 Music House 服务条款》
+            </div>
           </div>
         </li>
       </ul>
