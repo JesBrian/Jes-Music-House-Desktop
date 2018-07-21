@@ -10,16 +10,16 @@
 
     <div style="width:100%; height:168px;">
       <div v-show="contentType === 'theme'" style="width:100%; height:100%; text-align:center;">
-        <div class="glass-bg" style="width:42%; height:65px; margin:7px 6px 0; padding:2px; display:inline-block; background:lightpink; position:relative; border-radius:0;">
+        <div @click="changeTheme()" class="glass-bg" style="width:42%; height:65px; margin:7px 6px 0; padding:2px; display:inline-block; background:lightpink; position:relative; border-radius:0; cursor:pointer;">
           <div class="glass-bg" style="width:100%; height:22px; left:0; bottom:0; position:absolute; border-radius:0; opacity:0.9; line-height:20px;">酷炫黑蓝</div>
         </div>
-        <div class="glass-bg" style="width:42%; height:65px; margin:7px 6px 0; padding:2px; display:inline-block; background:lightseagreen; position:relative; border-radius:0;">
+        <div @click="changeTheme()" class="glass-bg" style="width:42%; height:65px; margin:7px 6px 0; padding:2px; display:inline-block; background:lightseagreen; position:relative; border-radius:0; cursor:pointer;">
           <div class="glass-bg" style="width:100%; height:22px; left:0; bottom:0; position:absolute; border-radius:0; opacity:0.9; line-height:22px;">晶莹白蓝</div>
         </div>
-        <div class="glass-bg" style="width:42%; height:65px; margin:7px 6px 0; padding:2px; display:inline-block; background:lightpink; position:relative; border-radius:0;">
+        <div @click="changeTheme()" class="glass-bg" style="width:42%; height:65px; margin:7px 6px 0; padding:2px; display:inline-block; background:lightpink; position:relative; border-radius:0; cursor:pointer;">
           <div class="glass-bg" style="width:100%; height:22px; left:0; bottom:0; position:absolute; border-radius:0; opacity:0.9; line-height:20px;">酷炫黑蓝</div>
         </div>
-        <div class="glass-bg" style="width:42%; height:65px; margin:7px 6px 0; padding:2px; display:inline-block; background:lightseagreen; position:relative; border-radius:0;">
+        <div @click="changeTheme()" class="glass-bg" style="width:42%; height:65px; margin:7px 6px 0; padding:2px; display:inline-block; background:lightseagreen; position:relative; border-radius:0; cursor:pointer;">
           <div class="glass-bg" style="width:100%; height:22px; left:0; bottom:0; position:absolute; border-radius:0; opacity:0.9; line-height:22px;">晶莹白蓝</div>
         </div>
       </div>
@@ -59,7 +59,7 @@
 
     data () {
       return {
-        contentType: 'theme',
+        contentType: 'theme', // theme / color
         colorRate: 0.60,
         lightRate: 0.5
       }
@@ -68,6 +68,13 @@
     methods: {
       changeContentType (type = 'theme') {
         this.contentType = type
+      },
+
+      /**
+       * 选择主题
+       */
+      changeTheme () {
+        this.$parent.closeShowContent() // 关闭顶部导航栏弹出内容
       },
 
       /**

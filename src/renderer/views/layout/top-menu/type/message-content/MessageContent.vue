@@ -3,33 +3,38 @@
     <div class="box-show" style="width:100%; height:48px; position:relative;">
       <slot />
       <div style="width:208px; height:26px; top:55%; left:50%; transform:translate(-50%,-50%); position:absolute; line-height:25px; text-align:center;">
-        <div @click="changeMessageContentType('message')" :class="contentType === 'message' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:33%; height:100%; float:left; border-radius:13px 0 0 13px; cursor:pointer;">私信</div>
-        <div @click="changeMessageContentType('comment')" :class="contentType === 'comment' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:34%; height:100%; float:left; border-radius:0; cursor:pointer;">评论</div>
-        <div @click="changeMessageContentType('notice')" :class="contentType === 'notice' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:33%; height:100%; float:left; border-radius:0 13px 13px 0; cursor:pointer;">通知</div>
+        <div @click="changeMessageContentType('PersonalLetter')" :class="contentType === 'PersonalLetter' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:33%; height:100%; float:left; border-radius:13px 0 0 13px; cursor:pointer;">私信</div>
+        <div @click="changeMessageContentType('CommentMessage')" :class="contentType === 'CommentMessage' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:34%; height:100%; float:left; border-radius:0; cursor:pointer;">评论</div>
+        <div @click="changeMessageContentType('NoticeMessage')" :class="contentType === 'NoticeMessage' ? 'cube-bg' : 'glass-bg'" class="box-show" style="width:33%; height:100%; float:left; border-radius:0 13px 13px 0; cursor:pointer;">通知</div>
       </div>
     </div>
+
     <div style="width:100%; height:468px; padding:3px 0;">
-      <ul style="width:96%; height:100%; margin:0 auto; overflow:auto;">
-        <li v-for="n in 18" class="box-shadow" style="width:98%;">
-          <div style="height:48px;"></div>
-        </li>
-      </ul>
+      <component :is="contentType" />
     </div>
   </div>
 </template>
 
 <script>
+  import PersonalLetter from '../choose-theme/type/PersonalLetter.vue'
+  import CommentMessage from '../choose-theme/type/CommentMessage.vue'
+  import NoticeMessage from '../choose-theme/type/NoticeMessage.vue'
+
   export default {
     name: 'MessageContent',
 
+    components: {
+      PersonalLetter, CommentMessage, NoticeMessage
+    },
+
     data () {
       return {
-        contentType: 'message'
+        contentType: 'PersonalLetter'
       }
     },
 
     methods: {
-      changeMessageContentType (type = 'message') {
+      changeMessageContentType (type = 'PersonalLetter') {
         this.contentType = type
       }
     }

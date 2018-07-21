@@ -5,7 +5,7 @@
       <span style="float:left; font-size:28px; font-weight:700;">全部</span>
       <div style="width:128px; height:36px; margin:-6px 28px 0; position:relative; display:inline-block;">
         <div @click="changeShowAlbumTypeContent" class="super-btn-out" style="width:100%; height:100%;">
-          <span class="super-btn-in" style="width:118px; height:27px; line-height:27px;">选择分类 <i class="mh-if double-arrow-down"></i></span>
+          <span class="super-btn-in" style="width:118px; height:25px; top:48%; line-height:27px;">选择分类 <i class="mh-if double-arrow-down"></i></span>
         </div>
 
         <div v-if="showAlbumTypeContent" class="glass-bg box-show" style="width:688px; top:42px; left:-100%; position:absolute; z-index:9; line-height:1em;">

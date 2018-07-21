@@ -10,13 +10,8 @@
       </div>
     </div>
 
-    <page-link url="/setting">设置</page-link>
-
     <!-- 内容 -->
     <component :is="'index-' + indexContentType"/>
-
-    <router-link to="/miniView">Mini View</router-link>
-
   </div>
 </template>
 
