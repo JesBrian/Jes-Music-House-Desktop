@@ -3,7 +3,9 @@
     <li v-for="n in 18" class="box-shadow" style="width:98%; padding-right:8px; box-sizing:border-box;">
       <div style="width:100%; height:100%; padding-left:50px; position:relative; box-sizing:border-box;">
         <div style="width:48px; height:100%; top:0; left:0; position:absolute;">
-          <img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:33px; height:33px; margin:7px; padding:2px; border-radius:50%;" />
+          <page-link url="/user" style="width:33px; height:33px; margin:7px; float:left; border-radius:50%;">
+            <img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:100%; height:100%; padding:2px; box-sizing:border-box; border-radius:50%;" />
+          </page-link>
         </div>
         <div style="padding:3px 0 10px;">
           <p style="line-height:1.9em;">

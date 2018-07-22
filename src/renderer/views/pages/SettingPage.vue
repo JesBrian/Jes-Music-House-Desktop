@@ -10,11 +10,7 @@
       <div style="width:88%; margin:0 auto;">
         <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">昵称</div>
         <div style="width:88%; display:inline-block;">
-          <input v-model="nickname" type="text" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
-        </div>
-        <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">介绍</div>
-        <div style="width:88%; display:inline-block;">
-          <textarea v-model="description" class="cube-bg box-show" style="width:100%; height:128px; padding:8px; background:#383838; font-size:15px;"></textarea>
+          <input v-model="username" type="text" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
         </div>
         <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">性别</div>
         <div style="width:88%; display:inline-block;">
@@ -27,6 +23,14 @@
         <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">地区</div>
         <div style="width:88%; display:inline-block;">
           <input v-model="area" type="text" name="name" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
+        </div>
+        <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">邮箱</div>
+        <div style="width:88%; display:inline-block;">
+          <input v-model="mail" type="text" name="name" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
+        </div>
+        <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">介绍</div>
+        <div style="width:88%; display:inline-block;">
+          <textarea v-model="description" class="cube-bg box-show" style="width:100%; height:128px; padding:8px; background:#383838; font-size:15px;"></textarea>
         </div>
       </div>
 
@@ -65,11 +69,12 @@
 
     data () {
       return {
-        nickname: '',
-        description: '',
+        username: '',
         sex: '',
         birth: '',
         area: '',
+        mail: '',
+        description: '',
 
         show: false,
         params: {
@@ -81,6 +86,16 @@
         },
         imgDataUrl: 'http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80'
       }
+    },
+
+    beforeMount () {
+      this.$http.post('getUserBaseInfo', {
+        id: this.$store.state.User.id
+      }).then((response) => {
+        console.log(response)
+      }).catch((error) => {
+        console.error(error)
+      })
     },
 
     methods: {
@@ -118,7 +133,7 @@
       },
 
       updateUserInfo () {
-        if (this.nickname === '') {
+        if (this.username === '') {
           return false
         }
 
