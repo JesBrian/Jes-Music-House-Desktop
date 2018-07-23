@@ -5,6 +5,7 @@
     <div @click="changeContentType('ChooseContent')" class="super-btn-out" style="width:56px; height:23px; margin:5px 3px;">
       <span class="super-btn-in mh-if double-arrow-left" style="width:50px; height:18px; line-height:20px; font-size:13px;"> 返回</span>
     </div>
+    <span @click="openBrowser('http://music.jesbrian.cn/#/retrievePasswd')" style="float:right;">忘记密码</span>
 
     <div @keyup.enter="userRegister" style="width:88%; margin:5px auto 18px;">
       <label style="position:relative;">

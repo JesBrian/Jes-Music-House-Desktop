@@ -32,6 +32,9 @@
               <page-link url="/setting" class="super-btn-out" style="width:88px; height:31px;">
                 <span class="super-btn-in" style="width:78px; height:22px; line-height:22px;"> 修改信息</span>
               </page-link>
+              <a  @click="openBrowser('http://music.jesbrian.cn/#/retrievePasswd')" class="super-btn-out" style="width:88px; height:31px;">
+                <span class="super-btn-in" style="width:78px; height:22px; line-height:22px;"> 修改密码</span>
+              </a>
               <page-link class="super-btn-out" style="width:88px; height:31px;">
                 <span class="super-btn-in" style="width:78px; height:22px; line-height:22px;"> 绑定账号</span>
               </page-link>
@@ -175,6 +178,10 @@
 
         console.log(tempScrollTop)
         console.log(this.navScrollTop)
+      },
+
+      openBrowser (url = '') {
+        this.ipcRenderer.send('open-browser-url', url)
       }
     }
   }
