@@ -22,7 +22,7 @@
         </div>
         <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">地区</div>
         <div style="width:88%; display:inline-block;">
-          <input v-model="area" type="text" name="name" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
+          <input v-model="address" type="text" name="name" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
         </div>
         <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">邮箱</div>
         <div style="width:88%; display:inline-block;">
@@ -30,7 +30,7 @@
         </div>
         <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">介绍</div>
         <div style="width:88%; display:inline-block;">
-          <textarea v-model="description" class="cube-bg box-show" style="width:100%; height:128px; padding:8px; background:#383838; font-size:15px;"></textarea>
+          <textarea v-model="description" class="cube-bg box-show" style="width:100%; height:108px; padding:8px; background:#383838; font-size:15px; resize:none;"></textarea>
         </div>
       </div>
 
@@ -72,7 +72,7 @@
         username: '',
         sex: '',
         birth: '',
-        area: '',
+        address: '',
         mail: '',
         description: '',
 
@@ -88,11 +88,27 @@
       }
     },
 
+    beforeCreate () {
+      if (this.$store.state.User.id === '0') {
+        this.$router.push('/')
+      }
+    },
+
     beforeMount () {
+      console.log(this.$store.state.User.id)
+
       this.$http.post('getUserBaseInfo', {
         id: this.$store.state.User.id
       }).then((response) => {
-        console.log(response)
+        if (response.data.state === '200') {
+          let userInfo = response.data.data
+          this.username = this.$store.state.User.username
+          this.sex = userInfo.sex
+          this.birth = userInfo.birth
+          this.address = userInfo.address
+          this.mail = userInfo.mail
+          this.description = userInfo.description
+        }
       }).catch((error) => {
         console.error(error)
       })
@@ -137,7 +153,14 @@
           return false
         }
 
-        this.$http.post('', {
+        this.$http.post('updateUserBaseInfo', {
+          userId: this.$store.state.User.id,
+          username: this.username,
+          sex: this.sex,
+          birth: this.birth,
+          address: this.address,
+          description: this.description,
+          mail: this.mail
         }).then((response) => {
           console.log(response)
         }).catch((error) => {
