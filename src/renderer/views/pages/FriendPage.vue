@@ -10,8 +10,22 @@
 
     <div style="width:68%; min-height:688px; margin-left:1.8%; padding-top:48px; display:inline-block;">
       <ul>
-        <li v-for="n in 18" class="box-shadow">
-          <div style="height:88px;"></div>
+        <li v-for="n in 18" class="box-shadow" style="width:100%; padding-right:8px; box-sizing:border-box;">
+          <div style="padding-bottom:12px;">
+            <page-link url="/user" style="width:33px; height:33px; margin:7px; float:left; border-radius:50%;">
+              <img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:100%; height:100%; padding:2px; box-sizing:border-box; border-radius:50%;" />
+            </page-link>
+            <p style="line-height:2.8em;">
+              <page-link url="/user">Music House</page-link>
+              <span style="margin-top:8px; float:right; font-size:13px; line-height:1.8em;">
+                <span style="margin-right:8px; color:#999;">2018-09-12</span>
+                <span style="color:#999;">23:59</span>
+              </span>
+            </p>
+            <p style="margin-top:-8px; word-break:break-word; line-height:1.2em; font-size:13px;">
+              cgsba13按市场vasliv长沙奇偶iv454jmy查收v静455安寺74hujcvgjya从网上关安寺74hujcvgjya从网上关奇偶iv454jmy查关奇偶iv454jmy查收v静455安寺74hujcvgjya从网上关于2sgv
+            </p>
+          </div>
         </li>
       </ul>
     </div>

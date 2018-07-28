@@ -16,9 +16,9 @@
 </template>
 
 <script>
-  import PersonalLetter from '../choose-theme/type/PersonalLetter.vue'
-  import CommentMessage from '../choose-theme/type/CommentMessage.vue'
-  import NoticeMessage from '../choose-theme/type/NoticeMessage.vue'
+  import PersonalLetter from './type/PersonalLetter.vue'
+  import CommentMessage from './type/CommentMessage.vue'
+  import NoticeMessage from './type/NoticeMessage.vue'
 
   export default {
     name: 'MessageContent',

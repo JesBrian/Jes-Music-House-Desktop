@@ -60,6 +60,8 @@
 <script>
   import UploadImg from '../../components/extends/uploadImg/UploadImg.vue'
 
+  import { validateInfoByReg } from '../../assets/js/validateInfo.js'
+
   export default {
     name: 'SettingPage',
 
@@ -153,6 +155,10 @@
           return false
         }
 
+        if ((this.mail !== '') && (!validateInfoByReg('mail', this.mail))) {
+          return false
+        }
+
         this.$http.post('updateUserBaseInfo', {
           userId: this.$store.state.User.id,
           username: this.username,
@@ -175,11 +181,11 @@
   input, textarea {
     border-radius:4px;
     border:2px solid #111;
-    color:#888; letter-spacing:1px;
+    color:#999; letter-spacing:1px;
   }
   input:focus, textarea:focus {
     border-color: #2abae6;
     box-shadow:inset 0 2px 1px -1px rgba(255, 255, 255, 0.2), inset 0 -2px 1px -1px rgba(0, 0, 0, 0.2), 0 0 10px -1px #00d8ff, 0 12px 12px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 0 0 1px #272727;
-    color:#CCC;
+    color:#EEE;
   }
 </style>

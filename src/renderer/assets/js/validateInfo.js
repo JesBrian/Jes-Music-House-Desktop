@@ -1,7 +1,7 @@
 /**
- * @param infoType
- * @param info
- * @return {boolean}
+ * @param infoType    验证信息类型
+ * @param info        要验证的信息
+ * @return {boolean}  验证成功返回 true
  */
 export function validateInfoByReg (infoType = '', info = '') {
   let reg = getRegByType(infoType)
@@ -20,6 +20,9 @@ function getRegByType (type = '') {
       break
     case 'passwd':
       reg = /^[a-zA-Z0-9]{4,}$/
+      break
+    case 'mail':
+      reg = /^[a-zA-Z0-9]{1,}@[a-zA-Z0-9]{1,}\.com$/
       break
     case 'identifyingCode':
       reg = /^[0-9]{4}$/
