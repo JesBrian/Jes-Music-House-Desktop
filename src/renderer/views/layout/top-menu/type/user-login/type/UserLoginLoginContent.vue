@@ -56,7 +56,7 @@
           let result = response.data
           let tipsType = 'warning'
 
-          if (result.state === '620') {
+          if (result.state === '200') {
             tipsType = 'info'
             this.localForage.setItem('user', result.data)
             closeCloverComponent(this)
