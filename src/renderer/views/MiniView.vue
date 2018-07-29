@@ -126,9 +126,11 @@
 
       addCollection () {
       },
+
       showLyric () {
         this.$store.commit('CHANGE_SHOW_LYRIC')
       },
+
       showVolumeBar () {
         this.isShowPlayList = false
         this.isShowVolumeBar = !this.isShowVolumeBar

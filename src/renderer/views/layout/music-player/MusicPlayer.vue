@@ -123,6 +123,10 @@
       },
       nowVolumeLevel () {
         return this.volumeLevel * 100 + '%'
+      },
+
+      isShowLyric () {
+        return this.$store.state.Music.showLyric
       }
     },
 
@@ -163,6 +167,14 @@
       },
       nowVolumeLevel () {
         this.$store.commit('CHANGE_NOW_VOLUME_LEVEL', this.nowVolumeLevel)
+      },
+
+      isShowLyric (nVal, oVal) {
+        if (nVal === true) {
+          this.ipcRenderer.send('show-lyric-view')
+        } else {
+          this.ipcRenderer.send('close-lyric-view')
+        }
       }
     },
 
@@ -256,7 +268,6 @@
        */
       changeShowLyric () {
         this.$store.commit('CHANGE_SHOW_LYRIC')
-        this.ipcRenderer.send('show-lyric-view')
       },
 
       /**

@@ -172,7 +172,7 @@ ipcMain.on('show-lyric-view', () => {
  * 取消展示歌词
  */
 ipcMain.on('close-lyric-view', () => {
-  lyricWindow = null
+  lyricWindow.close()
 })
 
 /**
