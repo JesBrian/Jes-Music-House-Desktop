@@ -14,7 +14,7 @@ if (process.env.NODE_ENV !== 'development') {
   iconPath = `../../static/images/${iconName}`
 }
 
-let mainWindow, timer
+let mainWindow, lyricWindow, timer
 const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:9080`
   : `file://${__dirname}/index.html`
@@ -150,6 +150,29 @@ ipcMain.on('show-main-view', (event, position) => {
  */
 ipcMain.on('hide-main-window', () => {
   mainWindow.hide()
+})
+
+/**
+ * 展示歌词
+ */
+ipcMain.on('show-lyric-view', () => {
+  lyricWindow = new BrowserWindow({
+    resizable: false,
+    width: 888,
+    height: 168,
+    frame: false,
+    transparent: true,
+    webPreferences: {webSecurity: false, devTools: false}
+  })
+
+  lyricWindow.loadURL(winURL)
+})
+
+/**
+ * 取消展示歌词
+ */
+ipcMain.on('close-lyric-view', () => {
+  lyricWindow = null
 })
 
 /**

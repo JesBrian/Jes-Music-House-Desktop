@@ -256,6 +256,7 @@
        */
       changeShowLyric () {
         this.$store.commit('CHANGE_SHOW_LYRIC')
+        this.ipcRenderer.send('show-lyric-view')
       },
 
       /**
