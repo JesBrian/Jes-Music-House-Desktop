@@ -6,6 +6,10 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/show-lyric',
+      component: () => import('@/views/LyricView.vue')
+    },
+    {
       path: '/',
       component: () => import('@/views/BaseLayout.vue'),
       redirect: '/index/recommend',

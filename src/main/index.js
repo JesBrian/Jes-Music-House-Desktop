@@ -157,15 +157,19 @@ ipcMain.on('hide-main-window', () => {
  */
 ipcMain.on('show-lyric-view', () => {
   lyricWindow = new BrowserWindow({
-    resizable: false,
     width: 888,
-    height: 168,
+    height: 68,
+    resizable: true,
     frame: false,
     transparent: true,
     webPreferences: {webSecurity: false, devTools: false}
   })
 
-  lyricWindow.loadURL(winURL)
+  lyricWindow.loadURL(`${winURL}/#/show-lyric`)
+
+  mainWindow.webContents.send('set-lyric-view-id', lyricWindow.webContents.id)
+
+  mainWindow.focus()
 })
 
 /**

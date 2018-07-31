@@ -97,6 +97,8 @@
 
     data () {
       return {
+        lyricViewId: 2,
+
         musicSource: null,
         playListContentStatus: false,
         playListContentType: 'now',
@@ -131,7 +133,7 @@
     },
 
     watch: {
-      playStatus () {
+      playStatus (nVal, oVal) {
         // 检查播放进度 & 播放音量
         this.volumeStatus ? this.musicSource.volume = this.volumeLevel : this.musicSource.volume = 0
         this.musicSource.currentTime = this.musicCTime
@@ -144,6 +146,7 @@
           this.musicSource.pause()
           this.saveLocalForageData()
         }
+        this.ipcRenderer.sendTo(this.lyricViewId, 'change-lyric-status', nVal)
       },
 
       volumeStatus () {
@@ -203,6 +206,10 @@
       })
       this.$root.eventHub.$on('playThisMusic', (index) => {
         this.playThisMusic(index)
+      })
+
+      this.ipcRenderer.on('set-lyric-view-id', (event, id) => {
+        this.lyricViewId = id
       })
 
       this.ipcRenderer.on('save-music-info', () => {
