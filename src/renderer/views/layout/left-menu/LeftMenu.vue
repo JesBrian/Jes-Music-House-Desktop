@@ -138,7 +138,7 @@
     },
 
     created () {
-      this.localForage.getItem('leftMenu', (result, value) => {
+      this.$localForage.getItem('leftMenu', (result, value) => {
         if (value) {
           this.leftMenuSwitch = value
         }
@@ -153,7 +153,7 @@
 
       changeFirstMenuTypeShow (firstMenuType) {
         this.leftMenuSwitch[firstMenuType] = !this.leftMenuSwitch[firstMenuType]
-        this.localForage.setItem('leftMenu', this.leftMenuSwitch)
+        this.$localForage.setItem('leftMenu', this.leftMenuSwitch)
       },
 
       changeCollection () {

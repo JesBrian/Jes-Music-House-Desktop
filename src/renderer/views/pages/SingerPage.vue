@@ -72,7 +72,7 @@
     },
 
     created () {
-      this.localForage.getItem('playListShowType', (result, value) => {
+      this.$localForage.getItem('playListShowType', (result, value) => {
         if (value) {
           this.playListShowType = value.singer
         }
@@ -86,7 +86,7 @@
 
       changePlayListShowType (type = 'picture') {
         this.playListShowType = type
-        this.localForage.getItem('playListShowType', (result, value) => {
+        this.$localForage.getItem('playListShowType', (result, value) => {
           let saveData = {}
           if (value) {
             saveData = value
@@ -95,7 +95,7 @@
             saveData.collection = 'picture-group'
           }
           saveData.singer = this.playListShowType
-          this.localForage.setItem('playListShowType', saveData)
+          this.$localForage.setItem('playListShowType', saveData)
         })
       }
     }

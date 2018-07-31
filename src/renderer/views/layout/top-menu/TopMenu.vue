@@ -121,22 +121,22 @@
 
       showMiniView () {
         this.$store.commit('CHANGE_SHOW_MINI_VIEW')
-        this.localForage.getItem('miniView', (result, value) => {
+        this.$localForage.getItem('miniView', (result, value) => {
           if (!value) {
-            this.localForage.getItem('mainView', (result, value) => {
-              this.ipcRenderer.send('show-mini-view', value)
-              this.localForage.setItem('miniView', value)
+            this.$localForage.getItem('mainView', (result, value) => {
+              this.$ipcRenderer.send('show-mini-view', value)
+              this.$localForage.setItem('miniView', value)
             })
           } else {
-            this.ipcRenderer.send('show-mini-view', value)
+            this.$ipcRenderer.send('show-mini-view', value)
           }
         })
       },
       closeWindow () {
-        this.ipcRenderer.send('hide-main-window')
+        this.$ipcRenderer.send('hide-main-window')
       },
       atest () {
-        this.ipcRenderer.send('hide-window')
+        this.$ipcRenderer.send('hide-window')
       }
     }
   }

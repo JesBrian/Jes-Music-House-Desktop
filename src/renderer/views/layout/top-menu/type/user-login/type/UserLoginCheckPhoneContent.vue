@@ -95,7 +95,7 @@
           if (result.state === '200') {
             tipsType = 'info'
             console.log(response.data)
-            this.localForage.setItem('user', result.data)
+            this.$localForage.setItem('user', result.data)
             closeCloverComponent(this)
             this.$store.commit('SAVE_LOGIN_USER_INFO', result.data)
           }

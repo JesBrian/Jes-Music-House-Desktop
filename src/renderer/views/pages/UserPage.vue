@@ -99,7 +99,7 @@
     },
 
     created () {
-      this.localForage.getItem('playListShowType', (result, value) => {
+      this.$localForage.getItem('playListShowType', (result, value) => {
         if (value) {
           this.createPlayListShowType = value.create
           this.collectionPlayListShowType = value.collection
@@ -110,7 +110,7 @@
     methods: {
       changePlayListShowType (playListType, showType = 'picture') {
         this[playListType] = showType
-        this.localForage.getItem('playListShowType', (result, value) => {
+        this.$localForage.getItem('playListShowType', (result, value) => {
           let saveData = {}
           if (value) {
             saveData = value
@@ -119,12 +119,12 @@
           }
           saveData.create = this.createPlayListShowType
           saveData.collection = this.collectionPlayListShowType
-          this.localForage.setItem('playListShowType', saveData)
+          this.$localForage.setItem('playListShowType', saveData)
         })
       },
 
       openBrowser (url = '') {
-        this.ipcRenderer.send('open-browser-url', url)
+        this.$ipcRenderer.send('open-browser-url', url)
       }
     }
   }

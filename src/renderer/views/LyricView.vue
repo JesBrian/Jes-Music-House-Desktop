@@ -20,7 +20,7 @@
     },
 
     created () {
-      this.ipcRenderer.on('change-lyric-status', (event, status) => {
+      this.$ipcRenderer.on('change-lyric-status', (event, status) => {
         this.status = status
       })
     },

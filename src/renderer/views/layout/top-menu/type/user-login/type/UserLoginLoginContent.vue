@@ -58,7 +58,7 @@
 
           if (result.state === '200') {
             tipsType = 'info'
-            this.localForage.setItem('user', result.data)
+            this.$localForage.setItem('user', result.data)
             closeCloverComponent(this)
             this.$store.commit('SAVE_LOGIN_USER_INFO', result.data)
           }
@@ -73,7 +73,7 @@
       },
 
       openBrowser (url = '') {
-        this.ipcRenderer.send('open-browser-url', url)
+        this.$ipcRenderer.send('open-browser-url', url)
       }
     }
   }

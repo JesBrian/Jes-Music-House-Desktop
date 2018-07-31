@@ -87,14 +87,14 @@
       },
 
       userLogout () {
-        this.localForage.setItem('user', null)
+        this.$localForage.setItem('user', null)
         this.$store.commit('RESET_USER_INFO')
         changePage('/', this)
         this.$store.commit('CLEAR_URL_HISTPRY')
       },
 
       openBrowser (url = '') {
-        this.ipcRenderer.send('open-browser-url', url)
+        this.$ipcRenderer.send('open-browser-url', url)
       }
     }
   }

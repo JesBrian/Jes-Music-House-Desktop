@@ -72,14 +72,14 @@
     },
 
     created () {
-      this.ipcRenderer.on('window-move', (event, position) => {
+      this.$ipcRenderer.on('window-move', (event, position) => {
         if (this.$store.state.Views.showMiniView === true) {
-          this.localForage.setItem('miniView', position)
+          this.$localForage.setItem('miniView', position)
         } else {
-          this.localForage.setItem('mainView', position)
+          this.$localForage.setItem('mainView', position)
         }
       })
-      this.ipcRenderer.send('save-view-position')
+      this.$ipcRenderer.send('save-view-position')
     }
   }
 </script>

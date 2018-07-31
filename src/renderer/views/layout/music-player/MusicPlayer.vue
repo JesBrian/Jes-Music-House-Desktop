@@ -146,7 +146,7 @@
           this.musicSource.pause()
           this.saveLocalForageData()
         }
-        this.ipcRenderer.sendTo(this.lyricViewId, 'change-lyric-status', nVal)
+        this.$ipcRenderer.sendTo(this.lyricViewId, 'change-lyric-status', nVal)
       },
 
       volumeStatus () {
@@ -174,16 +174,16 @@
 
       isShowLyric (nVal, oVal) {
         if (nVal === true) {
-          this.ipcRenderer.send('show-lyric-view')
+          this.$ipcRenderer.send('show-lyric-view')
         } else {
-          this.ipcRenderer.send('close-lyric-view')
+          this.$ipcRenderer.send('close-lyric-view')
         }
       }
     },
 
     created () {
       // 读取 localForage 音乐信息
-      this.localForage.getItem('music', (result, value) => {
+      this.$localForage.getItem('music', (result, value) => {
         if (value) {
           this.$store.commit('SET_NOW_PLAY_INDEX', value.nowPlayIndex)
           this.playModel = value.playModel
@@ -208,11 +208,11 @@
         this.playThisMusic(index)
       })
 
-      this.ipcRenderer.on('set-lyric-view-id', (event, id) => {
+      this.$ipcRenderer.on('set-lyric-view-id', (event, id) => {
         this.lyricViewId = id
       })
 
-      this.ipcRenderer.on('save-music-info', () => {
+      this.$ipcRenderer.on('save-music-info', () => {
         let musicData = {
           playModel: this.playModel,
           volumeStatus: this.volumeStatus,
@@ -220,8 +220,8 @@
           musicCTime: this.musicCTime,
           nowPlayIndex: this.$store.state.Music.nowPlayIndex
         }
-        this.localForage.setItem('music', musicData, () => {
-          this.ipcRenderer.send('window-all-closed')
+        this.$localForage.setItem('music', musicData, () => {
+          this.$ipcRenderer.send('window-all-closed')
         })
       })
     },
@@ -437,7 +437,7 @@
           musicCTime: this.musicCTime,
           nowPlayIndex: this.$store.state.Music.nowPlayIndex
         }
-        this.localForage.setItem('music', musicData)
+        this.$localForage.setItem('music', musicData)
       }
     }
   }

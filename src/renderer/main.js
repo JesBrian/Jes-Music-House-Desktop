@@ -27,9 +27,9 @@ localForage.config({
   storeName: 'MH-localforage', // Should be alphanumeric, with underscores.
   description: 'Music House'
 })
-Vue.localForage = Vue.prototype.localForage = localForage
+Vue.localForage = Vue.prototype.$localForage = localForage
 
-Vue.ipcRenderer = Vue.prototype.ipcRenderer = ipcRenderer
+Vue.ipcRenderer = Vue.prototype.$ipcRenderer = ipcRenderer
 
 Vue.config.productionTip = false
 Vue.use(vueLazyload, {

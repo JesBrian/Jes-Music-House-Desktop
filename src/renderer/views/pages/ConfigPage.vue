@@ -181,7 +181,7 @@
       },
 
       openBrowser (url = '') {
-        this.ipcRenderer.send('open-browser-url', url)
+        this.$ipcRenderer.send('open-browser-url', url)
       }
     }
   }

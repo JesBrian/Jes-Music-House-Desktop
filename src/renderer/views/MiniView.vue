@@ -72,8 +72,8 @@
     methods: {
       changeViewMode () {
         this.$store.commit('CLOSE_MINI_VIEW')
-        this.localForage.getItem('mainView', (result, value) => {
-          this.ipcRenderer.send('show-main-view', value)
+        this.$localForage.getItem('mainView', (result, value) => {
+          this.$ipcRenderer.send('show-main-view', value)
         })
       },
 
@@ -134,16 +134,16 @@
       showVolumeBar () {
         this.isShowPlayList = false
         this.isShowVolumeBar = !this.isShowVolumeBar
-        this.ipcRenderer.send('mini-show-content', this.isShowVolumeBar, 'volume')
+        this.$ipcRenderer.send('mini-show-content', this.isShowVolumeBar, 'volume')
       },
       showPlayList () {
         this.isShowVolumeBar = false
         this.isShowPlayList = !this.isShowPlayList
-        this.ipcRenderer.send('mini-show-content', this.isShowPlayList, 'playList')
+        this.$ipcRenderer.send('mini-show-content', this.isShowPlayList, 'playList')
       },
 
       closeWindow () {
-        this.ipcRenderer.send('hide-main-window')
+        this.$ipcRenderer.send('hide-main-window')
       }
     }
   }
