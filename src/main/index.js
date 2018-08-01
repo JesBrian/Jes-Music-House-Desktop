@@ -166,9 +166,9 @@ ipcMain.on('show-lyric-view', () => {
   })
 
   lyricWindow.loadURL(`${winURL}/#/show-lyric`)
+  lyricWindow.setAlwaysOnTop(true)
 
   mainWindow.webContents.send('set-lyric-view-id', lyricWindow.webContents.id)
-
   mainWindow.focus()
 })
 

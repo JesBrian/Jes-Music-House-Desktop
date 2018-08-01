@@ -26,7 +26,7 @@
 
 <script>
   import { closeCloverComponent } from '../../../../../../assets/js/commom.js'
-  import { validateInfoByReg } from '../../../../../../assets/js/validateInfo.js'
+  import { validateInfoByReg } from '../../../../../../assets/js/utils/validateInfo.js'
 
   export default {
     name: 'UserLoginLoginContent',

@@ -9,12 +9,14 @@ import { ipcRenderer } from 'electron'
 
 import PageLink from './components/global/page-link/PageLink.vue'
 
+import { Global } from './config/global.js'
+
 import './assets/plugins/icon-font/iconfont.css'
 import './assets/css/common.css'
 
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
-axios.defaults.baseURL = store.state.Global.DEV_API_URL // 本地开发配置 API 路径
+axios.defaults.baseURL = Global.DEV_API_URL // 本地开发配置 API 路径
 // axios.defaults.baseURL = store.state.Global.PROD_API_URL // 服务器生产配置 API 路径
 axios.defaults.withCredentials = true
 Vue.http = Vue.prototype.$http = axios
@@ -30,6 +32,8 @@ localForage.config({
 Vue.localForage = Vue.prototype.$localForage = localForage
 
 Vue.ipcRenderer = Vue.prototype.$ipcRenderer = ipcRenderer
+
+Vue.global = Vue.prototype.$global = Global
 
 Vue.config.productionTip = false
 Vue.use(vueLazyload, {
