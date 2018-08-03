@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <div style="height:48px; margin-bottom:28px; padding:0 68px; box-sizing:border-box;">
+    <div style="margin-bottom:28px; padding:0 68px; box-sizing:border-box;">
       <span style="float:left; font-size:28px; font-weight:700;">全部</span>
       <div style="width:128px; height:36px; margin:-6px 28px 0; position:relative; display:inline-block;">
         <div @click="changeShowAlbumTypeContent" class="super-btn-out" style="width:100%; height:100%;">
@@ -15,43 +15,43 @@
               <span class="super-btn-in" style="width:76px; height:22px; top:48.5%; padding-left:1.5px; line-height:22px; letter-spacing:1.2px;">全部风格</span>
             </div>
           </div>
-          <div>
-            <div style="width:15%; height:48px; float:left; box-sizing:border-box; border-right:1px solid #444;">
+          <div style="overflow:hidden;">
+            <div style="width:15%; margin:0 0 -500px; padding:28px 0 500px; float:left; border-right:1px solid #444; text-align:center;">
               语种
             </div>
-            <div style="width:84%; height:48px; display:inline-block;">
-              华语 欧美 日语 韩语 粤语 小语种
+            <div style="width:84%; margin:0 0 -500px; padding:28px 18px 500px; display:inline-block; box-sizing:border-box;">
+              华语| 欧美| 日语| 韩语| 粤语| 小语种
             </div>
           </div>
-          <div>
-            <div style="width:15%; height:48px; float:left; box-sizing:border-box; border-right:1px solid #444;">
+          <div style="overflow:hidden;">
+            <div style="width:15%; margin:0 0 -500px; padding:28px 0 500px; float:left; border-right:1px solid #444; text-align:center;">
               风格
             </div>
-            <div style="width:84%; height:48px; display:inline-block;">
+            <div style="width:84%; margin:0 0 -500px; padding:28px 18px 500px; display:inline-block; box-sizing:border-box;">
               流行| 摇滚| 民谣| 电子| 舞曲| 说唱| 轻音乐| 爵士| 乡村| R&B/Soul| 古典| 民族| 英伦| 金属| 朋克| 蓝调| 雷鬼| 世界音乐| 拉丁| 另类/独立| New Age| 古风| 后摇| Bossa Nova|
             </div>
           </div>
-          <div>
-            <div style="width:15%; height:48px; float:left; box-sizing:border-box; border-right:1px solid #444;">
+          <div style="overflow:hidden;">
+            <div style="width:15%; margin:0 0 -500px; padding:28px 0 500px; float:left; border-right:1px solid #444; text-align:center;">
               场景
             </div>
-            <div style="width:84%; height:48px; display:inline-block;">
+            <div style="width:84%; margin:0 0 -500px; padding:28px 18px 500px; display:inline-block; box-sizing:border-box;">
               清晨| 夜晚| 学习| 工作| 午休| 下午茶| 地铁| 驾车| 运动| 旅行| 散步| 酒吧|
             </div>
           </div>
-          <div>
-            <div style="width:15%; height:48px; float:left; box-sizing:border-box; border-right:1px solid #444;">
+          <div style="overflow:hidden;">
+            <div style="width:15%; margin:0 0 -500px; padding:28px 0 500px; float:left; border-right:1px solid #444; text-align:center;">
               情感
             </div>
-            <div style="width:84%; height:48px; display:inline-block;">
+            <div style="width:84%; margin:0 0 -500px; padding:28px 18px 500px; display:inline-block; box-sizing:border-box;">
               怀旧| 清新| 浪漫| 性感| 伤感| 治愈| 放松| 孤独| 感动| 兴奋| 快乐| 安静| 思念|
             </div>
           </div>
-          <div>
-            <div style="width:15%; height:48px; float:left; box-sizing:border-box; border-right:1px solid #444;">
+          <div style="padding-bottom:28px; overflow:hidden;">
+            <div style="width:15%; margin:0 0 -500px; padding:28px 0 500px; float:left; border-right:1px solid #444; text-align:center;">
               主题
             </div>
-            <div style="width:84%; height:48px; display:inline-block;">
+            <div style="width:84%; margin:0 0 -500px; padding:28px 18px 500px; display:inline-block; box-sizing:border-box;">
               影视原声| ACG| 儿童| 校园| 游戏| 70后| 80后| 90后| 网络歌曲| KTV| 经典| 翻唱| 吉他| 钢琴| 器乐| 榜单| 00后|
             </div>
           </div>

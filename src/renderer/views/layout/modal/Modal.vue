@@ -39,7 +39,7 @@
 
 <style scoped>
   #modalComponent {
-    width:100%; height:100%; top:0; left:0; padding:58px 3px 48px 230px; position:fixed; box-sizing:border-box; z-index:999;
+    width:100%; height:100%; top:0; left:0; padding:58px 3px 48px 230px; position:fixed; box-sizing:border-box; z-index:999; background:transparent;
   }
   /**
    * 如果打开了歌曲详情页，专门的 CSS
