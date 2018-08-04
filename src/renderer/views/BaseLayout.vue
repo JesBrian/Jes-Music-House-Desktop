@@ -33,6 +33,8 @@
     <!-- 鼠标点击右键显示菜单 -->
     <alert-menu v-if="$store.state.AlertMenu.menuType" />
 
+    <LyricPlayer style="z-index:50;"/>
+
     <!-- 音乐播放器 -->
     <music-player style="z-index:99;"/>
   </div>
@@ -47,12 +49,13 @@
   import MiniView from './MiniView.vue'
   import SongView from './SongView.vue'
   import AlertMenu from './layout/alert-menu/AlertMenu.vue'
+  import LyricPlayer from './layout/lyric-player/LyricPlayer.vue'
 
   export default {
     name: 'BaseLayout',
 
     components: {
-      AlertMenu, SongView, MiniView, Tips, Modal, MusicPlayer, LeftMenu, TopMenu
+      AlertMenu, SongView, MiniView, Tips, Modal, LyricPlayer, MusicPlayer, LeftMenu, TopMenu
     },
 
     watch: {
