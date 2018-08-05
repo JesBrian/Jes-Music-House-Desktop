@@ -157,8 +157,8 @@ ipcMain.on('hide-main-window', () => {
  */
 ipcMain.on('show-lyric-view', () => {
   lyricWindow = new BrowserWindow({
-    width: 888,
-    height: 68,
+    width: 688,
+    height: 108,
     resizable: true,
     frame: false,
     transparent: true,

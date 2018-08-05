@@ -50,7 +50,7 @@
               <span class="play-list-category">朋克</span>
               <span class="play-list-category">蓝调</span>
               <span class="play-list-category">雷鬼</span>
-              <span class="play-list-category">世界音乐</span>
+              <span class="play-list-category active">世界音乐</span>
               <span class="play-list-category">拉丁</span>
               <span class="play-list-category">另类/独立</span>
               <span class="play-list-category">New Age</span>
@@ -117,7 +117,7 @@
               <span class="play-list-category">翻唱</span>
               <span class="play-list-category">吉他</span>
               <span class="play-list-category">钢琴</span>
-              <span class="play-list-category">器乐</span>
+              <span class="play-list-category active">器乐</span>
               <span class="play-list-category">榜单</span>
               <span class="play-list-category">00后</span>
             </div>
@@ -176,10 +176,10 @@
   .play-list-category.active::after {
     content:'';
     width:100%;
-    height:100%;
+    height:88%;
     top:50%;
-    left:52%;
-    padding:0 8px;
+    left:50%;
+    padding:0 6px;
     position:absolute;
     display:block;
     transform:translate(-50%, -50%);
