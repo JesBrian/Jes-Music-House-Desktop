@@ -33,14 +33,14 @@
         </div>
       </div>
 
-      <div style="width:60%; float:right; ">
+      <div style="width:58%; margin-right:18px; float:right; ">
         <div style="width:92%; margin:18px auto 0; color:#DDD;">
           <p style="font-size:22px;">The Name of the Song</p>
           <p style="line-height:1.6em; font-size:15px;">sdvsdvsdbdfbhusibhfdbukvsodvsdvsdrhukvfsdbhifsdvbuigesdd</p>
         </div>
         <div class="lyrics-content">
           <div style="width:100%; height:100%; overflow:auto;">
-            <div style="width:100%; height:1888px; background:lightgreen"></div>
+            <div style="width:100%; height:1888px;"></div>
           </div>
         </div>
       </div>
@@ -57,9 +57,31 @@
 
       </div>
 
-      <div style="width:28%; float:right; background:lightseagreen;">
-        <div style="width:100%; height:288px; margin-bottom:28px; background:lightskyblue;"></div>
-        <div style="width:100%; height:288px; margin-bottom:28px; background:lightskyblue;"></div>
+      <div style="width:28%; float:right;">
+        <div style="width:100%; margin-bottom:48px;">
+          <div style="margin:0 0 12px; padding-left:13px; border-left:3px solid #00C4E1; font-size:21px;">包含这首歌曲的歌单</div>
+          <div v-for="n in 3" class="box-show" style="width:100%; height:50px; margin-bottom:8px; border-radius:3px;">
+            <img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:35px; height:35px; margin:8px; padding:2px; float:left;"/>
+            <div>
+              <p>JesBrian</p>
+              <p>播放：666888</p>
+            </div>
+          </div>
+        </div>
+        <div style="width:100%; margin-bottom:48px;">
+          <div style="margin:0 0 12px; padding-left:13px; border-left:3px solid #00C4E1; font-size:21px;">相似的歌曲</div>
+          <div v-for="n in 5" class="box-show" style="width:100%; height:35px; margin-bottom:6px; padding:0 8px; line-height:35px;">
+            <span>XXX</span>
+            <span style="float:right;">JesBrian</span>
+          </div>
+        </div>
+        <div style="width:100%; margin-bottom:48px;">
+          <div style="margin:0 0 12px; padding-left:13px; border-left:3px solid #00C4E1; font-size:21px;">喜欢这首歌的人</div>
+          <div v-for="n in 5" class="box-show" style="width:100%; height:50px; margin-bottom:8px; border-radius:3px; line-height:50px;">
+            <img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:35px; height:35px; margin:8px; padding:2px; float:left;"/>
+            Jesbrian
+          </div>
+        </div>
       </div>
     </div>
 	</div>
@@ -140,6 +162,6 @@
   }
 
   .lyrics-content {
-    width:100%; height:438px; padding:38px 62px 38px 68px; box-sizing:border-box; background:url(../../../static/images/default/lyric-bg.png) no-repeat; background-size:100% 100%;
+    width:100%; height:438px; padding:45px 78px; box-sizing:border-box; background:url(../../../static/images/default/lyric-bg.png) no-repeat; background-size:100% 100%;
   }
 </style>
