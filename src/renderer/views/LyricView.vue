@@ -33,6 +33,12 @@
     },
 
     created () {
+      this.$ipcRenderer.send('init-lyric-status')
+
+      this.$ipcRenderer.on('init-lyric-status', (event, initStatusObj) => {
+        alert(666)
+      })
+
       this.$ipcRenderer.on('change-lyric-status', (event, statusObj) => {
         this[statusObj.name] = statusObj.value
       })

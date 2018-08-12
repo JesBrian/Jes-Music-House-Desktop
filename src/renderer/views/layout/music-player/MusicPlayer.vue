@@ -232,6 +232,11 @@
           this.$ipcRenderer.send('window-all-closed')
         })
       })
+
+      this.$ipcRenderer.on('init-lyric-status', () => {
+        this.$ipcRenderer.sendTo(this.lyricViewId, 'init-lyric-status', {
+        })
+      })
     },
 
     mounted () {

@@ -180,6 +180,13 @@ ipcMain.on('close-lyric-view', () => {
 })
 
 /**
+ * 初始化歌词面板信息
+ */
+ipcMain.on('init-lyric-status', () => {
+  mainWindow.webContents.send('init-lyric-status')
+})
+
+/**
  * 退出
  */
 ipcMain.on('window-all-closed', () => {
