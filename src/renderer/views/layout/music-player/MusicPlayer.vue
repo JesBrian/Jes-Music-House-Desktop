@@ -133,7 +133,7 @@
     },
 
     watch: {
-      playStatus (nVal, oVal) {
+      playStatus (nVal) {
         // 检查播放进度 & 播放音量
         this.volumeStatus ? this.musicSource.volume = this.volumeLevel : this.musicSource.volume = 0
         this.musicSource.currentTime = this.musicCTime
@@ -146,11 +146,19 @@
           this.musicSource.pause()
           this.saveLocalForageData()
         }
-        this.$ipcRenderer.sendTo(this.lyricViewId, 'change-lyric-status', nVal)
+        this.$ipcRenderer.sendTo(this.lyricViewId, 'change-lyric-status', {
+          name: 'playStatus',
+          value: nVal
+        })
       },
 
-      volumeStatus () {
-        this.volumeStatus ? this.musicSource.volume = this.volumeLevel : this.musicSource.volume = 0
+      volumeStatus (nVal) {
+        nVal ? this.musicSource.volume = this.volumeLevel : this.musicSource.volume = 0
+
+        this.$ipcRenderer.sendTo(this.lyricViewId, 'change-lyric-status', {
+          name: 'volumeStatus',
+          value: nVal
+        })
       },
 
       volumeLevel () {
@@ -172,7 +180,7 @@
         this.$store.commit('CHANGE_NOW_VOLUME_LEVEL', this.nowVolumeLevel)
       },
 
-      isShowLyric (nVal, oVal) {
+      isShowLyric (nVal) {
         if (nVal === true) {
           this.$ipcRenderer.send('show-lyric-view')
         } else {

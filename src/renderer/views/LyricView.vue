@@ -4,14 +4,14 @@
         <div style="width:100%; height:38px; line-height:38px; text-align:center;">
           <i class="mh-if music-list"></i>
           <i class="mh-if double-arrow-left"></i>
-          <i class="mh-if play"></i>
+          <i :class="playStatus === true ? 'stop' : 'play'" class="mh-if"></i>
           <i class="mh-if double-arrow-right"></i>
           <i class="mh-if gear"></i>
           <i class="mh-if lock"></i>
-          <i class="mh-if volume-on"></i>
+          <i :class="volumeStatus === true ? 'volume-on' : 'volume-off'" class="mh-if"></i>
           <i class="mh-if close"></i>
         </div>
-        <p style="font-size:36px; line-height:45px; text-align:center; -webkit-text-stroke:0.5px red;">666 {{ status }}</p>
+        <p style="font-size:36px; line-height:45px; text-align:center; -webkit-text-stroke:0.5px red;">666 {{ playStatus }}</p>
       </div>
 	</div>
 </template>
@@ -24,7 +24,8 @@
 
     data () {
       return {
-        status: false
+        playStatus: false,
+        volumeStatus: true
       }
     },
 
@@ -32,8 +33,8 @@
     },
 
     created () {
-      this.$ipcRenderer.on('change-lyric-status', (event, status) => {
-        this.status = status
+      this.$ipcRenderer.on('change-lyric-status', (event, statusObj) => {
+        this[statusObj.name] = statusObj.value
       })
     },
 
