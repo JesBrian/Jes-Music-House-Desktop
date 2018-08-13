@@ -9,7 +9,7 @@
           <i class="mh-if gear"></i>
           <i class="mh-if lock"></i>
           <i :class="volumeStatus === true ? 'volume-on' : 'volume-off'" class="mh-if"></i>
-          <i class="mh-if close"></i>
+          <i @click="closeLyricView" class="mh-if close"></i>
         </div>
         <p style="font-size:36px; line-height:45px; text-align:center; -webkit-text-stroke:0.5px red;">666 {{ playStatus }}</p>
       </div>
@@ -36,7 +36,7 @@
       this.$ipcRenderer.send('init-lyric-status')
 
       this.$ipcRenderer.on('init-lyric-status', (event, initStatusObj) => {
-        alert(666)
+        alert(initStatusObj.mainViewId)
       })
 
       this.$ipcRenderer.on('change-lyric-status', (event, statusObj) => {
@@ -48,6 +48,9 @@
     },
 
     methods: {
+      closeLyricView () {
+        this.$ipcRenderer.send('close-lyric-view-notice')
+      }
     }
   }
 </script>

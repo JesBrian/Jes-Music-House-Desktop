@@ -233,9 +233,14 @@
         })
       })
 
-      this.$ipcRenderer.on('init-lyric-status', () => {
+      this.$ipcRenderer.on('init-lyric-status', (event, mainViewId) => {
         this.$ipcRenderer.sendTo(this.lyricViewId, 'init-lyric-status', {
+          mainViewId: mainViewId
         })
+      })
+
+      this.$ipcRenderer.on('close-lyric-view-notice', () => {
+        this.changeShowLyric()
       })
     },
 

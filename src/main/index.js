@@ -180,10 +180,17 @@ ipcMain.on('close-lyric-view', () => {
 })
 
 /**
+ * 取消展示歌词
+ */
+ipcMain.on('close-lyric-view-notice', () => {
+  mainWindow.webContents.send('close-lyric-view-notice')
+})
+
+/**
  * 初始化歌词面板信息
  */
 ipcMain.on('init-lyric-status', () => {
-  mainWindow.webContents.send('init-lyric-status')
+  mainWindow.webContents.send('init-lyric-status', mainWindow.webContents.id)
 })
 
 /**

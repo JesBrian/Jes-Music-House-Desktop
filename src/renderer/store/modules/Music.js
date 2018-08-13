@@ -84,9 +84,6 @@ const mutations = {
 }
 
 const actions = {
-  // someAsyncTask ({ commit }) {
-  // do something async
-  // }
 }
 
 export default {
