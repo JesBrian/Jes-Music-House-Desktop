@@ -24,6 +24,7 @@
 
     data () {
       return {
+        mainViewId: -1,
         playStatus: false,
         volumeStatus: true
       }
@@ -36,7 +37,10 @@
       this.$ipcRenderer.send('init-lyric-status')
 
       this.$ipcRenderer.on('init-lyric-status', (event, initStatusObj) => {
-        alert(initStatusObj.mainViewId)
+        // [this.mainViewId, this.playStatus, this.volumeStatus] = [...initStatusObj]
+        this.mainViewId = initStatusObj.mainViewId
+        this.playStatus = initStatusObj.playStatus
+        this.volumeStatus = initStatusObj.volumeStatus
       })
 
       this.$ipcRenderer.on('change-lyric-status', (event, statusObj) => {

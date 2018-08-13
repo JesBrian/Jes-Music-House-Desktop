@@ -234,9 +234,13 @@
       })
 
       this.$ipcRenderer.on('init-lyric-status', (event, mainViewId) => {
-        this.$ipcRenderer.sendTo(this.lyricViewId, 'init-lyric-status', {
-          mainViewId: mainViewId
-        })
+        let playStatus = this.playStatus
+        let data = {
+          mainViewId: mainViewId,
+          playStatus: playStatus,
+          volumeStatus: this.volumeStatus
+        }
+        this.$ipcRenderer.sendTo(this.lyricViewId, 'init-lyric-status', data)
       })
 
       this.$ipcRenderer.on('close-lyric-view-notice', () => {
