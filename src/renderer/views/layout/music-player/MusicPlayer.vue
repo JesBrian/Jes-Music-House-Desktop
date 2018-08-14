@@ -90,7 +90,7 @@
 </template>
 
 <script>
-  import { timeStampToMinuteSecondTime, mouseCoords, getElemenPosion } from '../../../assets/js/commom.js'
+  import { timeStampToMinuteSecondTime, mouseCoords, getElemenPosion, changePage } from '../../../assets/js/commom.js'
 
   export default {
     name: 'MusicPlayer',
@@ -243,10 +243,6 @@
         this.$ipcRenderer.sendTo(this.lyricViewId, 'init-lyric-status', data)
       })
 
-      this.$ipcRenderer.on('close-lyric-view-notice', () => {
-        this.changeShowLyric()
-      })
-
       this.$ipcRenderer.on('change-main-status', (event, status) => {
         // console.log(status)
         switch (status) {
@@ -263,6 +259,21 @@
             this.changePlayListIndex(status)
             break
           }
+          case 'song': {
+            if (this.$store.state.Views.showMusicView === false) {
+              this.$store.commit('CHANGE_SHOW_MUSIC_VIEW')
+            }
+            break
+          }
+          case 'config': {
+            changePage('/config', this)
+            break
+          }
+          case 'view': {
+            this.changeShowLyric()
+            break
+          }
+          default: break
         }
       })
     },
