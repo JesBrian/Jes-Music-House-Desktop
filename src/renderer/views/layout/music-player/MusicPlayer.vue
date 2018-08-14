@@ -246,6 +246,25 @@
       this.$ipcRenderer.on('close-lyric-view-notice', () => {
         this.changeShowLyric()
       })
+
+      this.$ipcRenderer.on('change-main-status', (event, status) => {
+        // console.log(status)
+        switch (status) {
+          case 'play': {
+            this.changePlayStatus()
+            break
+          }
+          case 'volume': {
+            this.changeVolumeStatus()
+            break
+          }
+          case 'prev':
+          case 'next': {
+            this.changePlayListIndex(status)
+            break
+          }
+        }
+      })
     },
 
     mounted () {
