@@ -35,7 +35,6 @@
 
     methods: {
       playThisSong () {
-        console.log(666)
       }
     }
   }

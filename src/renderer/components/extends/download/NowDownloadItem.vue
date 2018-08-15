@@ -1,5 +1,5 @@
 <template>
-  <div @click.right="showAlertMenu" style="width:100%; height:28px; line-height:28px;">
+  <div @click.right="showAlertMenu" @dblclick="downloadThisSong" style="width:100%; height:28px; line-height:28px;">
     <p style="width:4.5%; height:28px; float:left; text-align:right;">{{ index }}</p>
     <p style="width:52%; height:28px; float:left; text-indent:1.8em;">123</p>
     <p style="width:43%; display:inline-block;">
@@ -32,6 +32,9 @@
           position: position
         }
         this.$store.commit('SHOW_ALERT_MENU', alertMenuConf)
+      },
+
+      downloadThisSong () {
       }
     }
   }

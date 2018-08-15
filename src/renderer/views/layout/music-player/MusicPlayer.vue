@@ -406,6 +406,7 @@
        * 点击音量条调节音量大小
        */
       clickMusicVolumeBar (event) {
+        if (this.volumeStatus === false) return false
         let mousePos = mouseCoords(event)
         let x = mousePos.x
         let x1 = getElemenPosion(this.$refs['volumeBar'], 'left')
@@ -417,6 +418,7 @@
        * 拖动音量指针
        */
       dragVolumeControllerPointer (event) {
+        if (this.volumeStatus === false) return false
         let x1 = getElemenPosion(this.$refs['volumeBar'], 'left')
         // 注册document的mousemove事件
         document.onmousemove = (ev) => {
