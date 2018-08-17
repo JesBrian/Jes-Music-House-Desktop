@@ -103,6 +103,10 @@
     methods: {
       changeContent (type = 'playList') {
         this.type = type
+      },
+
+      showModal (modalType) {
+        this.$store.commit('CHANGE_MODAL_TYPE', modalType)
       }
     }
   }
