@@ -19,6 +19,7 @@
         <song-view />
       </div>
     </transition>
+
     <!-- mini模式页面 -->
     <div v-if="$store.state.Views.showMiniView" style="width:368px; height:52px; top:0; left:0; position:fixed; z-index:999;">
       <mini-view />

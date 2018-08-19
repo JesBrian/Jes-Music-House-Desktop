@@ -110,13 +110,6 @@ ipcMain.on('save-view-position', () => {
 })
 
 /**
- * 窗口最小化
- */
-ipcMain.on('hide-window', () => {
-  mainWindow.minimize()
-})
-
-/**
  * mini 播放器模式
  */
 ipcMain.on('show-mini-view', (event, position) => {
@@ -135,21 +128,6 @@ ipcMain.on('mini-show-content', (event, isShow, contentType) => {
   } else {
     mainWindow.setSize(368, 52)
   }
-})
-
-/**
- * 正常客户端模式
- */
-ipcMain.on('show-main-view', (event, position) => {
-  mainWindow.setContentBounds({x: position[0], y: position[1], width: 1180, height: 638})
-  mainWindow.setAlwaysOnTop(false)
-})
-
-/**
- * 系统托盘
- */
-ipcMain.on('hide-main-window', () => {
-  mainWindow.hide()
 })
 
 /**
@@ -180,10 +158,39 @@ ipcMain.on('close-lyric-view', () => {
 })
 
 /**
- * 初始化歌词面板信息
+ * 初始化歌词面板状态信息
  */
 ipcMain.on('init-lyric-status', () => {
   mainWindow.webContents.send('init-lyric-status', mainWindow.webContents.id)
+})
+
+/**
+ * 正常客户端模式
+ */
+ipcMain.on('show-main-view', (event, position) => {
+  mainWindow.setContentBounds({x: position[0], y: position[1], width: 1180, height: 638})
+  mainWindow.setAlwaysOnTop(false)
+})
+
+/**
+ * 窗口最小化
+ */
+ipcMain.on('hide-window', () => {
+  mainWindow.minimize()
+})
+
+/**
+ * 系统托盘
+ */
+ipcMain.on('hide-main-window', () => {
+  mainWindow.hide()
+})
+
+/**
+ * 展示主窗口
+ */
+ipcMain.on('show-main-window', () => {
+  mainWindow.show()
 })
 
 /**

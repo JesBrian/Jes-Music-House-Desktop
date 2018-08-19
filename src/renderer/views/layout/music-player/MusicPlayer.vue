@@ -260,12 +260,14 @@
             break
           }
           case 'song': {
+            this.$ipcRenderer.send('show-main-window')
             if (this.$store.state.Views.showMusicView === false) {
               this.$store.commit('CHANGE_SHOW_MUSIC_VIEW')
             }
             break
           }
           case 'config': {
+            this.$ipcRenderer.send('show-main-window')
             changePage('/config', this)
             break
           }

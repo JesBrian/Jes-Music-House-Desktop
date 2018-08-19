@@ -1,6 +1,6 @@
 <template>
 	<div style="width:100%; height:108px; padding:5px; box-sizing:border-box; overflow:auto;">
-      <div style="width:100%; height:100%; box-sizing:border-box; background:rgba(0, 0, 0, 0.18); box-shadow:0 0 4px #CCC, inset 0 0 1px #DDD, inset 0 0 1px #000; -webkit-app-region:drag;">
+      <div class="ban-select" style="width:100%; height:100%; box-sizing:border-box; background:rgba(0, 0, 0, 0.18); box-shadow:0 0 4px #CCC, inset 0 0 1px #DDD, inset 0 0 1px #000; -webkit-app-region:drag;">
         <div style="width:100%; height:38px; line-height:38px; text-align:center;">
           <i @click="changeMainStatus('song')" class="mh-if music-list"></i>
           <i @click="changeMainStatus('prev')" class="mh-if double-arrow-left"></i>
