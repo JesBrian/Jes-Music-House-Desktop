@@ -58,7 +58,7 @@
 </template>
 
 <script>
-  import UploadImg from '../../components/extends/uploadImg/UploadImg.vue'
+  import UploadImg from '../../components/extends/upload-image/UploadImg.vue'
 
   import { validateInfoByReg } from '../../assets/js/utils/validateInfo.js'
 
