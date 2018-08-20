@@ -1,8 +1,8 @@
 <template>
   <div class="glass-bg box-show" style="width:840px; top:42px; left:-100%; position:absolute; z-index:9; line-height:1.68em;">
-    <i class="mh-if close" style="top:4px; right:8px; position:absolute; font-size:18px; color:#BBB; cursor:pointer;"></i>
+    <i @click="closePlayListStyleContent" class="mh-if close" style="top:4px; right:8px; position:absolute; font-size:18px; color:#BBB; cursor:pointer;"></i>
     <div style="width:100%; box-shadow:0 3px 3px -4px #FFF;">
-      <div @click="changePlayListStyle" class="super-btn-out" style="width:86px; height:30px; margin:8px 28px 2px;">
+      <div @click="changePlayListStyle(0, '全部')" class="super-btn-out" style="width:86px; height:30px; margin:8px 28px 2px;">
         <span class="super-btn-in" style="width:76px; height:22px; top:48.5%; padding-left:1.5px; line-height:22px; letter-spacing:1.2px;">全部风格</span>
       </div>
     </div>
@@ -11,7 +11,7 @@
         <i class="mh-if earth" style="margin:0 -3px 0 18px; float:left; font-size:23px;"></i>{{ styleItem.name }}
       </div>
       <div style="width:87%; padding:18px 8px 0 23px; display:inline-block; box-sizing:border-box;">
-        <span v-for="styleCellItem in styleItem['cell']" @click="changePlayListStyle" class="play-list-style">{{ styleCellItem.name }}</span>
+        <span v-for="styleCellItem in styleItem['cell']" @click="changePlayListStyle(styleCellItem.id, styleCellItem.name)" :class="['play-list-style', {'active' : styleCellItem.id === nowStyle}]">{{ styleCellItem.name }}</span>
       </div>
     </div>
   </div>
@@ -21,15 +21,22 @@
   export default {
     name: 'IndexPlayListStyle',
 
+    props: {
+      nowStyleId: {
+        type: Number,
+        default: 0
+      }
+    },
+
     data () {
       return {
+        nowStyle: this.nowStyleId,
         styleList: []
       }
     },
 
     created () {
       this.$http.post('getAllStyle').then((response) => {
-        // console.log(response)
         let result = response.data
         if (result.state === '200') {
           this.styleList = result.data
@@ -41,8 +48,13 @@
     },
 
     methods: {
-      changePlayListStyle () {
-        // this.changeShowPlayListStyleContent()
+      changePlayListStyle (styleId, styleLabel) {
+        this.$emit('changePlayListStyle', styleId, styleLabel)
+        this.closePlayListStyleContent()
+      },
+
+      closePlayListStyleContent () {
+        this.$parent.changeShowPlayListStyleContent()
       }
     }
   }
