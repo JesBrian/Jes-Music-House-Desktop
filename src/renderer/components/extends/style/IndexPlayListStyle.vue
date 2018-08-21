@@ -8,7 +8,7 @@
     </div>
     <div v-for="styleItem in styleList" class="style-list-content">
       <div style="width:12%; margin:0 0 -500px; padding:18px 0 500px;  float:left; border-right:1px solid #444; text-align:center;">
-        <i class="mh-if earth" style="margin:0 -3px 0 18px; float:left; font-size:23px;"></i>{{ styleItem.name }}
+        <i :class="['mh-if', styleItem.icon]" style="margin:0 -3px 0 18px; float:left; font-size:23px;"></i>{{ styleItem.name }}
       </div>
       <div style="width:87%; padding:18px 8px 0 23px; display:inline-block; box-sizing:border-box;">
         <span v-for="styleCellItem in styleItem['cell']" @click="changePlayListStyle(styleCellItem.id, styleCellItem.name)" :class="['play-list-style', {'active' : styleCellItem.id === nowStyle}]">{{ styleCellItem.name }}</span>
