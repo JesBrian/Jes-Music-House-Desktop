@@ -24,7 +24,7 @@ function getRegByType (type = '') {
     case 'mail':
       reg = /^[a-zA-Z0-9]{1,}@[a-zA-Z0-9]{1,}\.com$/
       break
-    case 'identifyingCode':
+    case 'identifyCode':
       reg = /^[0-9]{4}$/
       break
     default:
