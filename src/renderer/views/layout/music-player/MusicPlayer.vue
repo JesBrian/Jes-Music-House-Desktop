@@ -282,6 +282,7 @@
 
     mounted () {
       this.musicSource = this.$refs['musicSource']
+      this.$store.commit('SET_MUSIC_SOURCE', this.musicSource)
       this.musicSource.addEventListener('timeupdate', this._currentTime)
       this.musicSource.addEventListener('canplay', this._durationTime)
     },

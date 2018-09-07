@@ -1,4 +1,5 @@
 const state = {
+  musicSource: null, // 音乐源
   playStatus: false, // 音乐播放状态 - [ true正在播放/false停止播放 ]
   nowPlayRate: '0%', // 当前歌曲播放进度
   nowVolumeLevel: '0%', // 当前歌曲播放进度
@@ -23,6 +24,13 @@ const state = {
 }
 
 const mutations = {
+  /**
+   * 设置音乐源
+   */
+  SET_MUSIC_SOURCE (state, musicSource) {
+    state.musicSource = musicSource
+  },
+
   /**
    * 展示 / 关闭 音乐播放
    */
