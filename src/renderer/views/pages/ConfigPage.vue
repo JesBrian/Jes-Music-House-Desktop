@@ -73,6 +73,18 @@
         <li class="box-shadow">
           <div class="config-item" style="height:408px; margin-bottom:12px;">
             <p class="config-item-title">下载设置</p>
+            <div>
+              下载目录：默认将音乐文件下载在该文件夹下
+              <div>
+                <p style="margin:8px 18px 0 0; float:left; font-size:18px;">C:\Users\JesBrian\Music</p>
+                <div class="super-btn-out" style="width:106px; height:30px;">
+                  <span class="super-btn-in" style="width:98px; height:22px; line-height:23px;">更改目录</span>
+                </div>
+                <div class="super-btn-out" style="width:106px; height:30px;">
+                  <span class="super-btn-in" style="width:98px; height:22px; line-height:23px;">打开目录</span>
+                </div>
+              </div>
+            </div>
           </div>
         </li>
         <li class="box-shadow">
@@ -80,9 +92,8 @@
             <p class="config-item-title">歌词</p>
             <div>
               启用歌词显示:
-              <label>
-                <input type="checkbox"/> 启用歌词显示
-              </label>
+
+              <super-switch v-model="showLyric" />
             </div>
             <div>
               歌词显示形式:
@@ -117,6 +128,9 @@
               <div class="super-btn-out" style="width:88px; height:30px;">
                 <span class="super-btn-in" style="width:78px; height:21px; line-height:20px;">iPad版</span>
               </div>
+              <div class="super-btn-out" style="width:88px; height:30px;">
+                <span class="super-btn-in" style="width:78px; height:21px; line-height:20px;">Android版</span>
+              </div>
             </div>
             <div>
               《 Music House 服务条款》
@@ -131,13 +145,19 @@
 <script>
   import {getElemenPosion, getScrollTop} from '../../assets/js/commom.js'
 
+  import SuperSwitch from '../../components/base/switch/SuperSwitch.vue'
+
   export default {
     name: 'ConfigPage',
 
-    components: {},
+    components: {
+      SuperSwitch
+    },
 
     data () {
       return {
+        showLyric: false,
+
         navScrollTop: 0,
         scrollContent: null,
         scrollItemPositionNum: 0,
