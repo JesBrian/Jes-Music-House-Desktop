@@ -105,6 +105,13 @@ ipcMain.on('open-browser-url', (event, url) => {
   shell.openExternal(url)
 })
 
+/**
+ * PC打开本地目录
+ */
+ipcMain.on('open-folder-path', (event, path) => {
+  shell.showItemInFolder(path)
+})
+
 ipcMain.on('save-view-position', () => {
   mainWindow.webContents.send('window-move', mainWindow.getPosition())
 })

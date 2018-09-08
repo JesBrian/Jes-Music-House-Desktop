@@ -2,7 +2,7 @@
   <div style="position:relative;">
 
     <div style="top:16px; right:28px; position:absolute; color:#CCC; font-size:14px;">
-      储存目录：D:\CloudMusic <span style="margin-left:18px; color:#00d8ff; cursor:pointer;">打开目录</span>
+      储存目录：D:\CloudMusic <span @click="openDownloadFolder" style="margin-left:18px; color:#00d8ff; cursor:pointer;">打开目录</span>
     </div>
 
     <div style="width:100%; height:28px; margin:8px auto 0; padding:28px 0 18px; box-shadow:0 3px 8px -3px #00d8ff; text-align:center; border-bottom:1px solid #00d8ff; line-height:28px; font-weight:700;">
@@ -68,6 +68,10 @@
     methods: {
       changeType (type = 'downloaded') {
         this.type = type
+      },
+
+      openDownloadFolder () {
+        this.$ipcRenderer.send('open-folder-path', 'D:\\CloudMusic')
       }
     }
   }
