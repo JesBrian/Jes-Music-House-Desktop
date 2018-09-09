@@ -32,8 +32,8 @@
     beforeCreate () {
       this.$http.get('http://music.jesbrian.local/resource/lyric/test.json').then(result => {
         this.songLyric = result.data
-        this.songLyric.nowLyricIndex = 0
-        console.log(this.songLyric)
+        this.$set(this.songLyric, 'nowLyricIndex', 0)
+        this.$set(this.songLyric, 'lyricTotal', result.data.lyric.length)
       }).catch(error => {
         console.log(error)
       })
@@ -43,16 +43,22 @@
       setLyricTimer () {
         if (this.$store.state.Music.playStatus) {
           this.lyricTimer = setInterval(() => {
-            console.log(this.$store.state.Music.musicSource.currentTime)
-            this.setNowLyricIndex()
-          }, 288)
+            this.setNowLyricIndex(this.$store.state.Music.musicSource.currentTime)
+          }, 500)
         } else if (this.lyricTimer !== null) {
           clearInterval(this.lyricTimer)
         }
       },
 
-      setNowLyricIndex () {
-        console.log(this.songLyric)
+      setNowLyricIndex (timestamp) {
+        for (let i = this.songLyric.nowLyricIndex + 1; i < this.songLyric.lyricTotal; i++) {
+          if (timestamp > this.songLyric.lyric[i].timestamp) {
+            this.songLyric.nowLyricIndex = i
+            continue
+          }
+          break
+        }
+        console.log(this.songLyric.nowLyricIndex)
       }
     }
   }
