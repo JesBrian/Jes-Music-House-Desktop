@@ -40,7 +40,7 @@
         </div>
         <div class="lyrics-content">
           <div style="width:100%; height:100%; overflow:auto;">
-            <div style="width:100%; height:1888px;"></div>
+            <div v-for="item in songLyric.lyric" style="margin:12px 0; color:#888;">{{ item.text }}</div>
           </div>
         </div>
       </div>
@@ -187,6 +187,6 @@
   }
 
   .lyrics-content {
-    width:100%; height:438px; padding:45px 78px; box-sizing:border-box; background:url(../../../static/images/default/lyric-bg.png) no-repeat; background-size:100% 100%;
+    width:100%; height:438px; padding:38px 78px 56px 108px; box-sizing:border-box; background:url(../../../static/images/default/lyric-bg.png) no-repeat; background-size:100% 100%;
   }
 </style>

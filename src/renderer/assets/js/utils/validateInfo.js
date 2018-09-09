@@ -3,7 +3,7 @@
  * @param info        要验证的信息
  * @return {boolean}  验证成功返回 true
  */
-export function validateInfoByReg (infoType = '', info = '') {
+export let validateInfoByReg = function (infoType = '', info = '') {
   let reg = getRegByType(infoType)
   return reg.test(info)
 }
@@ -12,7 +12,7 @@ export function validateInfoByReg (infoType = '', info = '') {
  * @param type
  * @return {RegExp}
  */
-function getRegByType (type = '') {
+let getRegByType = function (type = '') {
   let reg = /^$/
   switch (type) {
     case 'phone':

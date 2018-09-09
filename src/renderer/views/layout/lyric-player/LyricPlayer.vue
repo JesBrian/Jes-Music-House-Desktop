@@ -6,7 +6,25 @@
 
 <script>
   export default {
-    name: 'LyricPlayer'
+    name: 'LyricPlayer',
+
+    data () {
+      return {
+        songLyric: {}
+      }
+    },
+
+    beforeCreate () {
+      this.$http.get('http://music.jesbrian.local/resource/lyric/test.json').then(result => {
+        this.songLyric = result.data
+        this.songLyric.nowLyricIndex = 0
+      }).catch(error => {
+        console.log(error)
+      })
+    },
+
+    methods: {
+    }
   }
 </script>
 

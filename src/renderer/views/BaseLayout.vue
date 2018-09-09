@@ -34,7 +34,7 @@
     <!-- 鼠标点击右键显示菜单 -->
     <alert-menu v-if="$store.state.AlertMenu.menuType" />
 
-    <LyricPlayer style="z-index:50;"/>
+    <lyric-player style="z-index:50;"/>
 
     <!-- 音乐播放器 -->
     <music-player style="z-index:99;"/>
