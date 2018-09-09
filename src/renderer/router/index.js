@@ -11,7 +11,7 @@ export default new Router({
     },
     {
       path: '/',
-      component: () => import('@/views/BaseLayout.vue'),
+      component: () => import('@/views/MainView.vue'),
       redirect: '/index/recommend',
       children: [
         {

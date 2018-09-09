@@ -53,7 +53,7 @@
   import LyricPlayer from './layout/lyric-player/LyricPlayer.vue'
 
   export default {
-    name: 'BaseLayout',
+    name: 'MainView',
 
     components: {
       AlertMenu, SongView, MiniView, Tips, Modal, LyricPlayer, MusicPlayer, LeftMenu, TopMenu
