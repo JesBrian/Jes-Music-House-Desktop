@@ -40,7 +40,7 @@
         </div>
         <div class="lyrics-content">
           <div style="width:100%; height:100%; overflow:auto;">
-            <div v-for="item in songLyric.lyric" style="margin:12px 0; color:#888;">{{ item.text }}</div>
+            <div v-for="(item, index) in songLyric.lyric" :class="['song-lyric-cell', {'active': index === songLyric.nowLyricIndex}]">{{ item.text }}</div>
           </div>
         </div>
       </div>
@@ -119,7 +119,8 @@
     beforeCreate () {
       this.$http.get('http://music.jesbrian.local/resource/lyric/test.json').then(result => {
         this.songLyric = result.data
-        this.songLyric.nowLyricIndex = 0
+        this.$set(this.songLyric, 'nowLyricIndex', 0)
+        this.$set(this.songLyric, 'lyricTotal', result.data.lyric.length)
       }).catch(error => {
         console.log(error)
       })
@@ -148,8 +149,8 @@
       setLyricTimer () {
         if (this.$store.state.Music.playStatus) {
           this.lyricTimer = setInterval(() => {
-            console.log(this.$store.state.Music.musicSource.currentTime)
-          }, 368)
+            this.setNowLyricIndex(this.$store.state.Music.musicSource.currentTime)
+          }, 500)
         } else if (this.lyricTimer !== null) {
           clearInterval(this.lyricTimer)
         }
@@ -162,6 +163,16 @@
           }, 38)
         } else if (this.timer !== null) {
           clearInterval(this.timer)
+        }
+      },
+
+      setNowLyricIndex (timestamp) {
+        for (let i = this.songLyric.nowLyricIndex + 1; i < this.songLyric.lyricTotal; i++) {
+          if (timestamp > this.songLyric.lyric[i].timestamp) {
+            this.songLyric.nowLyricIndex = i
+            continue
+          }
+          break
         }
       }
     }
@@ -188,5 +199,11 @@
 
   .lyrics-content {
     width:100%; height:438px; padding:38px 78px 56px 108px; box-sizing:border-box; background:url(../../../static/images/default/lyric-bg.png) no-repeat; background-size:100% 100%;
+  }
+  .song-lyric-cell {
+    margin:12px 0; color:#888;
+  }
+  .song-lyric-cell.active {
+    color:#EEE;
   }
 </style>

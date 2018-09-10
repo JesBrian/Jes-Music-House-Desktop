@@ -58,7 +58,6 @@
           }
           break
         }
-        console.log(this.songLyric.nowLyricIndex)
       }
     }
   }

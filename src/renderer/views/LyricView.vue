@@ -11,7 +11,7 @@
           <i @click="changeMainStatus('volume')" :class="volumeStatus === true ? 'volume-on' : 'volume-off'" class="mh-if"></i>
           <i @click="changeMainStatus('view')" class="mh-if close"></i>
         </div>
-        <p style="font-size:36px; line-height:45px; text-align:center; -webkit-text-stroke:0.5px red;">666 {{ playStatus }}</p>
+        <p style="font-size:36px; line-height:45px; text-align:center; -webkit-text-stroke:0.5px red;">{{  }}</p>
       </div>
 	</div>
 </template>
@@ -26,7 +26,9 @@
       return {
         mainViewId: -1,
         playStatus: false,
-        volumeStatus: true
+        volumeStatus: true,
+        lyricTimer: null,
+        songLyric: null
       }
     },
 
@@ -34,6 +36,14 @@
     },
 
     created () {
+      this.$http.get('http://music.jesbrian.local/resource/lyric/test.json').then(result => {
+        this.songLyric = result.data
+        this.$set(this.songLyric, 'nowLyricIndex', 0)
+        this.$set(this.songLyric, 'lyricTotal', result.data.lyric.length)
+      }).catch(error => {
+        console.log(error)
+      })
+
       this.$ipcRenderer.send('init-lyric-status')
 
       this.$ipcRenderer.on('init-lyric-status', (event, initStatusObj) => {
@@ -48,12 +58,29 @@
       })
     },
 
-    computed: {
-    },
-
     methods: {
       changeMainStatus (status) {
         this.$ipcRenderer.sendTo(this.mainViewId, 'change-main-status', status)
+      },
+
+      setLyricTimer () {
+        if (this.$store.state.Music.playStatus) {
+          this.lyricTimer = setInterval(() => {
+            this.setNowLyricIndex(this.$store.state.Music.musicSource.currentTime)
+          }, 500)
+        } else if (this.lyricTimer !== null) {
+          clearInterval(this.lyricTimer)
+        }
+      },
+
+      setNowLyricIndex (timestamp) {
+        for (let i = this.songLyric.nowLyricIndex + 1; i < this.songLyric.lyricTotal; i++) {
+          if (timestamp > this.songLyric.lyric[i].timestamp) {
+            this.songLyric.nowLyricIndex = i
+            continue
+          }
+          break
+        }
       }
     }
   }
