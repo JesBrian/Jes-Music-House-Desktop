@@ -1,5 +1,6 @@
 const state = {
   showMusicView: false, // 是否展示歌曲页面 - [ true/false ]
+  showBottomLyricView: false, // 是否展示底部歌词页面 - [ true/false ]
   showMiniView: false
 }
 

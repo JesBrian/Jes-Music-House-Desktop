@@ -11,7 +11,7 @@
           <i @click="changeMainStatus('volume')" :class="volumeStatus === true ? 'volume-on' : 'volume-off'" class="mh-if"></i>
           <i @click="changeMainStatus('view')" class="mh-if close"></i>
         </div>
-        <p style="font-size:36px; line-height:45px; text-align:center; -webkit-text-stroke:0.5px red;">{{  }}</p>
+        <p style="font-size:36px; line-height:45px; text-align:center; -webkit-text-stroke:0.5px red;">{{ songLyric.lyric[songLyric.nowLyricIndex].text }}</p>
       </div>
 	</div>
 </template>
@@ -38,6 +38,7 @@
     created () {
       this.$http.get('http://music.jesbrian.local/resource/lyric/test.json').then(result => {
         this.songLyric = result.data
+        this.$set(this.songLyric, 'nowTimestamp', 0)
         this.$set(this.songLyric, 'nowLyricIndex', 0)
         this.$set(this.songLyric, 'lyricTotal', result.data.lyric.length)
       }).catch(error => {
@@ -55,6 +56,9 @@
 
       this.$ipcRenderer.on('change-lyric-status', (event, statusObj) => {
         this[statusObj.name] = statusObj.value
+        if (statusObj.name === 'playStatus') {
+          this.setLyricTimer()
+        }
       })
     },
 
@@ -64,10 +68,11 @@
       },
 
       setLyricTimer () {
-        if (this.$store.state.Music.playStatus) {
+        if (this.playStatus) {
           this.lyricTimer = setInterval(() => {
-            this.setNowLyricIndex(this.$store.state.Music.musicSource.currentTime)
-          }, 500)
+            this.setNowLyricIndex(this.songLyric.nowTimestamp)
+            this.songLyric.nowTimestamp += 0.238
+          }, 238)
         } else if (this.lyricTimer !== null) {
           clearInterval(this.lyricTimer)
         }
