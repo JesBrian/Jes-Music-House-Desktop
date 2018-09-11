@@ -9,6 +9,7 @@
           <i @click="changeMainStatus('config')" class="mh-if gear"></i>
           <i class="mh-if lock"></i>
           <i @click="changeMainStatus('volume')" :class="volumeStatus === true ? 'volume-on' : 'volume-off'" class="mh-if"></i>
+          <i @click="changeMainStatus('view')" class="mh-if question"></i>
           <i @click="changeMainStatus('view')" class="mh-if close"></i>
         </div>
         <p style="font-size:36px; line-height:45px; text-align:center; -webkit-text-stroke:0.5px red;">{{ songLyric.lyric[songLyric.nowLyricIndex].text }}</p>

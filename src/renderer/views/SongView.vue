@@ -18,17 +18,17 @@
           <img src="../../../static/images/default/Neo-Player.png" style="width:100%;"/>
         </div>
         <div style="width:88%; text-align:center;">
-          <div class="super-btn-out" style="width:68px; height:29px; margin:10px 8px 0;">
-            <span class="super-btn-in mh-if non-colloection" style="width:60px; height:20px; line-height:21px;"> 喜欢</span>
+          <div class="super-btn-out" style="width:72px; height:32px; margin:10px 8px 0;">
+            <span class="super-btn-in mh-if non-colloection" style="width:62px; height:23px; line-height:23px;"> 喜欢</span>
           </div>
-          <div @click="showModal('AddAlbum')" class="super-btn-out" style="width:68px; height:29px; margin:10px 8px 0;">
-            <span class="super-btn-in mh-if collection-music" style="width:60px; height:20px; line-height:21px;"> 收藏</span>
+          <div @click="showModal('AddAlbum')" class="super-btn-out" style="width:72px; height:32px; margin:10px 8px 0;">
+            <span class="super-btn-in mh-if collection-music" style="width:62px; height:23px; line-height:23px;"> 收藏</span>
           </div>
-          <div class="super-btn-out" style="width:68px; height:29px; margin:10px 8px 0;">
-            <span class="super-btn-in mh-if download" style="width:60px; height:20px; line-height:21px;"> 下载</span>
+          <div class="super-btn-out" style="width:72px; height:32px; margin:10px 8px 0;">
+            <span class="super-btn-in mh-if download" style="width:62px; height:23px; line-height:23px;"> 下载</span>
           </div>
-          <div @click="showModal('Share')" class="super-btn-out" style="width:68px; height:29px; margin:10px 8px 0;">
-            <span class="super-btn-in mh-if share" style="width:60px; height:20px; line-height:21px;"> 分享</span>
+          <div @click="showModal('Share')" class="super-btn-out" style="width:72px; height:32px; margin:10px 8px 0;">
+            <span class="super-btn-in mh-if share" style="width:62px; height:23px; line-height:23px;"> 分享</span>
           </div>
         </div>
       </div>
@@ -42,6 +42,7 @@
           <div style="width:100%; height:100%; overflow:auto;">
             <div v-for="(item, index) in songLyric.lyric" :class="['song-lyric-cell', {'active': index === songLyric.nowLyricIndex}]">{{ item.text }}</div>
           </div>
+          <i class="mh-if question" style="right:35px; bottom:3px; position:absolute; font-size:28px;"></i>
         </div>
       </div>
     </div>
