@@ -9,24 +9,28 @@
               推荐<i :class="leftMenuSwitch.recomShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
             </p>
 						<ul v-show="leftMenuSwitch.recomShow">
-							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/" class="left-menu-item">
+							<li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
+                <page-link url="/" class="left-menu-item" :class="{'active' : ['/index/recommend', '/index/play-list', '/index/singer', '/index/news-music'].includes(this.pathUrl)}">
                   <i class="mh-if music-box" style="margin-right:6px;"></i>发现音乐
+                  <i class="mh-if double-arrow-right" style="float:right;"></i>
                 </page-link>
               </li>
-							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/rank" class="left-menu-item">
+							<li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
+                <page-link url="/rank" class="left-menu-item" :class="{'active' : pathUrl === '/rank'}">
                   <i class="mh-if exponential" style="margin-right:4px;"></i>榜单推荐
+                  <i class="mh-if double-arrow-right" style="float:right;"></i>
                 </page-link>
               </li>
-							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/comment" class="left-menu-item">
+							<li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
+                <page-link url="/comment" class="left-menu-item" :class="{'active' : pathUrl === '/comment'}">
                   <i class="mh-if level" style="margin-right:4px;"></i>个人推荐
+                  <i class="mh-if double-arrow-right" style="float:right;"></i>
                 </page-link>
               </li>
-              <li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/friend" class="left-menu-item">
+              <li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
+                <page-link url="/friend" class="left-menu-item" :class="{'active' : pathUrl === '/friend'}">
                   <i class="mh-if singer" style="margin-right:6px;"></i>朋友动态
+                  <i class="mh-if double-arrow-right" style="float:right;"></i>
                 </page-link>
               </li>
 						</ul>
@@ -36,19 +40,22 @@
               我的音乐<i :class="leftMenuSwitch.musicShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
             </p>
 						<ul v-show="leftMenuSwitch.musicShow">
-							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/local" class="left-menu-item">
+							<li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
+                <page-link url="/local" class="left-menu-item" :class="{'active' : pathUrl === '/local'}">
                   <i class="mh-if redis" style="margin-right:6px;"></i>本地音乐
+                  <i class="mh-if double-arrow-right" style="float:right;"></i>
                 </page-link>
               </li>
-							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/download" class="left-menu-item">
+							<li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
+                <page-link url="/download" class="left-menu-item" :class="{'active' : pathUrl === '/download'}">
                   <i class="mh-if download" style="margin-right:6px;"></i>下载管理
+                  <i class="mh-if double-arrow-right" style="float:right;"></i>
                 </page-link>
               </li>
-							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/follow/singer" class="left-menu-item">
+							<li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
+                <page-link url="/follow/singer" class="left-menu-item" :class="{'active' : pathUrl === '/follow/singer'}">
                   <i class="mh-if collection-music" style="margin-right:6px;"></i>我的关注
+                  <i class="mh-if double-arrow-right" style="float:right;"></i>
                 </page-link>
               </li>
 						</ul>
@@ -59,19 +66,22 @@
             </p>
             <i @click="changeModalType('NewAlbum')" class="mh-if add-collection"></i>
 						<ul v-show="leftMenuSwitch.albumShow">
-							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/play-list" class="left-menu-item">
+							<li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
+                <page-link url="/play-list" class="left-menu-item" :class="{'active' : pathUrl === '/play-list'}">
                   <i class="mh-if non-colloection" style="margin-right:6px;"></i>我喜欢的音乐
+                  <i class="mh-if double-arrow-right" style="float:right;"></i>
                 </page-link>
               </li>
-							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/play-list" class="left-menu-item">
+							<li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
+                <page-link url="/play-list" class="left-menu-item" :class="{'active' : pathUrl === '/play-list'}">
                   <i class="mh-if music-list" style="margin-right:6px;"></i>tywque
+                  <i class="mh-if double-arrow-right" style="float:right;"></i>
                 </page-link>
               </li>
-							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/play-list" class="left-menu-item">
+							<li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
+                <page-link url="/play-list" class="left-menu-item" :class="{'active' : pathUrl === '/play-list'}">
                   <i class="mh-if music-list" style="margin-right:6px;"></i>洝ij45省的sj
+                  <i class="mh-if double-arrow-right" style="float:right;"></i>
                 </page-link>
               </li>
 						</ul>
@@ -81,19 +91,22 @@
               收藏的歌单<i :class="leftMenuSwitch.collectionShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
             </p>
 						<ul v-show="leftMenuSwitch.collectionShow">
-							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/play-list" class="left-menu-item">
+							<li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
+                <page-link url="/play-list" class="left-menu-item" :class="{'active' : pathUrl === '/play-list'}">
                   <i class="mh-if menu" style="margin-right:6px;"></i>XXXX
+                  <i class="mh-if double-arrow-right" style="float:right;"></i>
                 </page-link>
               </li>
-							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/play-list" class="left-menu-item">
+							<li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
+                <page-link url="/play-list" class="left-menu-item" :class="{'active' : pathUrl === '/play-list'}">
                   <i class="mh-if menu" style="margin-right:6px;"></i>YYYY
+                  <i class="mh-if double-arrow-right" style="float:right;"></i>
                 </page-link>
               </li>
-							<li class="box-shadow" style="padding:6px 0 6px 18px; line-height:1.2em; font-size:14px;">
-                <page-link url="/play-list" class="left-menu-item">
+							<li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
+                <page-link url="/play-list" class="left-menu-item" :class="{'active' : pathUrl === '/play-list'}">
                   <i class="mh-if menu" style="margin-right:6px;"></i>ZZZZ
+                  <i class="mh-if double-arrow-right" style="float:right;"></i>
                 </page-link>
               </li>
 						</ul>
@@ -134,6 +147,12 @@
           collectionShow: true
         },
         isCollection: false
+      }
+    },
+
+    computed: {
+      pathUrl () {
+        return this.$route.path
       }
     },
 
@@ -186,16 +205,22 @@
   p > .mh-if:hover {
     color:#20dbfc;
   }
-  li > .left-menu-item {
+  .left-menu-item {
     width:100%;
     height:100%;
     color:#999;
   }
-  li > .left-menu-item:hover .mh-if {
+  .left-menu-item:hover .mh-if, .left-menu-item.active .mh-if {
     color:#20dbfc;
   }
-  li > .left-menu-item:hover {
+  .left-menu-item:hover, .left-menu-item.active {
     color:#DDD;
+  }
+  .left-menu-item .double-arrow-right {
+    display:none;
+  }
+  .left-menu-item.active .double-arrow-right {
+    display:block;
   }
 
   .now-song {
