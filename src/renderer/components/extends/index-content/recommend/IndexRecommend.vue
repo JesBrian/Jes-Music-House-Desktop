@@ -2,7 +2,7 @@
   <div style="width:92%; margin:0 auto;">
     <!-- 幻灯片 -->
     <div style="width:80%; height:288px; margin:0 auto 28px;">
-      <slide-box />
+      <slide-box :slider-data="sliderData" />
     </div>
 
     <div>
@@ -137,6 +137,23 @@
 
     components: {
       AlbumGroup, SlideBox
+    },
+
+    data () {
+      return {
+        sliderData: []
+      }
+    },
+
+    created () {
+      this.$http.post('getFrontendSlider').then(res => {
+        // console.log(res)
+        if (res.data.state === '200') {
+          this.sliderData = res.data.data
+        }
+      }).catch(err => {
+        console.log(err)
+      })
     }
   }
 </script>
