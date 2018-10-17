@@ -2,7 +2,7 @@
   <div style="margin:18px 0 0; position:relative;">
     <div class="glass-bg box-show" style="width:100%; height:108px; padding:10px; position:relative; box-sizing:border-box;">
       <label>
-        <textarea class="cube-bg box-show glow-input" style="width:100%; height:100%; color:#DDD; resize:none;"></textarea>
+        <textarea v-model.trim="newComment" class="cube-bg box-show glow-input" style="width:100%; height:100%; padding:8px 12px; color:#DDD; font-size:15px; text-indent:2em; resize:none;"></textarea>
       </label>
     </div>
     <div style="height:50px; margin-left:18px; line-height:50px;">
@@ -12,7 +12,7 @@
       <div @click="createComment" class="super-btn-out" style="width:108px; height:30px; margin:8px 18px; float:right;">
         <span class="super-btn-in mh-if comment" style="width:100px; height:22px; line-height:24px;"> 发表评论</span>
       </div>
-      <span style="float:right; color:#AAA;">138</span>
+      <span style="float:right; color:#AAA;">{{ wordNum }}</span>
 
       <emoji-content v-if="isShowEmojiContent" />
     </div>
@@ -32,7 +32,22 @@
 
     data () {
       return {
-        isShowEmojiContent: false
+        isShowEmojiContent: false,
+        newComment: ''
+      }
+    },
+
+    computed: {
+      wordNum () {
+        return 250 - this.newComment.length
+      }
+    },
+
+    watch: {
+      wordNum (nVal) {
+        if (nVal <= 0) {
+          this.newComment = this.newComment.substr(0, 250)
+        }
       }
     },
 
@@ -41,7 +56,13 @@
         this.isShowEmojiContent = !this.isShowEmojiContent
       },
 
+      writeEmoji (emoji) {
+        // console.log(emoji)
+        this.newComment += `[-${emoji}-]`
+      },
+
       createComment () {
+        alert(this.newComment)
       }
     }
   }
