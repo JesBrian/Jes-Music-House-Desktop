@@ -1,7 +1,5 @@
 <template>
-  <div @click="changePage" style="margin:0; padding:0; display:inline-block; cursor:pointer;">
-    <slot />
-  </div>
+  <div @click="changePage" class="page-link"><slot /></div>
 </template>
 
 <script>
@@ -23,5 +21,7 @@
 </script>
 
 <style scoped>
-
+  .page-link {
+    margin:0; padding:0; display:inline-block; cursor:pointer;
+  }
 </style>

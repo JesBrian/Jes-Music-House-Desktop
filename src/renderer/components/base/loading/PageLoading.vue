@@ -2,13 +2,20 @@
   <!-- 加载等待loading组件 -->
   <div class="loader">
     <div class="loading-1"></div>
-    <div class="loading-2">Loading ...</div>
+    <div class="loading-2">{{ label }}</div>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'PageLoading'
+    name: 'PageLoading',
+
+    props: {
+      label: {
+        type: [String, Number],
+        default: 'Loading ...'
+      }
+    }
   }
 </script>
 

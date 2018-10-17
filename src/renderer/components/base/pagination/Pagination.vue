@@ -15,11 +15,20 @@
   export default {
     name: 'Pagination',
 
+    props: {
+      showItem: {
+        type: Number,
+        default: 7
+      },
+      allPage: {
+        type: Number,
+        default: 12
+      }
+    },
+
     data () {
       return {
-        current: 1,
-        showItem: 7,
-        allPage: 12
+        current: 1
       }
     },
 
@@ -52,6 +61,7 @@
         if (index === this.current || index < 1 || index > this.allPage) return false
         // 否则进行跳转 / 数据更新
         else this.current = index
+        this.$emit('changePage', this.current)
       }
     }
   }

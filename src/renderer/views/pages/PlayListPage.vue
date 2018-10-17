@@ -62,14 +62,14 @@
       <span @click="changeContent('SongGroup')" :class="{'active': type === 'SongGroup'}" class="play-list-menu-cell">歌曲列表</span>
       <span @click="changeContent('CommentTotal')" :class="{'active': type === 'CommentTotal'}" class="play-list-menu-cell">评论 [666]</span>
       <label v-if="type === 'SongGroup'" class="super-btn-out active" style="width:268px; height:32px; margin:-2px 8px 0 0; float:right; position:relative; border:none; border-radius:16px;">
-        <input type="text" class="super-btn-in" placeholder="搜索本歌单音乐" style="width:258px; height:76%; top:50%; padding:0 12px; box-sizing:border-box; border-radius:12px; text-align:left; font-size:17px;"/>
+        <input v-model.trim="searchKey" class="super-btn-in" placeholder="搜索本歌单音乐" style="width:258px; height:76%; top:50%; padding:0 12px; box-sizing:border-box; border-radius:12px; text-align:left; font-size:17px;"/>
         <i class="mh-if search" style="top:2px; right:14px; position:absolute;"></i>
       </label>
     </div>
 
     <!-- 歌单内容 [ 歌曲列表/评论 ] -->
     <div style="margin:0 auto 28px;">
-      <component :is="type"/>
+      <component :is="type" :search-key="searchKey" />
     </div>
 
   </div>
@@ -90,7 +90,9 @@
       return {
         isShowDescriptionBtn: false,
         isShowDescription: false,
-        type: 'SongGroup'
+        type: 'SongGroup',
+
+        searchKey: ''
       }
     },
 

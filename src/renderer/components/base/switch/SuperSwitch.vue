@@ -1,6 +1,7 @@
 <template>
   <label :class="size">
-    <input v-model="switchState" @change="switchChangeEvent" :class="['mui-switch', shape]" :data-open="switchOpen" :data-close="switchClose" type="checkbox">
+    <input v-model="switchState" @change="switchChangeEvent" class="box-show" :class="['mui-switch', shape]"
+           :data-open="switchOpen" :data-close="switchClose" type="checkbox">
   </label>
 </template>
 
@@ -72,9 +73,9 @@
     position: relative;
     display: inline-block;
     box-sizing: border-box;
-    border: 1px solid #dfdfdf;
-    background-color: #fdfdfd;
-    box-shadow: #dfdfdf 0 0 0 0 inset;
+    border: 1px solid #111;
+    background-image: linear-gradient(#444444, #373738);
+    box-shadow:inset 0 2px 1px -1px rgba(255, 255, 255, 0.2), inset 0 -2px 1px -1px rgba(0, 0, 0, 0.2), 0 12px 12px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 0 0 1px #272727;
     background-clip: content-box;
     -webkit-appearance: none;
     user-select: none;
@@ -89,12 +90,12 @@
   }
   .mui-switch::before {
     content: '';
-    width: 24px;
-    height: 24px;
-    top: 0.6px;
-    left: 0;
+    width: 22px;
+    height: 22px;
+    top: 2px;
+    left: 3px;
     position: absolute;
-    background: #FFF;
+    background: #686868;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     transition: left 0.28s;
     z-index: 9;
@@ -122,13 +123,11 @@
     left: 0;
   }
   .mui-switch:checked {
-    border-color: #64bd63;
-    box-shadow: #64bd63 0 0 0 16px inset;
-    background-color: #64bd63;
-    transition: border ease 0.4s, box-shadow ease 0.4s, background-color ease 1.2s;
+    box-shadow:#39E1FC 0 0 0 16px inset;
+    transition: box-shadow ease 0.4s;
   }
   .mui-switch:checked::before {
-    left: 31px;
+    left:32px;
   }
 
 </style>
