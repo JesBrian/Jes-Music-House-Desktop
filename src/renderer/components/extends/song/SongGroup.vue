@@ -105,6 +105,12 @@
         } else {
           this[type] = 'up-down'
         }
+
+        this.changeSongListOrder(type, this[type])
+      },
+
+      changeSongListOrder (type, order) {
+        alert(type + ' - ' + order)
       }
     }
   }
