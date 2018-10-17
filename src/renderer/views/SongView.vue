@@ -1,14 +1,15 @@
 <template>
-	<div style="width:100%; height:100%; box-sizing:border-box; overflow:auto;">
-		<div style="width:95%; height:468px; margin:0 auto 68px; position:relative;">
+	<div id="songView">
 
-      <div @click="goBackView" class="super-btn-out" style="width:38px; height:38px; top:16px; right:8px; position:absolute;">
-        <i class="super-btn-in mh-if lessen" style="width:30px; height:30px; font-size:26px; line-height:32px;"></i>
+    <!-- 上部分 -->
+		<div class="song-view-top">
+      <div @click="goBackView" class="go-back super-btn-out">
+        <i class="super-btn-in mh-if lessen"></i>
       </div>
 
-      <div style="width:40%; height:100%; float:left; position:relative;">
-        <div style="width:100%; margin:38px 0 28px; box-sizing:border-box;">
-          <div class="box-show" style="width:320px; height:320px; left:-8px; margin:12px 28px; display:inline-block; border-radius:50%;">
+      <div class="song-album-container">
+        <div class="song-album-img">
+          <div class="box-show">
             <div :style="{'transform' : 'rotate(' + nowPlayTime / 4 % 360 + 'deg)'}" class="disk-bg">
               <img v-lazy="'http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80'" class="glass-bg play-list-img" />
             </div>
@@ -17,50 +18,51 @@
         <div :class="{'active' : !$store.state.Music.playStatus}" id="playPointer">
           <img src="../../../static/images/default/Neo-Player.png" style="width:100%;"/>
         </div>
-        <div style="width:88%; text-align:center;">
-          <div class="super-btn-out" style="width:72px; height:32px; margin:10px 8px 0;">
-            <span class="super-btn-in mh-if non-colloection" style="width:62px; height:23px; line-height:23px;"> 喜欢</span>
+        <div class="btn-container">
+          <div class="super-btn-out">
+            <span class="super-btn-in mh-if non-colloection"> 喜欢</span>
           </div>
-          <div @click="showModal('AddAlbum')" class="super-btn-out" style="width:72px; height:32px; margin:10px 8px 0;">
-            <span class="super-btn-in mh-if collection-music" style="width:62px; height:23px; line-height:23px;"> 收藏</span>
+          <div @click="showModal('AddAlbum')" class="super-btn-out">
+            <span class="super-btn-in mh-if collection-music"> 收藏</span>
           </div>
-          <div class="super-btn-out" style="width:72px; height:32px; margin:10px 8px 0;">
-            <span class="super-btn-in mh-if download" style="width:62px; height:23px; line-height:23px;"> 下载</span>
+          <div class="super-btn-out">
+            <span class="super-btn-in mh-if download"> 下载</span>
           </div>
-          <div @click="showModal('Share')" class="super-btn-out" style="width:72px; height:32px; margin:10px 8px 0;">
-            <span class="super-btn-in mh-if share" style="width:62px; height:23px; line-height:23px;"> 分享</span>
+          <div @click="showModal('Share')" class="super-btn-out">
+            <span class="super-btn-in mh-if share"> 分享</span>
           </div>
         </div>
       </div>
 
-      <div style="width:58%; margin-right:18px; float:right; ">
-        <div style="width:92%; margin:18px auto 0; color:#DDD;">
-          <p style="font-size:22px;">The Name of the Song</p>
-          <p style="line-height:1.6em; font-size:15px;">sdvsdvsdbdfbhusibhfdbukvsodvsdvsdrhukvfsdbhifsdvbuigesdd</p>
+      <div class="song-info-container">
+        <div class="base-info">
+          <p class="song-title">The Name of the Song</p>
+          <!--<p class="" style="line-height:1.6em; font-size:15px;">sdvsdvsdbdfbhusibhfdbukvsodvsdvsdrhukvfsdbhifsdvbuigesdd</p>-->
         </div>
         <div class="lyrics-content">
-          <div style="width:100%; height:100%; overflow:auto;">
-            <div v-for="(item, index) in songLyric.lyric" :class="['song-lyric-cell', {'active': index === songLyric.nowLyricIndex}]">{{ item.text }}</div>
+          <div v-if="songLyric" style="width:100%; height:100%; overflow:auto;">
+            <p v-for="(item, index) in songLyric.lyric" :class="['song-lyric-cell', {'active': index === songLyric.nowLyricIndex}]">{{ item.text }}</p>
           </div>
           <i class="mh-if question" style="right:35px; bottom:3px; position:absolute; font-size:28px;"></i>
         </div>
       </div>
     </div>
-    <div style="width:92%; margin:0 auto 28px;">
-      <div style="width:72%; height:100%; padding:0 48px 0 5px; box-sizing:border-box; display:inline-block; position:relative;">
-        <div style="width:93%; height:53px; top:-50px; left:0; margin:0 auto; padding:0 28px; position:absolute; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px; text-shadow:1px 1px 0.5px #000;">
-          <i class="mh-if music-box" style="margin-right:6px; font-size:23px; color:#00d8ff;"></i>
-          <span style="margin-right:3px; font-size:23px; font-weight:700; color:#CCC;">听友评论</span>
-          <span style="color:#BBB;">（已有 6946 条评论）</span>
+
+    <!-- 下部分 -->
+    <div class="song-view-bottom">
+      <div class="song-comment-container">
+        <div class="song-comment-title">
+          <i class="mh-if music-box"></i>
+          <span class="song-comment-title-label">听友评论</span>
+          <span class="song-comment-title-num">（已有 6946 条评论）</span>
         </div>
 
-        <comment-total style="margin-left:-12px; padding:0;" />
-
+        <comment-total class="song-comment-total" />
       </div>
 
-      <div style="width:28%; float:right;">
-        <div style="width:100%; margin-bottom:48px;">
-          <div style="margin:0 0 12px; padding-left:13px; border-left:3px solid #00C4E1; font-size:21px;">包含这首歌曲的歌单</div>
+      <div class="song-recommend-container">
+        <section class="song-recommend-section">
+          <div class="song-recommend-title">包含这首歌曲的歌单</div>
           <div v-for="n in 3" class="box-show" style="width:100%; height:50px; margin-bottom:8px; border-radius:3px;">
             <img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:35px; height:35px; margin:8px; padding:2px; float:left;"/>
             <div>
@@ -68,9 +70,9 @@
               <p style="font-size:13px;">播放：666888</p>
             </div>
           </div>
-        </div>
-        <div style="width:100%; margin-bottom:48px;">
-          <div style="margin:0 0 12px; padding-left:13px; border-left:3px solid #00C4E1; font-size:21px;">相似的歌曲</div>
+        </section>
+        <section class="song-recommend-section">
+          <div class="song-recommend-title">相似的歌曲</div>
           <div v-for="n in 5" class="box-show" style="width:100%; height:50px; margin-bottom:8px; border-radius:3px;">
             <img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:35px; height:35px; margin:8px; padding:2px; float:left;"/>
             <div>
@@ -78,14 +80,14 @@
               <p style="font-size:13px;">JesBrian</p>
             </div>
           </div>
-        </div>
-        <div style="width:100%; margin-bottom:48px;">
-          <div style="margin:0 0 12px; padding-left:13px; border-left:3px solid #00C4E1; font-size:21px;">喜欢这首歌的人</div>
+        </section>
+        <section class="song-recommend-section">
+          <div class="song-recommend-title">喜欢这首歌的人</div>
           <div v-for="n in 5" class="box-show" style="width:100%; height:50px; margin-bottom:8px; border-radius:3px; line-height:50px;">
             <img class="box-show" src="http://p2.music.126.net/kaISxJU3yP0Qvw6H_vUyAQ==/18984167765401316.jpg?param=80y80" style="width:35px; height:35px; margin:8px; padding:2px; float:left;"/>
             Jesbrian
           </div>
-        </div>
+        </section>
       </div>
     </div>
 	</div>
@@ -181,6 +183,25 @@
 </script>
 
 <style scoped>
+  #songView {
+    width:100%; height:100%; box-sizing:border-box; overflow:auto;
+  }
+
+  /**
+   * 上部分
+   */
+  .song-view-top {
+    width:95%; height:468px; margin:0 auto 68px; position:relative;
+  }
+  .go-back.super-btn-out {
+    width:38px; height:38px; top:16px; right:8px; position:absolute;
+  }
+  .go-back > .super-btn-in {
+    width:30px; height:30px; font-size:26px; line-height:32px;
+  }
+  /**
+   * 音乐封面图片
+   */
   #playPointer {
     width:138px; top:8px; left:-23px; display:inline-block; position:absolute;
     transform-origin:12.8px 12.8px;
@@ -190,14 +211,24 @@
   #playPointer.active {
     transform:rotate(-38deg);
   }
-
+  .song-album-container {
+    width:40%; height:100%; float:left; position:relative;
+  }
+  .song-album-container > .song-album-img {
+    width:100%; margin:38px 0 28px; box-sizing:border-box;
+  }
+  .song-album-container > .song-album-img > .box-show {
+    width:320px; height:320px; left:-8px; margin:12px 28px; display:inline-block; border-radius:50%;
+  }
   .play-list-img {
     width:63%; height:63%; top:50%; left:50%; position:absolute; border-radius:50%; transform:translate(-50%, -50%);
   }
   .disk-bg {
     width:100%; height:100%; position:relative; background:url(../../../static/images/default/disk.png) no-repeat; background-size:100% 100%; border-radius:50%;
   }
-
+  /**
+   * 歌词区域
+   */
   .lyrics-content {
     width:100%; height:438px; padding:38px 78px 56px 108px; box-sizing:border-box; background:url(../../../static/images/default/lyric-bg.png) no-repeat; background-size:100% 100%;
   }
@@ -207,4 +238,72 @@
   .song-lyric-cell.active {
     color:#EEE;
   }
+  /**
+   * 按钮组
+   */
+  .btn-container {
+    width:88%; text-align:center;
+  }
+  .btn-container > .super-btn-out {
+    width:72px; height:32px; margin:10px 8px 0;
+  }
+  .btn-container .super-btn-in {
+    width:62px; height:23px; line-height:23px;
+  }
+  .song-info-container {
+    width:58%; margin-right:18px; float:right;
+  }
+  .song-info-container > .base-info {
+    width:92%; margin:18px auto 0; color:#DDD;
+  }
+  .song-info-container > .base-info > .song-title {
+    line-height:2em; font-size:22px;
+  }
+
+
+  /**
+   * 下部分
+   */
+  .song-view-bottom {
+    width:92%; margin:0 auto 28px;
+  }
+
+  /**
+   * 评论
+   */
+  .song-comment-container {
+    width:72%; height:100%; padding:0 48px 0 5px; box-sizing:border-box; display:inline-block; position:relative;
+  }
+  .song-comment-title {
+    width:93%; height:53px; top:-50px; left:0; margin:0 auto; padding:0 28px; position:absolute; box-sizing:border-box; box-shadow:0 3px 3px -3px #20dbfc; line-height:68px; text-shadow:1px 1px 0.5px #000;
+  }
+  .song-comment-title > .mh-if {
+    margin-right:6px; font-size:23px; color:#00d8ff;
+  }
+  .song-comment-title > .song-comment-title-label {
+    margin-right:3px; font-size:23px; font-weight:700; color:#CCC;
+  }
+  .song-comment-title > .song-comment-title-num {
+    font-size:23px; color:#BBB;
+  }
+  .song-comment-total {
+    margin-left:-12px; padding:0;
+  }
+
+  /**
+   * 推荐
+   */
+  .song-recommend-container {
+    width:28%; float:right;
+  }
+  .song-recommend-section {
+    width:100%; margin-bottom:48px;
+  }
+  .song-recommend-section > .song-recommend-title {
+    margin:0 0 12px; padding-left:13px; border-left:3px solid #00C4E1; font-size:21px;
+  }
+
+
+
+
 </style>

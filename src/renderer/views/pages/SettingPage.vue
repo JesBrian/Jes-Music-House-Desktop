@@ -10,23 +10,23 @@
       <div style="width:88%; margin:0 auto;">
         <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">昵称</div>
         <div style="width:88%; display:inline-block;">
-          <input v-model="username" type="text" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
+          <input v-model="username" type="text" class="cube-bg box-show"/>
         </div>
         <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">性别</div>
         <div style="width:88%; display:inline-block;">
-          <input v-model="sex" type="text" name="name" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
+          <input v-model="sex" type="text" name="name" class="cube-bg box-show"/>
         </div>
         <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">生日</div>
         <div style="width:88%; display:inline-block;">
-          <input v-model="birth" type="text" name="name" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
+          <input v-model="birth" type="text" name="name" class="cube-bg box-show"/>
         </div>
         <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">地区</div>
         <div style="width:88%; display:inline-block;">
-          <input v-model="address" type="text" name="name" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
+          <input v-model="address" type="text" name="name" class="cube-bg box-show"/>
         </div>
         <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">邮箱</div>
         <div style="width:88%; display:inline-block;">
-          <input v-model="mail" type="text" name="name" class="cube-bg box-show" style="width:100%; padding:8px; background:#383838; font-size:15px;"/>
+          <input v-model="mail" type="text" name="name" class="cube-bg box-show"/>
         </div>
         <div style="width:12%; padding-bottom:18px; float:left; text-align:center;">介绍</div>
         <div style="width:88%; display:inline-block;">
@@ -39,7 +39,7 @@
         <div @click="updateUserInfo" class="super-btn-out" style="width:108px; height:32px; margin:0 18px;">
           <span class="super-btn-in mh-if makesure" style="width:98px; height:22px; line-height:23px;"> 确认保存</span>
         </div>
-        <div class="super-btn-out" style="width:108px; height:32px; margin:0 18px;">
+        <div @click="goBack" class="super-btn-out" style="width:108px; height:32px; margin:0 18px;">
           <span class="super-btn-in mh-if cancel" style="width:98px; height:22px; line-height:23px;"> 取消返回</span>
         </div>
       </div>
@@ -168,16 +168,29 @@
           description: this.description,
           mail: this.mail
         }).then((response) => {
-          console.log(response)
+          // console.log(response)
+          if (response.data.state === '200') {
+            this.$store.commit('SHOW_TIPS', {
+              msg: '信息修改成功',
+              type: 'info'
+            })
+          }
         }).catch((error) => {
           console.error(error)
         })
+      },
+
+      goBack () {
+        this.$router.go(-1)
       }
     }
   }
 </script>
 
 <style scoped>
+  input {
+    width:100%; padding:8px; background:#383838; font-size:15px;
+  }
   input, textarea {
     border-radius:4px;
     border:2px solid #111;

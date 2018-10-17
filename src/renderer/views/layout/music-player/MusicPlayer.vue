@@ -1,60 +1,64 @@
 <template>
-  <div class="glass-bg box-show ban-select" style="width:100%; height:46px; bottom:0; left:0; position:fixed; border-radius:0; color:#AAA; text-align:center; line-height:44px;">
+  <div id="musicPlayer" class="glass-bg box-show ban-select">
 
     <!-- 音乐播放器资源 -->
-    <audio id="musicSource" ref="musicSource" v-if="$store.state.Music.nowPlayList.length !== 0" preload @ended="nowMusicEndNextPlay" :src="$global.DEV_RESOURCE_URL + $store.state.Music.nowPlayList[$store.state.Music.nowPlayIndex].name + '.mp3'" style="top:0; position:absolute;"></audio>
+    <audio id="musicSource" ref="musicSource" v-if="$store.state.Music.nowPlayList.length !== 0" preload @ended="nowMusicEndNextPlay"
+           :src="$global.DEV_RESOURCE_URL + $store.state.Music.nowPlayList[$store.state.Music.nowPlayIndex].name + '.mp3'">
+    </audio>
 
     <!-- 播放器控制样式 -->
-    <div style="width:188px; height:100%; float:left; text-align:center;">
-      <i @click="changePlayListIndex('prev')" class="mh-if double-arrow-left" style="margin:1px 0 0 33px; float:left; font-size:22px;"></i>
-      <i @click="changePlayStatus" :class="playStatus ? 'stop' : 'play'" class="mh-if" style="display:inline-block; font-size:35px;"></i>
-      <i @click="changePlayListIndex('next')" class="mh-if double-arrow-right" style="margin:1px 28px 0 0; float:right; font-size:22px;"></i>
-    </div>
+    <div class="music-play-main-controller">
+      <i @click="changePlayListIndex('prev')" class="prev-btn mh-if double-arrow-left"></i>
+      <i @click="changePlayStatus" :class="playStatus ? 'stop' : 'play'" class="play-btn mh-if"></i>
+      <i @click="changePlayListIndex('next')" class="next-btn mh-if double-arrow-right"></i>
+  </div>
 
     <!-- 播放进度部分 -->
-    <div style="width:560px; height:100%; float:left;">
+    <div class="music-player-progress">
       <!-- 当前播放时间 -->
-      <div style="width:53px; height:100%; float:left; font-size:15px;">{{ timeStampToMinuteSecondTime(musicCTime) }}</div>
+      <div class="progress-time now-time">{{ timeStampToMinuteSecondTime(musicCTime) }}</div>
       <!-- 进度条 -->
-      <div style="display:inline-block;">
-        <div @click="clickMusicProgressBar" ref="progressBar" class="progress-bar box-show" style="width:438px; height:10px; margin-top:8px; position:relative; background:#080808; border-radius:6px; cursor:pointer;">
-          <div style="width:80%; height:6px; top:2.4px; left:0; position:absolute; background:#181818; border-radius:6px;"></div>
-          <div :style="{'width' : nowPlayRate}" style="height:100%; top:0; left:0; position:absolute; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:6px;">
+      <div class="progress-bar-container">
+        <div @click="clickMusicProgressBar" ref="progressBar" class="progress-bar box-show">
+          <div class="progress-bar-duration"></div>
+          <div class="progress-bar-play" :style="{'width' : nowPlayRate}">
             <a @mousedown="dragProgressControllerPointer" class="pointer box-show"></a>
           </div>
         </div>
       </div>
       <!-- 歌曲总播放时间 -->
-      <div style="width:53px; height:100%; float:right; font-size:15px;">{{ timeStampToMinuteSecondTime(musicDTime) }}</div>
+      <div class="progress-time all-time">{{ timeStampToMinuteSecondTime(musicDTime) }}</div>
     </div>
 
     <!-- 控制音量部分 -->
-    <div style="width:180px; height:100%; margin:0 0 0 28px; float:left;">
+    <div class="music-player-volume">
       <!-- 音量开关 -->
-      <i @click="changeVolumeStatus" :class="volumeStatus ? 'volume-on' : 'volume-off'" class="mh-if" style="margin-right:6px; font-size:24px;"></i>
+      <i @click="changeVolumeStatus" class="volume-switch mh-if" :class="volumeStatus ? 'volume-on' : 'volume-off'"></i>
       <!-- 音量条 -->
-      <div @click="clickMusicVolumeBar" :class="{'ban-change': !volumeStatus}" ref="volumeBar" class="volume-bar box-show">
-        <div :style="{'width' : nowVolumeLevel}" style="height:88%; margin-top:1px; position:relative; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:5px;">
+      <div @click="clickMusicVolumeBar" :class="{'ban-change': !volumeStatus}" ref="volumeBar" class="volume-bar-container box-show">
+        <div :style="{'width' : nowVolumeLevel}" class="volume-bar">
           <a @mousedown="dragVolumeControllerPointer" class="pointer box-show" style="top:-4.5px;"></a>
         </div>
       </div>
     </div>
 
     <!-- 其他控制部分 -->
-    <div>
+    <div class="music-play-other-controller">
       <!-- 播放模式控制 -->
       <i @click="changePlayModel" :class="playModel" class="play-model mh-if">
-        <span class="glass-bg">{{ playModel === 'loop' ? '循环列表': playModel === 'single-loop' ? '单曲循环' : '随机播放' }}</span>
+        <span class="play-model-label glass-bg">{{ playModel === 'loop' ? '循环列表': playModel === 'single-loop' ? '单曲循环' : '随机播放' }}</span>
       </i>
       <!-- 展示歌词控制 -->
-      <i @click="changeShowLyric" :class="{'active' : $store.state.Music.showLyric}" class="mh-if lyrics" style="margin:5px; font-size:24px;"></i>
+      <i @click="changeShowLyric" :class="{'active' : $store.state.Music.showLyric}" class="mh-if lyrics"></i>
       <!-- 展示播放列表控制 -->
-      <i @click="changePlayListContentStatus" class="mh-if menu" style="margin:0 32px 0 5px; position:relative; z-index:2; font-size:23px;"><span>12</span></i>
+      <i @click="changePlayListContentStatus" class="mh-if menu">
+        <span class="menu-label">12</span>
+      </i>
     </div>
 
     <!-- 播放列表内容区域 -->
-    <div v-if="playListContentStatus" class="box-show" style="width:688px; height:388px; bottom:45px; right:0; position:absolute; background:#222; border-radius:4px 4px 0 0; opacity:0.99;">
-      <div class="box-show" style="width:100%; height:38px; position:relative; line-height:38px;">
+    <div v-if="playListContentStatus" id="musicPlayerPlayList" class="box-show">
+      <div class="play-list-title box-show">
         <span style="margin-left:12px; float:left;">
           <i class="mh-if menu" style="margin-right:5px;"></i>总12首
         </span>
@@ -501,6 +505,121 @@
 </script>
 
 <style scoped>
+  #musicPlayer {
+    width:100%; height:46px; bottom:0; left:0; position:fixed; border-radius:0; color:#AAA; text-align:center; line-height:44px;
+  }
+  #musicSource {
+    top:0; position:absolute;
+  }
+
+  /**
+   * 播放器主要控制部分
+   */
+  .music-play-main-controller {
+    width:188px; height:100%; float:left; text-align:center;
+  }
+  .music-play-main-controller > .play-btn {
+    font-size:35px;
+  }
+  .music-play-main-controller > .prev-btn {
+    margin:1px 0 0 33px; float:left; font-size:22px;
+  }
+  .music-play-main-controller > .next-btn {
+    margin:1px 28px 0 0; float:right; font-size:22px;
+  }
+
+
+  /**
+   * 进度条相关
+   */
+  .music-player-progress {
+    width:560px; height:100%; float:left;
+  }
+  .music-player-progress > .progress-time {
+    width:53px; height:100%; font-size:15px;
+  }
+  .progress-time.now-time {
+    float:left;
+  }
+  .progress-time.all-time {
+    float:right;
+  }
+  .music-player-progress > .progress-bar-container {
+    display:inline-block;
+  }
+  .music-player-progress > .progress-bar-container > .progress-bar {
+    width:438px; height:10px; margin-top:8px; position:relative; background:#080808; border-radius:6px; cursor:pointer;
+  }
+  .progress-bar > .progress-bar-duration {
+    width:80%; height:6px; top:2.4px; left:0; position:absolute; background:#181818; border-radius:6px;
+  }
+  .progress-bar > .progress-bar-play {
+    height:100%; top:0; left:0; position:absolute; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:6px;
+  }
+
+  /**
+   * 音量相关
+   */
+  .music-player-volume {
+    width:180px; height:100%; margin:0 0 0 28px; float:left;
+  }
+  .music-player-volume > .volume-switch {
+    margin-right:6px; font-size:24px;
+  }
+  .volume-bar-container {
+    width:138px; height:10px; margin:17px 0 0; float:right; background:#080808; border-radius:6px; cursor:pointer;
+  }
+  .volume-bar-container.ban-change {
+    opacity:0.3;
+    cursor:not-allowed
+  }
+  .volume-bar {
+    height:88%; margin-top:1px; position:relative; background:linear-gradient(to top, #007EF0, #00D8FF, #00D8FF, #5EEBFF); border-radius:5px;
+  }
+
+
+  /**
+   * 其他控制部分
+   */
+  .music-play-other-controller > .play-model {
+    margin:5px; position:relative; font-size:23px;
+  }
+  .music-play-other-controller > .play-model > .play-model-label {
+    width:88px; height:30px; bottom:38px; left:-33px; position:absolute; z-index:9; font-size:16px; line-height:29px; display:none;
+    box-shadow:0 0 3px -1px #00d8ff, inset 0 2px 1px -1px rgba(255, 255, 255, 0.2), inset 0 -2px 1px -1px rgba(0, 0, 0, 0.2), 0 12px 12px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 0 0 1px #272727;
+  }
+  .music-play-other-controller > .play-model:hover > .play-model-label {
+    display:block;
+  }
+  .music-play-other-controller > .lyrics {
+    margin:5px; font-size:24px;
+  }
+  .music-play-other-controller > .menu {
+    margin:0 32px 0 5px; position:relative; z-index:2; font-size:23px;
+  }
+  .music-play-other-controller > .menu > .menu-label {
+    width:38px; height:17px; top:3.2px; left:20px; padding:0 3px; position:absolute; z-index:-1; box-sizing:border-box; border-radius:0 10px 10px 0;
+    background:#222;
+    box-shadow:0.3px 0.3px 2.5px -0.6px #AAA, inset 0 0 6px #080808, inset 0 2px 2px #080808, inset 3px 0 2px #080808, inset -2px 0 2px #080808;
+    text-align:center; font-size:12.5px; line-height:17px; color:#888; text-shadow:2px 2px 6px #000;
+  }
+  .music-play-other-controller > .menu:hover > .menu-label {
+    color:#DDD;
+    box-shadow:0.3px 0.3px 2.5px -0.6px #AAA, inset 0 0 6px #000, inset 0 2px 2px #000, inset 3px 0 2px #000, inset -2px 0 2px #000;
+  }
+
+
+  /**
+   * 内置的歌曲列表部分
+   */
+  #musicPlayerPlayList {
+    width:688px; height:388px; bottom:45px; right:0; position:absolute; background:#222; border-radius:4px 4px 0 0; opacity:0.99;
+  }
+  .play-list-title {
+    width:100%; height:38px; position:relative; line-height:38px;
+  }
+
+
   .mh-if {
     color:#999;
     text-shadow: 0 0 6px #000;
@@ -511,26 +630,6 @@
     text-shadow: 0 0 3px #444, 0 0 18px #000;
     opacity:1!important;
   }
-  .mh-if.menu > span {
-    width:38px; height:17px; top:3.2px; left:20px; padding:0 3px; position:absolute; z-index:-1; box-sizing:border-box; border-radius:0 10px 10px 0;
-    background:#222;
-    box-shadow:0.3px 0.3px 2.5px -0.6px #AAA, inset 0 0 6px #080808, inset 0 2px 2px #080808, inset 3px 0 2px #080808, inset -2px 0 2px #080808;
-    text-align:center; font-size:12.5px; line-height:17px; color:#888; text-shadow:2px 2px 6px #000;
-  }
-  .mh-if.menu:hover > span {
-    color:#DDD;
-    box-shadow:0.3px 0.3px 2.5px -0.6px #AAA, inset 0 0 6px #000, inset 0 2px 2px #000, inset 3px 0 2px #000, inset -2px 0 2px #000;
-  }
-  .play-model {
-    margin:5px; position:relative; font-size:23px;
-  }
-  .play-model > span {
-    width:88px; height:30px; bottom:38px; left:-33px; position:absolute; z-index:9; font-size:16px; line-height:29px; display:none;
-    box-shadow:0 0 3px -1px #00d8ff, inset 0 2px 1px -1px rgba(255, 255, 255, 0.2), inset 0 -2px 1px -1px rgba(0, 0, 0, 0.2), 0 12px 12px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 0 0 1px #272727;
-  }
-  .play-model:hover > span {
-    display:block;
-  }
 
   .pointer {
     width:18px; height:18px; top:-4px; right:-8px; position:absolute; border-radius:50%; background:url(../../../../../static/images/default/slide-pointer.png) no-repeat; background-size:100% 100%;
@@ -538,14 +637,6 @@
   .pointer:hover {
     box-shadow: inset 0 2px 1px -1px rgba(255, 255, 255, 0.2), inset 0 -2px 1px -1px rgba(0, 0, 0, 0.2), 0 12px 12px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 0 0 1px #272727, 0 0.5px 8px #2af1fc;
   }
-  .volume-bar {
-    width:138px; height:10px; margin:17px 0 0; float:right; background:#080808; border-radius:6px; cursor:pointer;
-  }
-  .volume-bar.ban-change {
-    opacity:0.3;
-    cursor:not-allowed
-  }
-
 
   .play-list-cell {
     color:#888;
