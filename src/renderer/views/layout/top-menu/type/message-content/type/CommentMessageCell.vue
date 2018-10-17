@@ -15,7 +15,7 @@
           回复我：cbshbn ckcbs hb测试nc kasnk nk和cb春水浮回复插入sh15bn cka工程vsnknc 测试 2632 vkcbs hbn ck12asn 陈汕大vncv kcbsh 函数 b ncvk
         </p>
         <page-link url="/comment" class="cube-bg box-show" style="width:100%; margin:2px 0 0; padding:5px; line-height:1.2em; font-size:13px; cursor:pointer;">
-          我的评论：大学吗？大学的确学习成绩外的加分项不少，不过奖学金这种东西不求永远只求曾今拥有就好啦。
+          我的评论：填充的文字填充的文字填充的文字填充的文字填充的文字
         </page-link>
       </div>
 

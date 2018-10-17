@@ -27,7 +27,7 @@ export default new Router({
           component: () => import('@/views/pages/RankPage.vue')
         },
         {
-          path: '/play-list',
+          path: '/play-list/:id',
           component: () => import('@/views/pages/PlayListPage.vue')
         },
         {

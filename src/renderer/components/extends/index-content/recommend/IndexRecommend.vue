@@ -26,13 +26,13 @@
           <ul style="width:100%; height:100%;">
             <li v-for="n in 5" style="width:20%; height:100%; float:left;">
               <div class="new-disc-cell" style="width:100%; height:100%; position:relative; text-align:center;">
-                <page-link url="/play-list" style="margin:6px 0 0 6px; position:relative;">
+                <page-link url="/play-list/1" style="margin:6px 0 0 6px; position:relative;">
                   <img v-lazy="'http://p3.music.126.net/w_GpzV7fky3gOgIf4-gC4Q==/109951163241853988.jpg?param=130y130'" style="width:65px; height:65px; top:5px; left:5px; position:absolute;"/>
                   <img v-lazy="require('../../../../../../static/images/default/disc.png')" style="width:88px; height:75px;"/>
                 </page-link>
                 <i class="mh-if play"></i>
                 <p class="text-hidden" style="margin-left:26px; text-align:left;">
-                  <page-link url="/play-list" style="font-size:14.5px;">cx城市规划s市规划s</page-link>
+                  <page-link url="/play-list/1" style="font-size:14.5px;">cx城市规划s市规划s</page-link>
                 </p>
                 <page-link url="/singer" style="font-size:12.5px;">JesBrian</page-link>
               </div>

@@ -13,7 +13,7 @@
             <span style="margin-top:8px; float:right; font-size:13px; color:#999; line-height:1em;">2018-09-12</span>
           </p>
           <p style="margin-top:-3px; word-break:break-word; line-height:1.2em; font-size:13px;">
-            大学吗？大学的确学习成绩外的加分项不少，不过奖学金这种东西不求永远只求曾今拥有就好啦。
+            填充的文字填充的文字填充的文字填充的文字填充的文字
           </p>
         </div>
       </div>

@@ -11,7 +11,7 @@
       <p style="font-size:20px; line-height:2.5em; color:#DDD;">The Name of the Song</p>
       <p style="color:#999; line-height:2.3em;">
         <span>
-          歌单：<page-link url="/play-list">jcjksnkj</page-link>
+          歌单：<page-link url="/play-list/1">jcjksnkj</page-link>
         </span>
         <span style="margin-left:18px;">
           歌手：<page-link url="/singer">JesBrian</page-link>

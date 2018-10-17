@@ -1,6 +1,6 @@
 <template>
   <div style="width:150px; padding:6px 5px 0;">
-    <page-link url="/play-list" style="width:100%; height:100%;">
+    <page-link url="/play-list/1" style="width:100%; height:100%;">
       <div class="super-btn-in" style="margin-bottom:5px; top:12px; display:block; padding:5px 13px 5px 8px; position:relative; text-align:left;">
         <i class="mh-if music-albu" style="margin-right:3px;"></i> 查看歌单
       </div>

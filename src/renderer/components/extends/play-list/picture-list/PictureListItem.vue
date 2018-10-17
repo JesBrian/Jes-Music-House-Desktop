@@ -1,7 +1,7 @@
 <template>
   <div style="padding:8px 0 0;">
     <div style="width:18%; float:left;">
-      <page-link url="/play-list" style="width:108px; height:108px; margin:28px auto 0; display:block;">
+      <page-link url="/play-list/1" style="width:108px; height:108px; margin:28px auto 0; display:block;">
         <img @click.right="showAlertMenu('PlayListMenu')" class="cube-bg box-show" src="http://p1.music.126.net/wkon8FidWZUeUtBgXi-wOQ==/109951163288308673.jpg?param=140y140" style="width:100%; height:100%; padding:4px;" />
       </page-link>
     </div>
@@ -27,7 +27,7 @@
           </div>
         </li>
       </ul>
-      <page-link url="/play-list" style="line-height:2.5em; font-size:13px; color:#999;">查看全部135首</page-link>
+      <page-link url="/play-list/1" style="line-height:2.5em; font-size:13px; color:#999;">查看全部135首</page-link>
     </div>
   </div>
 </template>

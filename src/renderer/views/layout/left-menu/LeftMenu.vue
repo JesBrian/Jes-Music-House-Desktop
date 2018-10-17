@@ -66,21 +66,9 @@
             </p>
             <i @click="changeModalType('NewAlbum')" class="mh-if add-collection"></i>
 						<ul v-show="leftMenuSwitch.albumShow">
-							<li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
-                <page-link url="/play-list" class="left-menu-item" :class="{'active' : pathUrl === '/play-list'}">
-                  <i class="mh-if non-colloection" style="margin-right:6px;"></i>我喜欢的音乐
-                  <i class="mh-if double-arrow-right" style="float:right;"></i>
-                </page-link>
-              </li>
-							<li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
-                <page-link url="/play-list" class="left-menu-item" :class="{'active' : pathUrl === '/play-list'}">
-                  <i class="mh-if music-list" style="margin-right:6px;"></i>tywque
-                  <i class="mh-if double-arrow-right" style="float:right;"></i>
-                </page-link>
-              </li>
-							<li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
-                <page-link url="/play-list" class="left-menu-item" :class="{'active' : pathUrl === '/play-list'}">
-                  <i class="mh-if music-list" style="margin-right:6px;"></i>洝ij45省的sj
+              <li v-for="item in createPlayListMenuData" class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
+                <page-link :url="`/play-list/${item.id}`" class="left-menu-item" :class="{'active' : pathUrl === `/play-list/${item.id}`}">
+                  <i class="mh-if menu" style="margin-right:6px;"></i>{{ item.title }}
                   <i class="mh-if double-arrow-right" style="float:right;"></i>
                 </page-link>
               </li>
@@ -91,21 +79,9 @@
               收藏的歌单<i :class="leftMenuSwitch.collectionShow ? 'double-arrow-down' : 'double-arrow-right'" class="mh-if"></i>
             </p>
 						<ul v-show="leftMenuSwitch.collectionShow">
-							<li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
-                <page-link url="/play-list" class="left-menu-item" :class="{'active' : pathUrl === '/play-list'}">
-                  <i class="mh-if menu" style="margin-right:6px;"></i>XXXX
-                  <i class="mh-if double-arrow-right" style="float:right;"></i>
-                </page-link>
-              </li>
-							<li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
-                <page-link url="/play-list" class="left-menu-item" :class="{'active' : pathUrl === '/play-list'}">
-                  <i class="mh-if menu" style="margin-right:6px;"></i>YYYY
-                  <i class="mh-if double-arrow-right" style="float:right;"></i>
-                </page-link>
-              </li>
-							<li class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
-                <page-link url="/play-list" class="left-menu-item" :class="{'active' : pathUrl === '/play-list'}">
-                  <i class="mh-if menu" style="margin-right:6px;"></i>ZZZZ
+							<li v-for="item in collectionPlayListMenuData" class="box-shadow" style="padding:6px 12px 6px 12px; line-height:1.2em; font-size:14px;">
+                <page-link :url="`/play-list/${item.id}`" class="left-menu-item" :class="{'active' : pathUrl === `/play-list/${item.id}`}">
+                  <i class="mh-if menu" style="margin-right:6px;"></i>{{ item.title }}
                   <i class="mh-if double-arrow-right" style="float:right;"></i>
                 </page-link>
               </li>
@@ -146,7 +122,18 @@
           albumShow: true,
           collectionShow: true
         },
-        isCollection: false
+        isCollection: false,
+
+        createPlayListMenuData: [
+          {id: 111, title: '创建的音乐歌单1'},
+          {id: 112, title: '创建的音乐歌单2'},
+          {id: 113, title: '创建的音乐歌单3'}
+        ],
+        collectionPlayListMenuData: [
+          {id: 121, title: '收藏的音乐歌单1'},
+          {id: 122, title: '收藏的音乐歌单2'},
+          {id: 123, title: '收藏的音乐歌单3'}
+        ]
       }
     },
 
