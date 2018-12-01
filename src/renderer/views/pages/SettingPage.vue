@@ -97,8 +97,6 @@
     },
 
     beforeMount () {
-      console.log(this.$store.state.User.id)
-
       this.$http.post('getUserBaseInfo', {
         id: this.$store.state.User.id
       }).then((response) => {

@@ -39,14 +39,14 @@
 
     computed: {
       wordNum () {
-        return 250 - this.newComment.length
+        return 200 - this.newComment.length
       }
     },
 
     watch: {
       wordNum (nVal) {
         if (nVal <= 0) {
-          this.newComment = this.newComment.substr(0, 250)
+          this.newComment = this.newComment.substr(0, 200)
         }
       }
     },
